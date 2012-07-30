@@ -16,6 +16,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings" >
 
+     <ListPreference
+        android:key="lockscreen_battery_status"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_battery_status_title"
+        android:title="@string/lockscreen_battery_status_title"
+        android:entries="@array/lockscreen_battery_status_entries"
+        android:entryValues="@array/lockscreen_battery_status_values"
+        android:defaultValue="0" />
+
      <Preference
         android:fragment="com.carbon.settings.fragments.LockscreenTargets"
         android:key="lockscreen_targets"
