@@ -88,6 +88,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.notificationshortcuts.NotificationShortcuts"
+            android:label="notification_shortcuts_settings_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.PowerMenu"
             android:label="@string/power_menu_title" >
             <intent-filter>

@@ -99,9 +99,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
-    private static final String PREF_NOTIFICATION_OPTIONS = "options";
 
-    private PreferenceCategory mAdditionalOptions; 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
