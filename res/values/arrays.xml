@@ -1040,6 +1040,25 @@
         <item>7</item>
     </string-array>
 
+    <string-array name="notification_action_entries" translatable="false">
+        <item>@string/nothing</item>
+        <item>@string/clock_options</item>
+        <item>@string/alarm</item>
+        <item>@string/today</item>
+        <item>@string/event</item>
+        <item>@string/voiceassist</item>
+        <item>@string/custom_app</item>
+    </string-array>
+    <string-array name="notification_action_values" translatable="false">
+        <item>**null**</item>
+        <item>**clockoptions**</item>
+        <item>**alarm**</item>
+        <item>**today**</item>
+        <item>**event**</item>
+        <item>**voiceassist**</item>
+        <item>**app**</item>
+    </string-array>
+
     <!-- Brightness slider -->
     <string-array name="brightness_location_entries">
         <item>@string/brightness_slider_top</item>

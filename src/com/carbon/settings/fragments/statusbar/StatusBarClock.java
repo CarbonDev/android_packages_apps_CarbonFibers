@@ -16,9 +16,12 @@
 
 package com.carbon.settings.fragments.statusbar;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -39,13 +42,14 @@ import android.widget.EditText;
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
+import com.carbon.settings.util.ShortcutPickerHelper;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Date;
 
 public class StatusBarClock extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements ShortcutPickerHelper.OnPickListener, OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBarClockStyle";
 
@@ -56,10 +60,21 @@ public class StatusBarClock extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
     private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
+    private static final String PREF_CLOCK_SHORTCLICK = "clock_shortclick";
+    private static final String PREF_CLOCK_LONGCLICK = "clock_longclick";
+    private static final String PREF_CLOCK_DOUBLECLICK = "clock_doubleclick";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
+
+    private int shortClick = 0;
+    private int longClick = 1;
+    private int doubleClick = 2;
+
+    private ShortcutPickerHelper mPicker;
+    private Preference mPreference;
+    private String mString;
 
     private ListPreference mClockStyle;
     private ListPreference mClockAmPmStyle;
@@ -67,6 +82,9 @@ public class StatusBarClock extends SettingsPreferenceFragment
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private ListPreference mClockShortClick;
+    private ListPreference mClockLongClick;
+    private ListPreference mClockDoubleClick;
     private CheckBoxPreference mStatusBarClock;
 
     private boolean mCheckPreferences;
@@ -86,6 +104,8 @@ public class StatusBarClock extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.status_bar_clock);
         prefSet = getPreferenceScreen();
+
+        mPicker = new ShortcutPickerHelper(this, this);
 
         mClockStyle = (ListPreference) findPreference(PREF_ENABLE);
         mClockStyle.setOnPreferenceChangeListener(this);
@@ -157,12 +177,25 @@ public class StatusBarClock extends SettingsPreferenceFragment
             mClockDateFormat.setEnabled(false);
         }
 
+        mClockShortClick = (ListPreference) findPreference(PREF_CLOCK_SHORTCLICK);
+        mClockShortClick.setOnPreferenceChangeListener(this);
+        mClockShortClick.setSummary(getProperSummary(mClockShortClick));
+
+        mClockLongClick = (ListPreference) findPreference(PREF_CLOCK_LONGCLICK);
+        mClockLongClick.setOnPreferenceChangeListener(this);
+        mClockLongClick.setSummary(getProperSummary(mClockLongClick));
+
+        mClockDoubleClick = (ListPreference) findPreference(PREF_CLOCK_DOUBLECLICK);
+        mClockDoubleClick.setOnPreferenceChangeListener(this);
+        mClockDoubleClick.setSummary(getProperSummary(mClockDoubleClick));
+
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefSet;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        boolean result = false;
         if (!mCheckPreferences) {
             return false;
         }
@@ -252,8 +285,41 @@ public class StatusBarClock extends SettingsPreferenceFragment
                 }
             }
             return true;
+        } else if (preference == mClockShortClick) {
+            mPreference = preference;
+            mString = Settings.System.NOTIFICATION_CLOCK[shortClick];
+            if (newValue.equals("**app**")) {
+                mPicker.pickShortcut();
+            } else {
+                result = Settings.System.putString(mContentRes,
+                        Settings.System.NOTIFICATION_CLOCK[shortClick], (String) newValue);
+                mClockShortClick.setSummary(getProperSummary(mClockShortClick));
+            }
+            return true;
+        } else if (preference == mClockLongClick) {
+            mPreference = preference;
+            mString = Settings.System.NOTIFICATION_CLOCK[longClick];
+            if (newValue.equals("**app**")) {
+                mPicker.pickShortcut();
+            } else {
+                result = Settings.System.putString(mContentRes,
+                        Settings.System.NOTIFICATION_CLOCK[longClick], (String) newValue);
+                mClockLongClick.setSummary(getProperSummary(mClockLongClick));
+            }
+            return true;
+        } else if (preference == mClockDoubleClick) {
+            mPreference = preference;
+            mString = Settings.System.NOTIFICATION_CLOCK[doubleClick];
+            if (newValue.equals("**app**")) {
+                mPicker.pickShortcut();
+            } else {
+                result = Settings.System.putString(mContentRes,
+                        Settings.System.NOTIFICATION_CLOCK[doubleClick], (String) newValue);
+                mClockDoubleClick.setSummary(getProperSummary(mClockDoubleClick));
+            }
+            return true;
         }
-        return false;
+        return result;
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -313,6 +379,55 @@ public class StatusBarClock extends SettingsPreferenceFragment
             }
         }
         mClockDateFormat.setEntries(parsedDateEntries);
+    }
+
+    public void shortcutPicked(String uri, String friendlyName, Bitmap bmp, boolean isApplication) {
+          mPreference.setSummary(friendlyName);
+          Settings.System.putString(getContentResolver(), mString, (String) uri);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == ShortcutPickerHelper.REQUEST_PICK_SHORTCUT
+                    || requestCode == ShortcutPickerHelper.REQUEST_PICK_APPLICATION
+                    || requestCode == ShortcutPickerHelper.REQUEST_CREATE_SHORTCUT) {
+                mPicker.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private String getProperSummary(Preference preference) {
+        if (preference == mClockDoubleClick) {
+            mString = Settings.System.NOTIFICATION_CLOCK[doubleClick];
+        } else if (preference == mClockLongClick) {
+            mString = Settings.System.NOTIFICATION_CLOCK[longClick];
+        } else if (preference == mClockShortClick) {
+            mString = Settings.System.NOTIFICATION_CLOCK[shortClick];
+        }
+
+        String uri = Settings.System.getString(getActivity().getContentResolver(),mString);
+        String empty = "";
+
+        if (uri == null)
+            return empty;
+
+        if (uri.startsWith("**")) {
+            if (uri.equals("**alarm**"))
+                return getResources().getString(R.string.alarm);
+            else if (uri.equals("**event**"))
+                return getResources().getString(R.string.event);
+            else if (uri.equals("**voiceassist**"))
+                return getResources().getString(R.string.voiceassist);
+            else if (uri.equals("**clockoptions**"))
+                return getResources().getString(R.string.clock_options);
+            else if (uri.equals("**today**"))
+                return getResources().getString(R.string.today);
+            else if (uri.equals("**null**"))
+                return getResources().getString(R.string.nothing);
+        } else {
+            return mPicker.getFriendlyNameForUri(uri);
+        }
+        return null;
     }
 
 }
