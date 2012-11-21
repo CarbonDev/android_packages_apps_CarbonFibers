@@ -3,4 +3,10 @@
    <header
         android:title="@string/user_interface" />
 
+    <!-- Power Widget -->
+    <header
+        android:id="@+id/power_widget_settings"
+        android:fragment="com.carbon.settings.fragments.PowerWidget"
+        android:title="@string/power_widget_title"
+        android:icon="@drawable/ic_carbon_powerwidget" />
 </preference-headers>

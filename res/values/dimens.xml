@@ -15,6 +15,7 @@
   limitations under the License.
 -->
 <resources>
+
     <!-- height of a normal list item in edit playlist mode -->
     <dimen name="normal_height">64dip</dimen>
     <!-- height of an expanded list item in edit playlist mode -->
@@ -30,4 +31,5 @@
     <dimen name="navigation_bar_0">0.0dip</dimen>
 
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
+
 </resources>
