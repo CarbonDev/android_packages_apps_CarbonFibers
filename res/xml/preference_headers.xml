@@ -8,5 +8,13 @@
         android:id="@+id/power_widget_settings"
         android:fragment="com.carbon.settings.fragments.PowerWidget"
         android:title="@string/power_widget_title"
-        android:icon="@drawable/ic_carbon_powerwidget" />
+        android:icon="@drawable/ic_carbon_powerwidget"
+        android:summary="@string/header_summary" />
+
+    <header
+        android:id="@+id/power_menu"
+        android:fragment="com.carbon.settings.fragments.PowerMenu"
+        android:title="@string/power_menu_title"
+        android:icon="@drawable/ic_carbon_powermenu"
+        android:summary="@string/header_summary" />
 </preference-headers>

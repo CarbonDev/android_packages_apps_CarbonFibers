@@ -20,8 +20,6 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
 
-    <activity android:name=".carbon.PowerWidget" />
-
     <application
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,6 +34,25 @@
 
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".fragments.PowerMenu"
+            android:label="@string/title_power_menu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.PowerWidget"
+            android:label="@string/title_power_widget" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
         </activity>
         <activity
  	    android:name=".ShareToClipboard"
