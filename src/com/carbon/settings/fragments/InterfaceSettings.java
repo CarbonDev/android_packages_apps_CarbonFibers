@@ -98,10 +98,14 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
+    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+    private static final String PREF_NOTIFICATION_OPTIONS = "options";
 
+    private PreferenceCategory mAdditionalOptions; 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
+    private CheckBoxPreference mShowWifiName;
     private Preference mColorSettings;
     private Preference mHardwareKeys;
     private Preference mRamBar;
@@ -180,6 +184,18 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
+        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+        mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
+
+        PackageManager pm = getPackageManager();
+        boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+
+        if (!Utils.isPhone(getActivity()) || !isMobileData) {
+            // Nothing for tablets, large screen devices and non Wifi devices remove options
+            prefSet.removePreference(mShowWifiName);
+        }
 
         setHasOptionsMenu(true);
     }
@@ -264,6 +280,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             Settings.System.putInt(mContentAppRes,
                     Settings.System.RECENTS_TARGET_ASSIST,
             mShowAssistButton.isChecked() ? 1 : 0 );
+        } else if (preference == mShowWifiName) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
+                    mShowWifiName.isChecked() ? 1 : 0);
+            return true;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
