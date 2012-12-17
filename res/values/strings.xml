@@ -248,6 +248,7 @@
     <string name="notification_background_default_wallpaper">Default background</string>
     <string name="notification_drawer_custom_background_dialog_title">Choose color</string>
     <string name="notif_wallpaper_alpha_title">Notification background transparency</string>
+    <string name="notif_alpha_title">Notification Rows transparency</string>
 
     <!-- Battery Icon and Bar -->
     <string name="status_bar_battery_icon_bar_title">Battery icon and bar style</string>
