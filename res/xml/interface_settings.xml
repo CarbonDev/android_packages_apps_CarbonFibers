@@ -5,6 +5,12 @@
         android:key="general_options"
         android:title="@string/status_bar_general_title">
 
+         <Preference
+            android:fragment="com.carbon.settings.fragments.NotificationDrawerStyle"
+            android:key="notification_style"
+            android:title="@string/notification_style_title"
+            android:summary="@string/notification_style_summary" />
+
         <CheckBoxPreference
             android:key="show_overflow"
             android:title="@string/hardware_keys_show_overflow_title"
