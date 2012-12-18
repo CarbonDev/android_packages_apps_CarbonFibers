@@ -90,6 +90,15 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
               </intent-filter>
         </activity>
+        <activity 
+            android:name=".carbon.StatusBarBatteryStyle"
+            android:label="@string/status_bar_battery_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
         <activity
             android:name=".fragments.StatusBarClockStyle"
             android:label="@string/status_bar_clock" >
