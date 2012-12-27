@@ -16,7 +16,25 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings" >
 
-     <CheckBoxPreference
+    <PreferenceCategory
+        android:key="lockscreen_style_options"
+        android:title="@string/lockscreen_style_options_title">
+
+        <ListPreference
+            android:key="lockscreen_background"
+            android:persistent="false"
+            android:dialogTitle="@string/lockscreen_custom_background_title"
+            android:title="@string/lockscreen_custom_background_title"
+            android:entries="@array/lockscreen_background_entries"
+            android:entryValues="@array/lockscreen_background_values"/>
+
+        <com.android.carbon.widget.SeekBarPreference
+            android:key="lockscreen_alpha"
+            android:title="@string/lockscreen_alpha_title" />
+
+    </PreferenceCategory>
+
+    <CheckBoxPreference
         android:key="lockscreen_all_widgets"
         android:title="@string/lockscreen_all_widgets_title"
         android:summary="@string/lockscreen_all_widgets_summary" />

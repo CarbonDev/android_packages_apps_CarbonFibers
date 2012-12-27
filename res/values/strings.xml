@@ -574,6 +574,18 @@
     <string name="alt_resolver_title">Use Alt Default App Picker</string>
     <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
 
+    <!-- Lock screen background -->
+    <string name="lockscreen_style_options_title">Lock screen style</string>
+    <string name="lockscreen_custom_background_title">Background</string>
+    <string name="lockscreen_custom_background_dialog_title">Choose color</string>
+    <string name="lockscreen_background_result_successful">Background changed</string>
+    <string name="lockscreen_background_result_not_successful">Background not changed</string>
+    <string name="lockscreen_background_color_fill">Color fill</string>
+    <string name="lockscreen_background_custom_image">Custom image</string>
+    <string name="lockscreen_background_full_transparent">Full transparent</string>
+    <string name="lockscreen_background_default_wallpaper">Default wallpaper</string>
+    <string name="lockscreen_alpha_title">Background transparency</string>
+
     <!-- Recents Ram Bar -->
     <string name="ram_bar">Recents RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
