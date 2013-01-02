@@ -39,7 +39,7 @@
         android:title="@string/lockscreen_all_widgets_title"
         android:summary="@string/lockscreen_all_widgets_summary" />
 
-     <ListPreference
+    <ListPreference
         android:key="lockscreen_battery_status"
         android:persistent="false"
         android:dialogTitle="@string/lockscreen_battery_status_title"
@@ -52,10 +52,15 @@
         android:key="lockscreen_camera_widget"
         android:title="@string/lockscreen_camera_widget_title" />
 
-     <CheckBoxPreference
+    <CheckBoxPreference
         android:key="lockscreen_hide_initial_page_hints"
         android:title="@string/lockscreen_hide_initial_page_hints_title"
         android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_minimize_challenge"
+        android:title="@string/lockscreen_minimize_challenge_title"
+        android:summary="@string/lockscreen_minimize_challenge_summary" />
 
     <CheckBoxPreference
         android:key="lockscreen_music_controls"
@@ -68,13 +73,13 @@
         android:title="@string/lockscreen_quick_unlock_control_title"
         android:summary="@string/lockscreen_quick_unlock_control_summary" />
 
-     <Preference
+    <Preference
         android:fragment="com.carbon.settings.fragments.LockscreenTargets"
         android:key="lockscreen_targets"
         android:summary="@string/lockscreen_target_summary"
         android:title="@string/lockscreen_target_title" />
 
-     <PreferenceScreen
+    <PreferenceScreen
         android:fragment="com.carbon.settings.fragments.LockscreenButtons"
         android:key="lockscreen_buttons"
         android:title="@string/lockscreen_buttons_title"
