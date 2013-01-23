@@ -90,8 +90,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     public static final String TAG = "InterfaceSettings";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
+    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
 
-    CheckBoxPreference mUseAltResolver;
+    private CheckBoxPreference mUseAltResolver;
+    private Preference mRamBar;
+
     Context mContext;
 
     Configuration mCurConfig = new Configuration();
@@ -113,6 +116,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
 
+        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        updateRamBar();
+
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
@@ -124,6 +130,14 @@ public class InterfaceSettings extends SettingsPreferenceFragment
          return false;
      }
 
+    private void updateRamBar() {
+        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.RECENTS_RAM_BAR_MODE, 0);
+        if (ramBarMode != 0)
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
+        else
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
+    }
 
     private void openTransparencyDialog() {
         getFragmentManager().beginTransaction().add(new AdvancedTransparencyDialog(), null)
@@ -150,11 +164,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     @Override
     public void onResume() {
         super.onResume();
+        updateRamBar();
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        updateRamBar();
     }
 
     public void copy(File src, File dst) throws IOException {

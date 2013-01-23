@@ -21,17 +21,16 @@
         android:key="advanced_options"
         android:title="@string/advanced_settings" >
 
+        <PreferenceScreen
+            android:key="recents_ram_bar"
+            android:fragment="com.carbon.settings.fragments.RamBar"
+            android:title="@string/ram_bar" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="hardware_keys_options"
         android:title="@string/hardware_keys_options_title">
-
-        <PreferenceScreen
-            android:key="lockscreen_buttons"
-            android:title="@string/lockscreen_buttons_title"
-            android:summary="@string/lockscreen_buttons_summary"
-            android:fragment="com.carbon.settings.fragments.LockscreenButtons" />
 
     </PreferenceCategory>
 
