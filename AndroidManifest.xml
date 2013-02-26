@@ -91,7 +91,7 @@
               </intent-filter>
         </activity>
         <activity 
-            android:name=".carbon.StatusBarBatteryStyle"
+            android:name=".fragments.StatusBarBattery"
             android:label="@string/status_bar_battery_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

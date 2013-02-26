@@ -23,7 +23,7 @@
         android:title="@string/status_bar_style_title">
 
         <PreferenceScreen
-            android:fragment="com.carbon.settings.fragments.StatusBarBatteryStyle"
+            android:fragment="com.carbon.settings.fragments.StatusBarBattery"
             android:key="battery_style_pref"
             android:title="@string/status_bar_battery_icon_bar_title" />
 
