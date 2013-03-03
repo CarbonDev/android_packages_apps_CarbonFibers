@@ -48,6 +48,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -60,6 +61,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
     private CheckBoxPreference mStatusBarTraffic;
+    private ListPreference mNotificationsBehavior;
 
     private static int mBarBehavior;
 
@@ -118,6 +120,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
         mIconColor.setOnPreferenceChangeListener(this);
 
+        int CurrentBehavior = Settings.System.getInt(getContentResolver(), Settings.System.NOTIFICATIONS_BEHAVIOUR, 0);
+        mNotificationsBehavior = (ListPreference) findPreference(KEY_NOTIFICATION_BEHAVIOUR);
+        mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
+        mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
+        mNotificationsBehavior.setOnPreferenceChangeListener(this);
+
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isWifiOnly(getActivity())) {
@@ -171,8 +179,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_ICON_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
+        } else if (preference == mNotificationsBehavior) {
+            String val = (String) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NOTIFICATIONS_BEHAVIOUR,
+            Integer.valueOf(val));
+            int index = mNotificationsBehavior.findIndexOfValue(val);
+            mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
+            return true;
         }
-
         return false;
     }
 

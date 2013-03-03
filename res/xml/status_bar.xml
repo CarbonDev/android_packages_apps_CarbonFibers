@@ -65,6 +65,12 @@
             android:summary="@string/statusbar_quick_peek_summary"
             android:defaultValue="false" />
 
+        <ListPreference
+            android:key="notifications_behaviour"
+            android:title="@string/notification_behaviour_title"
+            android:entries="@array/notifs_beh_entries"
+            android:entryValues="@array/notifs_beh_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
