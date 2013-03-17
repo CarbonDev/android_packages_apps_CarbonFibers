@@ -32,6 +32,11 @@
         android:persistent="false" />
 
     <CheckBoxPreference
+        android:key="show_navbar_hide"
+        android:title="@string/title_show_navbar_hide"
+        android:defaultValue="false" />
+
+    <CheckBoxPreference
         android:key="power_menu_profiles"
         android:title="@string/power_menu_profiles_title"
         android:defaultValue="true" />
