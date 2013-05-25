@@ -14,7 +14,7 @@ public class ChangeFastChargeStateReceiver extends BroadcastReceiver {
         final String fCHargePath = context
                 .getString(com.android.internal.R.string.config_fastChargePath);
         if (fCHargePath == null || fCHargePath.isEmpty() || !new File(fCHargePath).exists()) {
-            Log.e("ROMControl", "Attempted to change fast charge state but it's not enabled?");
+            Log.e("CR_Settings", "Attempted to change fast charge state but it's not enabled?");
             return;
         }
         final String value = intent.getBooleanExtra("newState", false) ? "1" : "0";

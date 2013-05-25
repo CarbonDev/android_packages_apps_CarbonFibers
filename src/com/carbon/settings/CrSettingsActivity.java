@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -36,7 +36,7 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class CrSettingsActivity extends PreferenceActivity implements ButtonBarHandler {
+public class CrSettingsActivity extends PreferenceDrawerActivity implements ButtonBarHandler {
 
     private static final String TAG = "CR_Settings";
 
@@ -59,9 +59,9 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
     @Override
     public void onCreate(Bundle savedInstanceState) {
         hasDeviceTools = getResources().getBoolean(R.bool.has_device_tools);
-        defaultLocale = Locale.getDefault();
-        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
-        setLocale();
+//        defaultLocale = Locale.getDefault();
+//        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
+//        setLocale();
 
         mInLocalHeaderSwitch = true;
         super.onCreate(savedInstanceState);
@@ -130,7 +130,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
         }
     }
 
-    @Override
+    /** @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity, menu);
@@ -158,7 +158,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                 recreate();
                 return true;
             case android.R.id.home:
-                onBackPressed();
+                // null
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -187,7 +187,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                     getBaseContext().getResources().getDisplayMetrics());
 
         }
-    }
+    }**/
 
     /**
      * Populate the activity with the top-level headers.
@@ -317,7 +317,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
             }
         }
 
-        // Ignore the adapter provided by PreferenceActivity and substitute ours
+        // Ignore the adapter provided by PreferenceDrawerActivity and substitute ours
         // instead
         super.setListAdapter(new HeaderAdapter(this, mHeaders));
     }
@@ -396,12 +396,12 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                                 android.R.attr.listSeparatorTextViewStyle);
                         holder.title = (TextView) view;
                         break;
-
                     case HEADER_TYPE_NORMAL:
                         view = mInflater.inflate(
-                                com.android.internal.R.layout.preference_header_item, parent,
+                            com.android.internal.R.layout.preference_header_item, parent,
                                 false);
-                        holder.icon = (ImageView) view.findViewById(com.android.internal.R.id.icon);
+                        holder.icon = (ImageView) view.findViewById(
+                            com.android.internal.R.id.icon);
                         holder.title = (TextView)
                                 view.findViewById(com.android.internal.R.id.title);
                         holder.summary = (TextView)

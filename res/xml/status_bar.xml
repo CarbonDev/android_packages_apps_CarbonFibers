@@ -50,7 +50,6 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="status_icon_color"
-            android:title="null"
             android:summary="@string/status_icon_color_summary"
             android:defaultValue="0xFF33B5E5" />
 
