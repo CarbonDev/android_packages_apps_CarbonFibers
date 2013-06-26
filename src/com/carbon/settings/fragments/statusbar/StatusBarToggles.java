@@ -80,6 +80,7 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
 
     private static final String PREF_ENABLE_TOGGLES = "enabled_toggles";
     private static final String PREF_COLLAPSE_ALL = "collapse_shade_all";
+    private static final String PREF_TOGGLE_VIBRATE = "quick_toggle_vibrate";
     private static final String PREF_TOGGLES_PER_ROW = "toggles_per_row";
     private static final String PREF_TOGGLES_STYLE = "toggles_style";
     private static final String PREF_TOGGLE_FAV_CONTACT = "toggle_fav_contact";
@@ -110,6 +111,7 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
     Preference mEnabledToggles;
     Preference mLayout;
     CheckBoxPreference mCollapseAll;
+    CheckBoxPreference mToggleVibrate;
     ListPreference mTogglesPerRow;
     ListPreference mTogglesStyle;
     Preference mFavContact;
@@ -178,6 +180,9 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
 
         mCollapseAll = (CheckBoxPreference) findPreference(PREF_COLLAPSE_ALL);
         mCollapseAll.setOnPreferenceChangeListener(this);
+
+        mToggleVibrate = (CheckBoxPreference) findPreference(PREF_TOGGLE_VIBRATE);
+        mToggleVibrate.setOnPreferenceChangeListener(this);
 
         mTogglesPerRow = (ListPreference) findPreference(PREF_TOGGLES_PER_ROW);
         mTogglesPerRow.setOnPreferenceChangeListener(this);
@@ -250,6 +255,10 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
             mTogglesPerRow.setEnabled(false);
         }
 
+        if (!hasVibration) {
+            getPreferenceScreen().removePreference(mToggleVibrate);
+        }
+
         new SettingsObserver(new Handler()).observe();
         refreshSettings();
     }
@@ -300,6 +309,12 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
             Settings.System.putBoolean(mContentRes,
                     Settings.System.SHADE_COLLAPSE_ALL, val);
             mContentRes.notifyChange(Settings.System.getUriFor(Settings.System.SHADE_COLLAPSE_ALL), null);
+            return true;
+        } else if (preference == mToggleVibrate) {
+            boolean val = (Boolean) newValue;
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.QUICK_TOGGLE_VIBRATE, val);
+            mContentRes.notifyChange(Settings.System.getUriFor(Settings.System.QUICK_TOGGLE_VIBRATE), null);
             return true;
         } else if (preference == mTogglesStyle) {
             int val = Integer.parseInt((String) newValue);

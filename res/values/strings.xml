@@ -615,6 +615,8 @@
     <string name="toggle_favcontact_summary">Choose your favorite contact</string>
     <string name="toggle_collapse_generic_title">Collapse shade on toggle click</string>
     <string name="toggle_collapse_generic_summary">Close shade on all generic toggle actions</string>
+    <string name="toggle_vibrate_title">Vibrate on toggle click</string>
+    <string name="toggle_vibrate_summary">Vibrate on all generic toggle actions</string>
     <string name="toggle_enable_fasttoggle_title">Enable fast toggle</string>
     <string name="toggle_enable_fasttoggle_summary">Overrides default behavior</string>
     <string name="toggle_choose_fasttoggle_side_title">Choose fast toggle side</string>
@@ -832,7 +834,7 @@
     <string name="statusbar_behavior_title">Statusbar behavior</string>
     <string name="statusbar_show">Show</string>
     <string name="statusbar_hide">Hide</string>
-    <string name="statusbar_auto_rem">Auto hide: no clearable notifications (use if permanent notifications are present)</string>
+    <string name="statusbar_auto_rem">Auto hide: no clearable notifications</string>
     <string name="statusbar_auto_all">Auto hide: no notifications</string>
     <string name="statusbar_show_summary">Show statusbar at all times</string>
     <string name="statusbar_hide_summary">Hide statusbar at all times</string>
@@ -1041,7 +1043,7 @@
 
     <!-- Recents -->
     <string name="recents_target_assist_title">Show Google Assistant</string>
-    <string name="recents_target_assist_summary">Access Google Now or long-press it to voice search.</string>
+    <string name="recents_target_assist_summary">Access Google Now or long press to voice search</string>
 
     <!-- Low battery inidicator options -->
     <string name="pref_low_battery_warning_policy_title">Low battery warning</string>
