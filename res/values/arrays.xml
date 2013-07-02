@@ -268,6 +268,11 @@
         <item>@string/circle_battery</item>
         <item>@string/circle_battery_w_percent</item>
         <item>@string/circle_dotted_w_percent</item>
+        <item>@string/speed_battery</item>
+        <item>@string/square_battery</item>
+        <item>@string/gear_battery</item>
+        <item>@string/cm_battery</item>
+        <item>@string/carbon_battery</item>
         <item>@string/dont_show</item>
     </string-array>
 
@@ -280,6 +285,11 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item
     </string-array>
 
     <string-array name="entries_status_bar_signal" translatable="false">
