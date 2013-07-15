@@ -50,6 +50,14 @@
             android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_notif_count_summary"
             android:defaultValue="false" />
+
+        <ListPreference
+            android:key="notification_drawer_collapse_on_dismiss"
+            android:title="@string/notification_drawer_collapse_on_dismiss_title"
+            android:dialogTitle="@string/notification_drawer_collapse_on_dismiss_title"
+            android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
+            android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

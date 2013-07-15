@@ -16,6 +16,7 @@
 
 package com.carbon.settings.fragments;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -38,11 +39,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
+    private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";	
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
     private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
+    private ListPreference mCollapseOnDismiss;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         addPreferencesFromResource(R.xml.status_bar);
 
+        ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
@@ -64,6 +68,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
 
+        int collapseBehaviour = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS,
+                Settings.System.STATUS_BAR_COLLAPSE_IF_NO_CLEARABLE);
+        mCollapseOnDismiss = (ListPreference) prefSet.findPreference(UI_COLLAPSE_BEHAVIOUR);
+        mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
+        mCollapseOnDismiss.setOnPreferenceChangeListener(this);
+        updateCollapseBehaviourSummary(collapseBehaviour);
+
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isWifiOnly(getActivity())) {
@@ -77,8 +89,16 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     }
 
+    private void updateCollapseBehaviourSummary(int setting) {
+        String[] summaries = getResources().getStringArray(
+                R.array.notification_drawer_collapse_on_dismiss_summaries);
+        mCollapseOnDismiss.setSummary(summaries[setting]);
+    }
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
         boolean result = false;
+
         if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
@@ -86,7 +106,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
+        } else if (preference == mCollapseOnDismiss) {
+            int value = Integer.valueOf((String) newValue);
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
+            updateCollapseBehaviourSummary(value);
+            return true;
         }
+
         return false;
     }
 
