@@ -25,6 +25,12 @@
         android:entryValues="@array/lockscreen_battery_status_values"
         android:defaultValue="0" />
 
+    <CheckBoxPreference
+        android:key="lockscreen_music_controls"
+        android:persistent="false"
+        android:title="@string/lockscreen_music_controls_title"
+        android:summary="@string/lockscreen_music_controls_summary" />
+
      <Preference
         android:fragment="com.carbon.settings.fragments.LockscreenTargets"
         android:key="lockscreen_targets"

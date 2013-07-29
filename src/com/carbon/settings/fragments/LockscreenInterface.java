@@ -33,6 +33,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private PreferenceScreen mLockscreenButtons;
     private ListPreference mBatteryStatus;
+    private CheckBoxPreference mMusicControls;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -54,9 +55,23 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mBatteryStatus.setOnPreferenceChangeListener(this);
         }
 
+        mMusicControls = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MUSIC_CONTROLS);
+        mMusicControls.setOnPreferenceChangeListener(this);
+
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             getPreferenceScreen().removePreference(mLockscreenButtons);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ContentResolver cr = getActivity().getContentResolver();
+        if (mMusicControls != null) {
+            mMusicControls.setChecked(Settings.System.getInt(cr,
+                    Settings.System.LOCKSCREEN_MUSIC_CONTROLS, 1) == 1);
         }
     }
 
@@ -73,6 +88,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        } else if (preference == mMusicControls) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MUSIC_CONTROLS, value ? 1 : 0);
             return true;
         }
         return false;
