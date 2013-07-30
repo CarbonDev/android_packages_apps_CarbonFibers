@@ -13,22 +13,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-    <style name="text_view_style" parent="android:Widget.Holo.TextView">
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <style name="button_style" parent="android:Widget.Holo.Button">
+    <style name="application_theme" parent="@android:style/Theme.Holo" >
+        <item name="android:actionBarStyle">@android:style/Widget.Holo.ActionBar.Solid</item>
+        <item name="android:buttonStyle">@style/button_style</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textViewStyle">@style/text_view_style</item>
     </style>
 
-    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Theme.CreateShortCut" parent="@android:style/Theme.Holo.DialogWhenLarge" />
-    
 </resources>
