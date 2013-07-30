@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">crTool</string>
+    <string name="app_name">Carbon Fibers</string>
 
     <!-- Header Strings -->
     <string name="user_interface">Interface</string>

@@ -8,7 +8,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 android-support-v4
 
 LOCAL_SRC_FILES := $(call all-subdir-java-files)
 
-LOCAL_PACKAGE_NAME := crTool
+LOCAL_PACKAGE_NAME := CarbonFibers
 LOCAL_CERTIFICATE := platform
 
 include $(BUILD_PACKAGE)
