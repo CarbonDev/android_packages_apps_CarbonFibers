@@ -12,16 +12,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -41,14 +36,10 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.carbon.settings.R;
-
-public class CrSettingsActivity extends PreferenceDrawerActivity implements ButtonBarHandler {
+public class CrSettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
     private static final String TAG = "CR_Settings";
 
-    private static boolean hasNotificationLed;
-    private static boolean hasSPen;
 //    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
@@ -66,8 +57,6 @@ public class CrSettingsActivity extends PreferenceDrawerActivity implements Butt
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        hasNotificationLed = getResources().getBoolean(R.bool.has_notification_led);
-        hasSPen = getResources().getBoolean(R.bool.config_stylusGestures);
 //        defaultLocale = Locale.getDefault();
 //        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
 //        setLocale();
@@ -124,13 +113,8 @@ public class CrSettingsActivity extends PreferenceDrawerActivity implements Butt
             }
         }
         ActionBar actionBar = getActionBar();
-        BitmapDrawable background = new BitmapDrawable(BitmapFactory
-                .decodeResource(getResources(), R.drawable.ab_background));
-        background.setTileModeX(Shader.TileMode.CLAMP);
-        actionBar.setBackgroundDrawable(background);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
 
     }
 
@@ -206,26 +190,12 @@ public class CrSettingsActivity extends PreferenceDrawerActivity implements Butt
      * Populate the activity with the top-level headers.
      */
     @Override
-    public void onBuildHeaders(List<Header> target) {
-        loadHeadersFromResource(R.xml.preference_headers, target);
-        ArrayList<Header> toRemove = new ArrayList<Header>();
-        for (int i=0; i<target.size(); i++) {
-            Header header = target.get(i);
-            if (header.id == R.id.led) {
-                if (!hasNotificationLed) {
-                    toRemove.add(header);
-                }
-            } else if (header.id == R.id.spen) {
-                if (!hasSPen) {
-                    toRemove.add(header);
-                }
-            }
-        }
-        for (int i=0; i<toRemove.size(); i++) {
-            target.remove(toRemove.get(i));
-        }
-        updateHeaderList(target);
-        mHeaders = target;
+    public void onBuildHeaders(List<Header> headers) {
+        loadHeadersFromResource(R.xml.preference_headers, headers);
+
+        updateHeaderList(headers);
+
+        mHeaders = headers;
     }
 
     /**

@@ -38,7 +38,7 @@ public class CreateShortcut extends LauncherActivity {
         String intentClass = shortcutIntent.getComponent().getClassName();
 
         shortcutIntent = new Intent();
-        shortcutIntent.setClass(getApplicationContext(), XYSettingsActivity.class);
+        shortcutIntent.setClass(getApplicationContext(), CrSettingsActivity.class);
         shortcutIntent.setAction("com.carbon.settings.START_NEW_FRAGMENT");
         shortcutIntent.putExtra("carbon_fragment_name", intentClass);
         shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -56,8 +56,28 @@ public class CreateShortcut extends LauncherActivity {
     private int getProperShortcutIcon(String className) {
         String c = className.substring(className.lastIndexOf(".") + 1);
 
-        if (c.equals("null"))
-            return R.drawable.ic_cr_settings_null;
+        if (c.equals("GeneralUI"))
+            return R.drawable.ic_xy_settings_general_ui;
+        else if (c.equals("NavigationBar"))
+            return R.drawable.ic_xy_settings_navigation_bar;
+        else if (c.equals("QuickToggles"))
+            return R.drawable.ic_xy_settings_quick_toggles;
+        else if (c.equals("PowerWidget"))
+            return R.drawable.ic_xy_settings_power_widget;
+        else if (c.equals("StatusBarClock"))
+            return R.drawable.ic_xy_settings_clock;
+        else if (c.equals("StatusBarSignal"))
+            return R.drawable.ic_xy_settings_signal;
+        else if (c.equals("Battery"))
+            return R.drawable.ic_xy_settings_battery;
+        else if (c.equals("PowerMenu"))
+            return R.drawable.ic_xy_settings_power_menu;
+        else if (c.equals("StatusExtras"))
+            return R.drawable.ic_xy_settings_status_extras;
+        else if (c.equals("PieHeader"))
+            return R.drawable.ic_xy_settings_pie;
+        else if (c.equals("Lockscreen"))
+            return R.drawable.ic_xy_settings_lockscreen;
         else
             return R.mipmap.ic_launcher;
     }

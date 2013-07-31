@@ -27,7 +27,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -73,7 +73,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         }
     }
 
-    public static boolean isTablet(Context context) {
+   /* public static boolean isTablet(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.System.CURRENT_UI_MODE,0) == 1;
     }
@@ -82,7 +82,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.System.CURRENT_UI_MODE,0) == 2;
     }
-
+    */
     public static boolean hasPhoneAbility(Context context)
     {
        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -292,13 +292,13 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     public boolean startFragment(
             Fragment caller, String fragmentClass, int requestCode, Bundle extras) {
-        if (getActivity() instanceof PreferenceDrawerActivity) {
-            PreferenceDrawerActivity preferenceDrawerActivity = (PreferenceDrawerActivity) getActivity();
-            preferenceDrawerActivity.startPreferencePanel(fragmentClass, extras,
+        if (getActivity() instanceof PreferenceActivity) {
+            PreferenceActivity preferenceActivity = (PreferenceActivity) getActivity();
+            preferenceActivity.startPreferencePanel(fragmentClass, extras,
                     R.string.app_name, null, caller, requestCode);
             return true;
         } else {
-            Log.w(TAG, "Parent isn't PreferenceDrawerActivity, thus there's no way to launch the "
+            Log.w(TAG, "Parent isn't PreferenceActivity, thus there's no way to launch the "
                     + "given Fragment (name: " + fragmentClass + ", requestCode: " + requestCode
                     + ")");
             return false;
