@@ -32,11 +32,9 @@
     <string name="advanced_settings">Advanced settings</string>
     <string name="misc_short">Misc</string>
     <string name="custom_app_icon_successfully">"'s icon set successfully!"</string>
-    <string name="select_custom_app_title">Select custom application</string>
     <string name="text_on">On</string>
     <string name="text_off">Off</string>
     <string name="use_custom_app_title">Use custom application</string>
-    <string name="select_custom_activity_title">Select custom activity</string>
     <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
     <string name="group_applications">Applications</string>
     <string name="choose_application">Choose application</string>

@@ -269,13 +269,13 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, MENU_RESET, 0, R.string.profile_reset_title)
-            .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+            .setIcon(R.drawable.ic_action_backup) // use the backup icon
             .setAlphabeticShortcut('r')
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                 MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-        menu.add(0, MENU_SAVE, 0, R.string.wifi_save)
-            .setIcon(R.drawable.ic_menu_save)
+        menu.add(0, MENU_SAVE, 0, R.string.save)
+            .setIcon(R.drawable.ic_action_set)
             .setAlphabeticShortcut('s')
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                 MenuItem.SHOW_AS_ACTION_WITH_TEXT);

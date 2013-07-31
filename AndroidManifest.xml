@@ -56,7 +56,7 @@
         </activity>
         <activity
             android:name=".fragments.PowerMenu"
-            android:label="@string/title_power_menu" >
+            android:label="@string/power_menu_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,7 +65,7 @@
         </activity>
         <activity
             android:name=".fragments.PowerWidget"
-            android:label="@string/title_power_widget" >
+            android:label="@string/power_widget_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

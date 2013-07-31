@@ -89,7 +89,7 @@ public class ShortcutPickHelper {
                 shortcutNames.add(s);
             }
         }
-        shortcutNames.add(mParent.getString(R.string.profile_applist_title));
+        shortcutNames.add(mParent.getString(R.string.group_applications));
         shortcutNames.add(mParent.getString(R.string.picker_activities));
         bundle.putStringArrayList(Intent.EXTRA_SHORTCUT_NAME, shortcutNames);
 
@@ -124,7 +124,7 @@ public class ShortcutPickHelper {
 
     private void processShortcut(final Intent intent, int requestCodeApplication, int requestCodeShortcut) {
         // Handle case where user selected "Applications"
-        String applicationName = mParent.getString(R.string.profile_applist_title);
+        String applicationName = mParent.getString(R.string.group_applications);
         String application2name = mParent.getString(R.string.picker_activities);
         String shortcutName = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
         if (applicationName != null && applicationName.equals(shortcutName)) {

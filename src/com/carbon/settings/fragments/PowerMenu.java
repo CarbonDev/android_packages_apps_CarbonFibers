@@ -96,7 +96,7 @@ public class PowerMenu extends SettingsPreferenceFragment {
 
         mSilentPref = (CheckBoxPreference) findPreference(KEY_SILENT);
         mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SILENT_ENABLED, 1) == 1));
+                Settings.System.POWER_MENU_SOUND_ENABLED, 1) == 1));
 
     }
 
@@ -137,7 +137,7 @@ public class PowerMenu extends SettingsPreferenceFragment {
        } else if (preference == mSilentPref) {
             value = mSilentPref.isChecked();
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_SILENT_ENABLED,
+                    Settings.System.POWER_MENU_SOUND_ENABLED,
                     value ? 1 : 0);
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
