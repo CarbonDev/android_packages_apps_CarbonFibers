@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.widgets;
+package com.carbon.settings.fragments;
 
 import com.carbon.settings.R;
 

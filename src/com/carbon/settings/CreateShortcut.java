@@ -57,27 +57,21 @@ public class CreateShortcut extends LauncherActivity {
         String c = className.substring(className.lastIndexOf(".") + 1);
 
         if (c.equals("GeneralUI"))
-            return R.drawable.ic_xy_settings_general_ui;
+            return R.drawable.ic_carbon_interface;
         else if (c.equals("NavigationBar"))
-            return R.drawable.ic_xy_settings_navigation_bar;
-        else if (c.equals("QuickToggles"))
-            return R.drawable.ic_xy_settings_quick_toggles;
+            return R.drawable.ic_carbon_navbar;
         else if (c.equals("PowerWidget"))
-            return R.drawable.ic_xy_settings_power_widget;
-        else if (c.equals("StatusBarClock"))
-            return R.drawable.ic_xy_settings_clock;
-        else if (c.equals("StatusBarSignal"))
-            return R.drawable.ic_xy_settings_signal;
-        else if (c.equals("Battery"))
-            return R.drawable.ic_xy_settings_battery;
+            return R.drawable.ic_carbon_powerwidget;
+        else if (c.equals("StatusBar"))
+            return R.drawable.ic_carbon_statusbar;
+        else if (c.equals("QuickSettings"))
+            return R.drawable.ic_carbon_quicksettings;
         else if (c.equals("PowerMenu"))
-            return R.drawable.ic_xy_settings_power_menu;
-        else if (c.equals("StatusExtras"))
-            return R.drawable.ic_xy_settings_status_extras;
+            return R.drawable.ic_carbon_powermenu;
         else if (c.equals("PieHeader"))
-            return R.drawable.ic_xy_settings_pie;
+            return R.drawable.ic_carbon_pie;
         else if (c.equals("Lockscreen"))
-            return R.drawable.ic_xy_settings_lockscreen;
+            return R.drawable.ic_carbon_lockscreen;
         else
             return R.mipmap.ic_launcher;
     }

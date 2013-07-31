@@ -17,7 +17,7 @@
 package com.carbon.settings.fragments;
 
 import com.android.internal.telephony.Phone;
-import com.android.settings.R;
+import com.carbon.settings.R;
 
 import android.content.Context;
 import android.net.wimax.WimaxHelper;
