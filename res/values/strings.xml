@@ -50,6 +50,7 @@
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
+    <string name="color_default">Default</string>
 
     <!-- Lock Screen Shortcuts -->
     <string name="lock_screen_title">Lock screen</string>
@@ -199,6 +200,7 @@
     <string name="clock_enabled">Enabled</string>
     <string name="clock_disabled">Disabled</string>
     <string name="clock_color_title">Clock color</string>
+    <string name="status_bar_clock_style_reset">Reset color</string>
     <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>

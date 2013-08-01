@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim;
+package com.carbon.settings.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -36,9 +36,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.carbon.settings.R;
+import com.carbon.settings.SettingsPreferenceFragment;
+import com.carbon.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -227,7 +227,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 }
                 alert.setView(input);
 
-                alert.setPositiveButton(R.string.menu_save, new DialogInterface.OnClickListener() {
+                alert.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int whichButton) {
                         String value = input.getText().toString();
                         if (value.equals("")) {
@@ -239,7 +239,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                     }
                 });
 
-                alert.setNegativeButton(R.string.menu_cancel, new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int which) {
                         return;
                     }

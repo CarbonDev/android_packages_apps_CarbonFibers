@@ -110,6 +110,12 @@ public class Utils {
         return mDeviceType;
     }
 
+    public static boolean isWifiOnly(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
+    }
+
     public static boolean isPhone(Context con) {
         return getScreenType(con) == DEVICE_PHONE;
     }
