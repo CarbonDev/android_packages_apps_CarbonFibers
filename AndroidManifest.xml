@@ -91,6 +91,15 @@
               </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.StatusBarClockStyle"
+            android:label="@string/status_bar_clock" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
  	    android:name=".ShareToClipboard"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
  	    android:label="@string/title_clipboard_share" >
