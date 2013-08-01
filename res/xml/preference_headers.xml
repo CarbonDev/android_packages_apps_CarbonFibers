@@ -25,4 +25,11 @@
         android:fragment="com.carbon.settings.fragments.LockscreenInterface"
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_carbon_lockscreen" />
+
+    <!-- Statusbar -->
+    <PreferenceScreen
+        android:id="@+id/status_bar"
+        android:fragment="com.carbon.settings.fragments.StatusBar"
+        android:title="@string/status_bar_title"
+        android:icon="@drawable/ic_carbon_statusbar" />
 </preference-headers>
