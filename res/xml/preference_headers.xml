@@ -3,13 +3,12 @@
    <header
         android:title="@string/user_interface" />
 
-    <!-- Power Widget -->
+    <!-- Lock screen -->
     <header
-        android:id="@+id/power_widget_settings"
-        android:fragment="com.carbon.settings.fragments.PowerWidget"
-        android:title="@string/power_widget_title"
-        android:icon="@drawable/ic_carbon_powerwidget"
-        android:summary="@string/header_summary" />
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.carbon.settings.fragments.LockscreenInterface"
+        android:title="@string/lock_screen_title"
+        android:icon="@drawable/ic_carbon_lockscreen" />
 
     <!-- Power menu -->
     <header
@@ -19,14 +18,15 @@
         android:icon="@drawable/ic_carbon_powermenu"
         android:summary="@string/header_summary" />
 
-    <!-- Lock screen -->
+    <!-- Power widget -->
     <header
-        android:id="@+id/lock_screen_settings"
-        android:fragment="com.carbon.settings.fragments.LockscreenInterface"
-        android:title="@string/lock_screen_title"
-        android:icon="@drawable/ic_carbon_lockscreen" />
+        android:id="@+id/power_widget_settings"
+        android:fragment="com.carbon.settings.fragments.PowerWidget"
+        android:title="@string/power_widget_title"
+        android:icon="@drawable/ic_carbon_powerwidget"
+        android:summary="@string/header_summary" />
 
-    <!-- Statusbar -->
+    <!-- Status bar -->
     <header
         android:id="@+id/status_bar"
         android:fragment="com.carbon.settings.fragments.StatusBar"
