@@ -16,6 +16,7 @@
 package com.carbon.settings.fragments;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -29,8 +30,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "LockscreenInterface";
 
-    private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
+    private static final String KEY_ALWAYS_BATTERY = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+    private static final String KEY_LOCKSCREEN_MUSIC_CONTROLS = "lockscreen_music_controls";
 
     private PreferenceScreen mLockscreenButtons;
     private ListPreference mBatteryStatus;
@@ -47,7 +49,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
 
         // Battery status
-        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
+        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY);
         if (mBatteryStatus != null) {
             int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
@@ -83,6 +85,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver cr = getActivity().getContentResolver();
+
         if (preference == mBatteryStatus) {
             int value = Integer.valueOf((String) objValue);
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
