@@ -109,6 +109,33 @@
               </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.StatusBarToggles"
+            android:label="@string/toggles_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.NavRingTargets"
+            android:label="@string/title_navring" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.Navbar"
+            android:label="@string/title_navbar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
  	    android:name=".ShareToClipboard"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
  	    android:label="@string/title_clipboard_share" >
