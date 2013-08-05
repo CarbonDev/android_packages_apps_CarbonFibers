@@ -19,14 +19,12 @@ package com.carbon.settings.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.Intent.ShortcutIconResource;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -36,32 +34,38 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
-import android.preference.PreferenceFragment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.*;
-import android.widget.*;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-
-import static com.android.internal.util.carbon.AwesomeConstants.*;
+import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.Toast;
 import com.android.internal.util.carbon.AwesomeConstants;
 import com.android.internal.util.carbon.NavRingHelpers;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
 import com.carbon.settings.util.ShortcutPickerHelper;
 import com.carbon.settings.R;
-import com.carbon.settings.util.Helpers;
 import com.carbon.settings.SettingsPreferenceFragment;
-import com.carbon.settings.CarbonActivity;
 
-import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.net.URISyntaxException;
-import java.lang.NumberFormatException;
+import java.util.ArrayList;
+
+import static com.android.internal.util.carbon.AwesomeConstants.ASSIST_ICON_METADATA_NAME;
+import static com.android.internal.util.carbon.AwesomeConstants.AwesomeConstant;
 
 public class NavRingTargets extends SettingsPreferenceFragment implements
         ShortcutPickerHelper.OnPickListener, GlowPadView.OnTriggerListener {

@@ -1,23 +1,12 @@
-
 package com.carbon.settings.fragments;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
-import android.app.ListFragment;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
@@ -31,11 +20,9 @@ import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.PowerManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -45,23 +32,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.StateSet;
 import android.util.TypedValue;
-import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.android.internal.util.carbon.AwesomeConstants;
 import com.android.internal.util.carbon.AwesomeConstants.AwesomeConstant;
 import com.android.internal.util.carbon.BackgroundAlphaColorDrawable;
@@ -69,12 +48,16 @@ import com.android.internal.util.carbon.NavBarHelpers;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.R;
 import com.carbon.settings.util.Helpers;
-import com.carbon.settings.CrSettingsActivity;
 import com.carbon.settings.util.ShortcutPickerHelper;
 import com.carbon.settings.widgets.SeekBarPreference;
-import com.carbon.settings.fragments.NavRingTargets;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 public class Navbar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, ShortcutPickerHelper.OnPickListener {
