@@ -541,4 +541,12 @@
     <string name="menu_ribbon_na">Not available</string>
     <string name="menu_ribbon_toggles_error">Toggles are only available for the left and right swipe ribbons.</string>
 
+    <!-- Interface -->
+    <string name="hardware_keys_options_title">Hardware Keys</string>
+    <string name="miscellaneous_options_title">Miscellaneous</string>
+
+    <!--- Clock Widget -->
+    <string name="lock_clock_title">Clock Widget</string>
+    <string name="lock_clock_summary">View or change how the widget will display</string>
+
 </resources>
