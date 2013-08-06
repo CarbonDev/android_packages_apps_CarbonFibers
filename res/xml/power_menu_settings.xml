@@ -17,12 +17,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/power_menu_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings">
-
-    <CheckBoxPreference
-        android:key="power_menu_reboot"
-        android:title="@string/power_menu_reboot_title"
-        android:defaultValue="true" />
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <CheckBoxPreference
         android:key="power_menu_airplane"
@@ -37,23 +32,33 @@
         android:persistent="false" />
 
     <CheckBoxPreference
-        android:key="power_menu_screenshot"
-        android:title="@string/power_menu_screenshot_title"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
         android:key="power_menu_profiles"
         android:title="@string/power_menu_profiles_title"
         android:defaultValue="true" />
 
     <CheckBoxPreference
-        android:key="power_menu_user"
-        android:title="@string/power_menu_user_title"
+        android:key="power_menu_reboot"
+        android:title="@string/power_menu_reboot_title"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="power_menu_screenshot"
+        android:title="@string/power_menu_screenshot_title"
         android:defaultValue="false" />
 
     <CheckBoxPreference
         android:key="power_menu_silent"
         android:title="@string/power_menu_silent_title"
         android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="power_menu_torch"
+        android:title="@string/power_menu_torch_title"
+        android:defaultValue="false" />
+
+    <CheckBoxPreference
+        android:key="power_menu_user"
+        android:title="@string/power_menu_user_title"
+        android:defaultValue="false" />
 
 </PreferenceScreen>

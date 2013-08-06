@@ -24,8 +24,10 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
@@ -36,6 +38,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private static final String KEY_REBOOT = "power_menu_reboot";
     private static final String KEY_SCREENSHOT = "power_menu_screenshot";
+    private static final String KEY_TORCH = "power_menu_torch";
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
@@ -44,6 +47,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
+    private CheckBoxPreference mTorchPref;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mProfilesPref;
     private CheckBoxPreference mAirplanePref;
@@ -65,6 +69,10 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mScreenshotPref = (CheckBoxPreference) findPreference(KEY_SCREENSHOT);
         mScreenshotPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_SCREENSHOT_ENABLED, 0) == 1));
+
+        mTorchPref = (CheckBoxPreference) findPreference(KEY_TORCH);
+        mTorchPref.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.POWER_MENU_TORCH_ENABLED, 0) == 1));
 
         mExpandedDesktopPref = (ListPreference) prefSet.findPreference(KEY_EXPANDED_DESKTOP);
         mExpandedDesktopPref.setOnPreferenceChangeListener(this);
@@ -128,6 +136,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             value = mScreenshotPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_SCREENSHOT_ENABLED,
+                    value ? 1 : 0);
+        } else if (preference == mTorchPref) {
+            value = mTorchPref.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.POWER_MENU_TORCH_ENABLED,
                     value ? 1 : 0);
         } else if (preference == mRebootPref) {
             value = mRebootPref.isChecked();
