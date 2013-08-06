@@ -89,7 +89,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
     public static final String TAG = "InterfaceSettings";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
 
+    CheckBoxPreference mUseAltResolver;
     Context mContext;
 
     Configuration mCurConfig = new Configuration();
@@ -107,12 +109,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         ContentResolver cr = mContext.getContentResolver();
         mContentResolver = getContentResolver();
 
-        // Only show the hardware keys config on a device that does not have a navbar 	
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-
-        boolean hasNavBarByDefault = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
+        mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
+        mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
@@ -137,6 +136,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             // getFragmentManager().beginTransaction().add(new
             // TransparencyDialog(), null).commit();
             openTransparencyDialog();
+            return true;
+        } else if (preference == mUseAltResolver) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    ((CheckBoxPreference) preference).isChecked());
             return true;
         }
 

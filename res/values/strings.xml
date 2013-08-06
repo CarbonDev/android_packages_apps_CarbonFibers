@@ -575,4 +575,8 @@
     <!-- Lockscreen Camera widget toggle -->
     <string name="lockscreen_camera_widget_title">Camera widget</string>
 
+    <!-- Alternate default app picker -->
+    <string name="alt_resolver_title">Use Alt Default App Picker</string>
+    <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
+
 </resources>
