@@ -555,21 +555,8 @@
     <string name="lockscreen_hide_initial_page_hints_title">Hide initial page hints</string>
     <string name="lockscreen_hide_initial_page_hints_summary">Set wether the hints for the left and right widgets are shown when the screen is turned on.</string>
 
-    <!-- Custom lock screen background -->
-    <string name="lockscreen_custom_background_title">Background</string>
-    <string name="lockscreen_custom_background_dialog_title">Choose color</string>
-    <string name="lockscreen_background_result_successful">Background changed successfully</string>
-    <string name="lockscreen_background_result_not_successful">Background could not be changed</string>
-    <string name="lockscreen_background_color_fill">Color fill</string>
-    <string name="lockscreen_background_custom_image">Custom image</string>
-    <string name="lockscreen_background_default_wallpaper">Default wallpaper</string>
-
     <string name="lockscreen_quick_unlock_control_title">Quick pin unlock</string>
     <string name="lockscreen_quick_unlock_control_summary">Unlock password/pin lockscreen without pressing enter button</string>
-
-   <!-- Lockscreen See Through -->
-   <string name="lockscreen_seethrough">Lockscreen See through</string>
-   <string name="lockscreen_seethrough_summary">Allows you to see your homescreen behind the lock screen including apps.</string>
 
     <string name="lockscreen_all_widgets_title">Allow all widgets</string>
     <string name="lockscreen_all_widgets_summary">Warning: Some widgets are not intended to be used on the lockscreen. Do not blame the widget maker or Carbon if your widget misbehaves. Choose responsibly!</string>

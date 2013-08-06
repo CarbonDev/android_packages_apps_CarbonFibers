@@ -30,14 +30,6 @@
         android:entryValues="@array/lockscreen_battery_status_values"
         android:defaultValue="0" />
 
-     <ListPreference
-        android:key="lockscreen_background"
-        android:persistent="false"
-        android:dialogTitle="@string/lockscreen_custom_background_title"
-        android:title="@string/lockscreen_custom_background_title"
-        android:entries="@array/lockscreen_background_entries"
-        android:entryValues="@array/lockscreen_background_values" />
-
     <CheckBoxPreference
         android:key="lockscreen_camera_widget"
         android:title="@string/lockscreen_camera_widget_title" />
@@ -52,11 +44,6 @@
         android:key="lockscreen_hide_initial_page_hints"
         android:title="@string/lockscreen_hide_initial_page_hints_title"
         android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
-
-     <CheckBoxPreference
-        android:key="see_through"
-        android:title="@string/lockscreen_seethrough"
-        android:summary="@string/lockscreen_seethrough_summary" />
 
     <CheckBoxPreference
         android:key="lockscreen_quick_unlock_control"
