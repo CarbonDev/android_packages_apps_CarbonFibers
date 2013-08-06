@@ -146,9 +146,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MUSIC_CONTROLS, value ? 1 : 0);
             return true;
-        } else if (preference == mCustomBackground) {
-            int selection = mCustomBackground.findIndexOfValue(objValue.toString());
-            return handleBackgroundSelection(selection);
         }
         return false;
     }
