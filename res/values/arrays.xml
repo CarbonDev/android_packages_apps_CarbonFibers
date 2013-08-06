@@ -375,7 +375,7 @@
         <item>2</item>
     </string-array>
 
-<!-- NavBar -->
+    <!-- NavBar -->
     <string-array name="pref_navigation_menu_entries" translatable="false">
         <item>@string/right</item>
         <item>@string/left</item>
@@ -635,6 +635,19 @@
         <item>@string/left</item>
     </string-array>
     <string-array name="choose_toggle_side_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Custom lock screen background-->
+    <string-array name="lockscreen_background_entries" translatable="false">
+        <item>@string/lockscreen_background_color_fill</item>
+        <item>@string/lockscreen_background_custom_image</item>
+        <item>@string/lockscreen_background_default_wallpaper</item>
+    </string-array>
+
+    <string-array name="lockscreen_background_values" translatable="false">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>

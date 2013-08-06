@@ -16,6 +16,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings" >
 
+     <CheckBoxPreference
+        android:key="lockscreen_all_widgets"
+        android:title="@string/lockscreen_all_widgets_title"
+        android:summary="@string/lockscreen_all_widgets_summary" />
+
      <ListPreference
         android:key="lockscreen_battery_status"
         android:persistent="false"
@@ -25,11 +30,38 @@
         android:entryValues="@array/lockscreen_battery_status_values"
         android:defaultValue="0" />
 
+     <ListPreference
+        android:key="lockscreen_background"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_custom_background_title"
+        android:title="@string/lockscreen_custom_background_title"
+        android:entries="@array/lockscreen_background_entries"
+        android:entryValues="@array/lockscreen_background_values" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_camera_widget"
+        android:title="@string/lockscreen_camera_widget_title" />
+
     <CheckBoxPreference
         android:key="lockscreen_music_controls"
         android:persistent="false"
         android:title="@string/lockscreen_music_controls_title"
         android:summary="@string/lockscreen_music_controls_summary" />
+
+     <CheckBoxPreference
+        android:key="lockscreen_hide_initial_page_hints"
+        android:title="@string/lockscreen_hide_initial_page_hints_title"
+        android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
+
+     <CheckBoxPreference
+        android:key="see_through"
+        android:title="@string/lockscreen_seethrough"
+        android:summary="@string/lockscreen_seethrough_summary" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_quick_unlock_control"
+        android:title="@string/lockscreen_quick_unlock_control_title"
+        android:summary="@string/lockscreen_quick_unlock_control_summary" />
 
      <Preference
         android:fragment="com.carbon.settings.fragments.LockscreenTargets"

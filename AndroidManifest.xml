@@ -56,8 +56,8 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".fragments.LockscreenTargets"
-            android:label="Lockscreen Tragets" >
+            android:name=".fragments.LockscreenInterface"
+            android:label="@string/lockscreen_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,8 +65,8 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".fragments.LockscreenInterface"
-            android:label="@string/lock_screen_title" >
+            android:name=".fragments.LockscreenTargets"
+            android:label="Lockscreen Targets" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
