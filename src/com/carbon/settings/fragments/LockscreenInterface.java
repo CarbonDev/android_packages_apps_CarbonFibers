@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
-import com.android.settings.notificationlight.ColorPickerView;
+import com.carbon.settings.widgets.ColorPickerView;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
