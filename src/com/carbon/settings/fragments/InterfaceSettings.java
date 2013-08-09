@@ -28,6 +28,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -88,11 +89,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 			implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "InterfaceSettings";
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
+    private static final String KEY_SHOW_OVERFLOW = "show_overflow";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
 
+    private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
+    private Preference mHardwareKeys;
     private Preference mRamBar;
 
     Context mContext;
@@ -112,9 +117,27 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         ContentResolver cr = mContext.getContentResolver();
         mContentResolver = getContentResolver();
 
+        mHardwareKeys = (Preference) findPreference(KEY_HARDWARE_KEYS);
+
+        IWindowManager windowManager = IWindowManager.Stub.asInterface(
+                ServiceManager.getService(Context.WINDOW_SERVICE));
+        try {
+            if (windowManager.hasNavigationBar()) {
+                prefSet.removePreference(findPreference(KEY_HARDWARE_KEYS));
+            } else {
+                // should not need to remove anything
+            }
+        } catch (RemoteException e) {
+            // Do nothing
+        }
+
         mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
         mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
+
+        mShowActionOverflow = (CheckBoxPreference) findPreference(KEY_SHOW_OVERFLOW);
+        mShowActionOverflow.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1);
 
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
         updateRamBar();
@@ -155,6 +178,26 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
                     ((CheckBoxPreference) preference).isChecked());
+            return true;
+        } else if (preference == mHardwareKeys) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            HardwareKeys fragment = new HardwareKeys();
+            ft.addToBackStack("hardware_keys_binding");
+            ft.replace(this.getId(), fragment);
+            ft.commit();
+            return true;
+        } else if (preference == mShowActionOverflow) {
+            boolean enabled = mShowActionOverflow.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.UI_FORCE_OVERFLOW_BUTTON,
+                    enabled ? 1 : 0);
+            // Show appropriate
+            if (enabled) {
+                Toast.makeText(getActivity(), R.string.hardware_keys_show_overflow_toast_enable,
+                        Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getActivity(), R.string.hardware_keys_show_overflow_toast_disable,
+                        Toast.LENGTH_LONG).show();
+            }
             return true;
         }
 
