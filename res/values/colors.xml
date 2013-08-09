@@ -19,7 +19,7 @@
     <color name="black">#000</color>
     <color name="red">#F00</color>
 
-    <color name="extension_list_item_color">#ff000000</color>
+    <color name="extension_list_item_color">#ffc9c9c9</color>
     <color name="configure_light_background">#00000000</color>
 
     <color name="color_text_holo_light">#000000</color>
