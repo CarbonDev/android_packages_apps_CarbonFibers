@@ -225,6 +225,12 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
 
+    <!-- Status bar brightness slider -->
+    <string name="brightness_slider_title">Statusbar brightness slider</string>
+    <string name="brightness_slider_summary">When enabled, this option will allow you to change the brightness by
+        sliding your finger across the Statusbar. Note: Will not be active when auto-brightness is on
+    </string>
+
     <!-- Battery Icon and Bar -->
     <string name="status_bar_battery_icon_bar_title">Battery icon and bar style</string>
     <string name="battery_icon_cat">Battery icon style</string>

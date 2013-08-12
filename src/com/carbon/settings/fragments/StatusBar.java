@@ -36,6 +36,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String TAG = "StatusBar";
 
+    private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
@@ -43,6 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
+    private CheckBoxPreference mStatusbarSliderPreference;
     private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
     private ListPreference mCollapseOnDismiss;
@@ -67,6 +69,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
+
+        mStatusbarSliderPreference = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS);
+        mStatusbarSliderPreference.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, 0) == 1));
 
         int collapseBehaviour = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS,
@@ -124,6 +130,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             value = mStatusBarNotifCount.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusbarSliderPreference) {
+            value = mStatusbarSliderPreference.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, value ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

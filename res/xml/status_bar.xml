@@ -51,6 +51,12 @@
             android:summary="@string/status_bar_notif_count_summary"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="statusbar_brightness_slider"
+            android:title="@string/brightness_slider_title"
+            android:summary="@string/brightness_slider_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="notification_drawer_collapse_on_dismiss"
             android:title="@string/notification_drawer_collapse_on_dismiss_title"
