@@ -5,6 +5,13 @@
         android:key="general_options"
         android:title="@string/status_bar_general_title">
 
+        <CheckBoxPreference
+            android:key="show_overflow"
+            android:title="@string/hardware_keys_show_overflow_title"
+            android:summary="@string/hardware_keys_show_overflow_summary"
+            android:persistent="false"
+            android:defaultValue="false" />
+
         <Preference
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
@@ -35,13 +42,6 @@
         <Preference
             android:key="hardware_keys"
             android:title="@string/hardware_keys_title" />
-
-        <CheckBoxPreference
-            android:key="show_overflow"
-            android:title="@string/hardware_keys_show_overflow_title"
-            android:summary="@string/hardware_keys_show_overflow_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 

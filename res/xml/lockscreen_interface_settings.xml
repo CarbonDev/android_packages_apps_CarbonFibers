@@ -34,16 +34,16 @@
         android:key="lockscreen_camera_widget"
         android:title="@string/lockscreen_camera_widget_title" />
 
+     <CheckBoxPreference
+        android:key="lockscreen_hide_initial_page_hints"
+        android:title="@string/lockscreen_hide_initial_page_hints_title"
+        android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
+
     <CheckBoxPreference
         android:key="lockscreen_music_controls"
         android:persistent="false"
         android:title="@string/lockscreen_music_controls_title"
         android:summary="@string/lockscreen_music_controls_summary" />
-
-     <CheckBoxPreference
-        android:key="lockscreen_hide_initial_page_hints"
-        android:title="@string/lockscreen_hide_initial_page_hints_title"
-        android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
 
     <CheckBoxPreference
         android:key="lockscreen_quick_unlock_control"
