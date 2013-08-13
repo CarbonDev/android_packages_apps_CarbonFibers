@@ -111,15 +111,14 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ContentResolver resolver = getActivity().getContentResolver();
-        ContentResolver cr = mContext.getContentResolver();
-        PreferenceScreen prefSet = getPreferenceScreen();
-        mContentResolver = getContentResolver();
-        Resources res = getResources();
         mContext = getActivity();
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.interface_settings);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver cr = mContext.getContentResolver();
+        mContentResolver = getContentResolver();
+        Resources res = getResources();
 
         mHardwareKeys = (Preference) findPreference(KEY_HARDWARE_KEYS);
 
@@ -136,11 +135,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         }
 
         mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
-        mUseAltResolver.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+        mUseAltResolver.setChecked(Settings.System.getBoolean(cr,
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
 
         mShowActionOverflow = (CheckBoxPreference) findPreference(KEY_SHOW_OVERFLOW);
-        mShowActionOverflow.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+        mShowActionOverflow.setChecked(Settings.System.getInt(cr,
                 Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1);
 
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
@@ -152,7 +151,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
         mWakeWhenPluggedOrUnplugged =
                 (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
-        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
+        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(cr,
                 Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
 
