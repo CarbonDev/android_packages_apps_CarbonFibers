@@ -94,13 +94,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_SHOW_OVERFLOW = "show_overflow";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
-    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private Preference mHardwareKeys;
     private Preference mRamBar;
-    private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
 
     Context mContext;
 
@@ -144,16 +142,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
         updateRamBar();
-
-        // Default value for wake-on-plug behavior from config.xml
-        boolean wakeUpWhenPluggedOrUnpluggedConfig = res.getBoolean(
-                com.android.internal.R.bool.config_unplugTurnsOnScreen);
-
-        mWakeWhenPluggedOrUnplugged =
-                (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
-        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(cr,
-                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
@@ -211,11 +199,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                 Toast.makeText(getActivity(), R.string.hardware_keys_show_overflow_toast_disable,
                         Toast.LENGTH_LONG).show();
             }
-            return true;
-       } else if (preference == mWakeWhenPluggedOrUnplugged) {
-            Settings.Global.putInt(getContentResolver(),
-                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
         }
 

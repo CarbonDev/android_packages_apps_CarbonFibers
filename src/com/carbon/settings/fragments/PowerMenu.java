@@ -114,6 +114,9 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_SOUND_ENABLED, 1) == 1));
 
+        if (!hasTorch) {
+            getPreferenceScreen().removePreference(mTorchPref);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

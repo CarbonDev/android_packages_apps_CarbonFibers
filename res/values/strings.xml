@@ -615,12 +615,8 @@
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_in_app_search">In-app search</string>
 
-    <!-- Turn on display when power connected; turn off display when power disconnected -->
-    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
-    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
-
     <!-- HALO -->
-    <string name="halo_title">HALO</string>
+    <string name="halo_title">Halo</string>
 
     <string name="halo_category">HALO</string>
     <string name="halo_colors_category">HALO colors</string>
