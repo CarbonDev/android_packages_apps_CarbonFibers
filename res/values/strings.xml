@@ -619,6 +619,7 @@
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
+    <!-- HALO -->
     <string name="halo_title">HALO</string>
 
     <string name="halo_category">HALO</string>
@@ -640,6 +641,14 @@
     <string name="halo_size_large">Large</string>
     <string name="halo_size_gigantic">Gigantic</string>
     <string name="halo_size_monster">Monster</string>
+
+    <string name="halo_colors_title">Custom colors</string>
+    <string name="halo_colors_summary">Enable custom colors for HALO instead of the default theme colors</string>
+    <string name="halo_circle_color_title">Circle color</string>
+    <string name="halo_bubble_color_title">Speech bubble color</string>
+    <string name="halo_bubble_text_color_title">Speech bubble text color</string>
+    <string name="halo_effect_color_title">Effect color</string>
+    <string name="halo_effect_color_summary">Requires a systemui restart</string>
 
     <string name="halo_enabled_title">Enable HALO</string>
     <string name="halo_enabled_summary">Completely enable or disable HALO</string> 

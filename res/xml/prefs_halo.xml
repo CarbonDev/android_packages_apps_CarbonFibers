@@ -32,39 +32,39 @@ limitations under the License.
             android:title="@string/halo_state_title"
             android:summary="@string/halo_state_summary"
             android:entries="@array/entries_halo_state"
-	    android:dependency="halo_enabled" 
+	        android:dependency="halo_enabled" 
             android:entryValues="@array/values_halo_state" />
 
         <CheckBoxPreference
             android:key="halo_hide"
             android:title="@string/halo_hide_title"
             android:summary="@string/halo_hide_summary"
-	    android:dependency="halo_enabled" 
+	        android:dependency="halo_enabled" 
             android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="halo_reversed"
             android:title="@string/halo_reversed_title"
             android:summary="@string/halo_reversed_summary"
-	    android:dependency="halo_enabled" 
+	        android:dependency="halo_enabled" 
             android:defaultValue="true" />
 
-	<ListPreference
+	   <ListPreference
             android:key="halo_size"
             android:dialogTitle="@string/halo_size_title"
             android:title="@string/halo_size_title"
             android:summary="@string/halo_size_summary"
             android:entries="@array/entries_halo_size"
-	    android:dependency="halo_enabled" 
+	        android:dependency="halo_enabled" 
             android:entryValues="@array/values_halo_size" />
 
-    	<CheckBoxPreference
+        <CheckBoxPreference
             android:key="halo_pause"
             android:title="@string/halo_pause_title"
-	    android:dependency="halo_enabled" 
+	        android:dependency="halo_enabled" 
             android:summary="@string/halo_pause_summary" />
 
-	<CheckBoxPreference
+	   <CheckBoxPreference
             android:key="show_popup"
             android:title="@string/popups_title"
             android:summary="@string/popups_summary"
@@ -75,6 +75,41 @@ limitations under the License.
     <PreferenceCategory
         android:key="halo_colors"
         android:title="@string/halo_colors_category">
+
+        <CheckBoxPreference
+            android:key="halo_colors"
+            android:title="@string/halo_colors_title"
+            android:summary="@string/halo_colors_summary"
+            android:dependency="halo_enabled"
+            android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_circle_color"
+            android:title="@string/halo_circle_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_effect_color"
+            android:title="@string/halo_effect_color_title"
+            android:summary="@string/halo_effect_color_summary"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_color"
+            android:title="@string/halo_bubble_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_text_color"
+            android:title="@string/halo_bubble_text_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFFFFFFFF" />
 
     </PreferenceCategory>
 
