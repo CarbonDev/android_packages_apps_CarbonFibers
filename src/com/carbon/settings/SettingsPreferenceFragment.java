@@ -58,7 +58,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hasTorch = getResources().getBoolean(R.bool.has_torch);
+        hasTorch = getResources().getBoolean(R.bool.has_led_flash);
         hasHardwareButtons = getResources().getBoolean(R.bool.has_hardware_buttons);
         hasFastCharge = getResources().getBoolean(R.bool.has_fast_charge);
         hasColorTuning = getResources().getBoolean(R.bool.has_color_tuning);
