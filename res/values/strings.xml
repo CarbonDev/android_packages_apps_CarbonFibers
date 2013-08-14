@@ -619,4 +619,36 @@
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
+    <string name="halo_title">HALO</string>
+
+    <string name="halo_category">HALO</string>
+    <string name="halo_colors_category">HALO colors</string>
+    <string name="halo_hide_title">Hide HALO after activity</string>
+    <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
+    <string name="halo_reversed_title">Reverse HALO gestures</string>
+    <string name="halo_reversed_summary">Applies tasking or dragging to the double-tap-swipe gesture</string>
+    <string name="halo_state_title">HALO policy</string>
+    <string name="halo_state_summary">For black/white-listing notifications pinging through HALO</string>
+    <string name="halo_state_black">Black list</string>
+    <string name="halo_state_white">White list</string> 
+
+    <string name="halo_size_title">HALO size</string>
+    <string name="halo_size_summary">Defines how big HALO is going to be</string>
+    <string name="halo_size_miniscule">Miniscule</string>
+    <string name="halo_size_small">Small</string>
+    <string name="halo_size_default">Default</string>
+    <string name="halo_size_large">Large</string>
+    <string name="halo_size_gigantic">Gigantic</string>
+    <string name="halo_size_monster">Monster</string>
+
+    <string name="halo_enabled_title">Enable HALO</string>
+    <string name="halo_enabled_summary">Completely enable or disable HALO</string> 
+
+    <string name="halo_pause_title">HALO pause active app</string>
+    <string name="halo_pause_summary">When opening an app with HALO the underlying app will get paused (enabled by default on low memory devices)</string>
+
+    <!-- We want HALO popups -->
+    <string name="popups_title">Allow floating windows</string>
+    <string name="popups_summary">Controls whether you want floating windows from notification panel</string>
+
 </resources>

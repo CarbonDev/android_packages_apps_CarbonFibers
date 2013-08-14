@@ -156,6 +156,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.Halo"
+            android:label="@string/halo_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.TransparencyDialog"
             android:theme="@android:style/Theme.Dialog"
             android:label="@string/transparency_dialog_title" >
