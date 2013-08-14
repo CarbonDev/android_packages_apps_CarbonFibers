@@ -3,6 +3,13 @@
    <header
         android:title="@string/user_interface" />
 
+    <!-- Halo -->
+    <header
+        android:id="@+id/halo"
+        android:fragment="com.carbon.settings.fragments.Halo"
+        android:title="@string/halo_title"
+        android:icon="@drawable/ic_carbon_halo" />
+
     <!-- Interface -->
     <header
         android:id="@+id/interface_settings"
@@ -40,18 +47,12 @@
         android:icon="@drawable/ic_carbon_powerwidget"
         android:summary="@string/header_summary" />
 
-    <!-- Status bar -->
+    <!-- Statusbar -->
     <header
         android:id="@+id/status_bar"
         android:fragment="com.carbon.settings.fragments.StatusBar"
         android:title="@string/status_bar_title"
         android:icon="@drawable/ic_carbon_statusbar" />
-
-    <header
-        android:id="@+id/halo"
-        android:fragment="com.carbon.settings.fragments.Halo"
-        android:title="@string/halo_title"
-        android:icon="@drawable/ic_carbon_halo" />
 
     <!-- Statusbar Toggles -->
     <header

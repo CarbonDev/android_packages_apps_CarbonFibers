@@ -620,7 +620,7 @@
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
     <!-- HALO -->
-    <string name="halo_title">HALO</string>
+    <string name="halo_title">Halo</string>
 
     <string name="halo_category">HALO</string>
     <string name="halo_colors_category">HALO colors</string>
