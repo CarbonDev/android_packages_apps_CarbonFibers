@@ -53,7 +53,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
-import com.carbon.settings.widget.SeekBarPreference;
+import com.carbon.settings.widgets.SeekBarPreference;
 import net.margaritov.preference.colorpicker.ColorPickerView;
 
 import java.util.ArrayList;

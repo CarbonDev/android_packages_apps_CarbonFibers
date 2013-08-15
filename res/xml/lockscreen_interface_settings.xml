@@ -28,7 +28,7 @@
             android:entries="@array/lockscreen_background_entries"
             android:entryValues="@array/lockscreen_background_values"/>
 
-        <com.android.carbon.widget.SeekBarPreference
+        <com.carbon.settings.widgets.SeekBarPreference
             android:key="lockscreen_alpha"
             android:title="@string/lockscreen_alpha_title" />
 

@@ -32,11 +32,11 @@
             android:entries="@array/notification_wallpaper_landscape_entries"
             android:entryValues="@array/notification_wallpaper_landscape_values"/>
 
-        <com.android.carbon.widget.SeekBarPreference
+        <com.carbon.settings.widgets.SeekBarPreference
              android:key="notification_wallpaper_alpha"
              android:title="@string/notif_wallpaper_alpha_title" />
 
-        <com.android.carbon.widget.SeekBarPreference
+        <com.carbon.settings.widgets.SeekBarPreference
              android:key="notification_alpha"
              android:title="@string/notif_alpha_title" />
 

@@ -607,6 +607,16 @@
         <item>8 seconds</item>
     </string-array>
 
+    <string-array name="screenshot_delay_values" translatable="false">
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>7000</item>
+        <item>8000</item>
+    </string-array>
+
     <string-array name="lockscreen_background_entries">
         <item>@string/lockscreen_background_color_fill</item>
         <item>@string/lockscreen_background_custom_image</item>
