@@ -650,7 +650,8 @@
     <string name="halo_title">Halo</string>
 
     <string name="halo_category">HALO</string>
-    <string name="halo_colors_category">HALO colors</string>
+    <string name="halo_status_category">Status</string>
+    <string name="halo_colors_category">Colors</string>
     <string name="halo_hide_title">Hide HALO after activity</string>
     <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
     <string name="halo_reversed_title">Reverse HALO gestures</string>

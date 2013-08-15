@@ -36,6 +36,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 
@@ -64,7 +65,6 @@ public class Halo extends SettingsPreferenceFragment
 
     private ListPreference mHaloState;
     private ListPreference mHaloSize;
-    private CheckBoxPreference mHaloEnabled;
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloPause;
@@ -74,6 +74,7 @@ public class Halo extends SettingsPreferenceFragment
     private ColorPickerPreference mHaloEffectColor;
     private ColorPickerPreference mHaloBubbleColor;
     private ColorPickerPreference mHaloBubbleTextColor;
+    private SwitchPreference mHaloEnabled;
 
 
     private Context mContext;
@@ -89,9 +90,11 @@ public class Halo extends SettingsPreferenceFragment
         mNotificationManager = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
 
-        mHaloEnabled = (CheckBoxPreference) findPreference(KEY_HALO_ENABLED);
-        mHaloEnabled.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.HALO_ENABLED, 0) == 1);
+        mHaloEnabled = (SwitchPreference) findPreference(PREF_HALO_ENABLED);
+        mHaloEnabled.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.HALO_ENABLED,
+                0) == 1);
+        mHaloEnabled.setOnPreferenceChangeListener(this);
 
         mHaloState = (ListPreference) findPreference(KEY_HALO_STATE);
         mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
@@ -179,7 +182,12 @@ public class Halo extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object Value) {
-        if (preference == mHaloState) {
+        if (preference == mHaloEnabled) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_ENABLED,
+                    (Boolean) Value ? 1 : 0);
+            return true;
+        } else if (preference == mHaloState) {
             boolean state = Integer.valueOf((String) Value) == 1;
             try {
                 mNotificationManager.setHaloPolicyBlack(state);

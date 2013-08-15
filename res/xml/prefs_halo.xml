@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 RootBox Project
+<!-- Copyright (C) 2013 ParanoidAndroid Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,14 +17,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings">
 
-    <PreferenceCategory
-        android:key="halo_status"
-        android:title="@string/halo_category">
-
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="halo_enabled"
             android:title="@string/halo_enabled_title"
             android:summary="@string/halo_enabled_summary" />
+
+    <PreferenceCategory
+        android:key="halo_status"
+        android:title="@string/halo_status_category">
 
         <ListPreference
             android:key="halo_state"
@@ -68,6 +68,12 @@
             android:title="@string/popups_title"
             android:summary="@string/popups_summary"
             android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="halo_colors"
+        android:title="@string/halo_colors_category">
 
         <CheckBoxPreference
             android:key="halo_colors"
