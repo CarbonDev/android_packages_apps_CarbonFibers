@@ -46,9 +46,11 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.MediaStore;
+import android.text.Spannable;
 import android.util.Log;
 import android.view.Display;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.carbon.settings.R;
@@ -86,6 +88,8 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
     private ContentResolver mResolver;
     private Activity mActivity;
+
+    String mCustomLabelText = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

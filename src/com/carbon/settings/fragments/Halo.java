@@ -159,11 +159,7 @@ public class Halo extends SettingsPreferenceFragment
         if (preference == mHaloHide) {  
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_HIDE, mHaloHide.isChecked()
-                    ? 1 : 0);
-        } else if  (preference == mHaloEnabled) {
-             Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.HALO_ENABLED, mHaloEnabled.isChecked()
-                    ? 1 : 0);   
+                    ? 1 : 0); 
         } else if (preference == mHaloReversed) {   
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
