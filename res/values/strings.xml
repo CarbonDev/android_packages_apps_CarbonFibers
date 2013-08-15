@@ -573,6 +573,13 @@
     <string name="hardware_keys_options_title">Hardware Keys</string>
     <string name="miscellaneous_options_title">Miscellaneous</string>
 
+    <!-- Custom Carrier Label -->
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock
+        label.
+    </string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+
     <!--- Clock Widget -->
     <string name="lock_clock_title">Clock Widget</string>
     <string name="lock_clock_summary">View or change how the widget will display</string>
