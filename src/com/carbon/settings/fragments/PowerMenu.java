@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -42,19 +42,19 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
-    private static final String KEY_NAVBAR_HIDE = "show_navbar_hide";
+    private static final String KEY_SYSTEMBAR = "power_menu_systembar";
     private static final String KEY_USER = "power_menu_user";
-    private static final String KEY_SILENT = "power_menu_silent";
+    private static final String KEY_SOUND = "power_menu_sound";
 
-    private CheckBoxPreference mRebootPref;
-    private CheckBoxPreference mScreenshotPref;
-    private CheckBoxPreference mTorchPref;
+    private SwitchPreference mRebootPref;
+    private SwitchPreference mScreenshotPref;
+    private SwitchPreference mTorchPref;
     private ListPreference mExpandedDesktopPref;
-    private CheckBoxPreference mProfilesPref;
-    private CheckBoxPreference mAirplanePref;
-    private CheckBoxPreference mShowNavBarHide;
-    private CheckBoxPreference mUserPref;
-    private CheckBoxPreference mSilentPref;
+    private SwitchPreference mProfilesPref;
+    private SwitchPreference mAirplanePref;
+    private SwitchPreference mSystembarPref;
+    private SwitchPreference mUserPref;
+    private SwitchPreference mSoundPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,17 +64,20 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mRebootPref = (CheckBoxPreference) findPreference(KEY_REBOOT);
-        mRebootPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_REBOOT_ENABLED, 1) == 1));
+        mRebootPref = (SwitchPreference) findPreference(KEY_REBOOT);
+        mRebootPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_REBOOT_ENABLED, true));
+        mRebootPref.setOnPreferenceChangeListener(this);
 
-        mScreenshotPref = (CheckBoxPreference) findPreference(KEY_SCREENSHOT);
-        mScreenshotPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SCREENSHOT_ENABLED, 0) == 1));
+        mScreenshotPref = (SwitchPreference) findPreference(KEY_SCREENSHOT);
+        mScreenshotPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_SCREENSHOT_ENABLED, false));
+        mScreenshotPref.setOnPreferenceChangeListener(this);
 
-        mTorchPref = (CheckBoxPreference) findPreference(KEY_TORCH);
-        mTorchPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_TORCH_ENABLED, 0) == 1));
+        mTorchPref = (SwitchPreference) findPreference(KEY_TORCH);
+        mTorchPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_TORCH_ENABLED, false));
+        mTorchPref.setOnPreferenceChangeListener(this);
 
         mExpandedDesktopPref = (ListPreference) prefSet.findPreference(KEY_EXPANDED_DESKTOP);
         mExpandedDesktopPref.setOnPreferenceChangeListener(this);
@@ -83,110 +86,107 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
         mExpandedDesktopPref.setSummary(mExpandedDesktopPref.getEntries()[expandedDesktopValue]);
 
-        mProfilesPref = (CheckBoxPreference) findPreference(KEY_PROFILES);
-        mProfilesPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_PROFILES_ENABLED, 1) == 1));
+        mProfilesPref = (SwitchPreference) findPreference(KEY_PROFILES);
+        mProfilesPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_PROFILES_ENABLED, false));
+        mProfilesPref.setOnPreferenceChangeListener(this);
 
         // Only enable if System Profiles are also enabled
         boolean enabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
         mProfilesPref.setEnabled(enabled);
 
-        mAirplanePref = (CheckBoxPreference) findPreference(KEY_AIRPLANE);
-        mAirplanePref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_AIRPLANE_ENABLED, 1) == 1));
+        mAirplanePref = (SwitchPreference) findPreference(KEY_AIRPLANE);
+        mAirplanePref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_AIRPLANE_ENABLED, true));
+        mAirplanePref.setOnPreferenceChangeListener(this);
 
-        mShowNavBarHide = (CheckBoxPreference) findPreference(KEY_NAVBAR_HIDE);
-        mShowNavBarHide.setChecked(Settings.System.getBoolean(getActivity()
-            .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
-            false));
+        mSystembarPref = (SwitchPreference) findPreference(KEY_SYSTEMBAR);
+        mSystembarPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE, false));
+        mSystembarPref.setOnPreferenceChangeListener(this);
 
-        mUserPref = (CheckBoxPreference) findPreference(KEY_USER);
+        mUserPref = (SwitchPreference) findPreference(KEY_USER);
         if (!UserHandle.MU_ENABLED
             || !UserManager.supportsMultipleUsers()) {
             getPreferenceScreen().removePreference(mUserPref);
         } else {
-            mUserPref.setChecked((Settings.System.getInt(getContentResolver(),
-                    Settings.System.POWER_MENU_USER_ENABLED, 0) == 1));
+            mUserPref.setChecked(Settings.System.getBoolean(mContentRes,
+                    Settings.System.POWER_MENU_USER_ENABLED, false));
         }
+        mUserPref.setOnPreferenceChangeListener(this);
 
-        mSilentPref = (CheckBoxPreference) findPreference(KEY_SILENT);
-        mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SOUND_ENABLED, 1) == 1));
+        mSoundPref = (SwitchPreference) findPreference(KEY_SOUND);
+        mSoundPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_SOUND_ENABLED, true));
+        mSoundPref.setOnPreferenceChangeListener(this);
 
         if (!hasTorch) {
             getPreferenceScreen().removePreference(mTorchPref);
         }
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object value) {
         if (preference == mExpandedDesktopPref) {
-            int expandedDesktopValue = Integer.valueOf((String) newValue);
-            int index = mExpandedDesktopPref.findIndexOfValue((String) newValue);
+            int expandedDesktopValue = Integer.valueOf((String) value);
+            int index = mExpandedDesktopPref.findIndexOfValue((String) value);
             if (expandedDesktopValue == 0) {
-                Settings.System.putInt(getContentResolver(),
+                Settings.System.putInt(mContentRes,
                         Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0);
+                // Disable expanded desktop if enabled
+                Settings.System.putInt(mContentRes,
+                        Settings.System.EXPANDED_DESKTOP_STATE, 0);
             } else {
-                Settings.System.putInt(getContentResolver(),
+                Settings.System.putInt(mContentRes,
                         Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
             }
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(mContentRes,
                     Settings.System.EXPANDED_DESKTOP_MODE, expandedDesktopValue);
             mExpandedDesktopPref.setSummary(mExpandedDesktopPref.getEntries()[index]);
             return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
-
-        if (preference == mScreenshotPref) {
-            value = mScreenshotPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
+        } else if (preference == mScreenshotPref) {
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_MENU_SCREENSHOT_ENABLED,
-                    value ? 1 : 0);
-        } else if (preference == mTorchPref) {
-            value = mTorchPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_TORCH_ENABLED,
-                    value ? 1 : 0);
-        } else if (preference == mRebootPref) {
-            value = mRebootPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_REBOOT_ENABLED,
-                    value ? 1 : 0);
-        } else if (preference == mProfilesPref) {
-            value = mProfilesPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_PROFILES_ENABLED,
-                    value ? 1 : 0);
-       } else if (preference == mAirplanePref) {
-            value = mAirplanePref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_AIRPLANE_ENABLED,
-                    value ? 1 : 0);
-        } else if (preference == mShowNavBarHide) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
-                ((CheckBoxPreference)preference).isChecked());
+                    (Boolean) value);
             return true;
-       } else if (preference == mUserPref) {
-            value = mUserPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
+        } else if (preference == mTorchPref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_TORCH_ENABLED,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mRebootPref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_REBOOT_ENABLED,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mProfilesPref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_PROFILES_ENABLED,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mAirplanePref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_AIRPLANE_ENABLED,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mSystembarPref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mUserPref) {
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_MENU_USER_ENABLED,
-                    value ? 1 : 0);
-       } else if (preference == mSilentPref) {
-            value = mSilentPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
+                    (Boolean) value);
+            return true;
+        } else if (preference == mSoundPref) {
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_MENU_SOUND_ENABLED,
-                    value ? 1 : 0);
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
+                    (Boolean) value);
+            return true;
         }
 
-        return true;
+        return false;
     }
 
 }

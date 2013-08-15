@@ -163,9 +163,9 @@
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="power_menu_profiles_title">Profile switcher</string>
     <string name="power_menu_airplane_title">Airplane mode</string>
-    <string name="title_show_navbar_hide">Navigation bar</string>
+    <string name="power_menu_systembar_title">System bar</string>
     <string name="power_menu_user_title">User switcher</string>
-    <string name="power_menu_silent_title">Sound panel</string>
+    <string name="power_menu_sound_title">Sound panel</string>
     <string name="summary_expanded_desktop">%1$s</string>
     <string name="expanded_desktop_summary">Expanded desktop mode</string>
     <string name="expanded_desktop_disabled">Off</string>
