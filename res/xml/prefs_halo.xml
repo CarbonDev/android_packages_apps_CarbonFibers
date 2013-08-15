@@ -23,7 +23,7 @@
             android:summary="@string/halo_enabled_summary" />
 
     <PreferenceCategory
-        android:key="halo_status"
+        android:key="halo_status_category"
         android:title="@string/halo_status_category">
 
         <ListPreference
@@ -72,7 +72,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="halo_colors"
+        android:key="halo_colors_category"
         android:title="@string/halo_colors_category">
 
         <CheckBoxPreference
