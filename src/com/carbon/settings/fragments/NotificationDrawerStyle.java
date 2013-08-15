@@ -46,10 +46,12 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.MediaStore;
+import android.text.Spannable;
 import android.util.Log;
 import android.view.Display;
 import android.view.Window;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.EditText;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
@@ -83,6 +85,8 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
     private static final int REQUEST_PICK_WALLPAPER_LANDSCAPE = 202;
     private static final String WALLPAPER_NAME = "notification_wallpaper.jpg";
     private static final String WALLPAPER_NAME_LANDSCAPE = "notification_wallpaper_landscape.jpg";
+
+    String mCustomLabelText = null;
 
     private ContentResolver mResolver;
     private Activity mActivity;
