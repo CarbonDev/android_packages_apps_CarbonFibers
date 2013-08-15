@@ -376,11 +376,20 @@ public class LockscreenTargets extends Fragment implements
             activeLayer.setDrawableByLayerId(0, new InsetDrawable(activeBack, 0, 0, 0, 0));
         }
 
-        item.defaultIcon = mDialogIcon.getDrawable();
+        item.defaultIcon = getPickedIconFromDialog();
         item.uri = uri;
         item.iconType = iconType;
         item.iconSource = iconSource;
         item.packageName = packageName;
+    }
+
+    private Drawable getPickedIconFromDialog() {
+        return mDialogIcon.getDrawable().mutate();
+    }
+
+    private void setIconForDialog(Drawable icon) {
+        // need to mutate the drawable here to not share drawable state with GlowPadView 
+        mDialogIcon.setImageDrawable(icon.getConstantState().newDrawable().mutate());
     }
 
     @Override
@@ -395,6 +404,7 @@ public class LockscreenTargets extends Fragment implements
 
             mDialogLabel.setText(friendlyName);
             mDialogLabel.setTag(uri);
+            // this is a fresh drawable, so we can assign it directly 
             mDialogIcon.setImageDrawable(resizeForDialog(icon));
             mDialogIcon.setTag(null);
         } catch (URISyntaxException e) {
@@ -421,6 +431,7 @@ public class LockscreenTargets extends Fragment implements
             mDialogLabel.setText(mEmptyLabel);
             mDialogLabel.setTag(GlowPadView.EMPTY_TARGET);
             mDialogIcon.setImageResource(R.drawable.ic_empty);
+            mDialogIcon.setTag(null);
         } else if (requestCode == IconPicker.REQUEST_PICK_SYSTEM
                 || requestCode == IconPicker.REQUEST_PICK_GALLERY
                 || requestCode == IconPicker.REQUEST_PICK_ICON_PACK) {
@@ -464,7 +475,7 @@ public class LockscreenTargets extends Fragment implements
                         int targetInset = GlowPadView.ICON_RESOURCE.equals(type)
                                 ? 0 : mTargetInset;
 
-                        InsetDrawable drawable = new InsetDrawable(mDialogIcon.getDrawable(),
+                        InsetDrawable drawable = new InsetDrawable(getPickedIconFromDialog(),
                                 targetInset, targetInset, targetInset, targetInset);
                         setTarget(mTargetIndex, mDialogLabel.getTag().toString(),
                                 drawable, type, source, packageName);
@@ -506,7 +517,7 @@ public class LockscreenTargets extends Fragment implements
         mDialogLabel = (Button) view.findViewById(R.id.label);
 
         TargetInfo item = mTargetStore.get(target);
-        mDialogIcon.setImageDrawable(item.defaultIcon);
+        setIconForDialog(item.defaultIcon);
 
         TargetInfo icon = new TargetInfo(null);
         icon.iconType = item.iconType;
@@ -570,7 +581,7 @@ public class LockscreenTargets extends Fragment implements
 
         if (iconDrawable != null) {
             mDialogIcon.setTag(icon);
-            mDialogIcon.setImageDrawable(iconDrawable);
+            setIconForDialog(iconDrawable);
         } else {
             Log.w(TAG, "Could not fetch icon, keeping old one (type=" + icon.iconType
                     + ", source=" + icon.iconSource + ", package= " + icon.packageName + ")");
