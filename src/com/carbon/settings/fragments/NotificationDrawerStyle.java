@@ -92,8 +92,6 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
     private ContentResolver mResolver;
     private Activity mActivity;
 
-    String mCustomLabelText = null;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
