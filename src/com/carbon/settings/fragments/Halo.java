@@ -90,7 +90,7 @@ public class Halo extends SettingsPreferenceFragment
         mNotificationManager = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
 
-        mHaloEnabled = (SwitchPreference) findPreference(PREF_HALO_ENABLED);
+        mHaloEnabled = (SwitchPreference) findPreference(KEY_HALO_ENABLED);
         mHaloEnabled.setChecked(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.HALO_ENABLED,
                 0) == 1);
