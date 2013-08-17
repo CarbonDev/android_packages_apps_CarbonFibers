@@ -31,6 +31,7 @@ import android.util.Log;
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
+import com.carbon.settings.util.Helpers;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -40,7 +41,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
-    private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";	
+    private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
+    private static final CharSequence STATUS_BAR_BEHAVIOR = "status_bar_behavior";
+    private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -48,6 +51,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
     private ListPreference mCollapseOnDismiss;
+    private ListPreference mStatusBarBeh;
+    private CheckBoxPreference mStatusBarQuickPeek;
+
+    private static int mBarBehavior;
+
+    private static ContentResolver mContentResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +66,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
+        mContentResolver = getContentResolver();
 
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
@@ -81,6 +91,18 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
         mCollapseOnDismiss.setOnPreferenceChangeListener(this);
         updateCollapseBehaviourSummary(collapseBehaviour);
+
+        mStatusBarBeh = (ListPreference) findPreference(STATUS_BAR_BEHAVIOR);
+        int mBarBehavior = Settings.System.getInt(mContentResolver,
+                Settings.System.HIDE_STATUSBAR, 0);
+        mStatusBarBeh.setValue(Integer.toString(Settings.System.getInt(mContentResolver,
+                Settings.System.HIDE_STATUSBAR, mBarBehavior)));
+        updateStatusBarBehaviorSummary(mBarBehavior);
+        mStatusBarBeh.setOnPreferenceChangeListener(this);
+
+        mStatusBarQuickPeek = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_QUICK_PEEK);
+        mStatusBarQuickPeek.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUSBAR_PEEK, 0) == 1));
 
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
@@ -118,6 +140,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
             updateCollapseBehaviourSummary(value);
             return true;
+        } else if (preference == mStatusBarBeh) {
+            int mBarBehavior = Integer.valueOf((String) newValue);
+            int index = mStatusBarBeh.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HIDE_STATUSBAR, mBarBehavior);
+            mStatusBarBeh.setSummary(mStatusBarBeh.getEntries()[index]);
+            updateStatusBarBehaviorSummary(mBarBehavior);
+            Helpers.restartSystemUI();
+            return true;
         }
 
         return false;
@@ -136,6 +167,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, value ? 1 : 0);
             return true;
+        } else if (preference == mStatusBarQuickPeek) {
+            value = mStatusBarQuickPeek.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUSBAR_PEEK, value ? 1 : 0);
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -147,6 +183,23 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } else {
             mClockStyle.setSummary(getString(R.string.clock_disabled));
          }
+    }
+
+    private void updateStatusBarBehaviorSummary(int value) {
+        switch (value) {
+            case 0:
+                mStatusBarBeh.setSummary(getResources().getString(R.string.statusbar_show_summary));
+                break;
+            case 1:
+                mStatusBarBeh.setSummary(getResources().getString(R.string.statusbar_hide_summary));
+                break;
+            case 2:
+                mStatusBarBeh.setSummary(getResources().getString(R.string.statusbar_auto_rem_summary));
+                break;
+            case 3:
+                mStatusBarBeh.setSummary(getResources().getString(R.string.statusbar_auto_all_summary));
+                break;
+        }
     }
 
     @Override

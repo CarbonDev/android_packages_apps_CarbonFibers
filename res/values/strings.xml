@@ -695,4 +695,19 @@
     <string name="popups_title">Allow floating windows</string>
     <string name="popups_summary">Controls whether you want floating windows from notification panel</string>
 
+    <!-- Statusbar behavior -->
+    <string name="statusbar_behavior_title">Statusbar behavior</string>
+    <string name="statusbar_show">Show</string>
+    <string name="statusbar_hide">Hide</string>
+    <string name="statusbar_auto_rem">Auto hide: no clearable notifications (use if permanent notifications are present)</string>
+    <string name="statusbar_auto_all">Auto hide: no notifications</string>
+    <string name="statusbar_show_summary">Show statusbar at all times</string>
+    <string name="statusbar_hide_summary">Hide statusbar at all times</string>
+    <string name="statusbar_auto_rem_summary">Auto hide statusbar if no clearable notifications are present</string>
+    <string name="statusbar_auto_all_summary">Auto hide statusbar if no notifications are present</string>
+
+    <!-- Statusbar Quick Peek -->
+    <string name="statusbar_quick_peek_title">Quick peek</string>
+    <string name="statusbar_quick_peek_summary">Peek at the statusbar when hidden by swiping down from top edge of screen</string>
+
 </resources>

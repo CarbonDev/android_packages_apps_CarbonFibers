@@ -739,4 +739,18 @@
         <item>1</item>
     </string-array>
 
+    <!-- Statusbar behavior -->
+    <string-array name="statusbar_behavior_entries" translatable="false">
+        <item>@string/statusbar_show</item>
+        <item>@string/statusbar_hide</item>
+        <item>@string/statusbar_auto_rem</item>
+        <item>@string/statusbar_auto_all</item>
+    </string-array>
+    <string-array name="statusbar_behavior_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>
