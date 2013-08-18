@@ -206,21 +206,21 @@ public class Navbar extends SettingsPreferenceFragment implements
         mButtonAlpha.setInitValue((int) (defaultButtonAlpha * 100));
         mButtonAlpha.setOnPreferenceChangeListener(this);
 
-	int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
-	int navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT, defNavBarSize);
+        int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
+        int navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT, defNavBarSize);
         mNavigationBarHeight = (SeekBarPreference) findPreference("navigation_bar_height");
-	mNavigationBarHeight.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
+        mNavigationBarHeight.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
  
-	navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, defNavBarSize);
+        navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, defNavBarSize);
         mNavigationBarHeightLandscape = (SeekBarPreference) findPreference("navigation_bar_height_landscape");
-	mNavigationBarHeightLandscape.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
+        mNavigationBarHeightLandscape.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
 
         
-	navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_WIDTH, defNavBarSize);
+        navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_WIDTH, defNavBarSize);
         mNavigationBarWidth = (SeekBarPreference) findPreference("navigation_bar_width");
-	mNavigationBarWidth.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
+        mNavigationBarWidth.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarWidth.setOnPreferenceChangeListener(this);
         mConfigureWidgets = findPreference(NAVIGATION_BAR_WIDGETS);
 
@@ -490,9 +490,9 @@ public class Navbar extends SettingsPreferenceFragment implements
         mGlowTimes.setSummary(getResources().getString(resId));
     }
 
-    public int percentToPixels(int percent) {	
-	int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
-    	return (int)((float)defNavBarSize * ((float) percent * 0.01f));
+    public int percentToPixels(int percent) {   
+        int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
+        return (int)((float)defNavBarSize * ((float) percent * 0.01f));
     }
 
     public void refreshSettings() {

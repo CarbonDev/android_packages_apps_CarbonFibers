@@ -57,13 +57,13 @@ public class SeekBarPreference extends Preference
     }
 
     public void setInitValue(int Progress) {
-	progress = Progress;
+        progress = Progress;
         defaultValue = progress;
         if (bar!=null)
         {
             bar.setProgress(progress);
             monitorBox.setText(progress + "%");
-    }
+        }
     }
 
     @Override
@@ -80,14 +80,14 @@ public class SeekBarPreference extends Preference
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int Progress, boolean fromUser) {
-	progress = Progress;
+        progress = Progress;
         progress = Math.round(((float) progress) / interval) * interval;
         seekBar.setProgress(progress);
 
         monitorBox.setText(progress + "%");    }
 
     public void setValue(int Progress){
-	progress = Progress;
+        progress = Progress;
         if (bar!=null)
         {
             bar.setProgress(progress);
@@ -110,7 +110,7 @@ public class SeekBarPreference extends Preference
     }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {	
+    public void onStopTrackingTouch(SeekBar seekBar) {  
         changer.onPreferenceChange(this, Integer.toString(progress));
     }
 }
