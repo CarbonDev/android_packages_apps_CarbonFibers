@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.carbon.settings" >
+    package="com.carbon.settings"
+    android:sharedUserId="android.uid.system" >
 
-    <uses-sdk android:minSdkVersion="17"/>
+    <uses-sdk android:minSdkVersion="18"/>
     <original-package android:name="com.carbon.settings" />
 
     <uses-permission android:name="android.permission.REBOOT" />
@@ -16,10 +17,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
     <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO"/>
+
 
     <application
         android:hardwareAccelerated="true"
@@ -207,6 +210,20 @@
   	       <category android:name="android.intent.category.DEFAULT" />
           </intent-filter>
         </activity>
+        <activity
+            android:name="com.carbon.settings.device.DeviceTools"
+            android:label="@string/device_tools_title" >
+            <intent-filter>
+                <action android:name="com.carbon.action.LAUNCH_DEVICE_SETTINGS" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".device.DeviceStartup">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".service.ChangeFastChargeStateReceiver" >
             <intent-filter>

@@ -61,4 +61,17 @@
         android:title="@string/toggles_title"
         android:icon="@drawable/ic_carbon_quicksettings" />
 
+   <header
+        android:title="@string/system" />
+
+   <header
+        android:id="@+id/device_tools"
+        android:title="@string/device_tools_title"
+        android:icon="@drawable/ic_carbon_device" >
+        <intent
+            android:action="com.carbon.action.LAUNCH_DEVICE_SETTINGS"
+            android:targetPackage="com.carbon.settings"
+            android:targetClass="com.carbon.settings.device.DeviceTools" />
+   </header>
+
 </preference-headers>

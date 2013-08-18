@@ -28,6 +28,9 @@
     <!-- Header Summaries -->
     <string name="header_summary">@null</string>
 
+    <!-- Device tools settings -->
+    <string name="device_tools_title">Device tool</string>
+
     <!-- Menu Strings -->
     <string name="menu_main_activity_change_locale">Locale</string>
 
