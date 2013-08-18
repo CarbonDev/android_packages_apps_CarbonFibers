@@ -40,7 +40,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
 
     private static final String TAG = "CR_Settings";
 
-//    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
+    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
     private List<Header> mHeaders;
@@ -51,7 +51,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
     private Header mCurrentHeader;
     boolean mInLocalHeaderSwitch;
 
-//    Locale defaultLocale;
+    Locale defaultLocale;
 
     protected boolean isShortcut;
 
@@ -115,6 +115,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
 
     }
 
@@ -127,7 +128,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
         }
     }
 
-/**    @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity, menu);
@@ -155,7 +156,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                 recreate();
                 return true;
             case android.R.id.home:
-                // think of an idea to make the navigation drawer toggle button works.
+                onBackPressed();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -184,7 +185,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                     getBaseContext().getResources().getDisplayMetrics());
 
         }
-    }**/
+    }
 
     /**
      * Populate the activity with the top-level headers.
