@@ -227,10 +227,8 @@
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
 
     <!-- Status bar brightness slider -->
-    <string name="brightness_slider_title">Statusbar brightness slider</string>
-    <string name="brightness_slider_summary">When enabled, this option will allow you to change the brightness by
-        sliding your finger across the Statusbar. Note: Will not be active when auto-brightness is on
-    </string>
+    <string name="brightness_slider_title">Brightness slider</string>
+    <string name="brightness_slider_summary">Change the brightness by sliding your finger across the statusbar. Note: Will not be active when auto-brightness is on</string>
 
     <!-- Notification drawer settings  -->
     <string name="notification_drawer_title">Notification drawer</string>
