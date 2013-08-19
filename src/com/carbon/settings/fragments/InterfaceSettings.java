@@ -182,7 +182,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mHardwareKeys) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            HardwareKeys fragment = new HardwareKeys();
+            ButtonSettings fragment = new ButtonSettings();
             ft.addToBackStack("hardware_keys_binding");
             ft.replace(this.getId(), fragment);
             ft.commit();

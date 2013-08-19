@@ -41,7 +41,7 @@
 
         <Preference
             android:key="hardware_keys"
-            android:title="@string/hardware_keys_title" />
+            android:title="@string/button_settings" />
 
     </PreferenceCategory>
 
