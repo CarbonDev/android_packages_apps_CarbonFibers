@@ -63,16 +63,17 @@ public class DeviceTools extends FragmentActivity {
         bar.setTitle(R.string.device_tools_title);
         bar.setDisplayHomeAsUpEnabled(true);
 
-//        final boolean isHtcOne = getResources().getBoolean(R.bool.is_htc_one);
+        final boolean isHtcOne = getResources().getBoolean(R.bool.is_htc_one);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
-//        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_buttonlight_title),
-//                    ButtonLightFragmentActivity.class, null);
-//        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sensors_title),
-//                    SensorsFragmentActivity.class, null);
-//        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_touchscreen_title),
-//                    TouchscreenFragmentActivity.class, null);
-        
+        if (isHtcOne) {
+            mTabsAdapter.addTab(bar.newTab().setText(R.string.category_buttonlight_title),
+                        ButtonLightFragmentActivity.class, null);
+            mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sensors_title),
+                        SensorsFragmentActivity.class, null);
+            mTabsAdapter.addTab(bar.newTab().setText(R.string.category_touchscreen_title),
+                        TouchscreenFragmentActivity.class, null);
+        }
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

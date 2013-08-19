@@ -40,6 +40,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
 
     private static final String TAG = "CR_Settings";
 
+    private static boolean hasDeviceTools;
     private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
@@ -57,9 +58,10 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-//        defaultLocale = Locale.getDefault();
-//        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
-//        setLocale();
+        hasDeviceTools = getResources().getBoolean(R.bool.has_device_tools);
+        defaultLocale = Locale.getDefault();
+        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
+        setLocale();
 
         mInLocalHeaderSwitch = true;
         super.onCreate(savedInstanceState);
@@ -193,7 +195,18 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
     @Override
     public void onBuildHeaders(List<Header> headers) {
         loadHeadersFromResource(R.xml.preference_headers, headers);
-
+        ArrayList<Header> toRemove = new ArrayList<Header>();
+        for (int i = 0; i < headers.size(); i++) {
+            Header header = headers.get(i);
+            if (header.id == R.id.device_tools) {
+                if (!hasDeviceTools) {
+                    toRemove.add(header);
+                }
+            }
+        }
+        for (int i = 0; i < toRemove.size(); i++) {
+            headers.remove(toRemove.get(i));
+        }
         updateHeaderList(headers);
 
         mHeaders = headers;
