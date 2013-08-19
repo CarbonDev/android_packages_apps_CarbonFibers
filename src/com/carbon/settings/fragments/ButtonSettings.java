@@ -28,6 +28,8 @@ import android.provider.Settings;
 import android.widget.Toast;
 
 import com.carbon.settings.R;
+import com.carbon.settings.fragments.ButtonBacklightBrightness;
+import com.carbon.settings.fragments.KeyboardBacklightBrightness;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
 
@@ -43,11 +45,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ASSIST_LONG_PRESS = "hardware_keys_assist_long_press";
     private static final String KEY_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
+    private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
+    private static final String KEY_KEYBOARD_BACKLIGHT = "keyboard_backlight";
 
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_MENU = "menu_key";
     private static final String CATEGORY_ASSIST = "assist_key";
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
+    private static final String CATEGORY_BACKLIGHT = "key_backlight";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -103,6 +108,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
+        final PreferenceCategory backlightCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACKLIGHT);
 
         if (hasHomeKey) {
             int defaultLongPressAction = res.getInteger(
@@ -185,6 +192,18 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.HARDWARE_KEY_REBINDING, 0) == 1);
         } else {
             prefScreen.removePreference(mEnableCustomBindings);
+        }
+
+        if (ButtonBacklightBrightness.isSupported() || KeyboardBacklightBrightness.isSupported()) {
+            if (!ButtonBacklightBrightness.isSupported()) {
+                removePreference(KEY_BUTTON_BACKLIGHT);
+            }
+
+            if (!KeyboardBacklightBrightness.isSupported()) {
+                removePreference(KEY_KEYBOARD_BACKLIGHT);
+            }
+        } else {
+            prefScreen.removePreference(backlightCategory);
         }
     }
 

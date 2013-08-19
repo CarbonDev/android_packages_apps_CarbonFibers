@@ -870,4 +870,9 @@
     <string name="gamma_tuning_title_head">Gamma calibration</string>
     <string name="gamma_tuning_summary_head">Tweak gamma values</string>
 
+    <!-- Hardware tunables - Key backlight -->
+    <string name="key_backlight_title">Backlight</string>
+    <string name="button_backlight_title">Button backlight brightness</string>
+    <string name="keyboard_backlight_title">Keyboard backlight brightness</string>
+
 </resources>
