@@ -96,9 +96,9 @@ public class Navbar extends SettingsPreferenceFragment implements
     ListPreference mNavBarMenuDisplay;
     ListPreference mNavBarButtonQty;
     CheckBoxPreference mEnableNavigationBar;
-    ListPreference mNavigationBarHeight;
-    ListPreference mNavigationBarHeightLandscape;
-    ListPreference mNavigationBarWidth;
+    SeekBarPreference mNavigationBarHeight;
+    SeekBarPreference mNavigationBarHeightLandscape;
+    SeekBarPreference mNavigationBarWidth;
     SeekBarPreference mButtonAlpha;
     CheckBoxPreference mMenuArrowKeysCheckBox;
     Preference mConfigureWidgets;
@@ -206,13 +206,21 @@ public class Navbar extends SettingsPreferenceFragment implements
         mButtonAlpha.setInitValue((int) (defaultButtonAlpha * 100));
         mButtonAlpha.setOnPreferenceChangeListener(this);
 
-        mNavigationBarHeight = (ListPreference) findPreference("navigation_bar_height");
+        int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
+        int navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT, defNavBarSize);
+        mNavigationBarHeight = (SeekBarPreference) findPreference("navigation_bar_height");
+        mNavigationBarHeight.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
-
-        mNavigationBarHeightLandscape = (ListPreference) findPreference("navigation_bar_height_landscape");
+ 
+        navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, defNavBarSize);
+        mNavigationBarHeightLandscape = (SeekBarPreference) findPreference("navigation_bar_height_landscape");
+        mNavigationBarHeightLandscape.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
 
-        mNavigationBarWidth = (ListPreference) findPreference("navigation_bar_width");
+        
+        navBarSize = Settings.System.getInt(mContentRes, Settings.System.NAVIGATION_BAR_WIDTH, defNavBarSize);
+        mNavigationBarWidth = (SeekBarPreference) findPreference("navigation_bar_width");
+        mNavigationBarWidth.setInitValue((int)((float)navBarSize / (float)defNavBarSize * 100.0f));
         mNavigationBarWidth.setOnPreferenceChangeListener(this);
         mConfigureWidgets = findPreference(NAVIGATION_BAR_WIDGETS);
 
@@ -360,15 +368,16 @@ public class Navbar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mNavigationBarWidth) {
             String newVal = (String) newValue;
-            int dp = Integer.parseInt(newVal);
-            int width = mapChosenDpToPixels(dp);
+            int p = Integer.parseInt(newVal);
+            int width = percentToPixels(p);
             Settings.System.putInt(mContentRes, Settings.System.NAVIGATION_BAR_WIDTH,
                     width);
             return true;
         } else if (preference == mNavigationBarHeight) {
             String newVal = (String) newValue;
             int dp = Integer.parseInt(newVal);
-            int height = mapChosenDpToPixels(dp);
+            int p = Integer.parseInt(newVal);
+            int height = percentToPixels(p);
             Settings.System.putInt(mContentRes, Settings.System.NAVIGATION_BAR_HEIGHT,
                     height);
             return true;
@@ -380,7 +389,8 @@ public class Navbar extends SettingsPreferenceFragment implements
         } else if (preference == mNavigationBarHeightLandscape) {
             String newVal = (String) newValue;
             int dp = Integer.parseInt(newVal);
-            int height = mapChosenDpToPixels(dp);
+            int p = Integer.parseInt(newVal);
+            int height = percentToPixels(p);
             Settings.System.putInt(mContentRes,
                     Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE,
                     height);
@@ -480,24 +490,9 @@ public class Navbar extends SettingsPreferenceFragment implements
         mGlowTimes.setSummary(getResources().getString(resId));
     }
 
-    public int mapChosenDpToPixels(int dp) {
-        switch (dp) {
-            case 48:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
-            case 44:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_44);
-            case 42:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_42);
-            case 40:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_40);
-            case 36:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_36);
-            case 30:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_30);
-            case 24:
-                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_24);
-        }
-        return -1;
+    public int percentToPixels(int percent) {   
+        int defNavBarSize = getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
+        return (int)((float)defNavBarSize * ((float) percent * 0.01f));
     }
 
     public void refreshSettings() {
