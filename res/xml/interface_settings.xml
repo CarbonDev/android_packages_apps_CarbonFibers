@@ -12,15 +12,23 @@
             android:persistent="false"
             android:defaultValue="false" />
 
-        <Preference
-            android:key="transparency_dialog"
-            android:title="@string/transparency_dialog_title" />
-
         <CheckBoxPreference
             android:key="use_alt_resolver"
             android:title="@string/alt_resolver_title"
             android:summary="@string/alt_resolver_summary"
             android:defaultValue="false" />
+
+        <Preference
+            android:key="transparency_dialog"
+            android:title="@string/transparency_dialog_title" />
+
+        <PreferenceScreen
+            android:key="color_settings"
+            android:title="@string/color_settings_title" >
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.carbon.settings"
+                    android:targetClass="com.carbon.settings.fragments.ColorSettings" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 

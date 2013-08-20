@@ -97,6 +97,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
+    private Preference mColorSettings;
     private Preference mHardwareKeys;
     private Preference mRamBar;
 

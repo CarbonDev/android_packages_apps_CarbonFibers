@@ -40,6 +40,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.carbon.settings.fragments.ColorSettings"
+            android:label="@string/color_settings_title">
+            <!-- FragmentActivity needed the right activity name lol -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
         <activity 
             android:name=".fragments.InterfaceSettings"
             android:label="@string/user_interface" >
