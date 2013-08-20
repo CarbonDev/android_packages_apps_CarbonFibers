@@ -39,7 +39,6 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
         </activity>
-
         <activity 
             android:name=".fragments.InterfaceSettings"
             android:label="@string/user_interface" >

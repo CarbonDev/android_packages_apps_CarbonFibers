@@ -32,9 +32,7 @@ import android.util.Log;
 import com.carbon.settings.R;
 
 // import htc one stuffs
-import com.carbon.settings.device.htc.ButtonLightFragmentActivity;
-import com.carbon.settings.device.htc.SensorsFragmentActivity;
-import com.carbon.settings.device.htc.TouchscreenFragmentActivity;
+import com.carbon.settings.device.htc.*;
 // import the other stuffs
 
 import java.util.ArrayList;
