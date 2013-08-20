@@ -20,8 +20,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
@@ -31,11 +31,10 @@ import com.carbon.settings.SettingsPreferenceFragment;
 public class MoreDeviceSettings extends SettingsPreferenceFragment {
     private static final String TAG = "MoreDeviceSettings";
 
-    private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
-    private static final String KEY_SENORS_MOTORS_CATEGORY = "sensors_motors_category";
+    private static final String KEY_SENSORS_MOTORS_CATEGORY = "sensors_motors_category";
     private static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
-
-    private CheckBoxPreference mHeadsetConnectPlayer;
+    private static final String KEY_DISPLAY_COLOR = "color_calibration";
+    private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,27 +43,24 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.more_device_settings);
         ContentResolver resolver = getContentResolver();
 
-        mHeadsetConnectPlayer = (CheckBoxPreference) findPreference(KEY_HEADSET_CONNECT_PLAYER);
-        mHeadsetConnectPlayer.setChecked(Settings.System.getInt(resolver,
-                Settings.System.HEADSET_CONNECT_PLAYER, 0) != 0);
-
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (!VibratorIntensity.isSupported() || vibrator == null || !vibrator.hasVibrator()) {
-            removePreference(KEY_SENORS_MOTORS_CATEGORY);
+            removePreference(KEY_SENSORS_MOTORS_CATEGORY);
         }
 
-        if (!DisplayColor.isSupported()) {
-            removePreference(KEY_DISPLAY_CALIBRATION_CATEGORY);
-        }
-    }
+        final PreferenceGroup calibrationCategory =
+                (PreferenceGroup) findPreference(KEY_DISPLAY_CALIBRATION_CATEGORY);
 
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mHeadsetConnectPlayer) {
-            Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
-                    mHeadsetConnectPlayer.isChecked() ? 1 : 0);
+        if (!DisplayColor.isSupported() && !DisplayGamma.isSupported()) {
+            getPreferenceScreen().removePreference(calibrationCategory);
+        } else {
+            if (!DisplayColor.isSupported()) {
+                calibrationCategory.removePreference(findPreference(KEY_DISPLAY_COLOR));
+            }
+            if (!DisplayGamma.isSupported()) {
+                calibrationCategory.removePreference(findPreference(KEY_DISPLAY_GAMMA));
+            }
         }
-        return true;
     }
 
 }

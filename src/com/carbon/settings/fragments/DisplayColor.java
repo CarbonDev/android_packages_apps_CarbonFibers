@@ -71,7 +71,7 @@ public class DisplayColor extends DialogPreference {
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-        builder.setNeutralButton(R.string.auto_brightness_reset_button,
+        builder.setNeutralButton(R.string.reset,
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

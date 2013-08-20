@@ -845,7 +845,7 @@
     <string name="listview_bounce_interpolator">bounce_interpolator</string>
 
     <!--  Other device settings -->
-    <string name="more_device_controls_title">More\u2026</string>
+    <string name="more_device_controls_title">Device Tunables</string>
     <string name="more_device_settings_title">Other device options</string>
     <string name="sensors_motors_title">Sensors &amp; motors</string>
     <string name="display_calibration_title">Display calibration</string>
@@ -860,5 +860,10 @@
     <string name="color_red_title">Red</string>
     <string name="color_green_title">Green</string>
     <string name="color_blue_title">Blue</string>
+
+    <!-- Hardware tunables - Gamma calibration -->
+    <string name="category_gamma_title">Gamma</string>
+    <string name="gamma_tuning_title_head">Gamma calibration</string>
+    <string name="gamma_tuning_summary_head">Tweak gamma values</string>
 
 </resources>

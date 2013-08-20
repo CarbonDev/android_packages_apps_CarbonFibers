@@ -30,6 +30,13 @@
                 android:summary="@string/color_calibration_summary"
                 android:persistent="false" />
 
+        <com.carbon.settings.fragments.DisplayGamma
+                android:key="gamma_tuning"
+                android:title="@string/gamma_tuning_title_head"
+                android:dialogTitle="@string/gamma_tuning_title_head"
+                android:summary="@string/gamma_tuning_summary_head"
+                android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -40,17 +47,6 @@
             android:key="vibrator_intensity"
             android:title="@string/vibrator_intensity_title"
             android:dialogTitle="@string/vibrator_intensity_title"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/headset_category_title" >
-
-        <CheckBoxPreference
-            android:key="headset_connect_player"
-            android:title="@string/headset_connect_player_title"
-            android:summary="@string/headset_connect_player_summary"
             android:persistent="false" />
 
     </PreferenceCategory>
