@@ -22,14 +22,6 @@
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
 
-        <PreferenceScreen
-            android:key="color_settings"
-            android:title="@string/color_settings_title" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.carbon.settings"
-                    android:targetClass="com.carbon.settings.fragments.ColorSettings" />
-        </PreferenceScreen>
-
     </PreferenceCategory>
 
     <PreferenceCategory
