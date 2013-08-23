@@ -47,14 +47,6 @@
     <string name="select_application">Select application</string>
     <string name="dpi">DPI</string>
 
-    <!-- Color Settings interface -->
-    <string name="color_settings_title">Color settings</string>
-    <string name="category_halo_title">Halo</string>
-    <string name="category_status_bar_title">Status bar</string>
-    <string name="category_navigation_bar_title">Navigation bar</string>
-    <string name="category_pie_title">Pie</string>
-    <string name="category_quick_settings_title">Quick settings</string>
-
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on Color to apply</string>   
