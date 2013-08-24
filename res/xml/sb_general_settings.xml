@@ -37,4 +37,9 @@
         android:title="@string/status_bar_double_tap_to_sleep_title"
         android:defaultValue="false" />
 
+        <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+        android:key="show_lte_or_fourgee"
+        android:title="@string/show_lte_or_fourgee_title"
+        android:summary="@string/show_lte_or_fourgee_summary" />
+
 </PreferenceScreen>
