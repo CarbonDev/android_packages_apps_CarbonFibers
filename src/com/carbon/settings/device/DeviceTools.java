@@ -52,7 +52,7 @@ public class DeviceTools extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.viewPager);
+        mViewPager.setId(R.id.vPager);
         setContentView(mViewPager);
 
         final ActionBar bar = getActionBar();
