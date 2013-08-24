@@ -201,8 +201,9 @@
     <string name="status_bar_battery_status_circle">Circle</string>
     <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
     <string name="status_bar_battery_status_dotted_circle">Dotted Circle with percentage</string>
-    <string name="status_icon_color_enable_custom">Custom color</string>
-    <string name="status_icon_color_title">Status color</string>
+    <string name="icon_color_behavior_title">Custom icon color</string>
+    <string name="icon_color_behavior_summary">This will filter your current statusbar system icon to your preferred color</string>
+    <string name="status_icon_color_summary">Choose your preferred color</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
