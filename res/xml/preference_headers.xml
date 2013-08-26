@@ -47,6 +47,13 @@
         android:icon="@drawable/ic_carbon_powerwidget"
         android:summary="@string/header_summary" />
 
+    <!-- Ribbon -->
+    <header
+        android:id="@+id/ribbon_targets"
+        android:fragment="com.carbon.settings.fragments.RibbonTargets"
+        android:title="@string/ribbon_settings_title"
+        android:icon="@drawable/ic_carbon_ribbon" />
+
     <!-- Statusbar -->
     <header
         android:id="@+id/status_bar"
