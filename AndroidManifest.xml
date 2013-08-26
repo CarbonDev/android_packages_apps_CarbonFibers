@@ -39,7 +39,16 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
+            android:name=".fragments.DensityChanger"
+            android:label="@string/lcd_density_wizard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.InterfaceSettings"
             android:label="@string/user_interface" >
             <intent-filter>
@@ -48,7 +57,7 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".fragments.LockscreenButtons"
             android:label="@string/lockscreen_buttons_title" >
             <intent-filter>
@@ -57,7 +66,7 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".fragments.LockscreenInterface"
             android:label="@string/lockscreen_title" >
             <intent-filter>
@@ -66,7 +75,7 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".fragments.LockscreenTargets"
             android:label="Lockscreen Targets" >
             <intent-filter>
@@ -111,7 +120,7 @@
                 <category android:name="com.carbon.settings.SHORTCUT" />
               </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".fragments.StatusBarBattery"
             android:label="@string/status_bar_battery_title" >
             <intent-filter>
