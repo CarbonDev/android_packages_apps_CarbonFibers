@@ -167,6 +167,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mMusicControls.setChecked(Settings.System.getInt(cr,
                     Settings.System.LOCKSCREEN_MUSIC_CONTROLS, 1) == 1);
         }
+        updateCustomBackgroundSummary();
     }
 
     @Override
