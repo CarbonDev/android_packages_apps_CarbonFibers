@@ -27,7 +27,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceDrawerActivityAlt;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -292,9 +292,9 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     public boolean startFragment(
             Fragment caller, String fragmentClass, int requestCode, Bundle extras) {
-        if (getActivity() instanceof PreferenceDrawerActivity) {
-            PreferenceDrawerActivity preferenceDrawerActivity = (PreferenceDrawerActivity) getActivity();
-            preferenceDrawerActivity.startPreferencePanel(fragmentClass, extras,
+        if (getActivity() instanceof PreferenceDrawerActivityAlt) {
+            PreferenceDrawerActivityAlt pa = (PreferenceDrawerActivityAlt) getActivity();
+            pa.startPreferencePanel(fragmentClass, extras,
                     R.string.app_name, null, caller, requestCode);
             return true;
         } else {

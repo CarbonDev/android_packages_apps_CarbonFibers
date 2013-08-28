@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceDrawerActivityAlt;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -36,7 +36,7 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class CrSettingsActivity extends PreferenceDrawerActivity implements ButtonBarHandler {
+public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements ButtonBarHandler {
 
     private static final String TAG = "CR_Settings";
 
