@@ -105,13 +105,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
-<<<<<<< HEAD:src/com/carbon/settings/fragments/ButtonSettings.java
         final PreferenceCategory backlightCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACKLIGHT);
-=======
-        final PreferenceCategory volumeCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
->>>>>>> 14758f1... Improve button/keyboard backlight code.:src/com/android/settings/cyanogenmod/ButtonSettings.java
 
         if (hasHomeKey) {
             int defaultLongPressAction = res.getInteger(

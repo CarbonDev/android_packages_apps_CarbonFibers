@@ -79,7 +79,7 @@ public class ButtonBacklightBrightness extends DialogPreference implements
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-        builder.setNeutralButton(R.string.auto_brightness_reset_button,
+        builder.setNeutralButton(R.string.reset,
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -218,8 +218,11 @@ public class ButtonBacklightBrightness extends DialogPreference implements
     private void updateBrightnessPreview() {
         if (mWindow != null) {
             LayoutParams params = mWindow.getAttributes();
-            params.buttonBrightness = mActiveControl != null
-                    ? mActiveControl.getBrightness(false) : -1;
+            if (mActiveControl != null) {
+                params.buttonBrightness = (float) mActiveControl.getBrightness(false) / 255.0f;
+            } else {
+                params.buttonBrightness = -1;
+            }
             mWindow.setAttributes(params);
         }
     }
@@ -306,13 +309,12 @@ public class ButtonBacklightBrightness extends DialogPreference implements
         /* Behaviors when it's a seekbar */
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            mActiveControl = this;
             handleBrightnessUpdate(progress);
         }
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
-            // Do nothing here
+            mActiveControl = this;
         }
 
         @Override
