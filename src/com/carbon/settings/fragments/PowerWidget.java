@@ -290,12 +290,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 mCheckBoxPrefs.put(cb, button.getId());
 
                 // specific checks for availability on some platforms
-                if (PowerWidgetUtil.BUTTON_FLASHLIGHT.equals(button.getId()) &&
-                        !getResources().getBoolean(R.bool.has_led_flash)) {
-                    // disable flashlight if it's not supported
-                    cb.setEnabled(false);
-                    mFlashMode.setEnabled(false);
-                } else if (PowerWidgetUtil.BUTTON_NETWORKMODE.equals(button.getId())) {
+                // if (PowerWidgetUtil.BUTTON_FLASHLIGHT.equals(button.getId()) &&
+                //        !getResources().getBoolean(R.bool.has_led_flash)) {
+                //    // disable flashlight if it's not supported
+                //    cb.setEnabled(false);
+                //    mFlashMode.setEnabled(false);
+                if (PowerWidgetUtil.BUTTON_NETWORKMODE.equals(button.getId())) {
                     // some phones run on networks not supported by this button,
                     // so disable it
                     int network_state = -99;
