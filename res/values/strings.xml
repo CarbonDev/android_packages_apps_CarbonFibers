@@ -869,6 +869,5 @@
     <string name="category_gamma_title">Gamma</string>
     <string name="gamma_tuning_title_head">Gamma calibration</string>
     <string name="gamma_tuning_summary_head">Tweak gamma values</string>
->>>>>>> 793bddcd125fc3d864fc5901022bd6332afdc9eb
 
 </resources>
