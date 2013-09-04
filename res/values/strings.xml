@@ -846,7 +846,7 @@
 
     <!-- Network speed -->
     <string name="show_network_speed">Network speed indicator</string>
-    <string name="show_network_speed_summary">Show network speed in statsbar</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar</string>
 
     <!--  Other device settings -->
     <string name="more_device_controls_title">Device Tunables</string>
