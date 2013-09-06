@@ -49,7 +49,7 @@ public class ButtonLightFragmentActivity extends PreferenceFragment {
         Resources res = getResources();
         sButtonLight = res.getBoolean(R.bool.has_buttonlight);
 
-        addPreferencesFromResource(R.xml.buttonlight_preferences);
+        addPreferencesFromResource(R.xml.htc_buttonlight_preferences);
 
         if (sButtonLight) {
             mButtonLightNotification = (TwoStatePreference) findPreference(KEY_BUTTONLIGHTNOTIFICATION_SWITCH);

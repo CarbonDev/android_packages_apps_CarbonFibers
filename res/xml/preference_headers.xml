@@ -81,4 +81,11 @@
             android:targetClass="com.carbon.settings.device.DeviceTools" />
    </header>
 
+   <header
+   	    android:id="@+id/more_device_settings"
+        android:title="@string/more_device_controls_title"
+        android:breadCrumbTitle="@string/more_device_settings_title"
+        android:fragment="com.carbon.settings.fragments.MoreDeviceSettings"
+        android:icon="@drawable/ic_carbon_device" />
+
 </preference-headers>

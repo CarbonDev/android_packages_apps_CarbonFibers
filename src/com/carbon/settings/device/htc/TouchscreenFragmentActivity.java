@@ -53,7 +53,7 @@ public class TouchscreenFragmentActivity extends PreferenceFragment {
         sLogo2Menu = res.getBoolean(R.bool.has_logo2menu);
         sWake = res.getBoolean(R.bool.has_wake);
 
-        addPreferencesFromResource(R.xml.touchscreen_preferences);
+        addPreferencesFromResource(R.xml.htc_touchscreen_preferences);
 
         if (sLogo2Menu) {
             mLogo2MenuSwitch = (TwoStatePreference) findPreference(KEY_LOGO2MENU_SWITCH);

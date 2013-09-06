@@ -73,6 +73,13 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         }
     }
 
+    protected void removePreference(String key) {
+        Preference pref = findPreference(key);
+        if (pref != null) {
+            getPreferenceScreen().removePreference(pref);
+        }
+    }
+
    /* public static boolean isTablet(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.System.CURRENT_UI_MODE,0) == 1;

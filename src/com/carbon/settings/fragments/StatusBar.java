@@ -47,6 +47,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
+    private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -58,6 +59,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mCollapseOnDismiss;
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
+    private CheckBoxPreference mStatusBarTraffic;
 
     private static int mBarBehavior;
 
@@ -84,7 +86,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusbarSliderPreference = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS);
         mStatusbarSliderPreference.setChecked((Settings.System.getInt(mContentAppRes,
                 Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, 0) == 1));
-
+        
+		mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
+		mStatusBarTraffic.setChecked(Settings.System.getBoolean(mContentAppRes,
+                Settings.System.STATUS_BAR_TRAFFIC, false));
+				
         int collapseBehaviour = Settings.System.getInt(mContentRes,
                 Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS,
                 Settings.System.STATUS_BAR_COLLAPSE_IF_NO_CLEARABLE);
@@ -192,6 +198,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             value = mStatusBarQuickPeek.isChecked();
             Settings.System.putInt(mContentAppRes,
                     Settings.System.STATUSBAR_PEEK, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarTraffic) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRAFFIC,
+                    mStatusBarTraffic.isChecked());
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

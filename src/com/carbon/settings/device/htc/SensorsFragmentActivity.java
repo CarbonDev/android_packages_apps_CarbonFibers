@@ -51,7 +51,7 @@ public class SensorsFragmentActivity extends PreferenceFragment implements OnPre
         Resources res = getResources();
         sPocketDetection = res.getBoolean(R.bool.has_pocketdetection);
 
-        addPreferencesFromResource(R.xml.sensors_preferences);
+        addPreferencesFromResource(R.xml.htc_sensors_preferences);
 
         final ListPreference proximityPref = (ListPreference)findPreference(KEY_PROXIMITY_CALIBRATION);
         proximityPref.setOnPreferenceChangeListener(this);
