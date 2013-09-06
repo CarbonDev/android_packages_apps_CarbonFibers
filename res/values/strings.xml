@@ -103,7 +103,7 @@
     <string name="icon_picker_rss">Rss</string>
     <string name="icon_picker_search">Search</string>
     <string name="icon_picker_sms">Messaging</string>
-    <string name="icon_picker_twitter">Twitter</string>
+    <string name="icon_picker_twitter">twitter</string>
 
     <!-- String for IconPicker -->
     <string name="icon_picker_title">Choose icon source</string>
