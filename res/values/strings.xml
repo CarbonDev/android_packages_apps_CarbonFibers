@@ -886,4 +886,11 @@
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Enabled</string>
 
+    <string name="lockscreen_glow_torch_title">GlowPad torch</string>
+    <string name="lockscreen_glow_torch_summary">Longpressing the center of the lock ring or navigation ring will
+        turn torch on.  Release finger to turn torch off.</string>
+    <string name="lockscreen_torch_off">Off</string>
+    <string name="lockscreen_torch_lockcircle">LockRing</string>
+    <string name="lockscreen_torch_navring">NavRing</string>
+
 </resources>

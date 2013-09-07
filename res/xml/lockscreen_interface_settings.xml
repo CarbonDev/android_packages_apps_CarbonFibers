@@ -52,6 +52,16 @@
         android:key="lockscreen_camera_widget"
         android:title="@string/lockscreen_camera_widget_title" />
 
+    <ListPreference
+        android:key="glowpad_torch"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_glow_torch_title"
+        android:title="@string/lockscreen_glow_torch_title"
+        android:summary="@string/lockscreen_glow_torch_summary"
+        android:entries="@array/pref_lockscreen_glowtorch_entries"
+        android:entryValues="@array/pref_lockscreen_glowtorch_values"
+        android:defaultValue="0" />
+
     <CheckBoxPreference
         android:key="lockscreen_hide_initial_page_hints"
         android:title="@string/lockscreen_hide_initial_page_hints_title"

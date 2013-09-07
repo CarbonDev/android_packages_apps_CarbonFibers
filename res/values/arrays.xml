@@ -929,4 +929,16 @@
         <item>3</item>
     </string-array>
 
+     <string-array name="pref_lockscreen_glowtorch_entries" translatable="false">
+        <item>@string/lockscreen_torch_off</item>
+        <item>@string/lockscreen_torch_lockcircle</item>
+        <item>@string/lockscreen_torch_navring</item>
+    </string-array>
+
+    <string-array name="pref_lockscreen_glowtorch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

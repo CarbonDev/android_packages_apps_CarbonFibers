@@ -65,10 +65,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
     private static final String KEY_BACKGROUND_ALPHA_PREF = "lockscreen_alpha";
     private static final String PREF_LOCKSCREEN_MINIMIZE_CHALLENGE = "lockscreen_minimize_challenge";
+    private static final String KEY_GLOWPAD_TORCH = "glowpad_torch";
 
     private PreferenceScreen mLockscreenButtons;
     private ListPreference mBatteryStatus;
     private ListPreference mCustomBackground;
+    private ListPreference mGlowpadTorch;
     private CheckBoxPreference mMusicControls;
     private CheckBoxPreference mLockscreenHideInitialPageHints;
     private CheckBoxPreference mQuickUnlock;
@@ -110,6 +112,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
             mBatteryStatus.setOnPreferenceChangeListener(this);
+        }
+
+        mGlowpadTorch = (ListPreference) findPreference(KEY_GLOWPAD_TORCH);
+        if (mGlowpadTorch != null) {
+            int glowTorch = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOW_TORCH, 0);
+            mGlowpadTorch.setValueIndex(glowTorch);
+            mGlowpadTorch.setOnPreferenceChangeListener(this);
         }
 
         mMusicControls = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MUSIC_CONTROLS);
@@ -216,6 +226,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        } else if (preference == mGlowpadTorch) {
+            int value = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOW_TORCH, value);
             return true;
         } else if (preference == mMusicControls) {
             boolean value = (Boolean) objValue;
