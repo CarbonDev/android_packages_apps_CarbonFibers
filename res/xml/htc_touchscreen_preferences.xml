@@ -14,28 +14,36 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <PreferenceCategory
-            android:title="@string/logo2menu_title">
-                <CheckBoxPreference
-                android:key="logo2menu_switch"
-                android:title="@string/logo2menu_switch_title_head"
-                android:summary="@string/logo2menu_switch_summary_head"
-                android:defaultValue="0" />
-                <CheckBoxPreference
-                android:key="longtaplogosleep_switch"
-                android:dependency="logo2menu_switch"
-                android:title="@string/longtaplogosleep_switch_title_head"
-                android:summary="@string/longtaplogosleep_switch_summary_head"
-                android:defaultValue="0" />
+        android:title="@string/logo2menu_title">
+
+        <CheckBoxPreference
+            android:key="logo2menu_switch"
+            android:title="@string/logo2menu_switch_title_head"
+            android:summary="@string/logo2menu_switch_summary_head"
+            android:defaultValue="0" />
+
+        <CheckBoxPreference
+            android:key="longtaplogosleep_switch"
+            android:dependency="logo2menu_switch"
+            android:title="@string/longtaplogosleep_switch_title_head"
+            android:summary="@string/longtaplogosleep_switch_summary_head"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
+
     <PreferenceCategory
-            android:title="@string/wake_title">
-            <ListPreference
-                android:key="wake_method"
-                android:title="@string/wake_method_title_head"
-                android:summary="@string/wake_method_summary_head"
-                android:entries="@array/wake_method_entries"
-                android:entryValues="@array/wake_method_entries_values"
-                android:defaultValue="0" />
+        android:title="@string/wake_title">
+
+        <ListPreference
+            android:key="wake_method"
+            android:title="@string/wake_method_title_head"
+            android:summary="@string/wake_method_summary_head"
+            android:entries="@array/wake_method_entries"
+            android:entryValues="@array/wake_method_entries_values"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
+
 </PreferenceScreen>

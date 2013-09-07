@@ -36,11 +36,9 @@ public class ButtonLightFragmentActivity extends PreferenceFragment {
 
     private static final String TAG = "DeviceSettings_ButtonLight";
     public static final String KEY_BUTTONLIGHTNOTIFICATION_SWITCH = "buttonlightnotification_switch";
-    public static final String KEY_BACKLIGHTDISABLE_SWITCH = "backlightdisable_switch";
 
     private static boolean sButtonLight;
     private TwoStatePreference mButtonLightNotification;
-    private TwoStatePreference mBacklightDisableSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,9 +53,6 @@ public class ButtonLightFragmentActivity extends PreferenceFragment {
             mButtonLightNotification = (TwoStatePreference) findPreference(KEY_BUTTONLIGHTNOTIFICATION_SWITCH);
             mButtonLightNotification.setEnabled(ButtonLightNotificationSwitch.isSupported());
             mButtonLightNotification.setOnPreferenceChangeListener(new ButtonLightNotificationSwitch());
-            mBacklightDisableSwitch = (TwoStatePreference) findPreference(KEY_BACKLIGHTDISABLE_SWITCH);
-            mBacklightDisableSwitch.setEnabled(BacklightDisableSwitch.isSupported());
-            mBacklightDisableSwitch.setOnPreferenceChangeListener(new BacklightDisableSwitch());
         }
     }
 

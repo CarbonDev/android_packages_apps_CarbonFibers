@@ -68,7 +68,7 @@ public class DeviceTools extends FragmentActivity {
         mPagerTabStrip.setTabIndicatorColor(getResources().getColor(android.R.color.holo_blue_light));
 
         final ActionBar bar = getActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setDisplayShowTitleEnabled(false);
 
     }
 

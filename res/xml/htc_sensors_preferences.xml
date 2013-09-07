@@ -14,26 +14,33 @@
      limitations under the License.
  -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <PreferenceCategory
-                android:title="@string/proximity_subcat_title">
-    <!-- Proximity calibration -->
-    <ListPreference
-                android:key="proximity_calibration"
-                android:title="@string/proximity_calibration_title"
-                android:summary="@string/proximity_calibration_summary"
-                android:entries="@array/proximity_calibration_entries"
-                android:entryValues="@array/proximity_calibration_entries_values"
-                android:defaultValue="0x0 0xFFFF3C2D" />
+        android:title="@string/proximity_subcat_title">
+
+        <!-- Proximity calibration -->
+        <ListPreference
+            android:key="proximity_calibration"
+            android:title="@string/proximity_calibration_title"
+            android:summary="@string/proximity_calibration_summary"
+            android:entries="@array/proximity_calibration_entries"
+            android:entryValues="@array/proximity_calibration_entries_values"
+            android:defaultValue="0x0 0xFFFF3C2D" />
+
     </PreferenceCategory>
+
     <PreferenceCategory
-            android:title="@string/pocketdetection_title">
-            <ListPreference
-                android:key="pocketdetection_method"
-                android:title="@string/pocketdetection_summary_head"
-                android:summary="@string/pocketdetection_summary"
-                android:entries="@array/pocketdetection_entries"
-                android:entryValues="@array/pocketdetection_entries_values"
-                android:defaultValue="1" />
+        android:title="@string/pocketdetection_title">
+
+        <ListPreference
+            android:key="pocketdetection_method"
+            android:title="@string/pocketdetection_summary_head"
+            android:summary="@string/pocketdetection_summary"
+            android:entries="@array/pocketdetection_entries"
+            android:entryValues="@array/pocketdetection_entries_values"
+            android:defaultValue="0" />
+
     </PreferenceCategory>
+
 </PreferenceScreen>
 

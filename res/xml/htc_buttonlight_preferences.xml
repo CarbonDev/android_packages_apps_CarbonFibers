@@ -14,17 +14,11 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-            android:title="@string/buttonlightnotification_title">
-            <CheckBoxPreference
-                android:key="buttonlightnotification_switch"
-                android:title="@string/buttonlightnotification_summary_head"
-                android:summary="@string/buttonlightnotification_summary"
-                android:defaultValue="0" />
-    </PreferenceCategory>
-            <CheckBoxPreference
-                android:key="backlightdisable_switch"
-                android:title="@string/backlight_title_head"
-                android:summary="@string/backlight_summary_head"
-                android:defaultValue="0" />
+
+    <CheckBoxPreference
+        android:key="buttonlightnotification_switch"
+        android:title="@string/buttonlightnotification_summary_head"
+        android:summary="@string/buttonlightnotification_summary"
+        android:defaultValue="0" />
+
 </PreferenceScreen>
