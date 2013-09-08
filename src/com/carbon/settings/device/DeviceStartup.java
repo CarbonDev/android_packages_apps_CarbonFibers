@@ -25,7 +25,6 @@ import com.carbon.settings.device.htc.Logo2MenuSwitch;
 import com.carbon.settings.device.htc.WakeMethod;
 import com.carbon.settings.device.htc.LongTapLogoSleepSwitch;
 import com.carbon.settings.device.htc.ButtonLightNotificationSwitch;
-import com.carbon.settings.device.htc.BacklightDisableSwitch;
 import com.carbon.settings.device.htc.PocketDetectionMethod;
 import com.carbon.settings.device.htc.SensorsFragmentActivity;
 import com.carbon.settings.device.htc.TouchscreenFragmentActivity;
@@ -43,7 +42,6 @@ public class DeviceStartup extends BroadcastReceiver {
         ButtonLightFragmentActivity.restore(context);
         ButtonLightNotificationSwitch.restore(context);
         PocketDetectionMethod.restore(context);
-        BacklightDisableSwitch.restore(context);
 
         // Samsung
           // nothing for now
