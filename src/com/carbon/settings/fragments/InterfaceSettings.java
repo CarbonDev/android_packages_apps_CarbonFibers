@@ -94,11 +94,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_SHOW_OVERFLOW = "show_overflow";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
+    private static final String KEY_RECENTS_ASSIST = "recents_target_assist";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
+    private CheckBoxPreference mShowAssistButton;
     private Preference mColorSettings;
     private Preference mHardwareKeys;
     private Preference mRamBar;
@@ -140,6 +142,10 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
         mUseAltResolver.setChecked(Settings.System.getBoolean(cr,
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
+
+        mShowAssistButton = (CheckBoxPreference) findPreference(KEY_RECENTS_ASSIST);
+        mShowAssistButton.setChecked(Settings.System.getInt(cr,
+                Settings.System.RECENTS_TARGET_ASSIST, 0) == 1);
 
         mShowActionOverflow = (CheckBoxPreference) findPreference(KEY_SHOW_OVERFLOW);
         mShowActionOverflow.setChecked(Settings.System.getInt(cr,
@@ -237,6 +243,10 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                         Toast.LENGTH_LONG).show();
             }
             return true;
+        } else if (preference == mShowAssistButton) {
+            Settings.System.putInt(mContentAppRes,
+                    Settings.System.RECENTS_TARGET_ASSIST,
+            mShowAssistButton.isChecked() ? 1 : 0 );
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

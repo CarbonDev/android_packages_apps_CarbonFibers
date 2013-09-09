@@ -893,4 +893,8 @@
     <string name="lockscreen_torch_lockcircle">LockRing</string>
     <string name="lockscreen_torch_navring">NavRing</string>
 
+    <!-- Recents -->
+    <string name="recents_target_assist_title">Show Google Assistant in Recents</string>
+    <string name="recents_target_assist_summary">This will show a button in recents to access your Google Now or long-press it to voice search.</string>
+
 </resources>

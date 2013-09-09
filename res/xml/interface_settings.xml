@@ -11,6 +11,12 @@
             android:title="@string/ram_bar" />
 
         <CheckBoxPreference
+            android:key="recents_target_assist"
+            android:title="@string/recents_target_assist_title"
+            android:summary="@string/recents_target_assist_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="show_overflow"
             android:title="@string/hardware_keys_show_overflow_title"
             android:summary="@string/hardware_keys_show_overflow_summary"
