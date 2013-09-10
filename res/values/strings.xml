@@ -885,8 +885,19 @@
     <string name="custom_density_dialog_button_got">Got it!</string>
     <string name="custom_density_dialog_button_reboot">Reboot now</string>
 
+    <!-- Animation Controls -->
+    <string name="title_animation_controls">Animation Controls</string>
+    <string name="activity_open_title">Activity Open Animation</string>
+    <string name="activity_close_title">Activity Close Animation</string>
+    <string name="task_open_title">Task Open Animation</string>
+    <string name="task_close_title">Task Close Animation</string>
+    <string name="task_move_to_front_title">Move To Front Animation</string>
+    <string name="task_move_to_back_title">Move To Back Animation</string>
+    <string name="animation_duration_title">Animation Duration</string>
+
     <!-- ListView animation -->
-    <string name="listview_animation_title">ListView Animation</string>
+    <string name="list_view_title">List View</string>
+    <string name="listview_animation_title">List View Animation</string>
     <string name="listview_off">Off</string>
     <string name="listview_wave_left">Wave (Left)</string>
     <string name="listview_wave_right">Wave (Right)</string>
@@ -901,7 +912,7 @@
     <string name="listview_rotate">Rotate</string>
 
     <!-- ListView interpolator -->
-    <string name="listview_interpolator_title">ListView Interpolator</string>
+    <string name="listview_interpolator_title">List View Interpolator</string>
     <string name="listview_accelerate_interpolator">accelerate_interpolator</string>
     <string name="listview_decelerate_interpolator">decelerate_interpolator</string>
     <string name="listview_accelerate_decelerate_interpolator">accelerate_decelerate_interpolator</string>

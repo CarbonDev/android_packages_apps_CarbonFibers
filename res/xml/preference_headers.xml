@@ -3,6 +3,13 @@
    <header
         android:title="@string/user_interface" />
 
+    <!-- Animations -->
+    <header
+        android:id="@+id/animation_controls"
+        android:fragment="com.carbon.settings.fragments.AnimationControls"
+        android:title="@string/title_animation_controls"
+        android:icon="@drawable/ic_carbon_animations" />
+
     <!-- Halo -->
     <header
         android:id="@+id/halo"
