@@ -3,6 +3,7 @@ package com.carbon.settings.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -13,7 +14,7 @@ import com.android.internal.util.carbon.AwesomeAnimationHelper;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
-import com.carbon.settings.widgets.SeekBarPreference;
+import com.carbon.settings.widgets.AnimBarPreference;
 
 import java.util.Arrays;
 
@@ -26,9 +27,16 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     private static final String TASK_MOVE_TO_FRONT = "task_move_to_front";
     private static final String TASK_MOVE_TO_BACK = "task_move_to_back";
     private static final String ANIMATION_DURATION = "animation_duration";
+    private static final String ANIMATION_NO_OVERRIDE = "animation_no_override";
+    private static final String WALLPAPER_OPEN = "wallpaper_open";
+    private static final String WALLPAPER_CLOSE = "wallpaper_close";
+    private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
+    private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
     private static final String LISTVIEW_ANIMATION = "listview_animation";
     private static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
+    AnimBarPreference mAnimationDuration;
+    CheckBoxPreference mAnimNoOverride;
     ListPreference mActivityOpenPref;
     ListPreference mActivityClosePref;
     ListPreference mTaskOpenPref;
@@ -37,7 +45,10 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     ListPreference mTaskMoveToBackPref;
     ListPreference mListViewAnimation;
     ListPreference mListViewInterpolator;
-    SeekBarPreference mAnimationDuration;
+    ListPreference mWallpaperOpen;
+    ListPreference mWallpaperClose;
+    ListPreference mWallpaperIntraOpen;
+    ListPreference mWallpaperIntraClose;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -59,6 +70,10 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
             mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(mContext, mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
+
+        mAnimNoOverride = (CheckBoxPreference) findPreference(ANIMATION_NO_OVERRIDE);
+        mAnimNoOverride.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
 
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
         mActivityOpenPref.setOnPreferenceChangeListener(this);
@@ -96,9 +111,33 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mTaskMoveToBackPref.setEntries(mAnimationsStrings);
         mTaskMoveToBackPref.setEntryValues(mAnimationsNum);
 
+        mWallpaperOpen = (ListPreference) findPreference(WALLPAPER_OPEN);
+        mWallpaperOpen.setOnPreferenceChangeListener(this);
+        mWallpaperOpen.setSummary(getProperSummary(mWallpaperOpen));
+        mWallpaperOpen.setEntries(mAnimationsStrings);
+        mWallpaperOpen.setEntryValues(mAnimationsNum);
+
+        mWallpaperClose = (ListPreference) findPreference(WALLPAPER_CLOSE);
+        mWallpaperClose.setOnPreferenceChangeListener(this);
+        mWallpaperClose.setSummary(getProperSummary(mWallpaperClose));
+        mWallpaperClose.setEntries(mAnimationsStrings);
+        mWallpaperClose.setEntryValues(mAnimationsNum);
+
+        mWallpaperIntraOpen = (ListPreference) findPreference(WALLPAPER_INTRA_OPEN);
+        mWallpaperIntraOpen.setOnPreferenceChangeListener(this);
+        mWallpaperIntraOpen.setSummary(getProperSummary(mWallpaperIntraOpen));
+        mWallpaperIntraOpen.setEntries(mAnimationsStrings);
+        mWallpaperIntraOpen.setEntryValues(mAnimationsNum);
+
+        mWallpaperIntraClose = (ListPreference) findPreference(WALLPAPER_INTRA_CLOSE);
+        mWallpaperIntraClose.setOnPreferenceChangeListener(this);
+        mWallpaperIntraClose.setSummary(getProperSummary(mWallpaperIntraClose));
+        mWallpaperIntraClose.setEntries(mAnimationsStrings);
+        mWallpaperIntraClose.setEntryValues(mAnimationsNum);
+
         int defaultDuration = Settings.System.getInt(mContentRes,
                 Settings.System.ANIMATION_CONTROLS_DURATION, 0);
-        mAnimationDuration = (SeekBarPreference) findPreference(ANIMATION_DURATION);
+        mAnimationDuration = (AnimBarPreference) findPreference(ANIMATION_DURATION);
         mAnimationDuration.setInitValue((int) (defaultDuration));
         mAnimationDuration.setOnPreferenceChangeListener(this);
 
@@ -115,6 +154,17 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+                                         Preference preference) {
+       if (preference == mAnimNoOverride) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
+                        mAnimNoOverride.isChecked());
+        }
+        return true;
     }
 
     @Override
@@ -157,6 +207,30 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
             result = Settings.System.putInt(mContentRes,
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[5], val);
             preference.setSummary(getProperSummary(preference));
+        } else if (preference == mWallpaperOpen) {
+
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContentRes,
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[6], val);
+            preference.setSummary(getProperSummary(preference));
+        } else if (preference == mWallpaperClose) {
+
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContentRes,
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[7], val);
+            preference.setSummary(getProperSummary(preference));
+        } else if (preference == mWallpaperIntraOpen) {
+
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContentRes,
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[8], val);
+            preference.setSummary(getProperSummary(preference));
+        } else if (preference == mWallpaperIntraClose) {
+
+            int val = Integer.parseInt((String) newValue);
+            result = Settings.System.putInt(mContentRes,
+                    Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
+            preference.setSummary(getProperSummary(preference));
         } else if (preference == mAnimationDuration) {
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContentRes,
@@ -197,6 +271,14 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[4];
         } else if (preference == mTaskMoveToBackPref) {
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[5];
+        } else if (preference == mWallpaperOpen) {
+            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[6];
+        } else if (preference == mWallpaperClose) {
+            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[7];
+        } else if (preference == mWallpaperIntraOpen) {
+            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[8];
+        } else if (preference == mWallpaperIntraClose) {
+            mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
         }
 
         int mNum = Settings.System.getInt(mContentRes, mString, 0);
