@@ -30,13 +30,13 @@
             android:entryValues="@array/battery_icon_values" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="circle_battery_color"
-            android:title="@string/circle_battery_color"
+            android:key="battery_text_color"
+            android:title="@string/battery_text_color"
             android:defaultValue="0xff33b5e5" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="circle_battery_text_color"
-            android:title="@string/circle_battery_text_color"
+            android:key="circle_battery_color"
+            android:title="@string/circle_battery_color"
             android:defaultValue="0xff33b5e5" />
 
         <ListPreference

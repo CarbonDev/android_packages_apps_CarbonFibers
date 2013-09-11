@@ -350,8 +350,8 @@
     <string name="cm_battery">CM skinny battery</string>
     <string name="carbon_battery">Carbon</string>
     <string name="hide">Hide</string>
+    <string name="battery_text_color">Battery Text color</string>
     <string name="circle_battery_color">Circle color</string>
-    <string name="circle_battery_text_color">Circle text color</string>
     <string name="circle_battery_animation_speed">Circle animation speed</string>
     <string name="circle_battery_animation_speed_none">None</string>
     <string name="circle_battery_animation_speed_slow">Slow</string>
@@ -899,7 +899,7 @@
     <string name="wallpaper_intra_close_title">Wallpaper Intra Close Animation</string>
     <string name="animation_duration_title">Animation Duration</string>
     <string name="title_animation_no_override">Prevent App Overrides</string>
-    <string name="summary_animation_no_override">Prevent apps from overriding transitions.</string>	1167
+    <string name="summary_animation_no_override">Prevent apps from overriding transitions.</string>
     <string name="animation_duration_default">Default</string>
 
     <!-- ListView animation -->
