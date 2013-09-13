@@ -1055,4 +1055,7 @@
     <!-- Notification Behavior Preferences -->
     <string name="notification_behaviour_title">Notification behavior</string>
 
+    <!-- Fast Charge -->
+    <string name="fast_charge_not_supported">Fast Charge is not supported by the current kernel</string>
+
 </resources>
