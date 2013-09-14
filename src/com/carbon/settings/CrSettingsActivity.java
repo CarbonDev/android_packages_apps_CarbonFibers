@@ -116,7 +116,6 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
         }
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
 
     }

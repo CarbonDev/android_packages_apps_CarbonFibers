@@ -96,11 +96,13 @@ public class LockscreenTab extends SettingsPreferenceFragment {
                 frags[0] = new LockscreenGeneral();
                 frags[1] = new LockscreenAdvanced();
                 frags[2] = new LockscreenTargets();
+                frags[3] = new ActiveDisplay();
             } else {
                 frags[0] = new LockscreenGeneral();
                 frags[1] = new LockscreenAdvanced();
                 frags[2] = new LockscreenTargets();
-                frags[3] = new LockscreenButtons();
+                frags[3] = new ActiveDisplay();
+                frags[4] = new LockscreenButtons();
             }
         }
 
@@ -125,12 +127,14 @@ public class LockscreenTab extends SettingsPreferenceFragment {
             titleString = new String[]{
                     getString(R.string.lock_screen_general_category),
                     getString(R.string.lock_screen_advanced_category),
-                    getString(R.string.lock_screen_targets_category)};
+                    getString(R.string.lock_screen_targets_category),
+                    getString(R.string.lock_screen_ad_category)};
         } else {
             titleString = new String[]{
                     getString(R.string.lock_screen_general_category),
                     getString(R.string.lock_screen_advanced_category),
                     getString(R.string.lock_screen_targets_category),
+                    getString(R.string.lock_screen_ad_category),
                     getString(R.string.lock_screen_buttons_category)};
 
         }
