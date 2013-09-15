@@ -13,31 +13,27 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0">
 
         <android.support.v4.view.PagerTabStrip
-            android:id="@+id/pagerTabStrip"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="top"
-            android:textColor="@android:color/holo_blue_light"
-            android:background="@drawable/pager_background"
-            android:textSize="12sp"
-            android:textStyle="bold"/>
+                android:id="@+id/pagerTabStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:textColor="#FFF"
+                android:textAppearance="@style/TextAppearance.PagerTabs"
+                android:background="@color/color_pager_tab_strip" />
 
     </android.support.v4.view.ViewPager>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@drawable/top_shadow" />
-
-</FrameLayout>
+</LinearLayout>

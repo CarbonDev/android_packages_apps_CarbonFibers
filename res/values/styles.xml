@@ -27,6 +27,12 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge" />
     
 </resources>

@@ -44,7 +44,7 @@ import android.os.ParcelFileDescriptor;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivityAlt.Header;
+import android.preference.PreferenceActivity.Header;
 import android.preference.PreferenceFrameLayout;
 import android.preference.PreferenceGroup;
 import android.provider.ContactsContract.CommonDataKinds;

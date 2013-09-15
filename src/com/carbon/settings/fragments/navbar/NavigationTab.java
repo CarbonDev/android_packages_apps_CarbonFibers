@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.device;
+package com.carbon.settings.fragments.navbar;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -36,20 +36,18 @@ import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
 
-// import htc one stuffs
-import com.carbon.settings.device.htc.*;
-// import the other stuffs
+import com.carbon.settings.fragments.navbar.*;
 
+import java.lang.Exception;
 import java.util.ArrayList;
 
-public class DeviceTools extends SettingsPreferenceFragment {
+public class NavigationTab extends SettingsPreferenceFragment {
 
-    private static final String TAG = "DeviceTools";
+    private static final String TAG = "NavigationBar_Category";
 
     PagerTabStrip mPagerTabStrip;
     ViewPager mViewPager;
 
-    boolean isHtcOne;
     String titleString[];
 
     ViewGroup mContainer;
@@ -61,31 +59,18 @@ public class DeviceTools extends SettingsPreferenceFragment {
             Bundle savedInstanceState) {
         mContainer = container;
 
-        isHtcOne = getResources().getBoolean(R.bool.is_htc_one);
-
         View view = inflater.inflate(R.layout.pager_tab, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
         mPagerTabStrip = (PagerTabStrip) view.findViewById(R.id.pagerTabStrip);
 
-        DeviceToolAdapter DeviceToolAdapter = new DeviceToolAdapter(getFragmentManager());
-        mViewPager.setAdapter(DeviceToolAdapter);
+        NavigationAdapter NavigationAdapter = new NavigationAdapter(getFragmentManager());
+        mViewPager.setAdapter(NavigationAdapter);
 
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        // We don't call super.onActivityCreated() here, since it assumes we already set up
-        // Preference (probably in onCreate()), while ProfilesSettings exceptionally set it up in
-        // this method.
-        // On/off switch
-        Activity activity = getActivity();
-        //Switch
-
-        if (activity instanceof PreferenceDrawerActivityAlt) {
-            PreferenceDrawerActivityAlt preferenceActivity = (PreferenceDrawerActivityAlt) activity;
-        }
-
         // After confirming PreferenceScreen is available, we call super.
         super.onActivityCreated(savedInstanceState);
     }
@@ -99,18 +84,15 @@ public class DeviceTools extends SettingsPreferenceFragment {
         }
     }
 
-    class DeviceToolAdapter extends FragmentPagerAdapter {
+    class NavigationAdapter extends FragmentPagerAdapter {
         String titles[] = getTitles();
         private Fragment frags[] = new Fragment[titles.length];
 
-        public DeviceToolAdapter(FragmentManager fm) {
+        public NavigationAdapter(FragmentManager fm) {
             super(fm);
-            // Display for certain devices only
-            if (isHtcOne) {
-                frags[0] = new ButtonLightFragmentActivity();
-                frags[1] = new SensorsFragmentActivity();
-                frags[2] = new TouchscreenFragmentActivity();
-            }
+            frags[0] = new NavigationGeneral();
+            frags[1] = new NavigationRingTargets();
+            frags[2] = new NavigationAdvanced();
         }
 
         @Override
@@ -127,25 +109,14 @@ public class DeviceTools extends SettingsPreferenceFragment {
         public int getCount() {
             return frags.length;
         }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            if (position >= getCount()) {
-                FragmentManager manager = ((Fragment) object).getFragmentManager();
-                FragmentTransaction trans = manager.beginTransaction();
-                trans.remove((Fragment) object);
-                trans.commit();
-            }
-        }
     }
 
     private String[] getTitles() {
-        if (isHtcOne) {
-            titleString = new String[]{
-                    getResources().getString(R.string.category_buttonlight_title),
-                    getResources().getString(R.string.category_sensors_title),
-                    getResources().getString(R.string.category_touchscreen_title)};
-        }
+        String titleString[];
+        titleString = new String[]{
+                    getString(R.string.navigation_bar_general_category),
+                    getString(R.string.navigation_ring_category),
+                    getString(R.string.navigation_bar_advanced_category)};
         return titleString;
     }
 }

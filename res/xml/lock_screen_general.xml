@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.carbon.settings" >
+
+    <CheckBoxPreference
+        android:key="lockscreen_all_widgets"
+        android:title="@string/lockscreen_all_widgets_title"
+        android:summary="@string/lockscreen_all_widgets_summary" />
+
+    <ListPreference
+        android:key="lockscreen_battery_status"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_battery_status_title"
+        android:title="@string/lockscreen_battery_status_title"
+        android:entries="@array/lockscreen_battery_status_entries"
+        android:entryValues="@array/lockscreen_battery_status_values"
+        android:defaultValue="0" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_camera_widget"
+        android:title="@string/lockscreen_camera_widget_title" />
+
+    <ListPreference
+        android:key="glowpad_torch"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_glow_torch_title"
+        android:title="@string/lockscreen_glow_torch_title"
+        android:summary="@string/lockscreen_glow_torch_summary"
+        android:entries="@array/pref_lockscreen_glowtorch_entries"
+        android:entryValues="@array/pref_lockscreen_glowtorch_values"
+        android:defaultValue="0" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_hide_initial_page_hints"
+        android:title="@string/lockscreen_hide_initial_page_hints_title"
+        android:summary="@string/lockscreen_hide_initial_page_hints_summary" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_minimize_challenge"
+        android:title="@string/lockscreen_minimize_challenge_title"
+        android:summary="@string/lockscreen_minimize_challenge_summary" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_music_controls"
+        android:persistent="false"
+        android:title="@string/lockscreen_music_controls_title"
+        android:summary="@string/lockscreen_music_controls_summary" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_quick_unlock_control"
+        android:title="@string/lockscreen_quick_unlock_control_title"
+        android:summary="@string/lockscreen_quick_unlock_control_summary" />
+
+</PreferenceScreen>

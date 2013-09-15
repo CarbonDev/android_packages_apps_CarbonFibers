@@ -13,7 +13,7 @@
     <!-- Halo -->
     <header
         android:id="@+id/halo"
-        android:fragment="com.carbon.settings.fragments.Halo"
+        android:fragment="com.carbon.settings.fragments.halo.HaloTab"
         android:title="@string/halo_title"
         android:icon="@drawable/ic_carbon_halo" />
 
@@ -27,14 +27,14 @@
     <!-- Lock screen -->
     <header
         android:id="@+id/lock_screen_settings"
-        android:fragment="com.carbon.settings.fragments.LockscreenInterface"
+        android:fragment="com.carbon.settings.fragments.lockscreen.LockscreenTab"
         android:title="@string/lockscreen_title"
         android:icon="@drawable/ic_carbon_lockscreen" />
 
     <!-- Navigation -->
     <header
         android:id="@+id/nav_bar"
-        android:fragment="com.carbon.settings.fragments.Navbar"
+        android:fragment="com.carbon.settings.fragments.navbar.NavigationTab"
         android:title="@string/navbar_title"
         android:icon="@drawable/ic_carbon_navbar" />
 
@@ -46,50 +46,31 @@
         android:icon="@drawable/ic_carbon_powermenu"
         android:summary="@string/header_summary" />
 
-    <!-- Power widget -->
-    <header
-        android:id="@+id/power_widget_settings"
-        android:fragment="com.carbon.settings.fragments.PowerWidget"
-        android:title="@string/power_widget_title"
-        android:icon="@drawable/ic_carbon_powerwidget"
-        android:summary="@string/header_summary" />
-
     <!-- Ribbon -->
     <header
         android:id="@+id/ribbon_targets"
-        android:fragment="com.carbon.settings.fragments.RibbonTargets"
+        android:fragment="com.carbon.settings.fragments.ribbon.RibbonTargets"
         android:title="@string/ribbon_settings_title"
         android:icon="@drawable/ic_carbon_ribbon" />
 
     <!-- Statusbar -->
     <header
         android:id="@+id/status_bar"
-        android:fragment="com.carbon.settings.fragments.StatusBar"
+        android:fragment="com.carbon.settings.fragments.statusbar.StatusBarTab"
         android:title="@string/status_bar_title"
         android:icon="@drawable/ic_carbon_statusbar" />
-
-    <!-- Statusbar Toggles -->
-    <header
-        android:id="@+id/statusbar_toggles"
-        android:fragment="com.carbon.settings.fragments.StatusBarToggles"
-        android:title="@string/toggles_title"
-        android:icon="@drawable/ic_carbon_quicksettings" />
 
    <header
         android:title="@string/system" />
 
    <header
         android:id="@+id/device_tools"
+        android:fragment="com.carbon.settings.device.DeviceTools"
         android:title="@string/device_tools_title"
-        android:icon="@drawable/ic_carbon_device" >
-        <intent
-            android:action="com.carbon.action.LAUNCH_DEVICE_SETTINGS"
-            android:targetPackage="com.carbon.settings"
-            android:targetClass="com.carbon.settings.device.DeviceTools" />
-   </header>
+        android:icon="@drawable/ic_carbon_device" />
 
    <header
-   	    android:id="@+id/more_device_settings"
+   	android:id="@+id/more_device_settings"
         android:title="@string/more_device_controls_title"
         android:breadCrumbTitle="@string/more_device_settings_title"
         android:fragment="com.carbon.settings.fragments.MoreDeviceSettings"

@@ -31,7 +31,7 @@
             android:title="@string/title_widget_picker"
             android:summary="@string/summary_widget_picker"
             android:dependency="expanded_widget"
-            android:fragment="com.carbon.settings.fragments.PowerWidget$PowerWidgetChooser">
+            android:fragment="com.carbon.settings.fragments.statusbar.PowerWidget$PowerWidgetChooser">
         </PreferenceScreen>
 
         <PreferenceScreen
@@ -39,7 +39,7 @@
             android:title="@string/title_widget_order"
             android:summary="@string/summary_widget_order"
             android:dependency="expanded_widget"
-            android:fragment="com.carbon.settings.fragments.PowerWidget$PowerWidgetOrder">
+            android:fragment="com.carbon.settings.fragments.statusbar.PowerWidget$PowerWidgetOrder">
         </PreferenceScreen>
 
     </PreferenceCategory>

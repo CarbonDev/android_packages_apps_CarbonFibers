@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <CheckBoxPreference
+                android:key="enable_nav_bar"
+                android:title="@string/navbar_enable_bar" />
+        <PreferenceCategory
+                android:key="navbar_buttons"
+                android:title="@string/navbar_button_cat">
+
+            <ListPreference
+                android:entries="@array/pref_navigation_menu_entries"
+                android:entryValues="@array/pref_navigation_menu_values"
+                android:key="pref_menu_display"
+                android:title="@string/title_pref_menu_display"
+                android:summary="@string/summary_pref_menu_display" />
+
+            <ListPreference
+                android:entries="@array/pref_navigation_menu_display_entries"
+                android:entryValues="@array/pref_navigation_menu_display_values"
+                android:key="navbar_menu_display"
+                android:title="@string/title_pref_navigation_menu_display"
+                android:summary="@string/summary_pref_navigation_menu_display" />
+
+            <CheckBoxPreference
+                android:key="navigation_bar_menu_arrow_keys"
+                android:title="@string/navigation_bar_menu_arrow_keys_title"
+                android:summary="@string/navigation_bar_menu_arrow_keys_summary" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="navbar_hide_cat"
+            android:title="@string/navbar_hide">
+
+            <CheckBoxPreference
+                    android:key="navbar_hide_enable"
+                    android:title="@string/navbar_hide_enable_title" />
+
+            <com.carbon.settings.widgets.SeekBarPreference
+                android:key="drag_handle_opacity"
+                android:title="@string/drag_handle_opacity_title"/>
+
+            <com.carbon.settings.widgets.SeekBarPreference
+                android:key="drag_handle_width"
+                android:title="@string/drag_handle_width_title"/>
+
+            <ListPreference
+                    android:entries="@array/hide_navbar_timeout_entries"
+                    android:entryValues="@array/hide_navbar_timeout_values"
+                    android:key="navbar_hide_timeout"
+                    android:title="@string/title_navbar_timeout"
+                    android:summary="@string/summary_navbar_timeout"/>
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="navbar_widgets_cat"
+            android:title="@string/navbar_widgets">
+
+            <PreferenceScreen
+                android:key="navigation_bar_widgets"
+                android:title="@string/navbar_widgets_title"
+                android:fragment="com.carbon.settings.fragments.navbar.WidgetConfigurationFragment" />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

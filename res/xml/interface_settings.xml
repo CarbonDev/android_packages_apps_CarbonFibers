@@ -33,13 +33,6 @@
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
 
-        <PreferenceScreen	
-            android:id="@+id/slim_notification_shortcuts"
-            android:fragment="com.carbon.settings.fragments.notificationshortcuts.NotificationShortcuts"
-            android:key="slim_shortcuts_settings"
-            android:title="@string/notification_shortcuts_settings_title"
-            android:summary="@string/notification_shortcuts_settings_summary" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -84,12 +77,6 @@
             android:entries="@array/pref_low_battery_warning_policy_entries"
             android:entryValues="@array/pref_low_battery_warning_policy_values"
             android:defaultValue="0" />
-
-        <CheckBoxPreference
-            android:key="notification_show_wifi_ssid"
-            android:title="@string/notification_show_wifi_ssid_title"
-            android:summary="@string/notification_show_wifi_ssid_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 

@@ -18,6 +18,7 @@
     <style name="AppTheme" parent="android:Theme.Holo" >
         <item name="android:actionBarStyle">@style/action_bar_style</item>
         <item name="android:buttonStyle">@style/button_style</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textViewStyle">@style/text_view_style</item>
         <item name="android:windowBackground">@color/cr_background</item>
     </style>

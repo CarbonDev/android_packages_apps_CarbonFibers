@@ -59,6 +59,10 @@
 
     <!-- Lock Screen Shortcuts -->
     <string name="lock_screen_title">Lock screen</string>
+    <string name="lock_screen_general_category">General</string>
+    <string name="lock_screen_buttons_category">Buttons</string>
+    <string name="lock_screen_targets_category">Targets</string>
+    <string name="lock_screen_advanced_category">Advanced</string>
     <string name="lockscreen_target_info">Drag the slider to targets to assign shortcuts</string>
     <string name="lockscreen_target_title">Slider shortcuts</string>
     <string name="lockscreen_target_summary">View or change custom lock screen shortcuts</string>
@@ -195,6 +199,12 @@
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
 
     <!-- Status bar -->
+    <string name="status_bar_general_category">General</string>
+    <string name="status_bar_battery_category">Battery</string>
+    <string name="status_bar_clock_category">Clock</string>
+    <string name="status_bar_power_widget_category">Power Widget</string>
+    <string name="status_bar_toggles_category">Toggles</string>
+    <string name="status_bar_notification_category">Notification</string>
     <string name="status_bar_title">Statusbar</string>
     <string name="status_bar_general_title">General</string>
     <string name="status_bar_style_title">Style</string>
@@ -396,6 +406,10 @@
     <string name="transparency_dialog_lockscreen">Lockscreen</string>
 
     <!-- Navigation Bar -->
+    <string name="navigation_bar_general_category">General</string>
+    <string name="navigation_bar_advanced_category">Advanced</string>
+    <string name="navigation_ring_category">Ring</string>
+    <string name="navigation_widget">Widget</string>
     <string name="navigation_bar">Navigation bar</string>
     <string name="navbar_hide">NavBar hide Options</string>
     <string name="navbar_option_cat">Options</string>
@@ -732,8 +746,9 @@
     <!-- HALO -->
     <string name="halo_title">Halo</string>
     <string name="halo_category">HALO</string>
+    <string name="halo_general_category">General</string>
     <string name="halo_status_category">Status</string>
-    <string name="halo_colors_category">Colors</string>
+    <string name="halo_advanced_category">Advanced</string>
     <string name="halo_hide_title">Hide HALO after activity</string>
     <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
     <string name="halo_reversed_title">Reverse HALO gestures</string>

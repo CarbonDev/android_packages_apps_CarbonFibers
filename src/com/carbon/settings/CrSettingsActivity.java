@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivityAlt;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -36,7 +36,7 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements ButtonBarHandler {
+public class CrSettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
     private static final String TAG = "CR_Settings";
 
@@ -59,9 +59,9 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
     @Override
     public void onCreate(Bundle savedInstanceState) {
         hasDeviceTools = getResources().getBoolean(R.bool.has_device_tools);
-//        defaultLocale = Locale.getDefault();
-//        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
-//        setLocale();
+        defaultLocale = Locale.getDefault();
+        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
+        setLocale();
 
         mInLocalHeaderSwitch = true;
         super.onCreate(savedInstanceState);
@@ -130,7 +130,7 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
         }
     }
 
-    /** @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity, menu);
@@ -158,7 +158,7 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
                 recreate();
                 return true;
             case android.R.id.home:
-                // null
+                onBackPressed();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -187,7 +187,7 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
                     getBaseContext().getResources().getDisplayMetrics());
 
         }
-    }**/
+    }
 
     /**
      * Populate the activity with the top-level headers.
@@ -276,7 +276,7 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
     public void onResume() {
         super.onResume();
 
-//        setLocale();
+        setLocale();
 
         ListAdapter listAdapter = getListAdapter();
         if (listAdapter instanceof HeaderAdapter) {
@@ -317,7 +317,7 @@ public class CrSettingsActivity extends PreferenceDrawerActivityAlt implements B
             }
         }
 
-        // Ignore the adapter provided by PreferenceDrawerActivity and substitute ours
+        // Ignore the adapter provided by PreferenceActivity and substitute ours
         // instead
         super.setListAdapter(new HeaderAdapter(this, mHeaders));
     }

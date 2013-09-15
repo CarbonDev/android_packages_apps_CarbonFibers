@@ -5,8 +5,9 @@ import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+
 import com.carbon.settings.R;
-import com.carbon.settings.fragments.StatusBarToggles;
+import com.carbon.settings.fragments.statusbar.StatusBarToggles;
 
 public class CustomTogglePref extends Preference {
 

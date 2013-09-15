@@ -30,4 +30,6 @@
     <color name="action_bar_color">#ff0d0d0d</color>
     <color name="drawer_bg_color">#0d0d0d</color>
 
+    <color name="color_pager_tab_strip">#2c2c2c</color>
+
 </resources>
