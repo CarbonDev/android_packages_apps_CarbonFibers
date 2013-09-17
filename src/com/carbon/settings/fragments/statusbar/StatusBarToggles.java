@@ -849,7 +849,7 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
     }
 
     private String getIconFileName(int index) {
-        return "navbar_icon_" + index + ".png";
+        return "custom_toggle_" + index + ".png";
     }
 
     static synchronized void addToggle(Context context, String key) {
