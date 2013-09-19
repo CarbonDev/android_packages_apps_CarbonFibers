@@ -438,7 +438,7 @@
     <!-- Navigation Bar -->
     <string name="navigation_bar_general_category">General</string>
     <string name="navigation_bar_advanced_category">Advanced</string>
-    <string name="navigation_ring_category">Ring</string>
+    <string name="navigation_bar_targets_category">Targets</string>
     <string name="navigation_widget">Widget</string>
     <string name="navigation_bar">Navigation bar</string>
     <string name="navbar_hide">NavBar hide Options</string>
@@ -701,7 +701,7 @@
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
 
     <!--- Clock Widget -->
-    <string name="lock_clock_title">Clock Widget</string>
+    <string name="lock_clock_title">Clock widget</string>
     <string name="lock_clock_summary">View or change how the widget will display</string>
 
     <string name="lockscreen_hide_initial_page_hints_title">Hide initial page hints</string>
@@ -717,7 +717,7 @@
     <string name="lockscreen_camera_widget_title">Camera widget</string>
 
     <!-- Alternate default app picker -->
-    <string name="alt_resolver_title">Use alt default app picker</string>
+    <string name="alt_resolver_title">Use alternate default app picker</string>
 
     <!-- Lock screen background -->
     <string name="lockscreen_style_options_title">Lock screen style</string>
@@ -994,7 +994,7 @@
     <string name="show_network_speed_summary">Show network speed in statusbar</string>
 
     <!--  Other device settings -->
-    <string name="more_device_controls_title">Device Tunables</string>
+    <string name="more_device_controls_title">Device tunables</string>
     <string name="more_device_settings_title">Other device options</string>
     <string name="sensors_motors_title">Sensors &amp; motors</string>
     <string name="display_calibration_title">Display calibration</string>

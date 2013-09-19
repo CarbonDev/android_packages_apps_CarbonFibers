@@ -76,6 +76,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String PREF_UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
+    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+    private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
 
     private CheckBoxPreference mShowWifiName;
     private ListPreference mCollapseOnDismiss;
@@ -84,6 +86,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     Preference mCustomLabel;
     SeekBarPreference mWallpaperAlpha;
     SeekBarPreference mNotifAlpha;
+    private CheckBoxPreference mStatusBarNotifCount;
+    private ListPreference mNotificationsBehavior;
 
     private File customnavTemp;
     private File customnavTempLandscape;
@@ -156,6 +160,16 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
         mCollapseOnDismiss.setOnPreferenceChangeListener(this);
         updateCollapseBehaviourSummary(collapseBehaviour);
+
+        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
+        mStatusBarNotifCount.setChecked((Settings.System.getInt(mContentAppRes,
+                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
+
+        int CurrentBehavior = Settings.System.getInt(getContentResolver(), Settings.System.NOTIFICATIONS_BEHAVIOUR, 0);
+        mNotificationsBehavior = (ListPreference) findPreference(KEY_NOTIFICATION_BEHAVIOUR);
+        mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
+        mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
+        mNotificationsBehavior.setOnPreferenceChangeListener(this);
 
         updateCustomBackgroundSummary();
 
@@ -299,6 +313,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+
         if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
@@ -332,6 +348,11 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
                     mShowWifiName.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarNotifCount) {
+            value = mStatusBarNotifCount.isChecked();
+            Settings.System.putInt(mContentAppRes,
+                    Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
             return true;
         }
 
@@ -473,6 +494,14 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             Settings.System.putInt(mContentRes,
                     Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
             updateCollapseBehaviourSummary(value);
+            return true;
+        } else if (preference == mNotificationsBehavior) {
+            String val = (String) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NOTIFICATIONS_BEHAVIOUR,
+            Integer.valueOf(val));
+            int index = mNotificationsBehavior.findIndexOfValue(val);
+            mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
             return true;
         }
         return false;

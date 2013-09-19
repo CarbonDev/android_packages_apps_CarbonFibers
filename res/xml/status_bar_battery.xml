@@ -57,10 +57,10 @@
         android:title="@string/battery_bar_cat">
 
         <ListPreference
-            android:key="battery_bar_list"
-            android:title="@string/battery_bar"
-            android:entries="@array/battery_bar_entries"
-            android:entryValues="@array/battery_bar_values" />
+            android:key="battery_bar_style"
+            android:title="@string/battery_bar_style_title"
+            android:entries="@array/battery_bar_style_entries"
+            android:entryValues="@array/battery_bar_style_values" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_color"
@@ -68,10 +68,10 @@
             android:defaultValue="0xff33b5e5" />
 
         <ListPreference
-            android:key="battery_bar_style"
-            android:title="@string/battery_bar_style_title"
-            android:entries="@array/battery_bar_style_entries"
-            android:entryValues="@array/battery_bar_style_values" />
+            android:key="battery_bar_list"
+            android:title="@string/battery_bar"
+            android:entries="@array/battery_bar_entries"
+            android:entryValues="@array/battery_bar_values" />
 
         <ListPreference
             android:key="battery_bar_thickness"

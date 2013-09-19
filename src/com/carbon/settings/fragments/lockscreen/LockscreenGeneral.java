@@ -128,6 +128,10 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         mLockscreenMinChallenge = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_MINIMIZE_CHALLENGE);
         mLockscreenMinChallenge.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
                 Settings.System.LOCKSCREEN_MINIMIZE_LOCKSCREEN_CHALLENGE, false));
+
+        if (!hasTorch) {
+            getPreferenceScreen().removePreference(mGlowpadTorch);
+        }
     }
 
     @Override

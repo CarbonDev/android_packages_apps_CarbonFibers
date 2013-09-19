@@ -91,8 +91,8 @@ public class NavigationTab extends SettingsPreferenceFragment {
         public NavigationAdapter(FragmentManager fm) {
             super(fm);
             frags[0] = new NavigationGeneral();
-            frags[1] = new NavigationRingTargets();
-            frags[2] = new NavigationAdvanced();
+            frags[1] = new NavigationAdvanced();
+            frags[2] = new NavigationTargets();
         }
 
         @Override
@@ -115,8 +115,8 @@ public class NavigationTab extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                     getString(R.string.navigation_bar_general_category),
-                    getString(R.string.navigation_ring_category),
-                    getString(R.string.navigation_bar_advanced_category)};
+                    getString(R.string.navigation_bar_advanced_category),
+                    getString(R.string.navigation_bar_targets_category)};
         return titleString;
     }
 }

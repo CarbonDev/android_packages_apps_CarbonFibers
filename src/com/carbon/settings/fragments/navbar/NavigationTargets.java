@@ -67,7 +67,7 @@ import java.util.ArrayList;
 import static com.android.internal.util.carbon.AwesomeConstants.ASSIST_ICON_METADATA_NAME;
 import static com.android.internal.util.carbon.AwesomeConstants.AwesomeConstant;
 
-public class NavigationRingTargets extends SettingsPreferenceFragment implements
+public class NavigationTargets extends SettingsPreferenceFragment implements
         ShortcutPickerHelper.OnPickListener, GlowPadView.OnTriggerListener {
     private static final String TAG = "NavRing";
     private static final boolean DEBUG = false;

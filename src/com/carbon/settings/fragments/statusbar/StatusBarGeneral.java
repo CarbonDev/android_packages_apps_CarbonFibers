@@ -40,26 +40,21 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
 
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_STYLE = "status_bar_style";
     private static final CharSequence STATUS_BAR_BEHAVIOR = "status_bar_behavior";
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
-    private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
 
     private ListPreference mStatusBarCmSignal;
-    private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mStatusbarSliderPreference;
     private CheckBoxPreference mStatusIconBehavior;
     private ColorPickerPreference mIconColor;
     private PreferenceCategory mPrefCategoryStyle;
-    private ListPreference mCollapseOnDismiss;
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
     private CheckBoxPreference mStatusBarTraffic;
-    private ListPreference mNotificationsBehavior;
 
     private static int mBarBehavior;
 
@@ -79,14 +74,10 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
-        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
-        mStatusBarNotifCount.setChecked((Settings.System.getInt(mContentAppRes,
-                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
-
         mStatusbarSliderPreference = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS);
         mStatusbarSliderPreference.setChecked((Settings.System.getInt(mContentAppRes,
                 Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, 0) == 1));
-        
+
         mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
         mStatusBarTraffic.setChecked(Settings.System.getBoolean(mContentAppRes,
                 Settings.System.STATUS_BAR_TRAFFIC, false));
@@ -146,14 +137,6 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
                     Settings.System.STATUS_ICON_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
-        } else if (preference == mNotificationsBehavior) {
-            String val = (String) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.NOTIFICATIONS_BEHAVIOUR,
-            Integer.valueOf(val));
-            int index = mNotificationsBehavior.findIndexOfValue(val);
-            mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
-            return true;
         }
         return false;
     }
@@ -161,12 +144,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mStatusBarNotifCount) {
-            value = mStatusBarNotifCount.isChecked();
-            Settings.System.putInt(mContentAppRes,
-                    Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-            return true;
-        } else if (preference == mStatusIconBehavior) {
+        if (preference == mStatusIconBehavior) {
             Settings.System.putInt(mContentAppRes,
                     Settings.System.ICON_COLOR_BEHAVIOR,
             mStatusIconBehavior.isChecked() ? 1 : 0);
