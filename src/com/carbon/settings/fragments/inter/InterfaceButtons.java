@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.fragments;
+package com.carbon.settings.fragments.inter;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -31,7 +31,7 @@ import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
 
-public class ButtonSettings extends SettingsPreferenceFragment implements
+public class InterfaceButtons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_ENABLE_CUSTOM_BINDING = "hardware_keys_enable_custom";

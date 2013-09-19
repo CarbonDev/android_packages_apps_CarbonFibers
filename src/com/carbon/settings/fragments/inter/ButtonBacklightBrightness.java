@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.fragments;
+package com.carbon.settings.fragments.inter;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;

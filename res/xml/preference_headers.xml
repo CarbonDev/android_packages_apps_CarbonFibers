@@ -20,7 +20,7 @@
     <!-- Interface -->
     <header
         android:id="@+id/interface_settings"
-        android:fragment="com.carbon.settings.fragments.InterfaceSettings"
+        android:fragment="com.carbon.settings.fragments.inter.InterfaceTab"
         android:title="@string/user_interface"
         android:icon="@drawable/ic_carbon_interface" />
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.fragments;
+package com.carbon.settings.fragments.inter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -85,7 +85,7 @@ import com.carbon.settings.widgets.AlphaSeekBar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class InterfaceSettings extends SettingsPreferenceFragment
+public class InterfaceGeneral extends SettingsPreferenceFragment
 			implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "InterfaceSettings";
@@ -93,16 +93,10 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_SHOW_OVERFLOW = "show_overflow";
-    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
-    private static final String KEY_RECENTS_ASSIST = "recents_target_assist";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
-    private CheckBoxPreference mShowAssistButton;
-    private Preference mLcdDensity;
-    private Preference mHardwareKeys;
-    private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
 
     Context mContext;
@@ -117,33 +111,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mContext = getActivity();
 
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.interface_settings);
+        addPreferencesFromResource(R.xml.interface_general);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver cr = mContext.getContentResolver();
         mContentResolver = getContentResolver();
         Resources res = getResources();
 
-        mHardwareKeys = (Preference) findPreference(KEY_HARDWARE_KEYS);
-
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-        try {
-            if (windowManager.hasNavigationBar()) {
-                prefSet.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            } else {
-                // should not need to remove anything
-            }
-        } catch (RemoteException e) {
-            // Do nothing
-        }
-
         mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
         mUseAltResolver.setChecked(Settings.System.getBoolean(cr,
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
-
-        mShowAssistButton = (CheckBoxPreference) findPreference(KEY_RECENTS_ASSIST);
-        mShowAssistButton.setChecked(Settings.System.getInt(cr,
-                Settings.System.RECENTS_TARGET_ASSIST, 0) == 1);
 
         mShowActionOverflow = (CheckBoxPreference) findPreference(KEY_SHOW_OVERFLOW);
         mShowActionOverflow.setChecked(Settings.System.getInt(cr,
@@ -156,21 +132,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
 
-        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
-        updateRamBar();
-
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-
-        mLcdDensity = findPreference("lcd_density_setup");
-        mLcdDensity.setOnPreferenceChangeListener(this);
-        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
-        try {
-            newDensityValue = Integer.parseInt(currentProperty);
-        } catch (Exception e) {
-            prefSet.removePreference(mLcdDensity);
-        }
-        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         setHasOptionsMenu(true);
     }
@@ -189,15 +152,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
          return false;
      }
 
-    private void updateRamBar() {
-        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.RECENTS_RAM_BAR_MODE, 0);
-        if (ramBarMode != 0)
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
-        else
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
-    }
-
     private void openTransparencyDialog() {
         getFragmentManager().beginTransaction().add(new AdvancedTransparencyDialog(), null)
                 .commit();
@@ -215,13 +169,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
                     ((CheckBoxPreference) preference).isChecked());
             return true;
-        } else if (preference == mHardwareKeys) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ButtonSettings fragment = new ButtonSettings();
-            ft.addToBackStack("hardware_keys_binding");
-            ft.replace(this.getId(), fragment);
-            ft.commit();
-            return true;
         } else if (preference == mShowActionOverflow) {
             boolean enabled = mShowActionOverflow.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.UI_FORCE_OVERFLOW_BUTTON,
@@ -235,25 +182,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                         Toast.LENGTH_LONG).show();
             }
             return true;
-        } else if (preference == mShowAssistButton) {
-            Settings.System.putInt(mContentAppRes,
-                    Settings.System.RECENTS_TARGET_ASSIST,
-            mShowAssistButton.isChecked() ? 1 : 0 );
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateRamBar();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        updateRamBar();
     }
 
     public void copy(File src, File dst) throws IOException {

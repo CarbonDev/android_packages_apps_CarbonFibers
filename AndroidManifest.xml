@@ -53,16 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.DensityChanger"
-            android:label="@string/lcd_density_wizard" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.carbon.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".fragments.InterfaceSettings"
+            android:name=".fragments.inter.InterfaceTab"
             android:label="@string/user_interface" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -150,16 +141,6 @@
 
                 <category android:name="com.carbon.settings.SHORTCUT" />
               </intent-filter>
-        </activity>
-        <activity
-            android:name=".fragments.RamBar"
-            android:label="@string/ram_bar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.carbon.settings.SHORTCUT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".fragments.halo.HaloTab"

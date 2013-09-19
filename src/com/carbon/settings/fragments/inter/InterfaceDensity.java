@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.fragments;
+package com.carbon.settings.fragments.inter;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -44,7 +44,7 @@ import com.carbon.settings.util.CMDProcessor;
 import com.carbon.settings.util.CMDProcessor.CommandResult;
 import com.carbon.settings.util.Helpers;
 
-public class DensityChanger extends SettingsPreferenceFragment implements
+public class InterfaceDensity extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "DensityChanger";

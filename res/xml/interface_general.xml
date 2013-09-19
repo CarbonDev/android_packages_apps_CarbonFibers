@@ -5,17 +5,6 @@
         android:key="general_options"
         android:title="@string/status_bar_general_title">
 
-        <PreferenceScreen
-            android:key="recents_ram_bar"
-            android:fragment="com.carbon.settings.fragments.RamBar"
-            android:title="@string/ram_bar" />
-
-        <CheckBoxPreference
-            android:key="recents_target_assist"
-            android:title="@string/recents_target_assist_title"
-            android:summary="@string/recents_target_assist_summary"
-            android:defaultValue="false" />
-
         <CheckBoxPreference
             android:key="show_overflow"
             android:title="@string/hardware_keys_show_overflow_title"
@@ -31,28 +20,6 @@
         <Preference
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="advanced_options"
-        android:title="@string/advanced_settings" >
-
-        <PreferenceScreen
-            android:key="lcd_density_setup"
-            android:fragment="com.carbon.settings.fragments.DensityChanger"
-            android:title="@string/lcd_density_title"
-            android:summary="@string/lcd_density_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="hardware_keys_options"
-        android:title="@string/hardware_keys_options_title">
-
-        <Preference
-            android:key="hardware_keys"
-            android:title="@string/button_settings" />
 
     </PreferenceCategory>
 

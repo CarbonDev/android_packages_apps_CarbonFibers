@@ -15,14 +15,13 @@
 -->
 
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/ram_bar">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        style="?android:preferenceInformationStyle"
-        android:title="@string/ram_bar_note_title"
-        android:summary="@string/ram_bar_note_summary"
-        android:selectable="false" />
+     <CheckBoxPreference
+        android:key="recents_target_assist"
+        android:title="@string/recents_target_assist_title"
+        android:summary="@string/recents_target_assist_summary"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="ram_bar_mode_cat"
