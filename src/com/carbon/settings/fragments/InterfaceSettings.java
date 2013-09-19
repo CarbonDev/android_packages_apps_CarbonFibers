@@ -100,16 +100,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
-    private Preference mColorSettings;
+    private Preference mLcdDensity;
     private Preference mHardwareKeys;
     private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
 
     Context mContext;
 
-    Configuration mCurConfig = new Configuration();
-
     private static ContentResolver mContentResolver;
+
+    private int newDensityValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -161,6 +161,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
+        mLcdDensity = findPreference("lcd_density_setup");
+        mLcdDensity.setOnPreferenceChangeListener(this);
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            prefSet.removePreference(mLcdDensity);
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         setHasOptionsMenu(true);
     }

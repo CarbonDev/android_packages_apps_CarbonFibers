@@ -41,7 +41,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
-    private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
+    private static final String STATUS_BAR_CATEGORY_STYLE = "status_bar_style";
     private static final CharSequence STATUS_BAR_BEHAVIOR = "status_bar_behavior";
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
@@ -54,7 +54,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private CheckBoxPreference mStatusbarSliderPreference;
     private CheckBoxPreference mStatusIconBehavior;
     private ColorPickerPreference mIconColor;
-    private PreferenceCategory mPrefCategoryGeneral;
+    private PreferenceCategory mPrefCategoryStyle;
     private ListPreference mCollapseOnDismiss;
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
@@ -110,10 +110,10 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
         mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
         mIconColor.setOnPreferenceChangeListener(this);
 
-        mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
+        mPrefCategoryStyle = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_STYLE);
 
         if (Utils.isWifiOnly(getActivity())) {
-            mPrefCategoryGeneral.removePreference(mStatusBarCmSignal);
+            mPrefCategoryStyle.removePreference(mStatusBarCmSignal);
         }
 
     }
