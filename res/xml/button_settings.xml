@@ -23,7 +23,7 @@
         android:defaultValue="false"
         android:persistent="false" />
 
-    <com.carbon.settings.fragments.ButtonBacklightBrightness
+    <com.carbon.settings.fragments.inter.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
