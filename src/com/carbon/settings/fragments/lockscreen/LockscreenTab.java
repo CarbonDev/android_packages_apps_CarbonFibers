@@ -95,14 +95,14 @@ public class LockscreenTab extends SettingsPreferenceFragment {
             if (!hasButtons()) {
                 frags[0] = new LockscreenGeneral();
                 frags[1] = new LockscreenAdvanced();
-                frags[2] = new LockscreenTargets();
-                frags[3] = new ActiveDisplay();
+                frags[2] = new ActiveDisplay();
+                frags[3] = new LockscreenTargets();
             } else {
                 frags[0] = new LockscreenGeneral();
                 frags[1] = new LockscreenAdvanced();
-                frags[2] = new LockscreenTargets();
-                frags[3] = new ActiveDisplay();
-                frags[4] = new LockscreenButtons();
+                frags[2] = new ActiveDisplay();
+                frags[3] = new LockscreenButtons();
+                frags[4] = new LockscreenTargets();
             }
         }
 
@@ -127,16 +127,15 @@ public class LockscreenTab extends SettingsPreferenceFragment {
             titleString = new String[]{
                     getString(R.string.lock_screen_general_category),
                     getString(R.string.lock_screen_advanced_category),
-                    getString(R.string.lock_screen_targets_category),
-                    getString(R.string.lock_screen_ad_category)};
+                    getString(R.string.lock_screen_ad_category),
+                    getString(R.string.lock_screen_targets_category)};
         } else {
             titleString = new String[]{
                     getString(R.string.lock_screen_general_category),
                     getString(R.string.lock_screen_advanced_category),
-                    getString(R.string.lock_screen_targets_category),
                     getString(R.string.lock_screen_ad_category),
-                    getString(R.string.lock_screen_buttons_category)};
-
+                    getString(R.string.lock_screen_buttons_category),
+                    getString(R.string.lock_screen_targets_category)};
         }
         return titleString;
     }

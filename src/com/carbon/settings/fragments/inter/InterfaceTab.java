@@ -95,9 +95,9 @@ public class InterfaceTab extends SettingsPreferenceFragment {
         public InterfaceAdapter(FragmentManager fm) {
             super(fm);
             frags[0] = new InterfaceGeneral();
-            frags[1] = new InterfaceRecents();
-            frags[2] = new InterfaceButtons();
-            frags[3] = new InterfaceDensity();
+            frags[1] = new InterfaceButtons();
+            frags[2] = new InterfaceDensity();
+            frags[3] = new InterfaceRecents();
         }
 
         @Override
@@ -120,9 +120,9 @@ public class InterfaceTab extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                 getString(R.string.interface_general_category),
-                getString(R.string.interface_recents_category),
                 getString(R.string.interface_buttons_category),
-                getString(R.string.interface_density_category)};
+                getString(R.string.interface_density_category),
+                getString(R.string.interface_recents_category)};
         return titleString;
     }
 }

@@ -26,7 +26,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import com.android.internal.telephony.PhoneConstants;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
@@ -46,6 +49,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    private static final String KEY_SHOW_LTE_OR_FOURGEE = "show_lte_or_fourgee";
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusbarSliderPreference;
@@ -55,6 +59,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
     private CheckBoxPreference mStatusBarTraffic;
+    private CheckBoxPreference mShowLTEorFourGee;
 
     private static int mBarBehavior;
 
@@ -62,7 +67,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar);
+        addPreferencesFromResource(R.xml.status_bar_general);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -107,6 +112,13 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
             mPrefCategoryStyle.removePreference(mStatusBarCmSignal);
         }
 
+        mShowLTEorFourGee = (CheckBoxPreference) findPreference(KEY_SHOW_LTE_OR_FOURGEE);
+        mShowLTEorFourGee.setChecked(Settings.System.getBoolean(getActivity().
+                getApplicationContext().getContentResolver(),
+                    Settings.System.SHOW_LTE_OR_FOURGEE, false));
+        if (!deviceSupportsLTE()) {
+            getPreferenceScreen().removePreference(mShowLTEorFourGee);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -164,6 +176,12 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
                     Settings.System.STATUS_BAR_TRAFFIC,
                     mStatusBarTraffic.isChecked());
             return true;
+        } else if (preference == mShowLTEorFourGee) {
+            Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.SHOW_LTE_OR_FOURGEE,
+                    mShowLTEorFourGee.isChecked());
+            Helpers.restartSystemUI();
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -184,5 +202,10 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
                 mStatusBarBeh.setSummary(getResources().getString(R.string.statusbar_auto_all_summary));
                 break;
         }
+    }
+
+    private boolean deviceSupportsLTE() {
+        return (TelephonyManager.getLteOnCdmaModeStatic() == PhoneConstants.LTE_ON_CDMA_TRUE
+                    || TelephonyManager.getLteOnGsmModeStatic() != 0);
     }
 }
