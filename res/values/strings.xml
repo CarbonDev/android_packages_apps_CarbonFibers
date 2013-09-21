@@ -734,16 +734,15 @@
     <string name="lockscreen_alpha_title">Background transparency</string>
 
     <!-- Recents Ram Bar -->
-    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_title">RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster. For further explanations on how android memory (RAM) managment works, please follow the help button in the menu.</string>
-    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_title">RAM bar mode</string>
     <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
     <string name="ram_bar_none">None</string>
     <string name="ram_bar_apps">Applications</string>
     <string name="ram_bar_cache">Applications and cache</string>
     <string name="ram_bar_other">Applications, cache and other</string>
-    <string name="ram_bar_style_cat">Recents RAM bar style</string>
     <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
     <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
     <string name="ram_bar_color_total_mem_color">Other RAM color</string>
@@ -1041,8 +1040,8 @@
     <string name="lockscreen_torch_navring">NavRing</string>
 
     <!-- Recents -->
-    <string name="recents_target_assist_title">Show Google Assistant in recents</string>
-    <string name="recents_target_assist_summary">This will show a button in recents to access your Google Now or long-press it to voice search.</string>
+    <string name="recents_target_assist_title">Show Google Assistant</string>
+    <string name="recents_target_assist_summary">Access Google Now or long-press it to voice search.</string>
 
     <!-- Low battery inidicator options -->
     <string name="pref_low_battery_warning_policy_title">Low battery warning</string>
@@ -1063,5 +1062,13 @@
     <!-- Show 4G icon instead of LTE. User defined settings -->
     <string name="show_lte_or_fourgee_title">Show 4G icon</string>
     <string name="show_lte_or_fourgee_summary">Use 4G network icon instead of LTE</string>
+
+    <!-- Clear recents -->
+    <string name="clear_recents_position_title">Clear recents position</string>
+    <string name="clear_recents_position_disabled">Disabled</string>
+    <string name="clear_recents_position_bottom_right">Bottom right</string>
+    <string name="clear_recents_position_bottom_left">Bottom left</string>
+    <string name="clear_recents_position_top_right">Top right</string>
+    <string name="clear_recents_position_top_left">Top left</string>
 
 </resources>

@@ -49,6 +49,7 @@ public class InterfaceRecents extends SettingsPreferenceFragment implements OnPr
     private static final String RAM_BAR_COLOR_APP_MEM = "ram_bar_color_app_mem";
     private static final String RAM_BAR_COLOR_CACHE_MEM = "ram_bar_color_cache_mem";
     private static final String RAM_BAR_COLOR_TOTAL_MEM = "ram_bar_color_total_mem";
+    private static final String KEY_CLEAR_RECENTS_POSITION = "clear_recents_position";
 
     private static final String EXPLANATION_URL = "http://www.slimroms.net/index.php/faq/slimbean/238-why-do-i-have-less-memory-free-on-my-device";
 
@@ -61,6 +62,7 @@ public class InterfaceRecents extends SettingsPreferenceFragment implements OnPr
     private ColorPickerPreference mRamBarAppMemColor;
     private ColorPickerPreference mRamBarCacheMemColor;
     private ColorPickerPreference mRamBarTotalMemColor;
+    private ListPreference mClearPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,13 @@ public class InterfaceRecents extends SettingsPreferenceFragment implements OnPr
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRamBarTotalMemColor.setSummary(hexColor);
         mRamBarTotalMemColor.setNewPreviewColor(intColor);
+
+        mClearPosition = (ListPreference) findPreference(KEY_CLEAR_RECENTS_POSITION);
+        int ClearSide = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.CLEAR_RECENTS_POSITION, 1);
+        mClearPosition.setValue(String.valueOf(ClearSide));
+        mClearPosition.setSummary(mClearPosition.getEntry());
+        mClearPosition.setOnPreferenceChangeListener(this);
 
         updateRamBarOptions();
         setHasOptionsMenu(true);
@@ -172,6 +181,13 @@ public class InterfaceRecents extends SettingsPreferenceFragment implements OnPr
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentAppRes,
                     Settings.System.RECENTS_RAM_BAR_MEM_COLOR, intHex);
+            return true;
+        } else if (preference == mClearPosition) {
+            int position = Integer.valueOf((String) newValue);
+            int index = mClearPosition.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.CLEAR_RECENTS_POSITION, position);
+            mClearPosition.setSummary(mClearPosition.getEntries()[index]);
             return true;
          }
         return false;
