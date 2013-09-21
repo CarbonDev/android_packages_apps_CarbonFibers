@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:textColor="#FFF"
+                android:textColor="@color/color_text_holo_dark"
                 android:textAppearance="@style/TextAppearance.PagerTabs"
                 android:background="@color/color_pager_tab_strip" />
 
