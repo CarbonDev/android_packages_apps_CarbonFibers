@@ -23,6 +23,11 @@
         android:summary="@string/toggle_vibrate_summary"
         android:title="@string/toggle_vibrate_title" />
 
+    <CheckBoxPreference
+        android:key="floating_toggles"
+        android:summary="@string/toggle_floating_toggles_summary"
+        android:title="@string/toggle_floating_toggles_title" />
+
     <ListPreference
         android:entries="@array/toggles_per_row_entries"
         android:entryValues="@array/toggles_per_row_values"
