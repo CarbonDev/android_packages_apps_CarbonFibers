@@ -53,7 +53,7 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockscreenGeneral";
 
-    private static final String KEY_ALWAYS_BATTERY = "lockscreen_battery_status";
+    private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_LOCKSCREEN_MUSIC_CONTROLS = "lockscreen_music_controls";
     private static final String PREF_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS = "lockscreen_hide_initial_page_hints";
@@ -89,10 +89,10 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         PreferenceScreen prefs = getPreferenceScreen();
 
         // Battery status
-        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY);
+        mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
             int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
+                    Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
             mBatteryStatus.setOnPreferenceChangeListener(this);
@@ -183,7 +183,7 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
             int value = Integer.valueOf((String) objValue);
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
+                    Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
             return true;
         } else if (preference == mGlowpadTorch) {
