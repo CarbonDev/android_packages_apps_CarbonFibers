@@ -1009,26 +1009,26 @@
     <string name="show_network_speed_summary">在状态栏显示网速</string>
 
     <!--  Other device settings -->
-    <string name="more_device_controls_title">设备调教(暂不可用)</string>
-    <string name="more_device_settings_title">Other device options</string>
-    <string name="sensors_motors_title">Sensors &amp; motors</string>
-    <string name="display_calibration_title">Display calibration</string>
+    <string name="more_device_controls_title">设备调教</string>
+    <string name="more_device_settings_title">其他设备选项</string>
+    <string name="sensors_motors_title">传感器 &amp; 其他设备</string>
+    <string name="display_calibration_title">显示校正</string>
 
     <!-- Hardware tunables - Vibrator intensity -->
     <string name="vibrator_intensity_title">震动强度</string>
     <string name="vibrator_warning">不推荐设置超过 %1$d 的值</string>
 
     <!-- Hardware tunables - Color calibration -->
-    <string name="color_calibration_title">Color calibration</string>
-    <string name="color_calibration_summary">Calibrate on-screen colors</string>
-    <string name="color_red_title">Red</string>
-    <string name="color_green_title">Green</string>
-    <string name="color_blue_title">Blue</string>
+    <string name="color_calibration_title">色彩校正</string>
+    <string name="color_calibration_summary">校正屏幕上显示的颜色</string>
+    <string name="color_red_title">红</string>
+    <string name="color_green_title">绿</string>
+    <string name="color_blue_title">蓝</string>
 
     <!-- Hardware tunables - Gamma calibration -->
-    <string name="category_gamma_title">Gamma</string>
-    <string name="gamma_tuning_title_head">Gamma calibration</string>
-    <string name="gamma_tuning_summary_head">Tweak gamma values</string>
+    <string name="category_gamma_title">伽马</string>
+    <string name="gamma_tuning_title_head">灰度校正</string>
+    <string name="gamma_tuning_summary_head">校正灰度值</string>
 
     <!-- Hardware tunables - Key backlight -->
     <string name="button_backlight_title">按键灯</string>
