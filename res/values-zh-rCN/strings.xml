@@ -78,6 +78,7 @@
     <string name="lockscreen_battery_status_title">电池状态</string>
     <string name="lockscreen_battery_status_charging">只在充电时显示</string>
     <string name="lockscreen_battery_status_alwayson">一直显示</string>
+    <string name="lockscreen_battery_status_alwaysoff">从不显示</string>
     <string name="lockscreen_minimize_challenge_title">简单风格</string>
     <string name="lockscreen_minimize_challenge_summary">锁屏界面不显示密码/锁屏圆环等部件,只显示一把小锁.</string>
 
@@ -230,6 +231,8 @@
     <string name="lockscreen_buttons_previous">上一曲</string>
     <string name="lockscreen_buttons_playpause">播放/暂停 音乐</string>
     <string name="lockscreen_buttons_toggle_sound">切换响铃模式</string>
+    <string name="lockscreen_buttons_sleep">关闭屏幕</string>
+
 
     <!-- Status bar -->
     <string name="status_bar_general_category">一般</string>
