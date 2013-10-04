@@ -151,6 +151,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.pie.PieTab"
+            android:label="@string/pie_controls_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.TransparencyDialog"
             android:theme="@android:style/Theme.Dialog"
             android:label="@string/transparency_dialog_title" >

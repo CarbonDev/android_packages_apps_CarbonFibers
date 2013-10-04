@@ -38,6 +38,13 @@
         android:title="@string/navbar_title"
         android:icon="@drawable/ic_carbon_navbar" />
 
+    <!-- Pie controls -->
+    <header
+        android:id="@+id/pie_controls"
+        android:fragment="com.carbon.settings.fragments.pie.PieTab"
+        android:title="@string/pie_controls_title"
+        android:icon="@drawable/ic_carbon_pie" />
+
     <!-- Power menu -->
     <header
         android:id="@+id/power_menu"
