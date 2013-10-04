@@ -149,6 +149,7 @@
         <item>@string/lockscreen_buttons_previous</item>
         <item>@string/lockscreen_buttons_playpause</item>
         <item>@string/lockscreen_buttons_toggle_sound</item>
+        <item>@string/lockscreen_buttons_sleep</item>
     </string-array>
 
     <string-array name="lockscreen_long_key_press_values" translatable="false">
@@ -157,16 +158,19 @@
         <item>PREVIOUS</item>
         <item>PLAYPAUSE</item>
         <item>SOUND</item>
+        <item>SLEEP</item>
     </string-array>
 
     <string-array name="lockscreen_battery_status_entries" translatable="false">
         <item>@string/lockscreen_battery_status_charging</item>
         <item>@string/lockscreen_battery_status_alwayson</item>
+        <item>@string/lockscreen_battery_status_alwaysoff</item>
     </string-array>
 
     <string-array name="lockscreen_battery_status_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="clock_style_entries" translatable="false">
@@ -1146,6 +1150,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <!-- Gamma calibration descriptors, deliberately empty as string values populated via
+    per-device overlay. Required to build on non-hardware tunable devices -->
+    <string-array name="gamma_descriptors">
     </string-array>
 
 </resources>
