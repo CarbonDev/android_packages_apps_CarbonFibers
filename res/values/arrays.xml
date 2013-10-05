@@ -699,18 +699,6 @@
         <item>4</item>
     </string-array>
 
-    <!-- Toggles style -->
-    <string-array name="toggles_style_entries" translatable="false">
-        <item>@string/toggle_style_tile</item>
-        <item>@string/toggle_style_traditional</item>
-        <item>@string/toggle_style_scrollable</item>
-    </string-array>
-    <string-array name="toggles_style_values" translatable="false">
-        <item>0</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
     <!-- Screenshot delay -->
     <string-array name="screenshot_delay_entries" translatable="false">
         <item>2 seconds</item>
@@ -744,29 +732,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
-
-    <!-- Toggles per row -->
-    <string-array name="toggles_per_row_entries" translatable="false">
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
-    <string-array name="toggles_per_row_values" translatable="false">
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>8</item>
-    </string-array>
-
-    <string-array name="choose_toggle_side_entries" translatable="false">
-        <item>@string/right</item>
-        <item>@string/left</item>
-    </string-array>
-    <string-array name="choose_toggle_side_values" translatable="false">
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <!-- Recents RAM bar-->
@@ -1254,6 +1219,45 @@
         <item>1.0</item>
         <item>2.0</item>
         <item>3.0</item>
+    </string-array>
+
+    <!-- Quick pulldown -->
+    <string-array name="quick_pulldown_entries" translatable="false">
+        <item>@string/quick_pulldown_off</item>
+        <item>@string/quick_pulldown_right</item>
+        <item>@string/quick_pulldown_left</item>
+    </string-array>
+
+    <string-array name="quick_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- QuickSettings tiles per row -->
+    <string-array name="tiles_per_row_entries" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="tiles_per_row_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- No Notifications pulldown -->
+    <string-array name="no_notifications_pulldown_entries">
+        <item>@string/no_notifications_pulldown_off</item>
+        <item>@string/no_notifications_pulldown_nonperm</item>
+        <item>@string/no_notifications_pulldown_all</item>
+    </string-array>
+
+    <string-array name="no_notifications_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>

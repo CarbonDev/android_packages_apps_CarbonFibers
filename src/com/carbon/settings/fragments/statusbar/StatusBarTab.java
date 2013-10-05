@@ -94,8 +94,7 @@ public class StatusBarTab extends SettingsPreferenceFragment {
             frags[1] = new StatusBarBattery();
             frags[2] = new StatusBarClock();
             frags[3] = new NotificationDrawer();
-            frags[4] = new PowerWidget();
-            frags[5] = new StatusBarToggles();
+            frags[4] = new QuickSettings();
         }
 
         @Override
@@ -121,8 +120,7 @@ public class StatusBarTab extends SettingsPreferenceFragment {
                     getString(R.string.status_bar_battery_category),
                     getString(R.string.status_bar_clock_category),
                     getString(R.string.status_bar_notification_category),
-                    getString(R.string.status_bar_power_widget_category),
-                    getString(R.string.status_bar_toggles_category)};
+                    getString(R.string.status_bar_quick_settings_category)};
         return titleString;
     }
 }

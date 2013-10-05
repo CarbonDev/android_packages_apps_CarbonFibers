@@ -238,7 +238,7 @@
     <string name="status_bar_general_category">General</string>
     <string name="status_bar_battery_category">Battery</string>
     <string name="status_bar_clock_category">Clock</string>
-    <string name="status_bar_power_widget_category">Power Widget</string>
+    <string name="status_bar_quick_settings_category">Quick Settings</string>
     <string name="status_bar_toggles_category">Toggles</string>
     <string name="status_bar_notification_category">Notification</string>
     <string name="status_bar_title">Statusbar</string>
@@ -606,66 +606,6 @@
     <string name="navring_target_amount_text">Current number of targets</string>
     <string name="navring_target_longpress_text">Longpress actions</string>
 
-    <!-- Statusbar | Toggles -->
-    <string name="title_statusbar_toggles">Statusbar toggles</string>
-    <string name="toggles_display_close">Close</string>
-    <string name="toggles_display_dialog">Choose which toggles to use</string>
-    <string name="toggles_layout_title">Toggle Layout</string>
-    <string name="toggles_per_row_title">Toggles per row</string>
-    <string name="toggles_per_row_summary">Choose how many toggles to show per row</string>
-    <string name="toggles_style_title">Toggles style</string>
-    <string name="toggles_style_summary">Notification (traditional) or tiles</string>
-    <string name="toggle_favcontact_title">Favorite contact</string>
-    <string name="toggle_favcontact_summary">Choose your favorite contact</string>
-    <string name="toggle_collapse_generic_title">Collapse shade on toggle click</string>
-    <string name="toggle_collapse_generic_summary">Close shade on all generic toggle actions</string>
-    <string name="toggle_vibrate_title">Vibrate on toggle click</string>
-    <string name="toggle_vibrate_summary">Vibrate on all generic toggle actions</string>
-    <string name="toggle_floating_toggles_title">Floating toggles</string>
-    <string name="toggle_floating_toggles_summary">Launch all generic toggle actions in a floating window</string>
-    <string name="toggle_enable_fasttoggle_title">Enable fast toggle</string>
-    <string name="toggle_enable_fasttoggle_summary">Overrides default behavior</string>
-    <string name="toggle_choose_fasttoggle_side_title">Choose fast toggle side</string>
-    <string name="toggle_choose_fasttoggle_side_summary">Choose which side the fast toggle area shall be</string>
-    <string name="toggle_dialog_arrange_title">Toggle setup</string>
-    <string name="toggle_dialog_add_toggles">Select toggles to add</string>
-    <string name="toggle_style_tile">Tiles</string>
-    <string name="toggle_style_traditional">Traditional</string>
-    <string name="toggle_style_scrollable">Traditional (Scrollable)</string>
-    <string name="toggle_swap_handle_side">Drag handle on right</string>
-    <string name="add_toggles">Change toggles</string>
-    <string name="screenshot_delay_title">Screenshot delay</string>
-    <string name="screenshot_delay_summary">Delay to use after long pressing the screenshot toggle</string>
-    <string name="toggle_action_title">Action %1$s &amp; icon</string>
-    <string name="toggle_action_title_alt">Longpress action %1$s &amp; icon</string>
-    <string name="toggle_longpress_title">Longpress action %1$s</string>
-    <string name="custom_toggle_desc">Each click causes the toggle to move to the next action. If your toggle has an empty click action and no custom icon; the long click action\'s icon will be used.\nThis is useful for users who want their click actions to simply cycle through toggle actions without launching anything.</string>
-    <string name="custom_help_title">How it works</string>
-    <string name="custom_help_summary">Click for more information</string>
-    <string name="custom_toggle_okay">Dismiss</string>
-    <string name="custom_toggle_cat">Custom toggle</string>
-    <string name="custom_button_cat">Custom toggle actions</string>
-    <string name="dclick_action_title">Double-click Actions</string>
-    <string name="dclick_action_summary">Change state by double-clicking</string>
-    <string name="boot_action_title">State one at boot</string>
-    <string name="boot_action_summary">Will launch state one on boot</string>
-    <string name="match_icon_action_title">Launch displayed action</string>
-    <string name="match_icon_action_summary">Useful for aligning task to displayed icon per your specific usage</string>
-    <string name="action_toggle_title">Toggle Actions</string>
-    <string name="action_toggle_summary">Toggle sequence from left to right</string>
-    <string name="no_dclick">No action</string>
-    <string name="back_one_dclick">Reverse state</string>
-    <string name="state_one_dclick">Set to state one</string>
-    <string name="skip_back_dclick">Skip back (no action)</string>
-    <string name="skip_up_dclick">Skip forward (no action)</string>
-    <string name="collapse_bar_title">Close notification shade</string>
-    <string name="collapse_bar_summary">Notification shade closes on action completion</string>
-    <string name="no_collapse">Never collapse</string>
-    <string name="click_collapse">On click</string>
-    <string name="long_collapse">On long click</string>
-    <string name="both_collapse">Both click and long click</string>
-    <string name="custom_toggle_colors">Custom colors</string>
-
     <!-- Tile background style and text color -->
     <string name="tile_background_style_title">Tile background style</string>
     <string name="tile_background_style_summary">Lets you choose from random, color fill or default background for tiles</string>
@@ -695,7 +635,6 @@
     <string name="menu_ribbon_apps">Reset apps</string>
     <string name="menu_ribbon_rearrange">Rearrange ribbon</string>
     <string name="menu_ribbon_hide">Hide apps</string>
-    <string name="menu_ribbon_toggles">Setup toggles</string>
     <string name="menu_ribbon_na">Not available</string>
     <string name="menu_ribbon_toggles_error">Toggles are only available for the left and right swipe ribbons.</string>
 
@@ -915,6 +854,19 @@
     <string name="ribbon_animation_type_title">Animation style</string>
     <string name="ribbon_toggles_button_title">Toggles button on bottom</string>
     <string name="ribbon_hide_ime_title">Keyboard swipe area hide.</string>
+    <string name="toggle_swap_handle_side">Drag handle on right</string>
+    <string name="toggles_display_close">Close</string>
+    <string name="no_dclick">No action</string>
+    <string name="back_one_dclick">Reverse state</string>
+    <string name="state_one_dclick">Set to state one</string>
+    <string name="skip_back_dclick">Skip back (no action)</string>
+    <string name="skip_up_dclick">Skip forward (no action)</string>
+    <string name="collapse_bar_title">Close notification shade</string>
+    <string name="collapse_bar_summary">Notification shade closes on action completion</string>
+    <string name="no_collapse">Never collapse</string>
+    <string name="click_collapse">On click</string>
+    <string name="long_collapse">On long click</string>
+    <string name="both_collapse">Both click and long click</string>
 
     <string name="interface_general_category">General</string>
     <string name="interface_recents_category">Recents</string>
@@ -1163,5 +1115,108 @@
     <string name="pie_button_color_title">Buttons color</string>
     <string name="all_color">Custom colors</string>
     <string name="stock_color">Default colors</string>
+
+    <!-- Quick settings panel  -->
+    <string name="quick_settings_panel_title">Quick Settings panel</string>
+    <string name="quick_settings_title">Quick Settings</string>
+    <string name="title_static_tiles">Static tiles</string>
+    <string name="tile_picker_title">Tiles and layout</string>
+    <string name="tile_picker_summary">View, select or change the layout of the displayed tiles</string>
+    <string name="tile_choose_title">Choose a tile</string>
+
+    <string name="title_tile_airplane">Airplane mode</string>
+    <string name="title_tile_battery">Battery stats</string>
+    <string name="title_tile_bluetooth">Bluetooth</string>
+    <string name="title_tile_brightness">Brightness</string>
+    <string name="title_tile_camera">Camera</string>
+    <string name="title_tile_carbon">Carbon</string>
+    <string name="title_tile_powermenu">Power Menu</string>
+    <string name="title_tile_sleep">Go to sleep</string>
+    <string name="title_tile_gps">GPS</string>
+    <string name="title_tile_torch">Torch</string>
+    <string name="title_tile_lockscreen">Lock screen</string>
+    <string name="title_tile_lte">LTE</string>
+    <string name="title_tile_mobiledata">Mobile data</string>
+    <string name="title_tile_profile">Profile</string>
+    <string name="title_tile_autorotate">Orientation</string>
+    <string name="title_tile_settings">Settings</string>
+    <string name="title_tile_sound">Sound</string>
+    <string name="title_tile_sync">Sync</string>
+    <string name="title_tile_wifiap">Wi-Fi AP</string>
+    <string name="title_tile_wifi">Wi-Fi</string>
+    <string name="title_tile_wimax">WiMAX</string>
+    <string name="title_tile_user">User switcher</string>
+    <string name="title_tile_networkmode">Network mode</string>
+    <string name="title_tile_nfc">NFC</string>
+    <string name="title_tile_screen_timeout">Screen timeout</string>
+    <string name="title_tile_usb_tether">USB Tether</string>
+    <string name="title_tile_quiet_hours">Quiet hours</string>
+    <string name="title_tile_volume">Volume</string>
+    <string name="title_tile_trds">Dark Carbon</string>
+    <string name="title_tile_music">Music</string>
+
+    <string name="title_dynamic_tiles">Dynamic tiles</string>
+    <string name="dynamic_tiles_note_title">Note</string>
+    <string name="dynamic_tiles_note_summary">Dynamic tiles are not always visible and will only show up if triggered by a system event</string>
+    <string name="title_dynamic_alarm">Alarm clock</string>
+    <string name="title_dynamic_bugreport">Bug report</string>
+    <string name="title_dynamic_ime">IME changer</string>
+    <string name="title_dynamic_usbtether">USB Tether</string>
+    <string name="title_dynamic_wifi">Wi-Fi display</string>
+
+    <string name="title_tile_expanded_desktop">Expanded desktop</string>
+    <string name="title_tile_network_adb">ADB over network</string>
+
+    <string name="title_general">General</string>
+    <string name="title_quick_pulldown">Quick pulldown</string>
+    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
+    <string name="quick_pulldown_summary_left">Left</string>
+    <string name="quick_pulldown_summary_right">Right</string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_left">Left</string>
+    <string name="quick_pulldown_right">Right</string>
+    <string name="title_collapse_panel">Auto close panel</string>
+    <string name="summary_collapse_panel">Close the Quick Settings panel upon toggle</string>
+    <string name="title_floating_window">Floating window</string>
+    <string name="summary_floating_window">Open Quick Settings tiles in floating window</string>    
+    <string name="disable_quick_settings_panel">Quick Settings</string>
+    <string name="disable_quick_settings_panel_summary">Enable or disable Quick Settings</string>
+    <string name="quick_settings_enabled">Enabled</string>
+    <string name="quick_settings_disabled">Disabled</string>
+    <string name="title_no_notifications_pulldown">Quick pulldown without notifications</string>
+    <string name="summary_no_notifications_pulldown">Pulldown quick settings if no notifications are present</string>
+    <string name="no_notifications_pulldown_summary_nonperm">Pulldown quick settings if no non-permanent notifications are present</string>
+    <string name="no_notifications_pulldown_summary_all">Pulldown quick settings if no notifications are present</string>
+    <string name="no_notifications_pulldown_off">Off</string>
+    <string name="no_notifications_pulldown_nonperm">Non-permanent only</string>
+    <string name="no_notifications_pulldown_all">All Notifications</string>
+
+    <!-- QuickSettings style options -->
+    <string name="quicksettings_tiles_style">Quick Settings style</string>
+    <string name="summary_quicksettings_tiles_style">Show or change Quick Settings style options</string>
+    <string name="quicksettings_tiles_style_additional_options">Additional options</string>
+    <string name="tiles_per_row_title">Tiles per row</string>
+    <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>
+    <string name="quick_tiles_text_color_title">Tiles text color</string>
+    <string name="quick_settings_style_reset">Reset colors</string>
+    <string name="quick_tiles_bg_color_title">Tiles background color</string>
+    <string name="quick_tiles_bg_pressed_color_title">Tiles pressed background color</string>
+    <string name="flip_qs_tiles_title">Flip tiles</string>
+    <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
+    <string name="qs_random_colors_title">Random colors</string>
+    <string name="qs_random_colors_summary">Random colors flipping on QuickSettings</string>
+
+    <!-- Reset tiles -->
+    <string name="tiles_add_title">Add</string>
+    <string name="tiles_reset_title">Reset</string>
+    <string name="tiles_reset_message">Restore the default displayed tiles and layout?</string>
+    <string name="dialog_delete_title">Delete</string>
+
+    <!-- Quick access ribbon -->
+    <string name="category_quick_access">Quick Access ribbon</string>
+    <string name="title_quick_access">Show in drawer</string>
+    <string name="title_quick_access_linked">Linked layout</string>
+    <string name="summary_quick_access_linked">Use the same tiles and layout as the Quick Settings panel</string>
 
 </resources>

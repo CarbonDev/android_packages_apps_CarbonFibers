@@ -99,7 +99,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
     private int mChoice = 0;
     private MenuItem mMenuRearrange;
     private MenuItem mMenuReset;
-    private MenuItem mMenuToggles;
 
     private TextView mEnableBottomWarning;
     private Switch mEnableBottomSwitch;
@@ -148,8 +147,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
     private Spinner mRibbonAnimation;
     private TextView mAppWindowSpaceText;
     private SeekBar mAppWindowSpace;
-    private TextView mTogglesButtonText;
-    private Switch mTogglesButton;
     private TextView mRibbonHideImeText;
     private Switch mRibbonHideIme;
 
@@ -168,11 +165,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
     private RibbonDialogReceiver mRibbonDialogReceiver;
     private boolean mSetupFinished;
     private Handler mHandler = new Handler();
-
-    private BroadcastReceiver mReceiver;
-    private ArrayList<String> allToggles = new ArrayList<String>();
-    private ArrayList<String> allTogglesStrings = new ArrayList<String>();
-    private Bundle sToggles = new Bundle();
 
     private ArrayList<String> mGoodName = new ArrayList<String>();
     private ArrayList<String> mHiddenApps = new ArrayList<String>();
@@ -262,22 +254,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        mReceiver = new BroadcastReceiver() {
-
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (intent.hasExtra("toggle_bundle")) {
-                    onTogglesUpdate(intent.getBundleExtra("toggle_bundle"));
-                }
-            }
-        };
-        mContext.registerReceiver(mReceiver,
-                new IntentFilter(
-                        "com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
-
-        Intent request =
-                new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
-        mContext.sendBroadcast(request);
 
         setTitle(R.string.title_ribbon);
 
@@ -580,16 +556,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             }
         });
 
-        mTogglesButtonText = ((TextView) ll.findViewById(R.id.ribbon_toggles_button_id));
-        mTogglesButton = (Switch) ll.findViewById(R.id.ribbon_toggles_button);
-        mTogglesButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton v, boolean checked) {
-                Settings.System.putBoolean(mContentRes,
-                        Settings.System.RIBBON_TOGGLE_BUTTON_LOCATION[ribbonNumber], checked);
-            }
-        });
-
         mIconSizeText = ((TextView) ll.findViewById(R.id.ribbon_icon_size_id));
         mIconSize = (Spinner) ll.findViewById(R.id.ribbon_icon_size);
         ArrayAdapter<CharSequence> iconAdapter = new ArrayAdapter<CharSequence>(
@@ -849,7 +815,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
         inflater.inflate(R.menu.ribbon, menu);
         mMenuRearrange = menu.findItem(R.id.rearrange);
         mMenuReset = menu.findItem(R.id.reset);
-        mMenuToggles = menu.findItem(R.id.ribbon_toggles);
     }
 
     @Override
@@ -880,40 +845,9 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
                     showHideAppsDialog();
                 }
                 return true;
-            case R.id.ribbon_toggles:
-                if (arrayNum == 2 || arrayNum == 4) {
-                    allTogglesStrings.clear();
-                    for (int i = 0; i < allToggles.size(); i++) {
-                        allTogglesStrings.add(lookupToggle(allToggles.get(i)));
-                    }
-                    ArrayList<String> mToggles = Settings.System.getArrayList(mContentRes,
-                            Settings.System.SWIPE_RIBBON_TOGGLES[ribbonNumber]);
-                    ArrangeRibbonTogglesFragment fragment = new ArrangeRibbonTogglesFragment();
-                    fragment.setResources(mContext, mContentRes, allToggles, allTogglesStrings,
-                            mToggles, ribbonNumber);
-                    fragment.show(getFragmentManager(), "toggles");
-                } else {
-                    Toast.makeText(mContext, R.string.menu_ribbon_toggles_error, Toast.LENGTH_LONG)
-                            .show();
-                }
-                return true;
             default:
                 return super.onContextItemSelected(item);
         }
-    }
-
-    private String lookupToggle(String ident) {
-        if (sToggles != null) {
-            return sToggles.getString(ident.toUpperCase());
-        }
-        return ident;
-    }
-
-    private void onTogglesUpdate(Bundle toggleInfo) {
-        allToggles.clear();
-        sToggles.clear();
-        allToggles = toggleInfo.getStringArrayList("toggles");
-        sToggles = toggleInfo;
     }
 
     @Override
@@ -929,10 +863,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
 
     @Override
     public void onDestroy() {
-        if (mReceiver != null) {
-            mContext.unregisterReceiver(mReceiver);
-            mReceiver = null;
-        }
         if (mRibbonDialogReceiver != null) {
             mContext.unregisterReceiver(mRibbonDialogReceiver);
             mRibbonDialogReceiver = null;
@@ -951,7 +881,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             case 5:
                 mMenuRearrange.setTitle(getResources().getString(R.string.menu_ribbon_rearrange));
                 mMenuReset.setTitle(getResources().getString(R.string.menu_ribbon_reset));
-                mMenuToggles.setTitle(getResources().getString(R.string.menu_ribbon_na));
                 if (hasNavBarByDefault || navBarEnabled || navBarAutoHide) {
                     mEnableBottomWarning.setVisibility(View.VISIBLE);
                     if (navBarAutoHide) {
@@ -968,8 +897,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
                 mRibbonAnimation.setVisibility(View.VISIBLE);
                 mRibbonDismissText.setVisibility(View.VISIBLE);
                 mRibbonDismiss.setVisibility(View.VISIBLE);
-                mTogglesButtonText.setVisibility(View.GONE);
-                mTogglesButton.setVisibility(View.GONE);
                 mRibbonLongSwipeText.setVisibility(View.VISIBLE);
                 mRibbonLongSwipe.setVisibility(View.VISIBLE);
                 mRibbonLongPressText.setVisibility(View.VISIBLE);
@@ -1029,11 +956,8 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             case 4:
                 mMenuRearrange.setTitle(getResources().getString(R.string.menu_ribbon_rearrange));
                 mMenuReset.setTitle(getResources().getString(R.string.menu_ribbon_reset));
-                mMenuToggles.setTitle(getResources().getString(R.string.menu_ribbon_toggles));
                 mRibbonHideImeText.setVisibility(View.VISIBLE);
                 mRibbonHideIme.setVisibility(View.VISIBLE);
-                mTogglesButtonText.setVisibility(View.VISIBLE);
-                mTogglesButton.setVisibility(View.VISIBLE);
                 mRibbonAnimDurText.setVisibility(View.VISIBLE);
                 mRibbonAnimDur.setVisibility(View.VISIBLE);
                 mRibbonAnimationText.setVisibility(View.VISIBLE);
@@ -1100,11 +1024,8 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             case 2:
                 mMenuRearrange.setTitle(getResources().getString(R.string.menu_ribbon_rearrange));
                 mMenuReset.setTitle(getResources().getString(R.string.menu_ribbon_reset));
-                mMenuToggles.setTitle(getResources().getString(R.string.menu_ribbon_toggles));
                 mRibbonHideImeText.setVisibility(View.VISIBLE);
                 mRibbonHideIme.setVisibility(View.VISIBLE);
-                mTogglesButtonText.setVisibility(View.VISIBLE);
-                mTogglesButton.setVisibility(View.VISIBLE);
                 mRibbonAnimDurText.setVisibility(View.VISIBLE);
                 mRibbonAnimDur.setVisibility(View.VISIBLE);
                 mRibbonAnimationText.setVisibility(View.VISIBLE);
@@ -1171,11 +1092,8 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             case 10:
                 mMenuRearrange.setTitle(getResources().getString(R.string.menu_ribbon_hide));
                 mMenuReset.setTitle(getResources().getString(R.string.menu_ribbon_apps));
-                mMenuToggles.setTitle(getResources().getString(R.string.menu_ribbon_na));
                 mRibbonHideImeText.setVisibility(View.GONE);
                 mRibbonHideIme.setVisibility(View.GONE);
-                mTogglesButtonText.setVisibility(View.GONE);
-                mTogglesButton.setVisibility(View.GONE);
                 mRibbonAnimDurText.setVisibility(View.GONE);
                 mRibbonAnimDur.setVisibility(View.GONE);
                 mRibbonAnimationText.setVisibility(View.VISIBLE);
@@ -1245,12 +1163,9 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
                     mMenuRearrange
                             .setTitle(getResources().getString(R.string.menu_ribbon_rearrange));
                     mMenuReset.setTitle(getResources().getString(R.string.menu_ribbon_reset));
-                    mMenuToggles.setTitle(getResources().getString(R.string.menu_ribbon_na));
                 }
                 mRibbonHideImeText.setVisibility(View.GONE);
                 mRibbonHideIme.setVisibility(View.GONE);
-                mTogglesButtonText.setVisibility(View.GONE);
-                mTogglesButton.setVisibility(View.GONE);
                 mRibbonAnimDurText.setVisibility(View.GONE);
                 mRibbonAnimDur.setVisibility(View.GONE);
                 mRibbonAnimationText.setVisibility(View.GONE);
@@ -1405,8 +1320,6 @@ public class RibbonTargets extends SettingsPreferenceFragment implements
             } else {
                 mRibbonLongPress.setSelection(codes.size() - 1);
             }
-            mTogglesButton.setChecked(Settings.System.getBoolean(mContentRes,
-                    Settings.System.RIBBON_TOGGLE_BUTTON_LOCATION[ribbonNumber], false));
 
             mRibbonHideIme.setChecked(Settings.System.getBoolean(mContentRes,
                     Settings.System.RIBBON_HIDE_IME[ribbonNumber], false));
