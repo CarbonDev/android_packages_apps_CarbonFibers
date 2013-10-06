@@ -945,10 +945,6 @@
     <string name="listview_anticipate_overshoot_interpolator">anticipate_overshoot_interpolator</string>
     <string name="listview_bounce_interpolator">bounce_interpolator</string>
 
-    <!-- Network speed -->
-    <string name="show_network_speed">Network speed indicator</string>
-    <string name="show_network_speed_summary">Show network speed in statusbar</string>
-
     <!--  Other device settings -->
     <string name="more_device_controls_title">Device tunables</string>
     <string name="more_device_settings_title">Other device options</string>
@@ -1215,5 +1211,10 @@
     <string name="title_quick_access">Show in drawer</string>
     <string name="title_quick_access_linked">Linked layout</string>
     <string name="summary_quick_access_linked">Use the same tiles and layout as the Quick Settings panel</string>
+
+    <!-- network usage stats -->
+    <string name="status_bar_network_title">Network traffic</string>
+    <string name="status_bar_show_network_stats_title">Show network speeds</string>
+    <string name="status_bar_network_stats_update_title">Update frequency</string>
 
 </resources>

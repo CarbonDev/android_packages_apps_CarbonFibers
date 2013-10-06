@@ -48,7 +48,8 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
-    private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
+    private static final String STATUS_BAR_NETWORK_STATS_UPDATE = "status_bar_network_status_update";
     private static final String KEY_SHOW_LTE_OR_FOURGEE = "show_lte_or_fourgee";
 
     private ListPreference mStatusBarCmSignal;
@@ -58,7 +59,8 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
     private PreferenceCategory mPrefCategoryStyle;
     private ListPreference mStatusBarBeh;
     private CheckBoxPreference mStatusBarQuickPeek;
-    private CheckBoxPreference mStatusBarTraffic;
+    private ListPreference mStatusBarNetStatsUpdate;
+    private CheckBoxPreference mStatusBarNetworkStats;
     private CheckBoxPreference mShowLTEorFourGee;
 
     private static int mBarBehavior;
@@ -83,9 +85,9 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
         mStatusbarSliderPreference.setChecked((Settings.System.getInt(mContentAppRes,
                 Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, 0) == 1));
 
-        mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
-        mStatusBarTraffic.setChecked(Settings.System.getBoolean(mContentAppRes,
-                Settings.System.STATUS_BAR_TRAFFIC, false));
+        mStatusBarNetworkStats = (CheckBoxPreference) findPreference(STATUS_BAR_NETWORK_STATS);
+        mStatusBarNetworkStats.setChecked(Settings.System.getInt(mContentAppRes,
+                Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1);
 
         mStatusBarBeh = (ListPreference) findPreference(STATUS_BAR_BEHAVIOR);
         int mBarBehavior = Settings.System.getInt(mContentRes,
@@ -171,10 +173,10 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPr
             Settings.System.putInt(mContentAppRes,
                     Settings.System.STATUSBAR_PEEK, value ? 1 : 0);
             return true;
-        } else if (preference == mStatusBarTraffic) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_TRAFFIC,
-                    mStatusBarTraffic.isChecked());
+        } else if (preference == mStatusBarNetworkStats) {
+            Settings.System.putInt(mContentRes,
+                    Settings.System.STATUS_BAR_NETWORK_STATS,
+                    ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mShowLTEorFourGee) {
             Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
