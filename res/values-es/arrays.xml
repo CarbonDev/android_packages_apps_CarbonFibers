@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="entries_network_widget">
+        <item>2G/3G+2G</item>  
+        <item>Sólo 2G/3G</item>   
+        <item>2G/3G Sólo/3G+2G</item>
+    </string-array>
+
+    <string-array name="entries_screentimeout_widget">
+        <item>15s/1m/5m</item>
+        <item>30s/2m/5m</item>
+    </string-array>
+
+    <string-array name="entries_flash_widget">
+        <item>Normal</item>
+        <item>Alto</item>
+    </string-array>
+
+    <string-array name="haptic_feedback_entries">
+        <item>Usar configuración global</item>
+        <item>Habilitado</item>
+        <item>Deshabilitado</item>
+    </string-array>
+
+    <!-- Expanded desktop -->
+    <string-array name="expanded_desktop_entries">
+        <item>@string/expanded_desktop_disabled</item>
+        <item>@string/expanded_desktop_only_nav_bar</item>
+        <item>@string/expanded_desktop_only_status_bar</item>
+        <item>@string/expanded_desktop_both_hidden</item>
+    </string-array>
+
+    <string-array name="entries_status_bar_am_pm">
+        <item>Normal</item>
+        <item>Pequeño</item>
+        <item>No mostrar</item>
+    </string-array>
+
+    <string-array name="clock_date_display_entries">
+        <item>No mostrar</item>
+        <item>Fecha pequeña</item>
+        <item>Fecha Normal</item>
+    </string-array>
+
+    <string-array name="clock_date_style_entries">
+        <item>Normal</item>
+        <item>Minúsculas</item>
+        <item>Mayúsculas</item>
+    </string-array>
+
+    <string-array name="clock_date_format_entries">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>Formato java personalizado</item>
+    </string-array>
+
+    <string-array name="clock_date_format_values">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>Formato java personalizado</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_entries" >
+        <item>@string/circle_battery_animation_speed_none</item>
+        <item>@string/circle_battery_animation_speed_slow</item>
+        <item>@string/circle_battery_animation_speed_stock</item>
+        <item>@string/circle_battery_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="battery_bar_entries">
+        <item>Ocultar</item>
+        <item>Barra de estado</item>
+        <item>Sobre la barra de navegación</item>
+        <item>Bajo la barra de navegación</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_entries">
+        <item>Normal</item>
+        <item>Centrado-espejo</item>
+    </string-array>
+
+    <!-- Toggle tile background style -->
+    <string-array name="tile_background_style_entries">
+        <item>@string/tile_background_random</item>
+        <item>@string/tile_background_color_fill</item>
+        <item>@string/tile_background_default</item>
+    </string-array>
+
+    <string-array name="lockscreen_background_entries">
+        <item>@string/lockscreen_background_color_fill</item>
+        <item>@string/lockscreen_background_custom_image</item>
+        <item>@string/lockscreen_background_full_transparent</item>
+        <item>@string/lockscreen_background_default_wallpaper</item>
+    </string-array>
+
+    <!-- Recents RAM bar-->
+    <string-array name="entries_ram_bar_mode">
+        <item>@string/ram_bar_none</item>
+        <item>@string/ram_bar_apps</item>
+        <item>@string/ram_bar_cache</item>
+        <item>@string/ram_bar_other</item>
+    </string-array>
+
+    <!-- HALO -->
+    <string-array name="entries_halo_state">
+        <item>@string/halo_state_black</item>
+        <item>@string/halo_state_white</item>
+    </string-array>  
+
+    <string-array name="entries_halo_size">
+        <item>@string/halo_size_miniscule</item>
+        <item>@string/halo_size_small</item>
+        <item>@string/halo_size_default</item>
+        <item>@string/halo_size_large</item>
+        <item>@string/halo_size_gigantic</item>
+        <item>@string/halo_size_monster</item>
+    </string-array>
+
+
+    <string-array name="entries_halo_notification_count">
+        <item>@string/halo_notification_count_none</item>
+        <item>@string/halo_notification_count_total</item>
+        <item>@string/halo_notification_count_individual</item>
+        <item>@string/halo_notification_count_both</item>
+    </string-array>
+
+    <string-array name="values_halo_notification_count">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="entries_halo_msgbox_animation">
+        <item>@string/halo_msgbox_animation_none</item>
+        <item>@string/halo_msgbox_animation_flip</item>
+    </string-array>
+
+    <string-array name="values_halo_msgbox_animation">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="notification_wallpaper_entries">
+        <item>@string/notification_background_color_fill</item>
+        <item>@string/notification_background_custom_image</item>
+        <item>@string/notification_background_default_wallpaper</item>
+    </string-array>
+
+    <string-array name="notification_wallpaper_landscape_entries">
+        <item>@string/notification_background_custom_image</item>
+        <item>@string/notification_background_default_wallpaper</item>
+    </string-array>
+
+
+    <!-- Low battery warning policy -->
+    <string-array name="pref_low_battery_warning_policy_entries">
+        <item>@string/low_battery_warning_policy_popup_sound</item>
+        <item>@string/low_battery_warning_policy_notif_sound</item>
+        <item>@string/low_battery_warning_policy_popup</item>
+        <item>@string/low_battery_warning_policy_notif</item>
+        <item>@string/low_battery_warning_policy_sound</item>
+        <item>@string/low_battery_warning_policy_disabled</item>
+    </string-array>
+
+    <string-array name="lcd_density_stock_entries">
+        <item>213 -- Nexus7</item>
+        <item>240 -- HDPI</item>
+        <item>320 -- XHDPI</item>
+        <item>480 -- XXHDPI</item>
+    </string-array>
+
+    <!-- Listview animation -->
+    <string-array name="listview_animation_entries">
+        <item>@string/listview_off</item>
+        <item>@string/listview_wave_left</item>
+        <item>@string/listview_wave_right</item>
+        <item>@string/listview_scale</item>
+        <item>@string/listview_alpha</item>
+        <item>@string/listview_stack_top</item>
+        <item>@string/listview_stack_bottom</item>
+        <item>@string/listview_unfold</item>
+        <item>@string/listview_fold</item>
+        <item>@string/listview_translate_left</item>
+        <item>@string/listview_translate_right</item>
+        <item>@string/listview_rotate</item>
+    </string-array>
+
+    <string-array name="listview_animation_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <!-- Listview Interpolator -->
+    <string-array name="listview_interpolator_entries">
+        <item>@string/listview_off</item>
+        <item>@string/listview_accelerate_interpolator</item>
+        <item>@string/listview_decelerate_interpolator</item>
+        <item>@string/listview_accelerate_decelerate_interpolator</item>
+        <item>@string/listview_anticipate_interpolator</item>
+        <item>@string/listview_overshoot_interpolator</item>
+        <item>@string/listview_anticipate_overshoot_interpolator</item>
+        <item>@string/listview_bounce_interpolator</item>
+    </string-array>
+
+    <string-array name="listview_interpolator_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <!-- Brightness slider -->
+    <string-array name="brightness_location_entries">
+        <item>@string/brightness_slider_top</item>
+        <item>@string/brightness_slider_bottom</item>
+        <item>@string/brightness_slider_none</item>
+    </string-array>
+
+    <!-- Notification behavior preferences -->
+    <string-array name="notifs_beh_entries">
+        <item>Normal</item>
+        <item>No desplegado</item>
+        <item>Siempre desplegado</item>
+        <item>Estilo antiguo</item>
+    </string-array>
+
+    <string-array name="clear_recents_position_entries">
+        <item>@string/clear_recents_position_disabled</item>
+        <item>@string/clear_recents_position_bottom_right</item>
+        <item>@string/clear_recents_position_bottom_left</item>
+        <item>@string/clear_recents_position_top_right</item>
+        <item>@string/clear_recents_position_top_left</item>
+    </string-array>
+
+
+    <!-- Gamma calibration descriptors, deliberately empty as string values populated via
+    per-device overlay. Required to build on non-hardware tunable devices -->
+    <string-array name="gamma_descriptors">
+    </string-array>
+
+    <!-- PIE PIE PIE PIE PIE -->
+ 
+    <string-array name="entries_pie_gravity">
+        <item>@string/pie_gravity_left</item>
+        <item>@string/pie_gravity_top</item>
+        <item>@string/pie_gravity_right</item>
+        <item>@string/pie_gravity_bottom</item>
+    </string-array>
+
+    <string-array name="entries_pie_size">
+        <item>@string/pie_size_small</item>
+        <item>@string/pie_size_default</item>
+        <item>@string/pie_size_large</item>
+        <item>@string/pie_size_gigantic</item>
+        <item>@string/pie_size_monster</item>
+    </string-array>
+
+    <string-array name="entries_pie_mode">
+        <item>@string/pie_mode_bare</item>
+        <item>@string/pie_mode_quick</item>
+        <item>@string/pie_mode_default</item>
+        <item>@string/pie_mode_slow</item>
+    </string-array>
+
+    <string-array name="entries_pie_angle">
+        <item>@string/pie_angle_none</item>
+        <item>@string/pie_angle_small</item>
+        <item>@string/pie_angle_big</item>
+        <item>@string/pie_angle_huge</item>
+        <item>@string/pie_angle_super</item>
+    </string-array>
+
+    <string-array name="entries_pie_gap">
+        <item>@string/pie_gap_none</item>
+        <item>@string/pie_gap_small</item>
+        <item>@string/pie_gap_big</item>
+        <item>@string/pie_gap_huge</item>
+    </string-array>
+
+    <string-array name="entries_pie_trigger">
+        <item>@string/pie_trigger_small</item>
+        <item>@string/pie_trigger_normal</item>
+        <item>@string/pie_trigger_big</item>
+        <item>@string/pie_trigger_huge</item>
+    </string-array>
+
+</resources>
