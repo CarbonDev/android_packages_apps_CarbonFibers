@@ -5,6 +5,12 @@
         android:key="general_options"
         android:title="@string/status_bar_general_title">
 
+        <PreferenceScreen
+            android:key="lcd_density_setup"
+            android:fragment="com.carbon.settings.fragments.inter.DensityChanger"
+            android:title="@string/lcd_density_title"
+            android:summary="@string/lcd_density_summary" />
+
         <CheckBoxPreference
             android:key="show_overflow"
             android:title="@string/hardware_keys_show_overflow_title"

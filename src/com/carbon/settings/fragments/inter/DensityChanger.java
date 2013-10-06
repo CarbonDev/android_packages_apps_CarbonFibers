@@ -44,7 +44,7 @@ import com.carbon.settings.util.CMDProcessor;
 import com.carbon.settings.util.CMDProcessor.CommandResult;
 import com.carbon.settings.util.Helpers;
 
-public class InterfaceDensity extends SettingsPreferenceFragment implements
+public class DensityChanger extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "DensityChanger";

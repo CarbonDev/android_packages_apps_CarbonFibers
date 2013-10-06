@@ -98,6 +98,7 @@ public class InterfaceGeneral extends SettingsPreferenceFragment
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private ListPreference mLowBatteryWarning;
+    private Preference mLcdDensity;
 
     Context mContext;
 
@@ -134,6 +135,16 @@ public class InterfaceGeneral extends SettingsPreferenceFragment
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
+        mLcdDensity = findPreference("lcd_density_setup");
+        mLcdDensity.setOnPreferenceChangeListener(this);
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            prefSet.removePreference(mLcdDensity);
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         setHasOptionsMenu(true);
     }

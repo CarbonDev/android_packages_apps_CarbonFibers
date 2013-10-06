@@ -918,7 +918,6 @@
 
     <string name="interface_general_category">General</string>
     <string name="interface_recents_category">Recents</string>
-    <string name="interface_density_category">Density</string>
     <string name="interface_buttons_category">Buttons</string>
 
     <!-- LCD Density -->

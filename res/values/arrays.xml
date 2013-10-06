@@ -1007,10 +1007,10 @@
     </string-array>
 
     <string-array name="lcd_density_stock_entries">
-        <item>213 -- nexus7</item>
-        <item>240 -- hdpi</item>
-        <item>320 -- xhdpi</item>
-        <item>480 -- xxhdpi</item>
+        <item>213 -- Nexus 7</item>
+        <item>240 -- HDPI</item>
+        <item>320 -- XHDPI</item>
+        <item>480 -- XXHDPI</item>
     </string-array>
 
     <string-array name="lcd_density_stock_values" translatable="false">
