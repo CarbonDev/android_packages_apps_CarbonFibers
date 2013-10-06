@@ -11,7 +11,6 @@ LOCAL_SRC_FILES := $(call all-subdir-java-files)
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 
 LOCAL_PACKAGE_NAME := CarbonFibers
-LOCAL_CERTIFICATE := platform
 
 include $(BUILD_PACKAGE)
 

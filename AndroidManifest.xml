@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.carbon.settings"
-    android:sharedUserId="android.uid.system" >
+    package="com.carbon.settings" >
 
     <uses-sdk android:minSdkVersion="18"/>
     <original-package android:name="com.carbon.settings" />
+
+    <uses-library android:name="org.cyanogenmod.hardware" required="false" />
 
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -29,13 +30,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:uiOptions="none" >
-
-        <uses-library android:name="org.cyanogenmod.hardware" required="false" />
-
         <activity
             android:name=".CrSettingsActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
