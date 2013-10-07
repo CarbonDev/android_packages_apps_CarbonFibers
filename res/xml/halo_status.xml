@@ -94,13 +94,6 @@
             android:dependency="halo_enabled"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
-            android:key="show_popup"
-            android:title="@string/popups_title"
-            android:summary="@string/popups_summary"
-            android:dependency="halo_enabled"
-            android:defaultValue="true" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
