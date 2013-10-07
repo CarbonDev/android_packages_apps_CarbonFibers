@@ -1024,6 +1024,7 @@
     <string name="gamma_tuning_summary_head">Tweak gamma values</string>
     <string name="gamma_tuning_contrast">Contrast</string>
     <string name="gamma_tuning_brightness">Brightness</string>
+    <string name="gamma_tuning_saturation">Saturation</string>
 
     <!-- Hardware tunables - Key backlight -->
     <string name="button_backlight_title">Backlight</string>
