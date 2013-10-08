@@ -18,14 +18,14 @@
             android:persistent="false"
             android:defaultValue="false" />
 
+        <Preference
+            android:key="transparency_dialog"
+            android:title="@string/transparency_dialog_title" />
+
         <CheckBoxPreference
             android:key="use_alt_resolver"
             android:title="@string/alt_resolver_title"
             android:defaultValue="false" />
-
-        <Preference
-            android:key="transparency_dialog"
-            android:title="@string/transparency_dialog_title" />
 
     </PreferenceCategory>
 

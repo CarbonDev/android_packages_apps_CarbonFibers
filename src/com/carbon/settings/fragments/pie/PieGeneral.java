@@ -251,6 +251,7 @@ public class PieGeneral extends SettingsPreferenceFragment
             int pieGravity = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.PIE_GRAVITY, pieGravity);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mPieAngle) {
             int pieAngle = Integer.valueOf((String) newValue);
