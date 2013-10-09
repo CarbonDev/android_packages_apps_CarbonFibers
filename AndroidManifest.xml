@@ -106,6 +106,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.statusbar.QuickSettings"
+            android:label="@string/quick_settings_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.statusbar.QuickSettingsTilesStyle"
+            android:label="@string/quick_settings_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.ribbon.RibbonTargets"
             android:label="@string/title_ribbon" >
             <intent-filter>

@@ -53,11 +53,13 @@ public class HaloAdvanced extends SettingsPreferenceFragment
     private static final String KEY_HALO_COLORS = "halo_colors";
     private static final String KEY_HALO_CIRCLE_COLOR = "halo_circle_color";
     private static final String KEY_HALO_BUBBLE_COLOR = "halo_bubble_color";
+    private static final String KEY_HALO_EFFECT_COLOR = "halo_effect_color";
     private static final String KEY_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
 
     private CheckBoxPreference mHaloColors;
     private ColorPickerPreference mHaloCircleColor;
     private ColorPickerPreference mHaloBubbleColor;
+    private ColorPickerPreference mHaloEffectColor;
     private ColorPickerPreference mHaloBubbleTextColor;
     private ListPreference mHaloSize;
 
@@ -87,6 +89,9 @@ public class HaloAdvanced extends SettingsPreferenceFragment
 
         mHaloBubbleColor = (ColorPickerPreference) findPreference(KEY_HALO_BUBBLE_COLOR);
         mHaloBubbleColor.setOnPreferenceChangeListener(this);
+
+        mHaloEffectColor = (ColorPickerPreference) findPreference(KEY_HALO_EFFECT_COLOR);
+        mHaloEffectColor.setOnPreferenceChangeListener(this);
 
         mHaloBubbleTextColor = (ColorPickerPreference) findPreference(KEY_HALO_BUBBLE_TEXT_COLOR);
         mHaloBubbleTextColor.setOnPreferenceChangeListener(this);
@@ -126,6 +131,15 @@ public class HaloAdvanced extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_BUBBLE_COLOR, intHex);
+            return true;
+        } else if (preference == mHaloEffectColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(Value)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_EFFECT_COLOR, intHex);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mHaloBubbleTextColor) {
             String hex = ColorPickerPreference.convertToARGB(
