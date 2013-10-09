@@ -1024,6 +1024,7 @@
     <string name="gamma_tuning_summary_head">Personalizar valores gamma</string>
     <string name="gamma_tuning_contrast">Contraste</string>
     <string name="gamma_tuning_brightness">Brillo</string>
+    <string name="gamma_tuning_saturation">Saturación</string>
 
     <!-- Hardware tunables - Key backlight -->
     <string name="button_backlight_title">Retroiluminación</string>
