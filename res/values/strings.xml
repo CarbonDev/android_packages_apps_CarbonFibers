@@ -832,10 +832,6 @@
     <string name="halo_msgbox_animation_none">None</string>
     <string name="halo_msgbox_animation_flip">Flip</string>
 
-    <!-- We want HALO popups -->
-    <string name="popups_title">Allow floating windows</string>
-    <string name="popups_summary">Controls whether you want floating windows from notification panel</string>
-
     <!-- Statusbar behavior -->
     <string name="statusbar_behavior_title">Statusbar behavior</string>
     <string name="statusbar_show">Show</string>
