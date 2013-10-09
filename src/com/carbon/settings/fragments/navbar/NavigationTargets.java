@@ -371,7 +371,7 @@ public class NavigationTargets extends SettingsPreferenceFragment implements
             Settings.System.putString(cr,
                     Settings.System.SYSTEMUI_NAVRING_ICON[i], customIcons[i]);
         }
-        updateDrawables();
+        setDrawables();
     }
 
     @Override
@@ -390,9 +390,10 @@ public class NavigationTargets extends SettingsPreferenceFragment implements
                 break;
             }
 
-        setDrawables();
+        saveAll();
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == ShortcutPickerHelper.REQUEST_PICK_SHORTCUT
@@ -441,7 +442,7 @@ public class NavigationTargets extends SettingsPreferenceFragment implements
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void updateDrawables() {
+    private void updateDrawables() {
         for (int i = 0; i < 5; i++) {
              targetActivities[i] = Settings.System.getString(cr, Settings.System.SYSTEMUI_NAVRING[i]);
              longActivities[i] = Settings.System.getString(cr, Settings.System.SYSTEMUI_NAVRING_LONG[i]);
@@ -455,7 +456,7 @@ public class NavigationTargets extends SettingsPreferenceFragment implements
         setDrawables();
     }
 
-    public void onValueChange(String uri) {
+    private void onValueChange(String uri) {
         DialogConstant mFromString = funcFromString(uri);
         switch (mFromString) {
         case CUSTOM_APP:
@@ -509,7 +510,6 @@ public class NavigationTargets extends SettingsPreferenceFragment implements
             break;
 
         }
-        setDrawables();
         saveAll();
     }
 
