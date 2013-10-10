@@ -238,6 +238,7 @@
     <string name="status_bar_general_category">General</string>
     <string name="status_bar_battery_category">Batería</string>
     <string name="status_bar_clock_category">Reloj</string>
+    <string name="status_bar_quick_settings_category">Ajustes rápidos</string>
     <string name="status_bar_power_widget_category">Widget de control de energía</string>
     <string name="status_bar_toggles_category">Interruptores</string>
     <string name="status_bar_notification_category">Notificaciones</string>
@@ -606,66 +607,6 @@
     <string name="navring_target_amount_text">Número actual de accesos directos</string>
     <string name="navring_target_longpress_text">Acciones de pulsación larga</string>
 
-    <!-- Statusbar | Toggles -->
-    <string name="title_statusbar_toggles">Interruptores de barra de estado</string>
-    <string name="toggles_display_close">Cerrar</string>
-    <string name="toggles_display_dialog">Seleccionar interruptores a usar</string>
-    <string name="toggles_layout_title">Estilo de interruptores</string>
-    <string name="toggles_per_row_title">Interruptores por fila</string>
-    <string name="toggles_per_row_summary">Seleccionar cuantos interruptores se mostrarán en cada fila</string>
-    <string name="toggles_style_title">Estilo de interruptores</string>
-    <string name="toggles_style_summary">Notificación (tradicional) o botones cuadrados</string>
-    <string name="toggle_favcontact_title">Contacto favorito</string>
-    <string name="toggle_favcontact_summary">Seleccionar contacto favorito</string>
-    <string name="toggle_collapse_generic_title">Cerrar cuando se toca un interruptor</string>
-    <string name="toggle_collapse_generic_summary">Cerrar cajón de ajustes rápidos cuando se toca un interruptor</string>
-    <string name="toggle_vibrate_title">Vibrar al tocar</string>
-    <string name="toggle_vibrate_summary">Vibrar cuando se toca uno de los interruptores</string>
-    <string name="toggle_floating_toggles_title">Interruptores flotantes</string>
-    <string name="toggle_floating_toggles_summary">Lanzar la acción una ventana flotante cuando se toca un interruptor</string>
-    <string name="toggle_enable_fasttoggle_title">Habilitar acceso rápido</string>
-    <string name="toggle_enable_fasttoggle_summary">Sobreescribe el comportamiento por defecto</string>
-    <string name="toggle_choose_fasttoggle_side_title">Elegir un lado para acceso rápido</string>
-    <string name="toggle_choose_fasttoggle_side_summary">Seleccionar el lado en el que se habilita el acceso rápido</string>
-    <string name="toggle_dialog_arrange_title">Configuración de interruptores</string>
-    <string name="toggle_dialog_add_toggles">Seleccionar interruptores</string>
-    <string name="toggle_style_tile">Cuadrados</string>
-    <string name="toggle_style_traditional">Tradicional</string>
-    <string name="toggle_style_scrollable">Tradicional (Con barra de despl.)</string>
-    <string name="toggle_swap_handle_side">Indicador de arrastre en la derecha</string>
-    <string name="add_toggles">Cambiar interruptores</string>
-    <string name="screenshot_delay_title">Tiempo de espera al capturar pantalla</string>
-    <string name="screenshot_delay_summary">Tiempo de espera tras pulsar el botón de captura de pantalla</string>
-    <string name="toggle_action_title">Acción %1$s &amp; icono</string>
-    <string name="toggle_action_title_alt">Acción de pulsación larga %1$s &amp; icono</string>
-    <string name="toggle_longpress_title">Acción de pulsación larga %1$s</string>
-    <string name="custom_toggle_desc">Cada toque cambia el interruptor a la siguiente acción. Si el botón no tiene ni acción ni icono asociados se usará la acción de pulsación larga.\nEste comportamiento es útil para usuarios que quieren ejecutar las acciones de los botones sin lanzar nada.</string>
-    <string name="custom_help_title">Cómo funciona</string>
-    <string name="custom_help_summary">Toca para más información</string>
-    <string name="custom_toggle_okay">Cancelar</string>
-    <string name="custom_toggle_cat">Interruptor personalizado</string>
-    <string name="custom_button_cat">Acciones personalizadas del interruptor</string>
-    <string name="dclick_action_title">Acciones de doble toque</string>
-    <string name="dclick_action_summary">Cambiar estado al tocar dos veces</string>
-    <string name="boot_action_title">Primer estado en el inicio</string>
-    <string name="boot_action_summary">Lanzará el primer estado en el inicio</string>
-    <string name="match_icon_action_title">Lanzar acción mostrada</string>
-    <string name="match_icon_action_summary">Útil para alinear tareas en el icono mostrado</string>
-    <string name="action_toggle_title">Acciones de los interruptores</string>
-    <string name="action_toggle_summary">Secuencia del interruptor de izquierda a derecha</string>
-    <string name="no_dclick">Sin acción</string>
-    <string name="back_one_dclick">Invertir estado</string>
-    <string name="state_one_dclick">Establecer primer estado</string>
-    <string name="skip_back_dclick">Retroceder (sin acción)</string>
-    <string name="skip_up_dclick">Adelantar (sin acción)</string>
-    <string name="collapse_bar_title">Cerrar cajón de ajustes rápidos</string>
-    <string name="collapse_bar_summary">El cajón de ajustes rápidos se cerrará al completar la acción</string>
-    <string name="no_collapse">Nunca contraer</string>
-    <string name="click_collapse">Al tocar</string>
-    <string name="long_collapse">Al pulsar prolongadamente</string>
-    <string name="both_collapse">Ambos, con un pulsación o con pulsación prolongada</string>
-    <string name="custom_toggle_colors">Colores personalizados</string>
-
     <!-- Tile background style and text color -->
     <string name="tile_background_style_title">Estilo del fondo de ajustes rápidos</string>
     <string name="tile_background_style_summary">Permite seleccionar colores aleatorios, un relleno de color o un fondo para los interruptores</string>
@@ -695,7 +636,6 @@
     <string name="menu_ribbon_apps">Restablecer aplicaciones</string>
     <string name="menu_ribbon_rearrange">Reordenar ribbon</string>
     <string name="menu_ribbon_hide">Ocultar aplicaciones</string>
-    <string name="menu_ribbon_toggles">Configurar botones</string>
     <string name="menu_ribbon_na">No disponible</string>
     <string name="menu_ribbon_toggles_error">Los botones solo están disponibles para los ribbons de arrastre de izquierda y derecha.</string>
 
@@ -704,7 +644,7 @@
     <string name="miscellaneous_options_title">Varios</string>
 
     <!-- Custom Carrier Label -->
-    <string name="custom_carrier_label_title">Operadosrpersonalizado</string>
+    <string name="custom_carrier_label_title">Operador personalizado</string>
     <string name="custom_carrier_label_explain">Introduce el nombre del operador. Deja el campo en blanco para restablecer el operador original
     .
     </string>
@@ -832,10 +772,6 @@
     <string name="halo_msgbox_animation_none">Ninguna</string>
     <string name="halo_msgbox_animation_flip">Voltear</string>
 
-    <!-- We want HALO popups -->
-    <string name="popups_title">Permitir ventanas flotantes</string>
-    <string name="popups_summary">Controla si deseamos ventanas flotantes en el panel de notificaciones</string>
-
     <!-- Statusbar behavior -->
     <string name="statusbar_behavior_title">Comportamiento barra de estado</string>
     <string name="statusbar_show">Mostrar</string>
@@ -915,6 +851,19 @@
     <string name="ribbon_animation_type_title">Estilo de animación</string>
     <string name="ribbon_toggles_button_title">Botón de activación abajo</string>
     <string name="ribbon_hide_ime_title">Zona deslizante de ocultación del teclado</string>
+    <string name="toggle_swap_handle_side">Arrastra la huella a la derecha</string>
+    <string name="toggles_display_close">Cerrar</string>
+    <string name="no_dclick">Sin acción</string>
+    <string name="back_one_dclick">Cambiar estado</string>
+    <string name="state_one_dclick">Poner en primer estado</string>
+    <string name="skip_back_dclick">Saltar atrás (sin acción)</string>
+    <string name="skip_up_dclick">Saltar adelante (sin acción)</string>
+    <string name="collapse_bar_title">Cerrar cajón de notif.</string>
+    <string name="collapse_bar_summary">El cajón de notificaciones se cierra con cualquier cambio</string>
+    <string name="no_collapse">Nunca contraer</string>
+    <string name="click_collapse">Al tocar</string>
+    <string name="long_collapse">Al tocar prolongadamente</string>
+    <string name="both_collapse">Ambos, al tocar y tocar prolongadamente</string>
 
     <string name="interface_general_category">General</string>
     <string name="interface_recents_category">Aplicaciones recientes</string>
@@ -1163,5 +1112,101 @@
     <string name="pie_button_color_title">Color de los botones</string>
     <string name="all_color">Colores personalizados</string>
     <string name="stock_color">Colores por defecto</string>
+    
+    <!-- Quick settings panel  -->
+    <string name="quick_settings_panel_title">Panel de ajustes rápidos</string>
+    <string name="quick_settings_title">Ajustes rápidos</string>
+    <string name="title_static_tiles">Botones estáticos</string>
+    <string name="tile_picker_title">Disposición de botones</string>
+    <string name="tile_picker_summary">Ver, elegir y cambiar la disposición de los botones que se muestran</string>
+    <string name="tile_choose_title">Selecciona un botón</string>
+    <string name="title_tile_airplane">Modo Avión</string>
+    <string name="title_tile_battery">Estadísticas de batería</string>
+    <string name="title_tile_bluetooth">Bluetooth</string>
+    <string name="title_tile_brightness">Brillo</string>
+    <string name="title_tile_camera">Cámara</string>
+    <string name="title_tile_carbon">Carbon</string>
+    <string name="title_tile_powermenu">Menú de apagado</string>
+    <string name="title_tile_sleep">Apagar pantalla</string>
+    <string name="title_tile_gps">GPS</string>
+    <string name="title_tile_torch">Linterna</string>
+    <string name="title_tile_lockscreen">Bloquear pantalla</string>
+    <string name="title_tile_lte">LTE</string>
+    <string name="title_tile_mobiledata">Datos móviles</string>
+    <string name="title_tile_profile">Perfil</string>
+    <string name="title_tile_autorotate">Orientación</string>
+    <string name="title_tile_settings">Ajustes</string>
+    <string name="title_tile_sound">Sonido</string>
+    <string name="title_tile_sync">Sincronización</string>
+    <string name="title_tile_wifiap">AP Wi-Fi</string>
+    <string name="title_tile_wifi">Wi-Fi</string>
+    <string name="title_tile_wimax">WiMAX</string>
+    <string name="title_tile_user">Cambio de usuario</string>
+    <string name="title_tile_networkmode">Modo de red</string>
+    <string name="title_tile_nfc">NFC</string>
+    <string name="title_tile_screen_timeout">Tiempo espera pantalla</string>
+    <string name="title_tile_usb_tether">Anclaje USB</string>
+    <string name="title_tile_quiet_hours">Horas de tranquilidad</string>
+    <string name="title_tile_volume">Volumen</string>
+    <string name="title_tile_trds">Dark Carbon</string>
+    <string name="title_tile_music">Música</string>
+    <string name="title_dynamic_tiles">Botones dinámicos</string>
+    <string name="dynamic_tiles_note_title">Nota</string>
+    <string name="dynamic_tiles_note_summary">Los botones dinámicos no aparecen siempre, sólo se muestran cuando los lanza un evento del sistemaDynamic</string>
+    <string name="title_dynamic_alarm">Alarma</string>
+    <string name="title_dynamic_bugreport">Informar Bug</string>
+    <string name="title_dynamic_ime">Selector de método de entrada</string>
+    <string name="title_dynamic_usbtether">Anclaje USB</string>
+    <string name="title_dynamic_wifi">Mostrar Wi-Fi</string>
+    <string name="title_tile_expanded_desktop">Escritorio extendido</string>
+    <string name="title_tile_network_adb">ADB en red</string>
+    <string name="title_general">General</string>
+    <string name="title_quick_pulldown">Despliegue rápido</string>
+    <string name="summary_quick_pulldown">Lado %1$s de la barra de estado despliega el panel de ajustes rápidos</string>
+    <string name="quick_pulldown_summary_left">Izquierda</string>
+    <string name="quick_pulldown_summary_right">Derecha</string>
+    <string name="quick_pulldown_off">Desactivado</string>
+    <string name="quick_pulldown_left">Izquierda</string>
+    <string name="quick_pulldown_right">Derecha</string>
+    <string name="title_collapse_panel">cerrar panel automáticamente</string>
+    <string name="summary_collapse_panel">Cerrar el panel de ajustes rápidos al realizar cualquier acción</string>
+    <string name="title_floating_window">Ventana flotante</string>
+    <string name="summary_floating_window">Abrir botones de ajustes rápidos en una ventana flotante</string>
+    <string name="disable_quick_settings_panel">Ajustes rápidos</string>
+    <string name="disable_quick_settings_panel_summary">Habilitar o deshabilitar panel de ajustes rápidos</string>
+    <string name="quick_settings_enabled">Habilitado</string>
+    <string name="quick_settings_disabled">Deshabilitado</string>
+    <string name="title_no_notifications_pulldown">Despliegue rápido sin notificaciones</string>
+    <string name="summary_no_notifications_pulldown">Desplegar el panel de ajustes rápido si no hay notificaciones en la barra de estado</string>
+    <string name="no_notifications_pulldown_summary_nonperm">Desplegar el panel de ajustes rápido si no hay notificaciones permanentes en la barra de estado</string>
+    <string name="no_notifications_pulldown_summary_all">Desplegar el panel de ajustes rápido si no hay notificaciones en la barra de estado</string>
+    <string name="no_notifications_pulldown_off">Deshabilitado</string>
+    <string name="no_notifications_pulldown_nonperm">Sólo no permanentes</string>
+    <string name="no_notifications_pulldown_all">Todas las notificaciones</string>
+    <!-- QuickSettings style options -->
+    <string name="quicksettings_tiles_style">Estilo panel ajustes rápidos</string>
+    <string name="summary_quicksettings_tiles_style">Muestra o cambia los ajustes del estilo del panel de ajustes rápidos</string>
+    <string name="quicksettings_tiles_style_additional_options">Ajustes adicionales</string>
+    <string name="tiles_per_row_title">Botones por fila</string>
+    <string name="tiles_per_row_duplicate_landscape_title">Escalar cantidad modo horizontal</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">En modo horizontal se duplica la cantidad de botones por fila</string>
+    <string name="quick_tiles_text_color_title">Color texto botones</string>
+    <string name="quick_settings_style_reset">Restablecer colores</string>
+    <string name="quick_tiles_bg_color_title">Color fondo de botones</string>
+    <string name="quick_tiles_bg_pressed_color_title">Color fondo botón presionado</string>
+    <string name="flip_qs_tiles_title">Voltear botones</string>
+    <string name="flip_qs_tiles_summary">Voltea los botones al tocarlos</string>
+    <string name="qs_random_colors_title">Colores aleatorios</string>
+    <string name="qs_random_colors_summary">Botones de ajustes rápidos con colores aleatorios</string>
+    <!-- Reset tiles -->
+    <string name="tiles_add_title">Añadir</string>
+    <string name="tiles_reset_title">Restablecer</string>
+    <string name="tiles_reset_message">Restablecer por defecto los botones y el estilo?</string>
+    <string name="dialog_delete_title">Borrar</string>
+    <!-- Quick access ribbon -->
+    <string name="category_quick_access">Ribon de acceso rápido</string>
+    <string name="title_quick_access">Mostrar en el cajón</string>
+    <string name="title_quick_access_linked">Vinculado ajustes rápidos</string>
+    <string name="summary_quick_access_linked">Usar los mismos botones y estilo que el panel de ajustes rápidos</string>
 
 </resources>
