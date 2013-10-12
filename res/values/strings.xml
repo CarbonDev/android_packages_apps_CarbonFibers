@@ -255,6 +255,7 @@
     <string name="status_bar_battery_status_dotted_circle">Dotted Circle with percentage</string>
     <string name="icon_color_behavior_title">Custom icon color</string>
     <string name="icon_color_behavior_summary">This will filter your current statusbar system icon to your preferred color</string>
+    <string name="status_bar_icon_color_reset">Reset icon color</string>
     <string name="status_icon_color_summary">Choose your preferred color</string>
 
     <!-- Status bar | Clock -->
@@ -1214,6 +1215,8 @@
 
     <!-- network usage stats -->
     <string name="status_bar_network_title">Network traffic</string>
+    <string name="status_bar_network_color_title">Network color</string>
+    <string name="status_bar_network_color_reset">Reset network color</string>
     <string name="status_bar_show_network_stats_title">Show network speeds</string>
     <string name="status_bar_network_stats_update_title">Update frequency</string>
 
