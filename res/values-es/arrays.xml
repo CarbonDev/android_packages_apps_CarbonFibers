@@ -340,5 +340,13 @@
         <item>@string/no_notifications_pulldown_nonperm</item>
         <item>@string/no_notifications_pulldown_all</item>
     </string-array>
+    
+        <!-- network usage stats -->
+    <string-array name="entries_status_bar_network_stats_update">
+        <item>&#189; segundo</item>
+        <item>1 segundo</item>
+        <item>2 segundos</item>
+        <item>5 segundos</item>
+    </string-array>
 
 </resources>

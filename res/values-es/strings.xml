@@ -239,7 +239,6 @@
     <string name="status_bar_battery_category">Batería</string>
     <string name="status_bar_clock_category">Reloj</string>
     <string name="status_bar_quick_settings_category">Ajustes rápidos</string>
-    <string name="status_bar_power_widget_category">Widget de control de energía</string>
     <string name="status_bar_toggles_category">Interruptores</string>
     <string name="status_bar_notification_category">Notificaciones</string>
     <string name="status_bar_title">Barra de estado</string>
@@ -946,10 +945,6 @@
     <string name="listview_anticipate_overshoot_interpolator">Interpolador anticipado y excedido</string>
     <string name="listview_bounce_interpolator">Interpolador con rebote</string>
 
-    <!-- Network speed -->
-    <string name="show_network_speed">Indicador de velocidad de la red</string>
-    <string name="show_network_speed_summary">Muestra la velocidad de la red en la barra de estado</string>
-
     <!--  Other device settings -->
     <string name="more_device_controls_title">Personalización del dispositivo</string>
     <string name="more_device_settings_title">Otras opciones del dispositivo</string>
@@ -1120,6 +1115,7 @@
     <string name="tile_picker_title">Disposición de botones</string>
     <string name="tile_picker_summary">Ver, elegir y cambiar la disposición de los botones que se muestran</string>
     <string name="tile_choose_title">Selecciona un botón</string>
+    
     <string name="title_tile_airplane">Modo Avión</string>
     <string name="title_tile_battery">Estadísticas de batería</string>
     <string name="title_tile_bluetooth">Bluetooth</string>
@@ -1129,6 +1125,7 @@
     <string name="title_tile_powermenu">Menú de apagado</string>
     <string name="title_tile_sleep">Apagar pantalla</string>
     <string name="title_tile_gps">GPS</string>
+    <string name="title_tile_fcharge">Carga rápida</string>
     <string name="title_tile_torch">Linterna</string>
     <string name="title_tile_lockscreen">Bloquear pantalla</string>
     <string name="title_tile_lte">LTE</string>
@@ -1151,6 +1148,7 @@
     <string name="title_tile_trds">Dark Carbon</string>
     <string name="title_tile_music">Música</string>
     <string name="title_dynamic_tiles">Botones dinámicos</string>
+    
     <string name="dynamic_tiles_note_title">Nota</string>
     <string name="dynamic_tiles_note_summary">Los botones dinámicos no aparecen siempre, sólo se muestran cuando los lanza un evento del sistemaDynamic</string>
     <string name="title_dynamic_alarm">Alarma</string>
@@ -1159,8 +1157,10 @@
     <string name="title_dynamic_usbtether">Anclaje USB</string>
     <string name="title_dynamic_wifi">Mostrar Wi-Fi</string>
     <string name="title_tile_expanded_desktop">Escritorio extendido</string>
+    
     <string name="title_tile_network_adb">ADB en red</string>
     <string name="title_general">General</string>
+    
     <string name="title_quick_pulldown">Despliegue rápido</string>
     <string name="summary_quick_pulldown">Lado %1$s de la barra de estado despliega el panel de ajustes rápidos</string>
     <string name="quick_pulldown_summary_left">Izquierda</string>
@@ -1183,6 +1183,7 @@
     <string name="no_notifications_pulldown_off">Deshabilitado</string>
     <string name="no_notifications_pulldown_nonperm">Sólo no permanentes</string>
     <string name="no_notifications_pulldown_all">Todas las notificaciones</string>
+    
     <!-- QuickSettings style options -->
     <string name="quicksettings_tiles_style">Estilo panel ajustes rápidos</string>
     <string name="summary_quicksettings_tiles_style">Muestra o cambia los ajustes del estilo del panel de ajustes rápidos</string>
@@ -1198,15 +1199,22 @@
     <string name="flip_qs_tiles_summary">Voltea los botones al tocarlos</string>
     <string name="qs_random_colors_title">Colores aleatorios</string>
     <string name="qs_random_colors_summary">Botones de ajustes rápidos con colores aleatorios</string>
+  
     <!-- Reset tiles -->
     <string name="tiles_add_title">Añadir</string>
     <string name="tiles_reset_title">Restablecer</string>
     <string name="tiles_reset_message">Restablecer por defecto los botones y el estilo?</string>
     <string name="dialog_delete_title">Borrar</string>
+    
     <!-- Quick access ribbon -->
     <string name="category_quick_access">Ribon de acceso rápido</string>
     <string name="title_quick_access">Mostrar en el cajón</string>
     <string name="title_quick_access_linked">Vinculado ajustes rápidos</string>
     <string name="summary_quick_access_linked">Usar los mismos botones y estilo que el panel de ajustes rápidos</string>
+    
+    <!-- network usage stats -->
+    <string name="status_bar_network_title">Tráfico de red</string>
+    <string name="status_bar_show_network_stats_title">Mostrar velocidad del tráfico de red</string>
+    <string name="status_bar_network_stats_update_title">Frecencia de actualización</string>
 
 </resources>
