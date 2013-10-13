@@ -58,6 +58,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String QS_TILES_STYLE = "quicksettings_tiles_style";
     private static final String TILE_PICKER = "tile_picker";
     private static final String FLOATING_WINDOW ="floating_window";
+    private static final String SCREENSHOT_DELAY = "screenshot_delay";
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
@@ -66,6 +67,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mDisablePanel;
     private ListPreference mQuickPulldown;
     private ListPreference mNoNotificationsPulldown;
+    private ListPreference mScreenshotDelay;
     private CheckBoxPreference mFloatingWindow;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
@@ -121,6 +123,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mScreenTimeoutMode = (ListPreference) prefSet.findPreference(EXP_SCREENTIMEOUT_MODE);
         mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntry());
         mScreenTimeoutMode.setOnPreferenceChangeListener(this);
+
+        // Screenshot Delay
+        mScreenshotDelay = (ListPreference) prefSet.findPreference(SCREENSHOT_DELAY);
+        mScreenshotDelay.setOnPreferenceChangeListener(this);
+        mScreenshotDelay.setValue(String.valueOf(Settings.System.getInt(mContentRes,
+                Settings.System.SCREENSHOT_TOGGLE_DELAY, 5000)));
 
         // Remove unsupported options
         if (!QSUtils.deviceSupportsImeSwitcher(getActivity())) {
@@ -228,6 +236,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.EXPANDED_NETWORK_MODE, value);
             mNetworkMode.setSummary(mNetworkMode.getEntries()[index]);
             return true;
+        } else if (preference == mScreenshotDelay) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.System.putInt(mContentRes,
+                    Settings.System.SCREENSHOT_TOGGLE_DELAY, val);
+            mScreenshotDelay.setValue((String) newValue);
         } else if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
@@ -312,6 +325,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
         if (mScreenTimeoutMode != null) {
             mScreenTimeoutMode.setEnabled(status);
+        }
+        if (mScreenshotDelay != null) {
+            mScreenshotDelay.setEnabled(status);
         }
         if (mNoNotificationsPulldown != null) {
             mNoNotificationsPulldown.setEnabled(status);
