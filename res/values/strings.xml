@@ -1214,11 +1214,16 @@
     <string name="title_quick_access_linked">Linked layout</string>
     <string name="summary_quick_access_linked">Use the same tiles and layout as the Quick Settings panel</string>
 
-    <!-- network usage stats -->
+    <!-- network usage stats (ChaOS) -->
     <string name="status_bar_network_title">Network traffic</string>
     <string name="status_bar_network_color_title">Network color</string>
     <string name="status_bar_network_color_reset">Reset network color</string>
     <string name="status_bar_show_network_stats_title">Show network speeds</string>
+    <string name="status_bar_show_network_stats_summary">Show network speed in statusbar (ChaOS)</string>
     <string name="status_bar_network_stats_update_title">Update frequency</string>
+
+    <!-- Network speed (Thinking Bridge)-->
+    <string name="show_network_speed">Network speed indicator</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar (Thinking Bridge)</string>
 
 </resources>

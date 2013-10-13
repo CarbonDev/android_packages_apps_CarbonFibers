@@ -48,13 +48,21 @@
             android:title="@string/statusbar_behavior_title"
             android:entries="@array/statusbar_behavior_entries"
             android:entryValues="@array/statusbar_behavior_values" />
+
     <PreferenceCategory
         android:key="network"
         android:title="@string/status_bar_network_title">
 
         <CheckBoxPreference
+            android:key="status_bar_traffic"
+            android:title="@string/show_network_speed"
+            android:summary="@string/show_network_speed_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="status_bar_show_network_stats"
             android:title="@string/status_bar_show_network_stats_title"
+            android:summary="@string/status_bar_show_network_stats_summary"
             android:defaultValue="false" />
 
         <ListPreference
@@ -68,8 +76,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="status_bar_network_color"
             android:title="@string/status_bar_network_color_title"
-            android:defaultValue="@android:color/holo_blue_light"
-            android:dependency="status_bar_show_network_stats" />
+            android:defaultValue="@android:color/holo_blue_light" />
 
     </PreferenceCategory>
 
