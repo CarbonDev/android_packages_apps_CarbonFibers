@@ -123,7 +123,7 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
 
         mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
         mCameraWidget.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.KG_CAMERA_WIDGET, 0) == 1);
+                Settings.System.KG_CAMERA_WIDGET, 1) == 1);
 
         mLockscreenMinChallenge = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_MINIMIZE_CHALLENGE);
         mLockscreenMinChallenge.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
