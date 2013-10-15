@@ -54,6 +54,7 @@ public class HaloStatus extends SettingsPreferenceFragment
     private static final String KEY_HALO_HIDE = "halo_hide";
     private static final String KEY_HALO_REVERSED = "halo_reversed";
     private static final String KEY_HALO_PAUSE = "halo_pause";
+    private static final String KEY_WE_WANT_POPUPS = "show_popup";
     private static final String KEY_HALO_NINJA = "halo_ninja";
     private static final String KEY_HALO_MSGBOX = "halo_msgbox";
     private static final String KEY_HALO_MSGBOX_ANIMATION = "halo_msgbox_animation";
@@ -66,13 +67,14 @@ public class HaloStatus extends SettingsPreferenceFragment
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloPause;
+    private CheckBoxPreference mWeWantPopups;
     private CheckBoxPreference mHaloNinja;
     private CheckBoxPreference mHaloMsgBox;
     private CheckBoxPreference mHaloUnlockPing;
     private SwitchPreference mHaloEnabled;
 
     private Context mContext;
-    private INotificationManager mNotificationManager;
+    private INotificationManager mNotificationManager; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -138,6 +140,11 @@ public class HaloStatus extends SettingsPreferenceFragment
         mHaloPause = (CheckBoxPreference) findPreference(KEY_HALO_PAUSE);
         mHaloPause.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_PAUSE, isLowRAM) == 1);
+
+        int showPopups = Settings.System.getInt(getContentResolver(), Settings.System.WE_WANT_POPUPS, 1);
+        mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
+        mWeWantPopups.setOnPreferenceChangeListener(this);
+        mWeWantPopups.setChecked(showPopups > 0);
     }
 
     private boolean isHaloPolicyBlack() {
@@ -151,7 +158,7 @@ public class HaloStatus extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mHaloHide) {
+        if (preference == mHaloHide) {  
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_HIDE, mHaloHide.isChecked()
                     ? 1 : 0);
@@ -167,7 +174,7 @@ public class HaloStatus extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_UNLOCK_PING, mHaloUnlockPing.isChecked()
                     ? 1 : 0);
-        } else if (preference == mHaloReversed) {
+        } else if (preference == mHaloReversed) {   
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
                     ? 1 : 0);
@@ -175,7 +182,7 @@ public class HaloStatus extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_PAUSE, mHaloPause.isChecked()
                     ? 1 : 0);
-        }
+        }   
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -204,6 +211,11 @@ public class HaloStatus extends SettingsPreferenceFragment
             int haloNotifyCount = Integer.valueOf((String) Value);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_NOTIFY_COUNT, haloNotifyCount);
+            return true;
+        } else if (preference == mWeWantPopups) {
+            boolean checked = (Boolean) Value; 
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.WE_WANT_POPUPS, checked);
             return true;
         }
         return false;
