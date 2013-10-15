@@ -1149,6 +1149,8 @@
     <string name="title_tile_volume">Volume</string>
     <string name="title_tile_trds">Dark Carbon</string>
     <string name="title_tile_music">Music</string>
+    <string name="title_tile_screenshot">Screenshot</string>
+    <string name="title_tile_halo">Halo</string>
 
     <string name="title_dynamic_tiles">Dynamic tiles</string>
     <string name="dynamic_tiles_note_title">Note</string>
@@ -1185,6 +1187,8 @@
     <string name="no_notifications_pulldown_off">Off</string>
     <string name="no_notifications_pulldown_nonperm">Non-permanent only</string>
     <string name="no_notifications_pulldown_all">All Notifications</string>
+    <string name="screenshot_delay_title">Screenshot delay</string>
+    <string name="screenshot_delay_summary">Delay to use after longpressing the screenshot tile</string>
 
     <!-- QuickSettings style options -->
     <string name="quicksettings_tiles_style">Quick Settings style</string>
@@ -1201,6 +1205,26 @@
     <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
     <string name="qs_random_colors_title">Random colors</string>
     <string name="qs_random_colors_summary">Random colors flipping on QuickSettings</string>
+
+    <!-- LED Values -->
+    <string name="time_0_seconds_off">Off</string>
+    <string name="time_0_2_seconds">.2 seconds</string>
+    <string name="time_0_5_seconds">.5 seconds</string>
+    <string name="time_1_second">1 second</string>
+    <string name="time_1_5_seconds">1.5 seconds</string>
+    <string name="time_2_seconds">2 seconds</string>
+    <string name="time_2_5_seconds">2.5 seconds</string>
+    <string name="time_3_seconds">3 seconds</string>
+    <string name="time_3_5_seconds">3.5 seconds</string>
+    <string name="time_4_seconds">4 seconds</string>
+    <string name="time_4_5_seconds">4.5 seconds</string>
+    <string name="time_5_seconds">5 seconds</string>
+    <string name="time_5_5_seconds">5.5 seconds</string>
+    <string name="time_6_seconds">6 seconds</string>
+    <string name="time_7_seconds">7 seconds</string>
+    <string name="time_8_seconds">8 seconds</string>
+    <string name="time_9_seconds">9 seconds</string>
+    <string name="time_10_seconds">10 seconds</string>
 
     <!-- Reset tiles -->
     <string name="tiles_add_title">Add</string>

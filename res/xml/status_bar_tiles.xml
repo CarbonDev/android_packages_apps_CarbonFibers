@@ -85,6 +85,13 @@
             android:entryValues="@array/values_screentimeout_widget" />
 
         <ListPreference
+            android:key="screenshot_delay"
+            android:dialogTitle="@string/screenshot_delay_title"
+            android:title="@string/screenshot_delay_title"
+            android:entries="@array/screenshot_delay_entries"
+            android:entryValues="@array/screenshot_delay_values" />
+
+        <ListPreference
             android:key="pref_network_mode"
             android:dialogTitle="@string/pref_network_mode_title"
             android:title="@string/pref_network_mode_title"
