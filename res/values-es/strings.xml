@@ -255,6 +255,7 @@
     <string name="status_bar_battery_status_dotted_circle">Círculo punteado con porcentaje</string>
     <string name="icon_color_behavior_title">Color personalizado del icono</string>
     <string name="icon_color_behavior_summary">Cambia al color seleccionado los iconos de la barra de estado</string>
+    <string name="status_bar_icon_color_reset">Restablecer color icono</string>
     <string name="status_icon_color_summary">Selecciona el color</string>
 
     <!-- Status bar | Clock -->
@@ -966,6 +967,7 @@
     <string name="category_gamma_title">Gamma</string>
     <string name="gamma_tuning_title_head">Calibrado gamma</string>
     <string name="gamma_tuning_summary_head">Personalizar valores gamma</string>
+    <string name="gamma_tuning_control_set_header">Grupo <xliff:g id="index">%d</xliff:g></string> <!-- used if no name provided by overlay -->
     <string name="gamma_tuning_contrast">Contraste</string>
     <string name="gamma_tuning_brightness">Brillo</string>
     <string name="gamma_tuning_saturation">Saturación</string>
@@ -1212,9 +1214,16 @@
     <string name="title_quick_access_linked">Vinculado ajustes rápidos</string>
     <string name="summary_quick_access_linked">Usar los mismos botones y estilo que el panel de ajustes rápidos</string>
     
-    <!-- network usage stats -->
-    <string name="status_bar_network_title">Tráfico de red</string>
-    <string name="status_bar_show_network_stats_title">Mostrar velocidad del tráfico de red</string>
-    <string name="status_bar_network_stats_update_title">Frecencia de actualización</string>
+    <!-- network usage stats (ChaOS) -->
+    <string name="status_bar_network_title">Tráfico de red (ChaOS)</string>
+    <string name="status_bar_network_color_title">Color de red</string>
+    <string name="status_bar_network_color_reset">Restablecer color de red</string>
+    <string name="status_bar_show_network_stats_title">Mostrar tráfico de red</string>
+    <string name="status_bar_show_network_stats_summary">Muestra el tráfico de red en la barra de estado (ChaOS)</string>
+    <string name="status_bar_network_stats_update_title">Frecuencia de actualización</string>
+    
+    <!-- Network speed (Thinking Bridge)-->
+    <string name="show_network_speed">Tráfico de red (TB)</string>
+    <string name="show_network_speed_summary">Muestra el tráfico de red en la barra de estado (Thinking Bridge)</string>   
 
 </resources>
