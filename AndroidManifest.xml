@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
     <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:hardwareAccelerated="true"
@@ -238,6 +239,11 @@
             android:name=".service.ChangeFastChargeStateReceiver" >
             <intent-filter>
                 <action android:name="com.carbon.settings.ACTION_CHANGE_FCHARGE_STATE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".fragments.BootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <service android:name=".service.ExternalCommandService"
