@@ -82,6 +82,7 @@
     <string name="lockscreen_battery_status_alwaysoff">Always off</string>
     <string name="lockscreen_minimize_challenge_title">Minimize lockscreen challenge</string>
     <string name="lockscreen_minimize_challenge_summary">Set whether the lockscreen challenge (circle, pattern, pin) is minimized when the screen is turned on.</string>
+    <string name="battery_around_lockscreen_ring">Battery level around lock ring</string>
 
     <!-- Lock screen shortcuts -->
     <string name="picker_activities">Activities</string>
