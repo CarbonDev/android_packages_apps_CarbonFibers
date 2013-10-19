@@ -82,6 +82,7 @@
     <string name="lockscreen_battery_status_alwaysoff">Siempre oculto</string>
     <string name="lockscreen_minimize_challenge_title">Área de seguridad en p. bloqueo</string>
     <string name="lockscreen_minimize_challenge_summary">Seleccionar el comportamiento del área de seguridad de la pantalla de bloqueo (anillo, patrón, pin) cuando el dispositivo está encendido.</string>
+    <string name="battery_around_lockscreen_ring">Nivel batería en anillo</string>
 
     <!-- Lock screen shortcuts -->
     <string name="picker_activities">Actividades</string>
@@ -280,6 +281,16 @@
     <string name="clock_date_format">Formato de fecha</string>
     <string name="clock_date_string_edittext_title">Debe ser en formato fecha. Ej: dd/MM/yy</string>
     <string name="clock_date_string_edittext_summary">Introducir texto</string>
+    <string name="notification_shade_clock">Panel de notificaciones</string>
+    <string name="alarm">Alarmas</string>
+    <string name="clock_options">Ajustes de reloj</string>
+    <string name="nothing">Nada</string>
+    <string name="today">Calendario para hoy</string>
+    <string name="event">Nuevo evento de calendario</string>
+    <string name="voiceassist">Comandos por voz</string>
+    <string name="title_clock_doubleclick">Acciones doble click en el reloj</string>
+    <string name="title_clock_longclick">Acciones click prolongado en el reloj</string>
+    <string name="title_clock_shortclick">Acciones click corto en el reloj</string>
 
     <!-- Notification Shortcuts -->
     <string name="notification_shortcuts_grouptitle">Accesos directos</string>
@@ -772,6 +783,10 @@
     <string name="halo_msgbox_animation_none">Ninguna</string>
     <string name="halo_msgbox_animation_flip">Voltear</string>
 
+    <!-- We want HALO popups -->
+    <string name="popups_title">Permitir ventanas flotantes</string>
+    <string name="popups_summary">Permitir abrir ventanas flotantes desde el panel de notificaciones</string>
+
     <!-- Statusbar behavior -->
     <string name="statusbar_behavior_title">Comportamiento barra de estado</string>
     <string name="statusbar_show">Mostrar</string>
@@ -1149,6 +1164,8 @@
     <string name="title_tile_volume">Volumen</string>
     <string name="title_tile_trds">Dark Carbon</string>
     <string name="title_tile_music">Música</string>
+    <string name="title_tile_screenshot">Captura pant.</string>
+    <string name="title_tile_halo">Halo</string>
     <string name="title_dynamic_tiles">Botones dinámicos</string>
     
     <string name="dynamic_tiles_note_title">Nota</string>
@@ -1185,7 +1202,9 @@
     <string name="no_notifications_pulldown_off">Deshabilitado</string>
     <string name="no_notifications_pulldown_nonperm">Sólo no permanentes</string>
     <string name="no_notifications_pulldown_all">Todas las notificaciones</string>
-    
+    <string name="screenshot_delay_title">Retraso captura pantalla</string>
+    <string name="screenshot_delay_summary">Tiempo de espera para realizar la captura después de presionar el botón</string>
+
     <!-- QuickSettings style options -->
     <string name="quicksettings_tiles_style">Estilo panel ajustes rápidos</string>
     <string name="summary_quicksettings_tiles_style">Muestra o cambia los ajustes del estilo del panel de ajustes rápidos</string>
@@ -1202,6 +1221,26 @@
     <string name="qs_random_colors_title">Colores aleatorios</string>
     <string name="qs_random_colors_summary">Botones de ajustes rápidos con colores aleatorios</string>
   
+    <!-- LED Values -->
+    <string name="time_0_seconds_off">Off</string>
+    <string name="time_0_2_seconds">.2 segundos</string>
+    <string name="time_0_5_seconds">.5 segundos</string>
+    <string name="time_1_second">1 segundo</string>
+    <string name="time_1_5_seconds">1.5 segundos</string>
+    <string name="time_2_seconds">2 segundos</string>
+    <string name="time_2_5_seconds">2.5 segundos</string>
+    <string name="time_3_seconds">3 segundos</string>
+    <string name="time_3_5_seconds">3.5 segundos</string>
+    <string name="time_4_seconds">4 segundos</string>
+    <string name="time_4_5_seconds">4.5 segundos</string>
+    <string name="time_5_seconds">5 segundos</string>
+    <string name="time_5_5_seconds">5.5 segundos</string>
+    <string name="time_6_seconds">6 segundos</string>
+    <string name="time_7_seconds">7 segundos</string>
+    <string name="time_8_seconds">8 segundos</string>
+    <string name="time_9_seconds">9 segundos</string>
+    <string name="time_10_seconds">10 segundos</string>
+
     <!-- Reset tiles -->
     <string name="tiles_add_title">Añadir</string>
     <string name="tiles_reset_title">Restablecer</string>
@@ -1218,7 +1257,7 @@
     <string name="status_bar_network_title">Tráfico de red (ChaOS)</string>
     <string name="status_bar_network_color_title">Color de red</string>
     <string name="status_bar_network_color_reset">Restablecer color de red</string>
-    <string name="status_bar_show_network_stats_title">Mostrar tráfico de red</string>
+    <string name="status_bar_show_network_stats_title">Tráfico de red (ChaOS)</string>
     <string name="status_bar_show_network_stats_summary">Muestra el tráfico de red en la barra de estado (ChaOS)</string>
     <string name="status_bar_network_stats_update_title">Frecuencia de actualización</string>
     
