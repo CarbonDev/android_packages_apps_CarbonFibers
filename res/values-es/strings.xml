@@ -134,6 +134,8 @@
     <string name="ad_pocket_mode_summary">Mostrar notificaciones en pantalla activa cuando sacas el dispositivo del bolsillo.</string>
     <string name="ad_redisplay_title">Volver a mostrar notificaciones</string>
     <string name="ad_sunlight_mode_title">Modo "Exposición a la luz del sol"</string>
+    <string name="ad_excluded_apps_title">Aplicaciones excluidas</string>
+    <string name="ad_excluded_apps_summary">Las aplicaciones excluidas no se mostrarán en la pantalla activa.</string>
     <string name="ad_sunlight_mode_summary">Invertir los colores en áreas con mucha luz, como en exposiciones directas a la luz del sol.</string>
     <string name="ad_customizations_title">Personalización</string>
     <string name="ad_brightness_title">Brillo de las notificaciones</string>
