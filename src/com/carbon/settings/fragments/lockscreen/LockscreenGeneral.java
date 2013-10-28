@@ -41,6 +41,7 @@ import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
 import com.carbon.settings.Utils;
 import com.carbon.settings.widgets.SeekBarPreference;
+import com.android.internal.util.cm.QSUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -135,7 +136,7 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         mLockscreenMinChallenge.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
                 Settings.System.LOCKSCREEN_MINIMIZE_LOCKSCREEN_CHALLENGE, false));
 
-        if (!hasTorch) {
+        if (!QSUtils.deviceSupportsTorch(getActivity())) {
             getPreferenceScreen().removePreference(mGlowpadTorch);
         }
     }

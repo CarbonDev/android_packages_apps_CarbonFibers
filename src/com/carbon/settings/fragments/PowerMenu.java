@@ -31,6 +31,7 @@ import android.provider.Settings.SettingNotFoundException;
 
 import com.carbon.settings.R;
 import com.carbon.settings.SettingsPreferenceFragment;
+import com.android.internal.util.cm.QSUtils;
 
 public class PowerMenu extends SettingsPreferenceFragment implements
                    OnPreferenceChangeListener {
@@ -121,7 +122,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                 Settings.System.POWER_MENU_SOUND_ENABLED, true));
         mSoundPref.setOnPreferenceChangeListener(this);
 
-        if (!hasTorch) {
+        if (!QSUtils.deviceSupportsTorch(getActivity())) {
             getPreferenceScreen().removePreference(mTorchPref);
         }
     }

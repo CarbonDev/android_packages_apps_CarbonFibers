@@ -47,7 +47,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     protected Context mContext;
 
     private SettingsDialogFragment mDialogFragment;
-    protected boolean hasTorch;
     protected boolean hasHardwareButtons;
     protected boolean hasFastCharge;
     protected boolean hasColorTuning;
@@ -58,7 +57,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hasTorch = getResources().getBoolean(R.bool.has_led_flash);
         hasHardwareButtons = getResources().getBoolean(R.bool.has_hardware_buttons);
         hasFastCharge = getResources().getBoolean(R.bool.has_fast_charge);
         hasColorTuning = getResources().getBoolean(R.bool.has_color_tuning);
