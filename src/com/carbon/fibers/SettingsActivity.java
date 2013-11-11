@@ -36,11 +36,13 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class CrSettingsActivity extends PreferenceActivity implements ButtonBarHandler {
+import com.carbon.fibers.fragments.ButtonSettings;
+
+public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
     private static final String TAG = "CR_Settings";
 
-//    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
+    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
     private List<Header> mHeaders;
@@ -84,7 +86,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
             }
 
             try {
-                cls.asSubclass(CrSettingsActivity.class);
+                cls.asSubclass(SettingsActivity.class);
                 return;
             } catch (ClassCastException e) {
                 // fall through
@@ -155,7 +157,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                 recreate();
                 return true;
             case android.R.id.home:
-                // think of an idea to make the navigation drawer toggle button works.
+                onBackPressed();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -184,6 +186,20 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
                     getBaseContext().getResources().getDisplayMetrics());
 
         }
+    }
+
+    private static final String[] ENTRY_FRAGMENTS = {
+        ButtonSettings.class.getName(),
+    };
+
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        // Almost all fragments are wrapped in this,
+        // except for a few that have their own activities.
+        for (int i = 0; i < ENTRY_FRAGMENTS.length; i++) {
+            if (ENTRY_FRAGMENTS[i].equals(fragmentName)) return true;
+        }
+        return false;
     }
 
     /**
@@ -262,7 +278,7 @@ public class CrSettingsActivity extends PreferenceActivity implements ButtonBarH
     public void onResume() {
         super.onResume();
 
-//        setLocale();
+        setLocale();
 
         ListAdapter listAdapter = getListAdapter();
         if (listAdapter instanceof HeaderAdapter) {

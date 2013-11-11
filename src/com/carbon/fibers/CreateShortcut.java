@@ -38,7 +38,7 @@ public class CreateShortcut extends LauncherActivity {
         String intentClass = shortcutIntent.getComponent().getClassName();
 
         shortcutIntent = new Intent();
-        shortcutIntent.setClass(getApplicationContext(), CrSettingsActivity.class);
+        shortcutIntent.setClass(getApplicationContext(), SettingsActivity.class);
         shortcutIntent.setAction("com.carbon.fibers.START_NEW_FRAGMENT");
         shortcutIntent.putExtra("carbon_fragment_name", intentClass);
         shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -57,7 +57,7 @@ public class CreateShortcut extends LauncherActivity {
         String c = className.substring(className.lastIndexOf(".") + 1);
 
         if (c.equals("Buttons"))
-            return R.drawable.ic_fibers_buttons;
+            return R.drawable.ic_fibers_button;
         else
             return R.mipmap.ic_launcher;
     }

@@ -42,7 +42,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.carbon.fibers.R;
-import com.carbon.fibers.SettingsPreferenceFragment;
 
 import java.util.Collections;
 import java.util.LinkedList;
