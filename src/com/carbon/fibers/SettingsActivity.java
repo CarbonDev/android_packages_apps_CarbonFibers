@@ -37,6 +37,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.carbon.fibers.fragments.ButtonSettings;
+import com.carbon.fibers.fragments.MoreDeviceSettings;
 
 public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
@@ -190,6 +191,7 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
 
     private static final String[] ENTRY_FRAGMENTS = {
         ButtonSettings.class.getName(),
+        MoreDeviceSettings.class.getName(),
     };
 
     @Override

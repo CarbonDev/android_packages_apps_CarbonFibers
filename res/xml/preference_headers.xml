@@ -9,4 +9,10 @@
             android:icon="@drawable/ic_fibers_button"
             android:title="@string/button_settings" />
 
+        <header
+            android:id="@+id/more_device_settings"
+            android:title="@string/more_device_controls_title"
+            android:icon="@drawable/ic_fibers_device"
+            android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
+
 </preference-headers>
