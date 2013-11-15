@@ -37,8 +37,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 // fragments import for entry
+import com.carbon.fibers.dslv.*;
 import com.carbon.fibers.fragments.*;
 import com.carbon.fibers.fragments.ls.*;
+import com.carbon.fibers.fragments.navbar.*;
 import com.carbon.fibers.fragments.sb.*;
 import com.carbon.fibers.fragments.ui.*;
 
@@ -203,7 +205,12 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         QuickSettingsTiles.class.getName(),
         QuickSettingsTilesStyle.class.getName(),
         CarrierLabel.class.getName(),
-        NotificationDrawerStyle.class.getName()
+        NotificationDrawerStyle.class.getName(),
+        NavbarTab.class.getName(),
+        NavBarButtonStyle.class.getName(),
+        NavbarStyleDimenSettings.class.getName(),
+        NavbarButtonFragment.class.getName(),
+        ButtonsListViewSettings.class.getName()
     };
 
     @Override

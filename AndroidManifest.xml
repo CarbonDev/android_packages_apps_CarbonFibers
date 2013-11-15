@@ -69,6 +69,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.navbar.NavbarTab"
+            android:label="@string/navbar_cat" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.fibers.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.sb.SbSettings"
             android:label="@string/status_bar_title" >
             <intent-filter>
