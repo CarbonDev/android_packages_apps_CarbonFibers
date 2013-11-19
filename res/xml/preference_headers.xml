@@ -53,7 +53,15 @@
             android:id="@+id/power_menu_settings"
             android:title="@string/power_menu_title"
             android:icon="@drawable/ic_fibers_power"
-            android:fragment="com.carbon.fibers.fragments.PowerMenuSettings" />
+            android:fragment="com.carbon.fibers.dslv.ButtonsListViewSettings" >
+                <extra android:name="buttonMode" android:value="5" />
+                <extra android:name="maxAllowedButtons" android:value="8" />
+                <extra android:name="disableLongpress" android:value="true" />
+                <extra android:name="disableDeleteLastEntry" android:value="true" />
+                <extra android:name="actionValues" android:value="shortcut_action_power_menu_values" />
+                <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
+                <extra android:name="fragment" android:value="com.carbon.fibers.fragments.PowerMenuFragment" />
+        </header>
 
         <header
             android:id="@+id/statusbar_settings"

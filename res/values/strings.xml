@@ -12,6 +12,7 @@
     <string name="add">Add</string>
     <string name="save">Save</string>
     <string name="reset">Reset</string>
+    <string name="reset_message">Reset all entries to default?</string>
     <string name="attention">Attention</string>
     <string name="empty">Empty</string>
     <string name="delete">Delete</string>
@@ -341,14 +342,9 @@
 
     <!-- Power menu enable disable -->
     <string name="power_menu_title">Power menu</string>
-    <string name="power_menu_immersive_title">Immersive</string>
-    <string name="power_menu_reboot_title">Reboot menu</string>
-    <string name="power_menu_screenshot_title">Screenshot</string>
-    <string name="power_menu_screenrecord_title">Screen record</string>
-    <string name="power_menu_profiles_title">Profile switcher</string>
-    <string name="power_menu_airplane_title">Airplane mode</string>
-    <string name="power_menu_user_title">User switcher</string>
-    <string name="power_menu_sound_title">Sound panel</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_style_summary">Change global menu colors</string>
 
     <!-- StatusBar Battery Settings -->
     <string name="battery_icon_title">Battery icon</string>
@@ -673,6 +669,11 @@
     <string name="navigation_bar_glow_tint_title">Button glow color</string>
 
     <!-- Button shorcut actions -->
+    <string name="shortcut_action_airplane">Airplane mode</string>
+    <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
+    <string name="shortcut_action_power_off">Power off</string>
+    <string name="shortcut_action_reboot">Reboot</string>
+    <string name="shortcut_action_sound">Sound</string>
     <string name="shortcut_action_app">Custom app</string>
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Back</string>
@@ -680,6 +681,7 @@
     <string name="shortcut_action_lastapp">Last app</string>
     <string name="shortcut_action_search">Search</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
+    <string name="shortcut_action_screen_record">Screen Record</string>
     <string name="shortcut_action_menu">Menu</string>
     <string name="shortcut_action_ime">Open IME Switcher</string>
     <string name="shortcut_action_kill">Kill app</string>
@@ -696,7 +698,7 @@
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
     <string name="shortcut_action_select_action">Choose action:</string>
-    <string name="shortcut_action_select_action_newbutton">Choose new button:</string>
+    <string name="shortcut_action_select_action_newbutton">Choose new action:</string>
     <string name="shortcut_action_reset">Reset</string>
     <string name="shortcut_action_add">Add</string>
     <string name="shortcut_action_reset_message">Reset all entries to default?</string>
@@ -708,6 +710,10 @@
 
     <string name="shortcut_action_help_shortcut">shortcut</string>
     <string name="shortcut_action_help_button">button</string>
+    <string name="shortcuts_text_color_title">Text color</string>
+    <string name="shortcuts_color_mode_title">Icon color mode</string>
+    <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
+    <string name="shortcuts_color_title">Icon color</string>
     <string name="shortcut_action_help_icon">, while selecting the icon will bring up customization options</string>
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon.  Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right.  Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
