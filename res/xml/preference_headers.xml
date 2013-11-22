@@ -15,4 +15,10 @@
             android:icon="@drawable/ic_fibers_device"
             android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
 
+        <header
+            android:id="@+id/statusbar_settings"
+            android:title="@string/status_bar_title"
+            android:icon="@drawable/ic_fibers_sb"
+            android:fragment="com.carbon.fibers.fragments.sb.SbSettings" />
+
 </preference-headers>

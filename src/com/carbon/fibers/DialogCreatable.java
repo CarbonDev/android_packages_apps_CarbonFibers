@@ -1,5 +1,3 @@
-
-package com.carbon.fibers;
 /*
  * Copyright (C) 2010 The Android Open Source Project
  *
@@ -16,7 +14,7 @@ package com.carbon.fibers;
  * limitations under the License.
  */
 
-
+package com.carbon.fibers;
 
 import android.app.Dialog;
 

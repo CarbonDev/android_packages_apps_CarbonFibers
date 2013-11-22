@@ -36,8 +36,9 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.carbon.fibers.fragments.ButtonSettings;
-import com.carbon.fibers.fragments.MoreDeviceSettings;
+// fragments import for entry
+import com.carbon.fibers.fragments.*;
+import com.carbon.fibers.fragments.sb.*;
 
 public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
@@ -117,6 +118,7 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         }
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setHomeButtonEnabled(true);
 
     }
@@ -192,6 +194,8 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
     private static final String[] ENTRY_FRAGMENTS = {
         ButtonSettings.class.getName(),
         MoreDeviceSettings.class.getName(),
+        SbSettings.class.getName(),
+        QuickSettingsTiles.class.getName(),
     };
 
     @Override
@@ -250,7 +254,6 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
             Integer index = mHeaderIndexMap.get(mTopLevelHeaderId);
             if (index != null) {
                 getListView().setItemChecked(index, true);
-                getListView().smoothScrollToPosition(index);
             }
         }
     }
