@@ -158,6 +158,7 @@
     <string name="title_tile_expanded_desktop">Expanded desktop</string>
     <string name="title_tile_network_adb">ADB over network</string>
     <string name="title_tile_music">Music playback</string>
+    <string name="title_tile_immersive">Immersive mode</string>
 
     <string name="title_dynamic_tiles">Dynamic tiles</string>
     <string name="dynamic_tiles_note_title">Note</string>
@@ -211,6 +212,7 @@
 
     <!-- Power menu enable disable -->
     <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_immersive_title">Immersive</string>
     <string name="power_menu_reboot_title">Reboot menu</string>
     <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_profiles_title">Profile switcher</string>

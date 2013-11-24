@@ -28,10 +28,10 @@
         android:title="@string/power_menu_screenshot_title"
         android:defaultValue="false" />
 
-    <!--com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+    <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="power_menu_immersive_enabled"
-        android:title="@string/power_menu_immersive"
-        android:defaultValue="false" /-->
+        android:title="@string/power_menu_immersive_title"
+        android:defaultValue="false" />
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="power_menu_profiles_enabled"
