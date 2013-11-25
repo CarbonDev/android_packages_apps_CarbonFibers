@@ -89,8 +89,9 @@ public class SbSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-            frags[0] = new QuickSettings();
+            frags[0] = new BatterySettings();
             frags[1] = new NotificationDrawer();
+            frags[2] = new QuickSettings();
         }
 
         @Override
@@ -112,8 +113,9 @@ public class SbSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-                    getString(R.string.sb_quicksettings_category),
-                    getString(R.string.sb_notification_category)};
+                    getString(R.string.sb_battery_category),
+                    getString(R.string.sb_notification_category),
+                    getString(R.string.sb_quicksettings_category)};
         return titleString;
     }
 }
