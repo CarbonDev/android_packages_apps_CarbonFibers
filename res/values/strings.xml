@@ -137,7 +137,11 @@
 
     <string name="status_bar_title">Statusbar</string>
     <string name="sb_battery_category">Battery</string>
+<<<<<<< HEAD
     <string name="sb_clock_category">Clock</string>
+=======
+    <string name="sb_general_category">General</string>
+>>>>>>> d099efa... System bar color WIP
     <string name="sb_notification_category">Notification Drawer</string>
     <string name="sb_quicksettings_category">Quick Settings</string>
 
@@ -406,5 +410,15 @@
     <string name="offset_top">Offset to the top of the screen:</string>
     <string name="privacy_mode">Privacy Mode</string>
     <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
+
+    <!-- Status bar color -->
+    <string name="custom_status_bar_color_title">Custom status bar color</string>
+    <string name="custom_status_bar_color_summary">This will filter your current system bar to your preferred color</string>
+    <string name="status_bar_opaque_color">Opaque color</string>
+    <string name="status_bar_transparent_color">Dimmed color</string>
+    <string name="status_bar_color_reset">Reset status bar color</string>
+    <string name="restart_status_bar_menu_title">Restart status bar</string>
+    <string name="restart_status_bar_title">Restart?</string>
+    <string name="restart_status_bar_message">Restarting the System UI will significally change the values you modify.</string>
 
 </resources>
