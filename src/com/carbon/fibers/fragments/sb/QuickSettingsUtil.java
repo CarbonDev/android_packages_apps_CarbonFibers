@@ -24,7 +24,6 @@ import static com.android.internal.util.cm.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.cm.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.cm.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.cm.QSConstants.TILE_DELIMITER;
-import static com.android.internal.util.cm.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.cm.QSConstants.TILE_GPS;
 import static com.android.internal.util.cm.QSConstants.TILE_IMMERSIVE;
 import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
@@ -88,9 +87,6 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                  TILE_CAMERA, R.string.title_tile_camera,
                 "com.android.systemui:drawable/ic_qs_camera"));
-        registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
-                "com.android.systemui:drawable/ic_qs_expanded_desktop_neutral"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_SLEEP, R.string.title_tile_sleep,
                 "com.android.systemui:drawable/ic_qs_sleep"));
@@ -251,13 +247,6 @@ public class QuickSettingsUtil {
             enableTile(TILE_PROFILE);
         } else {
             disableTile(TILE_PROFILE);
-        }
-
-        // Don't show the Expanded desktop tile if expanded desktop is disabled
-        if (QSUtils.expandedDesktopEnabled(resolver)) {
-            enableTile(TILE_EXPANDEDDESKTOP);
-        } else {
-            disableTile(TILE_EXPANDEDDESKTOP);
         }
 
         // Don't show the Network ADB tile if adb debugging is disabled
