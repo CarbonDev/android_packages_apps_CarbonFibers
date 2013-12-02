@@ -16,6 +16,12 @@
             android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
 
         <header
+            android:id="@+id/power_menu_setings"
+            android:title="@string/power_menu_title"
+            android:icon="@drawable/ic_fibers_power"
+            android:fragment="com.carbon.fibers.fragments.PowerMenuSettings" />
+
+        <header
             android:id="@+id/statusbar_settings"
             android:title="@string/status_bar_title"
             android:icon="@drawable/ic_fibers_sb"
