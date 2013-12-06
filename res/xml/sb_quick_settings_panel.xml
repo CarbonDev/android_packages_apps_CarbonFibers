@@ -33,6 +33,12 @@
             android:title="@string/title_collapse_panel"
             android:summary="@string/summary_collapse_panel" />
 
+        <PreferenceScreen
+            android:key="quicksettings_tiles_style"
+            android:fragment="com.carbon.fibers.fragments.sb.QuickSettingsTilesStyle"
+            android:title="@string/quicksettings_tiles_style"
+            android:summary="@string/summary_quicksettings_tiles_style" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -44,28 +50,6 @@
             android:title="@string/tile_picker_title"
             android:summary="@string/tile_picker_summary"
             android:fragment="com.carbon.fibers.fragments.sb.QuickSettingsTiles" />
-
-        <MultiSelectListPreference
-            android:key="pref_ring_mode"
-            android:dialogTitle="@string/pref_ring_mode_title"
-            android:title="@string/pref_ring_mode_title"
-            android:summary="@string/pref_ring_mode_summary"
-            android:entries="@array/entries_ring_widget"
-            android:entryValues="@array/values_ring_widget" />
-
-        <ListPreference
-            android:key="pref_network_mode"
-            android:dialogTitle="@string/pref_network_mode_title"
-            android:title="@string/pref_network_mode_title"
-            android:entries="@array/entries_network_widget"
-            android:entryValues="@array/values_network_widget" />
-
-        <ListPreference
-            android:key="pref_screentimeout_mode"
-            android:dialogTitle="@string/pref_screentimeout_mode_title"
-            android:title="@string/pref_screentimeout_mode_title"
-            android:entries="@array/entries_screentimeout_widget"
-            android:entryValues="@array/values_screentimeout_widget" />
 
         </PreferenceCategory>
 

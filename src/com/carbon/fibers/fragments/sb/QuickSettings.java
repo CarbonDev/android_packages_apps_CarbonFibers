@@ -47,17 +47,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "QuickSettingsPanel";
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
-    private static final String EXP_RING_MODE = "pref_ring_mode";
-    private static final String EXP_NETWORK_MODE = "pref_network_mode";
-    private static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
 
-    private MultiSelectListPreference mRingMode;
-    private ListPreference mNetworkMode;
-    private ListPreference mScreenTimeoutMode;
     private ListPreference mQuickPulldown;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
@@ -92,35 +86,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             updatePulldownSummary(quickPulldownValue);
         }
 
-        // Add the sound mode
-        mRingMode = (MultiSelectListPreference) prefSet.findPreference(EXP_RING_MODE);
-
-        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator.hasVibrator()) {
-            String storedRingMode = Settings.System.getString(resolver,
-                    Settings.System.EXPANDED_RING_MODE);
-            if (storedRingMode != null) {
-                String[] ringModeArray = TextUtils.split(storedRingMode, SEPARATOR);
-                mRingMode.setValues(new HashSet<String>(Arrays.asList(ringModeArray)));
-                updateSummary(storedRingMode, mRingMode, R.string.pref_ring_mode_summary);
-            }
-            mRingMode.setOnPreferenceChangeListener(this);
-        } else {
-            mStaticTiles.removePreference(mRingMode);
-        }
-
-        // Add the network mode preference
-        mNetworkMode = (ListPreference) prefSet.findPreference(EXP_NETWORK_MODE);
-        if (mNetworkMode != null) {
-            mNetworkMode.setSummary(mNetworkMode.getEntry());
-            mNetworkMode.setOnPreferenceChangeListener(this);
-        }
-
-        // Screen timeout mode
-        mScreenTimeoutMode = (ListPreference) prefSet.findPreference(EXP_SCREENTIMEOUT_MODE);
-        mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntry());
-        mScreenTimeoutMode.setOnPreferenceChangeListener(this);
-
         // Remove unsupported options
 /*        if (!QSUtils.deviceSupportsDockBattery(getActivity())) {
             Preference pref = findPreference(Settings.System.QS_DYNAMIC_DOCK_BATTERY);
@@ -152,14 +117,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         QuickSettingsUtil.updateAvailableTiles(getActivity());
-
-        if (mNetworkMode != null) {
-            if (QuickSettingsUtil.isTileAvailable(QSConstants.TILE_NETWORKMODE)) {
-                mStaticTiles.addPreference(mNetworkMode);
-            } else {
-                mStaticTiles.removePreference(mNetworkMode);
-            }
-        }
     }
 
     private class MultiSelectListPreferenceComparator implements Comparator<String> {
@@ -178,30 +135,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContentResolver();
-        if (preference == mRingMode) {
-            ArrayList<String> arrValue = new ArrayList<String>((Set<String>) newValue);
-            Collections.sort(arrValue, new MultiSelectListPreferenceComparator(mRingMode));
-            String value = TextUtils.join(SEPARATOR, arrValue);
-            Settings.System.putString(resolver, Settings.System.EXPANDED_RING_MODE, value);
-            updateSummary(value, mRingMode, R.string.pref_ring_mode_summary);
-            return true;
-        } else if (preference == mNetworkMode) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mNetworkMode.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.EXPANDED_NETWORK_MODE, value);
-            mNetworkMode.setSummary(mNetworkMode.getEntries()[index]);
-            return true;
-        } else if (preference == mQuickPulldown) {
+        if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
                     quickPulldownValue);
             updatePulldownSummary(quickPulldownValue);
-            return true;
-        } else if (preference == mScreenTimeoutMode) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
-            mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
             return true;
         }
         return false;
