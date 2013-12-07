@@ -21,7 +21,6 @@
 
     <style name="text_view_light_style" parent="android:Widget.Holo.TextView">
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">italic</item>
     </style>
 
     <style name="button_style" parent="android:Widget.Holo.Button">
