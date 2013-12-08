@@ -127,6 +127,17 @@
     <string name="sb_notification_category">Notification Drawer</string>
     <string name="sb_quicksettings_category">Quick Settings</string>
 
+    <!-- Interface settings -->
+    <string name="ui_recents_category">Recents Panel</string>
+
+    <!-- Clear recents button -->
+    <string name="clear_button_title">Clear all position</string>
+    <string name="clear_button_off">Off</string>
+    <string name="clear_button_top_left">Top left</string>
+    <string name="clear_button_top_right">Top right</string>
+    <string name="clear_button_bottom_left">Bottom left</string>
+    <string name="clear_button_bottom_right">Bottom right</string>
+
     <!-- Quick settings panel  -->
     <string name="quick_settings_panel_title">Quick Settings panel</string>
     <string name="title_static_tiles">Static tiles</string>

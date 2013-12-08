@@ -5,9 +5,15 @@
 
         <header
             android:key="@+id/button_settings"
-            android:fragment="com.carbon.fibers.fragments.ButtonSettings"
             android:icon="@drawable/ic_fibers_button"
-            android:title="@string/button_settings" />
+            android:title="@string/button_settings"
+            android:fragment="com.carbon.fibers.fragments.ButtonSettings" />
+
+        <header
+            android:key="@+id/interface_settings"
+            android:icon="@drawable/ic_fibers_interface"
+            android:title="@string/user_interface"
+            android:fragment="com.carbon.fibers.fragments.ui.InterfaceSettings" />
 
         <header
             android:id="@+id/more_device_settings"

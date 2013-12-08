@@ -39,6 +39,7 @@ import android.widget.TextView;
 // fragments import for entry
 import com.carbon.fibers.fragments.*;
 import com.carbon.fibers.fragments.sb.*;
+import com.carbon.fibers.fragments.ui.*;
 
 public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
@@ -193,10 +194,11 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
 
     private static final String[] ENTRY_FRAGMENTS = {
         ButtonSettings.class.getName(),
+        InterfaceSettings.class.getName(),
         MoreDeviceSettings.class.getName(),
         PowerMenuSettings.class.getName(),
         SbSettings.class.getName(),
-        QuickSettingsTiles.class.getName(),
+        QuickSettingsTiles.class.getName()
     };
 
     @Override

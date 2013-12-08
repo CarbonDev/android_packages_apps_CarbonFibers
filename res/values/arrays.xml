@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Clear recents button -->
+    <string-array name="clear_recents_entries" translatable="false">
+        <item>@string/clear_button_off</item>
+        <item>@string/clear_button_top_left</item>
+        <item>@string/clear_button_top_right</item>
+        <item>@string/clear_button_bottom_left</item>
+        <item>@string/clear_button_bottom_right</item>
+    </string-array>
+
+    <string-array name="clear_recents_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <!-- Hardware Keys -->
     <string-array name="hardware_keys_action_entries" translatable="false">
         <item>@string/hardware_keys_action_nothing</item>
