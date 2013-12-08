@@ -91,9 +91,9 @@ public class SbSettings extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new BatterySettings();
             frags[1] = new ClockSettings();
-            frags[1] = new SbGeneralSettings();
-            frags[2] = new NotificationDrawer();
-            frags[3] = new QuickSettings();
+            frags[2] = new SbGeneralSettings();
+            frags[3] = new NotificationDrawer();
+            frags[4] = new QuickSettings();
         }
 
         @Override

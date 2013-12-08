@@ -51,10 +51,14 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String PREF_CUSTOM_STATUS_BAR_COLOR = "custom_status_bar_color";
     private static final String PREF_STATUS_BAR_OPAQUE_COLOR = "status_bar_opaque_color";
 //    private static final String PREF_STATUS_BAR_SEMI_TRANS_COLOR = "status_bar_trans_color";
+    private static final String PREF_CUSTOM_SYSTEM_ICON_COLOR = "custom_system_icon_color";
+    private static final String PREF_SYSTEM_ICON_COLOR = "system_icon_color";
 
     private CheckBoxPreference mCustomBarColor;
     private ColorPickerPreference mBarOpaqueColor;
 //    private ColorPickerPreference mBarTransColor;
+    private CheckBoxPreference mCustomIconColor;
+    private ColorPickerPreference mIconColor;
 
     private boolean mCheckPreferences;
 
@@ -90,6 +94,10 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         mCustomBarColor.setChecked(Settings.System.getInt(mContentAppRes,
                 Settings.System.CUSTOM_STATUS_BAR_COLOR, 0) == 1);
 
+        mCustomIconColor = (CheckBoxPreference) prefSet.findPreference(PREF_CUSTOM_SYSTEM_ICON_COLOR);
+        mCustomIconColor.setChecked(Settings.System.getInt(mContentAppRes,
+                Settings.System.CUSTOM_SYSTEM_ICON_COLOR, 0) == 1);
+
         mBarOpaqueColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_OPAQUE_COLOR);
         mBarOpaqueColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getActivity().getContentResolver(),
@@ -118,6 +126,20 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
 //        }
 //        mBarTransColor.setNewPreviewColor(intColor);
 
+        mIconColor = (ColorPickerPreference) findPreference(PREF_SYSTEM_ICON_COLOR);
+        mIconColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.SYSTEM_ICON_COLOR, -1);
+        mIconColor.setSummary(getResources().getString(R.string.default_string));
+        if (intColor == 0xffffffff) {
+            intColor = systemUiResources.getColor(systemUiResources.getIdentifier(
+                    "com.android.systemui:color/status_bar_clock_color", null, null));
+        } else {
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mIconColor.setSummary(hexColor);
+        }
+        mIconColor.setNewPreviewColor(intColor);
+
         mCheckPreferences = true;
         return prefSet;
     }
@@ -133,6 +155,15 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_OPAQUE_COLOR, intHex);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                    .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SYSTEM_ICON_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
 //        } else if (preference == mBarTransColor) {
@@ -156,6 +187,12 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.CUSTOM_STATUS_BAR_COLOR,
             mCustomBarColor.isChecked() ? 1 : 0);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mCustomIconColor) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_SYSTEM_ICON_COLOR,
+            mCustomIconColor.isChecked() ? 1 : 0);
             Helpers.restartSystemUI();
             return true;
         }
