@@ -79,7 +79,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
-    private CheckBoxPreference mShowActionOverflow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -183,13 +182,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-        if (hasAnyBindableKey) {
-            mShowActionOverflow = (CheckBoxPreference)
-                prefScreen.findPreference(Settings.System.UI_FORCE_OVERFLOW_BUTTON);
-        } else {
-            prefScreen.removePreference(menuCategory);
-        }
-
         mEnableCustomBindings =
                 (CheckBoxPreference) prefScreen.findPreference(KEY_ENABLE_CUSTOM_BINDING);
 
@@ -270,13 +262,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mEnableCustomBindings) {
             handleCheckboxClick(mEnableCustomBindings, Settings.System.HARDWARE_KEY_REBINDING);
-            return true;
-        } else if (preference == mShowActionOverflow) {
-            int toastResId = mShowActionOverflow.isChecked()
-                    ? R.string.hardware_keys_show_overflow_toast_enable
-                    : R.string.hardware_keys_show_overflow_toast_disable;
-
-            Toast.makeText(getActivity(), toastResId, Toast.LENGTH_LONG).show();
             return true;
         }
 
