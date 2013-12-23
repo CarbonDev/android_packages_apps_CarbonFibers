@@ -32,4 +32,9 @@
             android:dependency="custom_status_bar_color"
             android:defaultValue="0x66000000" /-->
 
+        <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+        android:key="double_tap_sleep_gesture"
+        android:title="@string/status_bar_double_tap_to_sleep_title"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

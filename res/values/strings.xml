@@ -420,4 +420,6 @@
     <string name="restart_status_bar_title">Restart?</string>
     <string name="restart_status_bar_message">Restarting the System UI will significally change the values you modify.</string>
 
+    <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
+
 </resources>
