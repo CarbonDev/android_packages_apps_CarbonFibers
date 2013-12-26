@@ -92,7 +92,7 @@ public class KeyguardSettings extends SettingsPreferenceFragment {
             frags[0] = new LockscreenGeneral();
             frags[1] = new LockscreenTargets();
             frags[2] = new LockscreenNotifications();
-            frags[3] = new LockscreenActiveDisplay();
+            frags[3] = new ActiveDisplaySettings();
         }
 
         @Override
