@@ -32,6 +32,25 @@
     <!-- Menu Strings -->
     <string name="menu_main_activity_change_locale">Locale</string>
 
+    <string name="time_0_seconds_off">Off</string>
+    <string name="time_0_2_seconds">.2 seconds</string>
+    <string name="time_0_5_seconds">.5 seconds</string>
+    <string name="time_1_second">1 second</string>
+    <string name="time_1_5_seconds">1.5 seconds</string>
+    <string name="time_2_seconds">2 seconds</string>
+    <string name="time_2_5_seconds">2.5 seconds</string>
+    <string name="time_3_seconds">3 seconds</string>
+    <string name="time_3_5_seconds">3.5 seconds</string>
+    <string name="time_4_seconds">4 seconds</string>
+    <string name="time_4_5_seconds">4.5 seconds</string>
+    <string name="time_5_seconds">5 seconds</string>
+    <string name="time_5_5_seconds">5.5 seconds</string>
+    <string name="time_6_seconds">6 seconds</string>
+    <string name="time_7_seconds">7 seconds</string>
+    <string name="time_8_seconds">8 seconds</string>
+    <string name="time_9_seconds">9 seconds</string>
+    <string name="time_10_seconds">10 seconds</string>
+
     <!-- General Strings -->
     <string name="advanced_settings">Advanced settings</string>
     <string name="misc_short">Misc</string>
@@ -169,6 +188,7 @@
     <string name="title_tile_expanded_desktop">Expanded desktop</string>
     <string name="title_tile_network_adb">ADB over network</string>
     <string name="title_tile_music">Music playback</string>
+    <string name="title_tile_screenshot">Screenshot</string>
     <string name="title_tile_immersive">Immersive mode</string>
 
     <string name="title_dynamic_tiles">Dynamic tiles</string>
@@ -193,13 +213,17 @@
     <string name="summary_collapse_panel">Close the Quick Settings panel after toggling a tile</string>
 
     <string name="pref_network_mode_title">Network modes</string>
+    <string name="pref_screenshot_delay_title">Screenshot delay</string>
     <string name="pref_screentimeout_mode_title">Screen timeout modes</string>
     <string name="pref_ring_mode_title">Sound modes</string>
+    <string name="pref_music_mode_title">Music mode</string>
     <string name="pref_ring_mode_summary">View or change the Sound button modes</string>
     <string name="cm_sound_mode_silent">Silent</string>
     <string name="cm_sound_mode_vibrate">Vibrate</string>
     <string name="cm_sound_mode_sound">Sound</string>
     <string name="cm_sound_mode_soundVibrate">Sound &amp; Vibrate</string>
+    <string name="music_tile_mode_background">Show album artwork</string>
+    <string name="music_tile_mode_tracktitle">Show track title</string>
 
     <!-- Reset tiles -->
     <string name="tiles_reset_title">Reset</string>
@@ -284,5 +308,13 @@
     <string name="clock_date_style_uppercase">Uppercase</string>
     <string name="clock_date_format_custom">Custom java format</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
+
+    <!-- QuickSettings style options -->
+    <string name="quicksettings_tiles_style">Style</string>
+    <string name="summary_quicksettings_tiles_style">View or change quick settings style options</string>
+    <string name="quicksettings_tiles_style_additional_options">Additional options</string>
+    <string name="tiles_per_row_title">Tiles per row</string>
+    <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>
 
 </resources>

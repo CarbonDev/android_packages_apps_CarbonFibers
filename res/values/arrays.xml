@@ -166,6 +166,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- QuickSettings tiles per row -->
+    <string-array name="tiles_per_row_entries" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="tiles_per_row_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <string-array name="clock_date_display_entries">
         <item>@string/clock_date_display_none</item>
         <item>@string/clock_date_display_small</item>
@@ -210,6 +223,26 @@
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
         <item>@string/clock_date_format_custom</item>
+    </string-array>
+
+    <!-- Screenshot delay -->
+    <string-array name="entries_screenshot_delay" translatable="false">
+        <item>@string/time_2_seconds</item>
+        <item>@string/time_3_seconds</item>
+        <item>@string/time_4_seconds</item>
+        <item>@string/time_5_seconds</item>
+        <item>@string/time_6_seconds</item>
+        <item>@string/time_7_seconds</item>
+        <item>@string/time_8_seconds</item>
+    </string-array>
+    <string-array name="values_screenshot_delay" translatable="false">
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>7000</item>
+        <item>8000</item>
     </string-array>
 
 </resources>
