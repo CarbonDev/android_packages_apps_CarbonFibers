@@ -16,6 +16,12 @@
             android:fragment="com.carbon.fibers.fragments.ui.InterfaceSettings" />
 
         <header
+            android:key="@+id/keyguard_settings"
+            android:icon="@drawable/ic_fibers_keyguard"
+            android:title="@string/keyguard_title"
+            android:fragment="com.carbon.fibers.fragments.ls.KeyguardSettings" />
+
+        <header
             android:id="@+id/more_device_settings"
             android:title="@string/more_device_controls_title"
             android:icon="@drawable/ic_fibers_device"
