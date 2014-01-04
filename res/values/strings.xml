@@ -149,6 +149,8 @@
     <string name="keyguard_title">Lockscreen</string>
     <string name="ls_targets_category">Targets</string>
     <string name="ls_general_category">General</string>
+    <string name="ls_notifications_category">Notifications</string>
+    <string name="ls_activedisplay_category">Active Display</string>
 
     <!-- Clear recents button -->
     <string name="clear_button_title">Clear all position</string>

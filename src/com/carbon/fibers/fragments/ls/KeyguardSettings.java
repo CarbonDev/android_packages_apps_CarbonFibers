@@ -91,6 +91,8 @@ public class KeyguardSettings extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new LockscreenGeneral();
             frags[1] = new LockscreenTargets();
+            frags[2] = new LockscreenNotifications();
+            frags[3] = new LockscreenActiveDisplay();
         }
 
         @Override
@@ -113,7 +115,9 @@ public class KeyguardSettings extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                     getString(R.string.ls_general_category),
-                    getString(R.string.ls_targets_category)};
+                    getString(R.string.ls_targets_category),
+                    getString(R.string.ls_notifications_category),
+                    getString(R.string.ls_activedisplay_category)};
         return titleString;
     }
 }

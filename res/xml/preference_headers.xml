@@ -22,12 +22,6 @@
             android:fragment="com.carbon.fibers.fragments.ls.KeyguardSettings" />
 
         <header
-            android:key="@+id/lockscreen_notifcation_settings"
-            android:icon="@drawable/ic_settings_locknotification"
-            android:title="@string/lockscreen_notifications"
-            android:fragment="com.carbon.fibers.fragments.ls.LockscreenNotifications" />
-
-        <header
             android:id="@+id/more_device_settings"
             android:title="@string/more_device_controls_title"
             android:icon="@drawable/ic_fibers_device"
