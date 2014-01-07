@@ -11,7 +11,7 @@
     </header>
 
     <header
-        android:title="@string/user_interface" />
+        android:title="@string/app_name" />
 
         <header
             android:id="@+id/button_settings"
@@ -20,7 +20,13 @@
             android:fragment="com.carbon.fibers.fragments.ButtonSettings" />
 
         <header
-            android:id="@+id/interface_settings"
+            android:id="@+id/more_device_settings"
+            android:title="@string/more_device_controls_title"
+            android:icon="@drawable/ic_fibers_device"
+            android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
+
+        <header
+            android:key="@+id/interface_settings"
             android:icon="@drawable/ic_fibers_interface"
             android:title="@string/user_interface"
             android:fragment="com.carbon.fibers.fragments.ui.InterfaceSettings" />
@@ -36,12 +42,6 @@
             android:icon="@drawable/ic_settings_navigation"
             android:title="@string/navbar_cat"
             android:fragment="com.carbon.fibers.fragments.navbar.NavbarTab" />
-
-        <header
-            android:id="@+id/more_device_settings"
-            android:title="@string/more_device_controls_title"
-            android:icon="@drawable/ic_fibers_device"
-            android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
 
         <header
             android:id="@+id/power_menu_setings"
