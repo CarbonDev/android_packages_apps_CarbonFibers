@@ -19,19 +19,9 @@
     android:title="@string/power_menu_title">
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="power_menu_reboot_enabled"
-        android:title="@string/power_menu_reboot_title"
+        android:key="power_menu_airplane_enabled"
+        android:title="@string/power_menu_airplane_title"
         android:defaultValue="true" />
-
-    <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="power_menu_screenshot_enabled"
-        android:title="@string/power_menu_screenshot_title"
-        android:defaultValue="false" />
-
-    <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="power_menu_screenrecord_enabled"
-        android:title="@string/power_menu_screenrecord_title"
-        android:defaultValue="false" />
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="power_menu_immersive_enabled"
@@ -44,18 +34,28 @@
         android:defaultValue="true" />
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="power_menu_airplane_enabled"
-        android:title="@string/power_menu_airplane_title"
+        android:key="power_menu_reboot_enabled"
+        android:title="@string/power_menu_reboot_title"
         android:defaultValue="true" />
+    
+    <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+        android:key="power_menu_screenrecord_enabled"
+        android:title="@string/power_menu_screenrecord_title"
+        android:defaultValue="false" />
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="power_menu_user_enabled"
-        android:title="@string/power_menu_user_title"
+        android:key="power_menu_screenshot_enabled"
+        android:title="@string/power_menu_screenshot_title"
         android:defaultValue="false" />
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="power_menu_silent_enabled"
         android:title="@string/power_menu_sound_title"
         android:defaultValue="true" />
+
+    <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+        android:key="power_menu_user_enabled"
+        android:title="@string/power_menu_user_title"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
