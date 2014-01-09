@@ -155,6 +155,7 @@
     <string name="sb_quicksettings_category">Quick Settings</string>
 
     <!-- Interface settings -->
+    <string name="ui_general_category">General</string>
     <string name="ui_recents_category">Recents Panel</string>
 
     <!-- Lockscreen settings -->

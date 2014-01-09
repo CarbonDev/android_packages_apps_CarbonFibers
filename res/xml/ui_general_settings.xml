@@ -17,11 +17,13 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
-        android:key="clear_recents_button"
-        android:title="@string/clear_button_title"
-        android:dialogTitle="@string/clear_button_title"
-        android:entries="@array/clear_recents_entries"
-        android:entryValues="@array/clear_recents_values" />
+    <!-- Device Specific Touchscreen gestures -->
+    <Preference
+        android:key="touch_screen_gesture_settings">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+    </Preference>
 
 </PreferenceScreen>

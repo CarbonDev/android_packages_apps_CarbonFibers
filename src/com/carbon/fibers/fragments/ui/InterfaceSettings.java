@@ -89,7 +89,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-            frags[0] = new RecentsPanel();
+            frags[0] = new GeneralSettings();
+            frags[1] = new RecentsPanel();
         }
 
         @Override
@@ -110,7 +111,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
-        titleString = new String[]{
+        titleString = new String[] {
+                    getString(R.string.ui_general_category),
                     getString(R.string.ui_recents_category)};
         return titleString;
     }
