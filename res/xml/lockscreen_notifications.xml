@@ -4,6 +4,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.fibers">
 
     <PreferenceCategory
+        android:key="category_general"
         android:title="@string/general" >
         <CheckBoxPreference
             android:key="lockscreen_notifications"
@@ -39,6 +40,13 @@
             android:key="dismiss_all"
             android:title="@string/dismiss_all"
             android:summary="@string/dismiss_all_summary" />
+
+        <com.carbon.fibers.preference.AppMultiSelectListPreference
+            android:key="excluded_apps"
+            android:persistent="false"
+            android:title="@string/excluded_apps_title"
+            android:dependency="lockscreen_notifications"
+            android:summary="@string/excluded_apps_summary" />
 
     </PreferenceCategory>
     <PreferenceCategory
