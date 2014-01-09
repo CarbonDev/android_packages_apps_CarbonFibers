@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2013 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,9 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.widget.Toast;
 
 import com.carbon.fibers.R;
 import com.carbon.fibers.Utils;
-import com.carbon.fibers.preference.SystemSettingCheckBoxPreference;
 import com.carbon.fibers.preference.SettingsPreferenceFragment;
 
 public class ButtonSettings extends SettingsPreferenceFragment implements
@@ -45,12 +43,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
+    private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+    private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_MENU = "menu_key";
     private static final String CATEGORY_ASSIST = "assist_key";
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
-    private static final String CATEGORY_BACKLIGHT = "key_backlight";
+    private static final String CATEGORY_VOLUME = "volume_keys";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -79,6 +79,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
+    private ListPreference mVolumeKeyCursorControl;
+    private CheckBoxPreference mSwapVolumeButtons;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,10 +108,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
-        final PreferenceCategory backlightCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACKLIGHT);
+        final PreferenceCategory volumeCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
 
         if (hasHomeKey) {
+            if (!res.getBoolean(R.bool.config_show_homeWake)) {
+                homeCategory.removePreference(findPreference(Settings.System.HOME_WAKE_SCREEN));
+            }
+
             int defaultLongPressAction = res.getInteger(
                     com.android.internal.R.integer.config_longPressOnHomeBehavior);
             if (defaultLongPressAction < ACTION_NOTHING ||
@@ -192,6 +198,25 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mEnableCustomBindings);
         }
 
+        if (Utils.hasVolumeRocker(getActivity())) {
+            int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
+                    Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
+            mSwapVolumeButtons = (CheckBoxPreference)
+                    prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
+            mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
+
+            int cursorControlAction = Settings.System.getInt(resolver,
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+            mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
+                    cursorControlAction);
+
+            if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
+                volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
+            }
+        } else {
+            prefScreen.removePreference(volumeCategory);
+        }
+
         final ButtonBacklightBrightness backlight =
                 (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
         if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
@@ -253,6 +278,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleActionListChange(mAppSwitchLongPressAction, newValue,
                     Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
             return true;
+        } else if (preference == mVolumeKeyCursorControl) {
+            handleActionListChange(mVolumeKeyCursorControl, newValue,
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL);
+            return true;
         }
 
         return false;
@@ -263,6 +292,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (preference == mEnableCustomBindings) {
             handleCheckboxClick(mEnableCustomBindings, Settings.System.HARDWARE_KEY_REBINDING);
             return true;
+        } else if (preference == mSwapVolumeButtons) {
+            int value = mSwapVolumeButtons.isChecked()
+                    ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
