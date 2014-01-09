@@ -497,4 +497,12 @@
 
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
 
+    <!-- CRT animation-->
+    <string name="system_power_crt_mode_title">CRT animation </string>
+    <string name="system_power_crt_mode_off">Don\'t show</string>
+    <string name="system_power_crt_mode_horizontal">Collapse horizontal</string>
+    <string name="system_power_crt_mode_vertical">Collapse vertical</string>
+    <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
+    <string name="system_power_crt_mode_scale">Scale down</string>
+
 </resources>

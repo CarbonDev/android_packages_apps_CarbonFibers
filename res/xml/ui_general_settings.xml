@@ -17,6 +17,13 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        android:key="system_power_crt_mode"
+        android:dialogTitle="@string/system_power_crt_mode_title"
+        android:title="@string/system_power_crt_mode_title"
+        android:entries="@array/entries_system_power_crt_mode"
+        android:entryValues="@array/values_system_power_crt_mode" />
+
     <!-- Device Specific Touchscreen gestures -->
     <Preference
         android:key="touch_screen_gesture_settings">

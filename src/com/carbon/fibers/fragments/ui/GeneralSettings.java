@@ -30,7 +30,10 @@ public class GeneralSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "GeneralSettings";
 
+    private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
+
+    private ListPreference mCrtMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,37 @@ public class GeneralSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.ui_general_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        // respect device default configuration
+        // true fades while false animates
+        boolean electronBeamFadesConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_animateScreenLights);
+
+        mCrtMode = (ListPreference) prefScreen.findPreference(KEY_POWER_CRT_MODE);
+        if (!electronBeamFadesConfig && mCrtMode != null) {
+            int crtMode = Settings.System.getInt(getContentResolver(),
+                    Settings.System.SYSTEM_POWER_CRT_MODE, 1);
+            mCrtMode.setValue(String.valueOf(crtMode));
+            mCrtMode.setSummary(mCrtMode.getEntry());
+            mCrtMode.setOnPreferenceChangeListener(this);
+        } else if (mCrtMode != null) {
+            prefScreen.removePreference(mCrtMode);
+        }
+
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_SCREEN_GESTURE_SETTINGS);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mCrtMode) {
+            int value = Integer.parseInt((String) objValue);
+            int index = mCrtMode.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SYSTEM_POWER_CRT_MODE, value);
+            mCrtMode.setSummary(mCrtMode.getEntries()[index]);
+            return true;
+        }
+
+        return false;
     }
 }
