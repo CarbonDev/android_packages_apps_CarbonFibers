@@ -508,7 +508,6 @@
     <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
     <string name="system_power_crt_mode_scale">Scale down</string>
 
-<<<<<<< HEAD
     <!-- Custom Carrier Label Options -->
     <string name="carrier_label_title">Carrier Label Options</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
@@ -517,10 +516,9 @@
     <string name="hide_carrier_title">Hide carrier label</string>
     <string name="notification_show_wifi_ssid_title">Show Wifi network name</string>
     <string name="notification_show_wifi_ssid_summary">Display the name of the currently connected Wifi network</string>
-=======
+
     <!-- Show 4G icon instead of LTE. User defined settings -->
     <string name="show_lte_or_fourgee_title">Show 4G network</string>
     <string name="show_lte_or_fourgee_summary">This will allow you to show 4G instead of LTE</string>
->>>>>>> b5caf2e... Configurable LTE icon into 4G instead
 
 </resources>
