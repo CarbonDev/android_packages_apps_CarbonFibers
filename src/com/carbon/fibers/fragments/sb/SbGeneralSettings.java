@@ -50,13 +50,11 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
 
     private static final String PREF_CUSTOM_STATUS_BAR_COLOR = "custom_status_bar_color";
     private static final String PREF_STATUS_BAR_OPAQUE_COLOR = "status_bar_opaque_color";
-//    private static final String PREF_STATUS_BAR_SEMI_TRANS_COLOR = "status_bar_trans_color";
     private static final String PREF_CUSTOM_SYSTEM_ICON_COLOR = "custom_system_icon_color";
     private static final String PREF_SYSTEM_ICON_COLOR = "system_icon_color";
 
     private CheckBoxPreference mCustomBarColor;
     private ColorPickerPreference mBarOpaqueColor;
-//    private ColorPickerPreference mBarTransColor;
     private CheckBoxPreference mCustomIconColor;
     private ColorPickerPreference mIconColor;
 
@@ -112,20 +110,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         }
         mBarOpaqueColor.setNewPreviewColor(intColor);
 
-//        mBarTransColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_SEMI_TRANS_COLOR);
-//        mBarTransColor.setOnPreferenceChangeListener(this);
-//        intColor = Settings.System.getInt(getActivity().getContentResolver(),
-//                    Settings.System.STATUS_BAR_SEMI_TRANS_COLOR, 0x66000000);
-//        mBarTransColor.setSummary(getResources().getString(R.string.default_string));
-//        if (intColor == 0xff000000) {
-//            intColor = systemUiResources.getColor(systemUiResources.getIdentifier(
-//                    "com.android.systemui:color/system_bar_background_semi_transparent", null, null));
-//        } else {
-//            hexColor = String.format("#%08x", (0x66ffffff & intColor));
-//            mBarTransColor.setSummary(hexColor);
-//        }
-//        mBarTransColor.setNewPreviewColor(intColor);
-
         mIconColor = (ColorPickerPreference) findPreference(PREF_SYSTEM_ICON_COLOR);
         mIconColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getActivity().getContentResolver(),
@@ -164,17 +148,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_ICON_COLOR, intHex);
-            Helpers.restartSystemUI();
             return true;
-//        } else if (preference == mBarTransColor) {
-//            String hex = ColorPickerPreference.convertToARGB(Integer
-//                    .valueOf(String.valueOf(newValue)));
-//            preference.setSummary(hex);
-//            int intHex = ColorPickerPreference.convertToColorInt(hex);
-//            Settings.System.putInt(getActivity().getContentResolver(),
-//                    Settings.System.STATUS_BAR_SEMI_TRANS_COLOR, intHex);
-//            Helpers.restartSystemUI();
-//            return true;
         }
         return false;
     }
@@ -193,7 +167,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.CUSTOM_SYSTEM_ICON_COLOR,
             mCustomIconColor.isChecked() ? 1 : 0);
-            Helpers.restartSystemUI();
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

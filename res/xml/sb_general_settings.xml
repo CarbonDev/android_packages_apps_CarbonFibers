@@ -11,6 +11,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="status_bar_opaque_color"
             android:title="@string/status_bar_opaque_color"
+            android:summaryOn="@string/status_bar_opaque_color_summary"
             android:dependency="custom_status_bar_color"
             android:defaultValue="0xFF000000" />
 
@@ -26,16 +27,10 @@
             android:dependency="custom_system_icon_color"
             android:defaultValue="0xFFFFFFFF" />
 
-        <!--net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="status_bar_trans_color"
-            android:title="@string/status_bar_transparent_color"
-            android:dependency="custom_status_bar_color"
-            android:defaultValue="0x66000000" /-->
-
         <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
-        android:key="double_tap_sleep_gesture"
-        android:title="@string/status_bar_double_tap_to_sleep_title"
-        android:defaultValue="false" />
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title"
+            android:defaultValue="false" />
 
         <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="show_lte_or_fourgee"

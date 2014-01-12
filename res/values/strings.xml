@@ -488,6 +488,7 @@
     <!-- Status bar color -->
     <string name="custom_status_bar_color_title">Custom status bar color</string>
     <string name="status_bar_opaque_color">Opaque color</string>
+    <string name="status_bar_opaque_color_summary">Requires restart of system ui</string>
     <string name="status_bar_transparent_color">Dimmed color</string>
     <string name="custom_system_icon_color_title">Custom system icon color</string>
     <string name="system_icon_color">Icon color</string>
