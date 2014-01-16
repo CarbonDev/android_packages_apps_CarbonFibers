@@ -2,7 +2,7 @@
     package="com.carbon.fibers"
     android:sharedUserId="android.uid.system" >
 
-    <uses-sdk android:minSdkVersion="18"/>
+    <uses-sdk android:minSdkVersion="19"/>
     <original-package android:name="com.carbon.fibers" />
 
     <uses-permission android:name="android.permission.REBOOT" />
@@ -31,6 +31,8 @@
         android:uiOptions="none" >
 
         <uses-library android:name="org.cyanogenmod.hardware" required="false" />
+
+        <activity android:name="com.carbon.about.activities.AboutActivity" />
 
         <activity
             android:name=".SettingsActivity"

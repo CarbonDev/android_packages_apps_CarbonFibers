@@ -1,17 +1,25 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
-
 LOCAL_JAVA_LIBRARIES := bouncycastle telephony-common
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 android-support-v4
 
-LOCAL_SRC_FILES := $(call all-subdir-java-files)
-
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES += $(call all-java-files-under, ../CarbonAbout/src)
+
+LOCAL_RESOURCE_DIR += $(LOCAL_PATH)/res
+LOCAL_RESOURCE_DIR += packages/apps/CarbonAbout/res
+
+LOCAL_AAPT_FLAGS := --auto-add-overlay \
+        --extra-packages com.carbon.about
 
 LOCAL_PACKAGE_NAME := CarbonFibers
 LOCAL_CERTIFICATE := platform
+LOCAL_PRIVIELEGED_MODULE := true
 
 include $(BUILD_PACKAGE)
 

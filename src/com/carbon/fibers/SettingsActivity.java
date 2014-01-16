@@ -37,6 +37,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 // fragments import for entry
+import com.carbon.about.activities.*;
 import com.carbon.fibers.fragments.*;
 import com.carbon.fibers.fragments.ls.*;
 import com.carbon.fibers.fragments.sb.*;
@@ -194,6 +195,7 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
     }
 
     private static final String[] ENTRY_FRAGMENTS = {
+        AboutActivity.class.getName(),
         ButtonSettings.class.getName(),
         InterfaceSettings.class.getName(),
         KeyguardSettings.class.getName(),

@@ -1,22 +1,28 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <header
+        android:id="@+id/about_carbon"
+        android:icon="@drawable/ic_fibers_about"
+        android:title="@string/about_carbon_title"
+        android:fragment="com.carbon.about.activities.AboutActivity" />
+
+    <header
         android:title="@string/user_interface" />
 
         <header
-            android:key="@+id/button_settings"
+            android:id="@+id/button_settings"
             android:icon="@drawable/ic_fibers_button"
             android:title="@string/button_settings"
             android:fragment="com.carbon.fibers.fragments.ButtonSettings" />
 
         <header
-            android:key="@+id/interface_settings"
+            android:id="@+id/interface_settings"
             android:icon="@drawable/ic_fibers_interface"
             android:title="@string/user_interface"
             android:fragment="com.carbon.fibers.fragments.ui.InterfaceSettings" />
 
         <header
-            android:key="@+id/keyguard_settings"
+            android:id="@+id/keyguard_settings"
             android:icon="@drawable/ic_fibers_keyguard"
             android:title="@string/keyguard_title"
             android:fragment="com.carbon.fibers.fragments.ls.KeyguardSettings" />
