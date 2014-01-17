@@ -67,8 +67,8 @@
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on color to apply</string>   
-    <string name="arrow_right">→</string> 
+    <string name="press_color_to_apply">Press on color to apply</string>
+    <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
@@ -77,7 +77,6 @@
 
     <!-- Hardware keys -->
     <string name="button_settings">Buttons</string>
-    <string name="hardware_keys_enable_custom_title">Allow custom buttons</string>
     <string name="hardware_keys_home_key_title">Home button</string>
     <string name="hardware_keys_menu_key_title">Menu button</string>
     <string name="hardware_keys_assist_key_title">Search button</string>

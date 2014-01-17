@@ -33,7 +33,6 @@ import com.carbon.fibers.preference.SettingsPreferenceFragment;
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_ENABLE_CUSTOM_BINDING = "hardware_keys_enable_custom";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
@@ -71,7 +70,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final int KEY_MASK_ASSIST = 0x08;
     private static final int KEY_MASK_APP_SWITCH = 0x10;
 
-    private CheckBoxPreference mEnableCustomBindings;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
     private ListPreference mMenuPressAction;
@@ -189,16 +187,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-        mEnableCustomBindings =
-                (CheckBoxPreference) prefScreen.findPreference(KEY_ENABLE_CUSTOM_BINDING);
-
-        if (hasAnyBindableKey) {
-            mEnableCustomBindings.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.HARDWARE_KEY_REBINDING, 0) == 1);
-        } else {
-            prefScreen.removePreference(mEnableCustomBindings);
-        }
-
         if (Utils.hasVolumeRocker(getActivity())) {
             int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
@@ -242,10 +230,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         pref.setSummary(pref.getEntries()[index]);
         Settings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
-    }
-
-    private void handleCheckboxClick(CheckBoxPreference pref, String setting) {
-        Settings.System.putInt(getContentResolver(), setting, pref.isChecked() ? 1 : 0);
     }
 
     @Override
@@ -293,10 +277,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mEnableCustomBindings) {
-            handleCheckboxClick(mEnableCustomBindings, Settings.System.HARDWARE_KEY_REBINDING);
-            return true;
-        } else if (preference == mSwapVolumeButtons) {
+        if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
                     ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
             Settings.System.putInt(getActivity().getContentResolver(),
