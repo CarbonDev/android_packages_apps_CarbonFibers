@@ -146,6 +146,7 @@
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Enabled</string>
 
+    <!-- Statusbar settings -->
     <string name="status_bar_title">Statusbar</string>
     <string name="sb_battery_category">Battery</string>
     <string name="sb_clock_category">Clock</string>
@@ -163,6 +164,7 @@
     <string name="ls_general_category">General</string>
     <string name="ls_notifications_category">Notifications</string>
     <string name="ls_activedisplay_category">Active Display</string>
+    <string name="ls_buttons_category">Buttons</string>
 
     <!-- Clear recents button -->
     <string name="clear_button_title">Clear all position</string>
@@ -534,5 +536,17 @@
     <string name="notif_wallpaper_alpha_title">Background transparency</string>
     <string name="notif_alpha_title">Notification transparency</string>
     <string name="shortcut_image_not_valid">The chosen app did not return a valid icon or does not support image cropping. Use another app</string>
+
+    <!-- Lock screen buttons -->
+    <string name="lockscreen_long_press_back_title">Long press Back button</string>
+    <string name="lockscreen_long_press_home_title">Long press Home button</string>
+    <string name="lockscreen_long_press_menu_title">Long press Menu button</string>
+    <string name="lockscreen_buttons_no_action">No action</string>
+    <string name="lockscreen_buttons_flashlight">Flashlight</string>
+    <string name="lockscreen_buttons_next">Next song</string>
+    <string name="lockscreen_buttons_previous">Previous song</string>
+    <string name="lockscreen_buttons_playpause">Play/Pause music</string>
+    <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
+    <string name="lockscreen_buttons_sleep">Go to sleep</string>
 
 </resources>

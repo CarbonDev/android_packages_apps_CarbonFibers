@@ -89,10 +89,11 @@ public class KeyguardSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-            frags[0] = new LockscreenGeneral();
-            frags[1] = new LockscreenTargets();
-            frags[2] = new LockscreenNotifications();
-            frags[3] = new ActiveDisplaySettings();
+            frags[0] = new ActiveDisplaySettings();
+            frags[1] = new LockscreenButtons();
+            frags[2] = new LockscreenGeneral();
+            frags[3] = new LockscreenNotifications();
+            frags[4] = new LockscreenTargets();
         }
 
         @Override
@@ -114,10 +115,11 @@ public class KeyguardSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
+                    getString(R.string.ls_activedisplay_category),
+                    getString(R.string.ls_buttons_category),
                     getString(R.string.ls_general_category),
-                    getString(R.string.ls_targets_category),
                     getString(R.string.ls_notifications_category),
-                    getString(R.string.ls_activedisplay_category)};
+                    getString(R.string.ls_targets_category)};
         return titleString;
     }
 }
