@@ -49,9 +49,11 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockscreenGeneral";
 
+    private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
 
+    private ListPreference mBatteryStatus;
     private CheckBoxPreference mSeeThrough;
     private SeekBarPreference mBlurRadius;
 
@@ -70,10 +72,17 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
 
+        mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
+        int batteryStatus = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
+        mBatteryStatus.setValue(String.valueOf(batteryStatus));
+        mBatteryStatus.setSummary(mBatteryStatus.getEntry());
+        mBatteryStatus.setOnPreferenceChangeListener(this);
+
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
         mBlurRadius = (SeekBarPreference) prefs.findPreference(KEY_BLUR_RADIUS);
-        mBlurRadius.setProgress(Settings.System.getInt(resolver, 
+        mBlurRadius.setProgress(Settings.System.getInt(resolver,
             Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
         mBlurRadius.setOnPreferenceChangeListener(this);
 
@@ -92,13 +101,20 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver cr = getActivity().getContentResolver();
 
         if (preference == mBlurRadius) {
-          Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BLUR_RADIUS, (Integer)value);
-          return true;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BLUR_RADIUS, (Integer)objValue);
+            return true;
+        } else if (preference == mBatteryStatus) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mBatteryStatus.findIndexOfValue((String) objValue);
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
         }
+
         return false;
     }
 }
