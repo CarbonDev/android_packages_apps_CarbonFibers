@@ -164,6 +164,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- Smart pulldown -->
+    <string-array name="smart_pulldown_entries" translatable="false">
+        <item>@string/smart_pulldown_off</item>
+        <item>@string/smart_pulldown_dismissable</item>
+        <item>@string/smart_pulldown_persistent</item>
+    </string-array>
+
+    <string-array name="smart_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Status bar auto-collapse behaviour -->
     <string-array name="notification_drawer_collapse_on_dismiss_entries" translatable="false">
         <item>@string/collapse_on_dismiss_never</item>
