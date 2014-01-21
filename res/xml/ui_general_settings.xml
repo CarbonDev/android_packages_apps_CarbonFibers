@@ -24,6 +24,18 @@
         android:entries="@array/entries_system_power_crt_mode"
         android:entryValues="@array/values_system_power_crt_mode" />
 
+    <ListPreference
+            android:key="expanded_desktop"
+            android:title="@string/power_menu_expanded_desktop"
+            android:entries="@array/expanded_desktop_entries"
+            android:entryValues="@array/expanded_desktop_values"
+            android:persistent="false" />
+
+    <CheckBoxPreference
+            android:key="expanded_desktop_no_navbar"
+            android:title="@string/power_menu_expanded_desktop"
+            android:persistent="true" />
+
     <!-- Device Specific Touchscreen gestures -->
     <Preference
         android:key="touch_screen_gesture_settings">
