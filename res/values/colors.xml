@@ -27,4 +27,7 @@
     <color name="color_carbon">#0D0D0D</color>
     <color name="color_kitkat">#AB0A0A</color>
 
+    <color name="carbon_grey">#ff1d1d1d</color>
+    <color name="carbon_grey2">#ff181818</color>
+
 </resources>

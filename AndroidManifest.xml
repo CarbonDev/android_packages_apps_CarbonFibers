@@ -32,7 +32,9 @@
 
         <uses-library android:name="org.cyanogenmod.hardware" required="false" />
 
-        <activity android:name="com.carbon.about.activities.AboutActivity" />
+        <activity
+            android:name="com.carbon.about.activities.AboutActivity"
+            android:theme="@style/application_theme_about" />
 
         <activity
             android:name=".SettingsActivity"
@@ -94,7 +96,7 @@
         </activity>
         <activity
  	    android:name=".CreateShortcut"
-             android:theme="@style/Theme.CreateShortCut" >
+            android:theme="@style/Theme.CreateShortCut" >
  	  <intent-filter>
                <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
