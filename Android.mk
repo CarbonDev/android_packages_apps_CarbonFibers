@@ -9,13 +9,10 @@ LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
-LOCAL_SRC_FILES += $(call all-java-files-under, ../CarbonAbout/src)
 
 LOCAL_RESOURCE_DIR += $(LOCAL_PATH)/res
-LOCAL_RESOURCE_DIR += packages/apps/CarbonAbout/res
 
-LOCAL_AAPT_FLAGS := --auto-add-overlay \
-        --extra-packages com.carbon.about
+LOCAL_AAPT_FLAGS := --auto-add-overlay
 
 LOCAL_PACKAGE_NAME := CarbonFibers
 LOCAL_CERTIFICATE := platform
