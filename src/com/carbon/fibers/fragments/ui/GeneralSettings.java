@@ -74,8 +74,6 @@ public class GeneralSettings extends SettingsPreferenceFragment implements
                 mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
                 mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
                 prefScreen.removePreference(mExpandedDesktopPref);
-                // Hide navigation bar category
-                prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
             }
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
