@@ -473,13 +473,13 @@
      <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
 
      <!--Lockscreen blur-->
-    <string name="blur_behind_title">Blur Lockscreen Background</string>
+    <string name="blur_behind_title">Blur lockscreen background</string>
     <string name="blur_behind_summary">Adds a nice blur effect to the background</string>
-    <string name="blur_radius_title">Blur Radius</string>
+    <string name="blur_radius_title">Blur radius</string>
     <string name="blur_radius_summary">Set the blur radius for the blur effect</string>
 
     <!-- Lockscreen Notifications -->
-    <!-- Categories --> 
+    <!-- Categories -->
     <string name="general">General</string>
     <string name="layout">Layout</string>
     <string name="privacy">Privacy</string>
@@ -534,7 +534,7 @@
     <string name="system_power_crt_mode_scale">Scale down</string>
 
     <!-- Custom Carrier Label Options -->
-    <string name="carrier_label_title">Carrier Label Options</string>
+    <string name="carrier_label_title">Carrier label options</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
@@ -543,8 +543,8 @@
     <string name="notification_show_wifi_ssid_summary">Display the name of the currently connected Wifi network</string>
 
     <!-- Show 4G icon instead of LTE. User defined settings -->
-    <string name="show_lte_or_fourgee_title">Show 4G network</string>
-    <string name="show_lte_or_fourgee_summary">This will allow you to show 4G instead of LTE</string>
+    <string name="show_lte_or_fourgee_title">Use 4G icon</string>
+    <string name="show_lte_or_fourgee_summary">Switches the network indicator from LTE to 4G</string>
 
     <!-- Notification drawer background -->
     <string name="notification_style_title">Style</string>
@@ -731,5 +731,29 @@
     <string name="shortcuts_icon_picker_tv">TV</string>
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
     <string name="shortcuts_icon_picker_unlock">Unlock</string>
+
+    <!-- ListView animation -->
+    <string name="listview_animation_title">ListView animation</string>
+    <string name="listview_off">Default</string>
+    <string name="listview_wave_left">Wave (left)</string>
+    <string name="listview_wave_right">Wave (right)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Scale</string>
+    <string name="listview_stack_top">Stack (top)</string>
+    <string name="listview_stack_bottom">Stack (bottom)</string>
+    <string name="listview_unfold">Unfold</string>
+    <string name="listview_fold">Fold</string>
+    <string name="listview_translate_left">Translate (left)</string>
+    <string name="listview_translate_right">Translate (right)</string>
+
+    <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">ListView interpolator</string>
+    <string name="listview_accelerate_interpolator">Accelerate</string>
+    <string name="listview_decelerate_interpolator">Decelerate</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accelerate and decelerate</string>
+    <string name="listview_anticipate_interpolator">Anticipate</string>
+    <string name="listview_overshoot_interpolator">Overshoot</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
+    <string name="listview_bounce_interpolator">Bounce</string>
 
 </resources>
