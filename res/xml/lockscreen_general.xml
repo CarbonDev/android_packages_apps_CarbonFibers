@@ -16,6 +16,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.carbon.fibers" >
 
+    <CheckBoxPreference
+        android:key="lockscreen_eight_targets"
+        android:title="@string/lockscreen_eight_targets_title"
+        android:summary="@string/lockscreen_eight_targets_summary" />
+
+    <PreferenceScreen
+             android:key="lockscreen_shortcuts"
+             android:fragment="com.carbon.fibers.dslv.ButtonsListViewSettings"
+             android:summary="@string/lockscreen_shortcuts_summary"
+             android:title="@string/lockscreen_shortcuts_title">
+         <extra android:name="buttonMode" android:value="4" />
+         <extra android:name="maxAllowedButtons" android:value="5" />
+         <extra android:name="disableLongpress" android:value="true" />
+         <extra android:name="useAppPickerOnly" android:value="true" />
+         <extra android:name="fragment" android:value="com.carbon.fibers.fragments.ls.LockscreenShortcutFragment" />
+     </PreferenceScreen>
+
     <ListPreference
             android:key="lockscreen_battery_status"
             android:persistent="false"
