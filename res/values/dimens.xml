@@ -19,16 +19,6 @@
     <dimen name="normal_height">64dip</dimen>
     <!-- height of an expanded list item in edit playlist mode -->
     <dimen name="expanded_height">128dip</dimen>
-    
-    <!-- Navbar -->
-    <dimen name="navigation_bar_48">48dp</dimen>
-    <dimen name="navigation_bar_44">44dp</dimen>
-    <dimen name="navigation_bar_42">42dp</dimen>
-    <dimen name="navigation_bar_40">40dp</dimen>
-    <dimen name="navigation_bar_36">36dp</dimen>
-    <dimen name="navigation_bar_30">30dp</dimen>
-    <dimen name="navigation_bar_24">24dp</dimen>
-    <dimen name="navigation_bar_0">0dp</dimen>
 
     <dimen name="lockscreen_target_inset">30dp</dimen>
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
