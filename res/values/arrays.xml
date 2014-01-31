@@ -482,6 +482,7 @@
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_notifications</item>
+        <item>@string/shortcut_action_menu_big</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
@@ -500,6 +501,7 @@
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
+        <item>**menu_big**</item>
         <item>**ime**</item>
         <item>**power_menu**</item>
         <item>**quicksettings**</item>
@@ -604,7 +606,6 @@
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_notifications</item>
-        <item>@string/shortcut_action_menu_big</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
@@ -623,7 +624,6 @@
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
-        <item>**menu_big**</item>
         <item>**ime**</item>
         <item>**power_menu**</item>
         <item>**quicksettings**</item>
