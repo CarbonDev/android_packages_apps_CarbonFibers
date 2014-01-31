@@ -88,6 +88,7 @@ public class ButtonsListViewSettings extends ListFragment implements
     private static final int PIE                   = 1;
     private static final int PIE_SECOND            = 2;
     private static final int NAV_RING              = 3;
+    private static final int LOCKSCREEN_SHORTCUT   = 4;
 
 
     private static final int DEFAULT_MAX_BUTTON_NUMBER = 5;
@@ -475,6 +476,8 @@ public class ButtonsListViewSettings extends ListFragment implements
             case NAV_RING:
                 return ButtonsHelper.getNavRingConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case LOCKSCREEN_SHORTCUT:
+                return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
         }
         return null;
     }
@@ -486,6 +489,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                 break;
             case NAV_RING:
                 ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
+                break;
+            case LOCKSCREEN_SHORTCUT:
+                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
                 break;
         }
     }

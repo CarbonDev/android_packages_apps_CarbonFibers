@@ -38,19 +38,18 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.internal.util.cm.LockscreenTargetUtils;
 import com.carbon.fibers.R;
 
 import java.io.File;
 
 public class IconPicker {
-    private static final String ICON_ACTION = "com.cyanogenmod.ACTION_PICK_ICON";
+    private static final String ICON_ACTION = "com.slim.ACTION_PICK_ICON";
     public static final String RESOURCE_NAME = "resource_name";
     public static final String PACKAGE_NAME = "package_name";
 
     public static final int REQUEST_PICK_SYSTEM = 0;
-    public static final int REQUEST_PICK_ICON_PACK = 1;
-    public static final int REQUEST_PICK_GALLERY = 2;
+    public static final int REQUEST_PICK_GALLERY = 1;
+    public static final int REQUEST_PICK_ICON_PACK = 2;
 
     private Activity mParent;
     private Resources mResources;
@@ -70,19 +69,42 @@ public class IconPicker {
         mIconListener.iconPicked(requestCode, resultCode, data);
     }
 
+    public void pickGalleryWithSize(final int fragmentId, final File image, int size) {
+        Intent iconPackIntent = new Intent(ICON_ACTION);
+        ComponentName component = iconPackIntent.resolveActivity(mParent.getPackageManager());
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("scale", true);
+        intent.putExtra("scaleUpIfNeeded", false);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", size);
+        intent.putExtra("outputY", size);
+        try {
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
+            intent.putExtra("return-data", false);
+            startFragmentOrActivityForResult(
+                    intent, REQUEST_PICK_GALLERY, fragmentId);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void pickIcon(final int fragmentId, final File image) {
         Intent iconPackIntent = new Intent(ICON_ACTION);
         ComponentName component = iconPackIntent.resolveActivity(mParent.getPackageManager());
 
-        String[] items = new String[component != null ? 2 : 1];
-        items[0] = mResources.getString(R.string.icon_picker_system_icons_title);
-        //items[1] = mResources.getString(R.string.icon_picker_gallery_title);
+        String[] items = new String[component != null ? 3 : 2];
+        items[0] = mResources.getString(R.string.icon_presets);
+        items[1] = mResources.getString(R.string.icon_custom);
         if (component != null) {
-            items[1] = mResources.getString(R.string.icon_picker_pack_title);
+            items[2] = mResources.getString(R.string.icon_pack);
         }
 
         new AlertDialog.Builder(mParent)
-                .setTitle(R.string.icon_picker_title)
+                .setTitle(R.string.icon_picker_type)
                 .setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
@@ -119,29 +141,14 @@ public class IconPicker {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent();
                     intent.putExtra(RESOURCE_NAME, adapter.getItemReference(position));
+                    intent.putExtra(PACKAGE_NAME, "com.android.keyguard");
                     mIconListener.iconPicked(type, Activity.RESULT_OK, intent);
                     dialog.dismiss();
                 }
             });
             dialog.show();
         } else if (type == REQUEST_PICK_GALLERY) {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-            intent.setType("image/*");
-            intent.putExtra("crop", "true");
-            intent.putExtra("scale", true);
-            intent.putExtra("scaleUpIfNeeded", false);
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
-            intent.putExtra("aspectX", 1);
-            intent.putExtra("aspectY", 1);
-            intent.putExtra("outputX", 162);
-            intent.putExtra("outputY", 162);
-            try {
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
-                intent.putExtra("return-data", false);
-                startFragmentOrActivityForResult(intent, type, fragmentId);
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-            }
+            pickGalleryWithSize(fragmentId, image, 162);
         } else if (type == REQUEST_PICK_ICON_PACK) {
             Intent iconPackIntent = new Intent(ICON_ACTION);
             startFragmentOrActivityForResult(iconPackIntent, type, fragmentId);
@@ -164,13 +171,17 @@ public class IconPicker {
 
         @Override
         public Object getItem(int position) {
-            return LockscreenTargetUtils.getDrawableFromResources(
-                    mParent, null, icons[position], false);
+            Resources kr = null;
+            try {
+                kr = mParent.getPackageManager()
+                        .getResourcesForApplication("com.android.keyguard");
+            } catch (Exception e) {}
+            return kr.getDrawable(kr.getIdentifier(icons[position],
+                    "drawable", "com.android.keyguard"));
         }
 
         public String getItemReference(int position) {
-            String name = icons[position];
-            return name;
+            return icons[position];
         }
 
         @Override
