@@ -19,6 +19,15 @@
     android:title="@string/more_device_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Advanced device settings -->
+    <Preference
+        android:key="advanced_device_settings">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.carbon.device"
+            android:targetClass="com.carbon.device.DeviceSettings" />
+    </Preference>
+
     <PreferenceCategory
         android:key="display_calibration_category"
         android:title="@string/display_calibration_title" >
