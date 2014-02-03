@@ -52,6 +52,14 @@
             android:title="@string/power_menu_expanded_desktop"
             android:persistent="true" />
 
+    <!-- Smooth custom ProgressBar -->
+
+    <PreferenceScreen
+        android:key="progressbar"
+        android:fragment="com.carbon.fibers.fragments.ui.ProgressBar"
+        android:title="@string/progressbar_title" >
+    </PreferenceScreen>
+
     <!-- Device Specific Touchscreen gestures -->
     <Preference
         android:key="touch_screen_gesture_settings">
