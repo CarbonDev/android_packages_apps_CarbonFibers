@@ -54,11 +54,15 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String PREF_SYSTEM_ICON_COLOR = "system_icon_color";
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
 
+    private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
+
     private CheckBoxPreference mCustomBarColor;
     private CheckBoxPreference mStatusbarSliderPreference;
     private ColorPickerPreference mBarOpaqueColor;
     private CheckBoxPreference mCustomIconColor;
     private ColorPickerPreference mIconColor;
+
+    private ColorPickerPreference mStatusBarNetworkStatsTextColor;
 
     private boolean mCheckPreferences;
 
@@ -130,6 +134,20 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         }
         mIconColor.setNewPreviewColor(intColor);
 
+        mStatusBarNetworkStatsTextColor = (ColorPickerPreference) findPreference(STATUS_BAR_NETWORK_STATS_TEXT_COLOR);
+        mStatusBarNetworkStatsTextColor.setOnPreferenceChangeListener(this);
+        int intNetworkColor = Settings.System.getInt(getActivity().getContentResolver(),
+                 Settings.System.STATUS_BAR_NETWORK_STATS_TEXT_COLOR, -2);
+        if (intNetworkColor == -2) {
+              intNetworkColor = getResources().getColor(
+                    com.android.internal.R.color.holo_blue_light);
+                    mStatusBarNetworkStatsTextColor.setSummary(getResources().getString(R.string.color_default));
+        } else {
+              hexColor = String.format("#%08x", (0xffffffff & intColor));
+              mStatusBarNetworkStatsTextColor.setSummary(hexColor);
+        }
+        mStatusBarNetworkStatsTextColor.setNewPreviewColor(intNetworkColor);
+
         mCheckPreferences = true;
         return prefSet;
     }
@@ -155,6 +173,16 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_ICON_COLOR, intHex);
             return true;
+
+        } else if (preference == mStatusBarNetworkStatsTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
+                    .valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_NETWORK_STATS_TEXT_COLOR, intHex);
+            return true;
+
         }
         return false;
     }

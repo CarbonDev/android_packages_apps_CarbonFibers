@@ -43,4 +43,32 @@
         android:title="@string/show_lte_or_fourgee_title"
         android:summary="@string/show_lte_or_fourgee_summary" />
 
+        <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:title="@string/status_bar_show_network_stats_title"
+                android:summary="@string/status_bar_show_network_stats_summary"
+                android:key="status_bar_network_stats"
+                android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/status_bar_network_stats_text_color"
+                android:title="@string/status_bar_network_stats_color_title"
+                android:summaryOn="@string/status_bar_network_stats_color_summary"
+                android:key="status_bar_network_stats_text_color"
+                android:dependency="status_bar_network_stats"
+                android:defaultValue="0xFF33B5E5" />
+
+        <ListPreference
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:title="@string/status_bar_network_stats_update_title"
+                android:summaryOn="@string/status_bar_network_stats_update_summary"
+                android:key="status_bar_network_stats_update_frequency"
+                android:dependency="status_bar_network_stats"
+                android:entries="@array/entries_status_bar_network_stats_update"
+                android:entryValues="@array/values_status_bar_network_stats_update" />
+
 </PreferenceScreen>
