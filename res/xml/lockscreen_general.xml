@@ -31,7 +31,12 @@
          <extra android:name="disableLongpress" android:value="true" />
          <extra android:name="useAppPickerOnly" android:value="true" />
          <extra android:name="fragment" android:value="com.carbon.fibers.fragments.ls.LockscreenShortcutFragment" />
-     </PreferenceScreen>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+            android:key="keyguard_style"
+            android:fragment="com.carbon.fibers.fragments.ls.LockscreenStyle"
+            android:title="@string/lockscreen_style_title"/>
 
     <ListPreference
             android:key="lockscreen_battery_status"
