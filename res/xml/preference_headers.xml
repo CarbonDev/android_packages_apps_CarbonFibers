@@ -44,7 +44,13 @@
             android:fragment="com.carbon.fibers.fragments.navbar.NavbarTab" />
 
         <header
-            android:id="@+id/power_menu_setings"
+            android:id="@+id/pie_control"
+            android:title="@string/pie_carbon_title"
+            android:icon="@drawable/ic_carbon_pie"
+            android:fragment="com.carbon.fibers.fragments.pie.PieTab" />
+
+        <header
+            android:id="@+id/power_menu_settings"
             android:title="@string/power_menu_title"
             android:icon="@drawable/ic_fibers_power"
             android:fragment="com.carbon.fibers.fragments.PowerMenuSettings" />

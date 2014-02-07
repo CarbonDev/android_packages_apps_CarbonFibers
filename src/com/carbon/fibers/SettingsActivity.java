@@ -41,6 +41,7 @@ import com.carbon.fibers.dslv.*;
 import com.carbon.fibers.fragments.*;
 import com.carbon.fibers.fragments.ls.*;
 import com.carbon.fibers.fragments.navbar.*;
+import com.carbon.fibers.fragments.pie.*;
 import com.carbon.fibers.fragments.sb.*;
 import com.carbon.fibers.fragments.ui.*;
 
@@ -211,7 +212,13 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         NavbarStyleDimenSettings.class.getName(),
         NavbarButtonFragment.class.getName(),
         ButtonsListViewSettings.class.getName(),
-        LockscreenStyle.class.getName()
+        LockscreenStyle.class.getName(),
+        PieButtonFragment.class.getName(),
+        PieButtonStyleSettings.class.getName(),
+        PieControl.class.getName(),
+        PieStyleSettings.class.getName(),
+        PieTriggerSettings.class.getName(),
+        PieTab.class.getName()
     };
 
     @Override
