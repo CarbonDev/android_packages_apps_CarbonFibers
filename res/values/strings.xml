@@ -19,6 +19,7 @@
     <string name="default_string">Default</string>
     <string name="menu_cancel">Discard</string>
     <string name="disabled">Disabled</string>
+    <string name="additional_options_title">Additional options</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
     <string name="title_clipboard_share">Copy to Clipboard</string>
@@ -680,6 +681,7 @@
     <string name="navbar_targets_title">Ring targets</string>
     <string name="navbar_cat">Navigation bar</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
+    <string name="navigation_bar_warning_no_navigation_present">No other navigation is currently enabled. Turning off the navigation bar can result in an unusable device. Do you want to enable pie controls instead?</string>
     <string name="navbar_button_style_reset_message">Reset all style entries to default?</string>
 
     <!-- Navigation bar button style -->
@@ -693,6 +695,8 @@
     <string name="navigation_bar_glow_tint_title">Button glow color</string>
 
     <!-- Button shorcut actions -->
+    <string name="shortcut_action_navbar">Navigation bar</string>
+    <string name="shortcut_action_pie">Pie controls</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
     <string name="shortcut_action_power_off">Power off</string>
@@ -910,7 +914,6 @@
     <string name="pie_style">Style and dimension</string>
     <string name="pie_style_title">Style</string>
     <string name="pie_dimens_title">Dimension</string>
-    <string name="pie_additional_options">Additional options</string>
     <string name="pie_show_snap_title">Show snap points</string>
     <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
     <string name="pie_show_text_title">Show status and clock</string>
@@ -922,6 +925,10 @@
     <string name="pie_button_second_layer_summary">Change second layer buttons</string>
     <string name="pie_button_style_summary">Change pie button style</string>
     <string name="pie_style_reset_message">Reset style entries to default?</string>
+    <string name="pie_warning_no_navigation_present">No other navigation is currently enabled. Turning off pie controls can result in an unusable device. Do you want to enable navigation bar instead?</string>
+    <string name="pie_trigger_warning">Minimum one of the main triggers (bottom, left or right) needs to be enabled.</string>
+    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
+    <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
     <string name="pie_carbon_title">Pie</string>
 
     <!-- Smooth ProgressBar -->
