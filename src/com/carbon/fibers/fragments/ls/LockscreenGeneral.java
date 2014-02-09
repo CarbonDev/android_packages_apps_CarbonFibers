@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 import com.carbon.fibers.R;
 import com.carbon.fibers.preference.SettingsPreferenceFragment;
+import com.android.internal.util.slim.DeviceUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,11 +61,13 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
     private static final String KEY_BLUR_RADIUS = "blur_radius";
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mSeeThrough;
     private SeekBarPreference mBlurRadius;
     private CheckBoxPreference mLockscreenEightTargets;
+    private CheckBoxPreference mGlowpadTorch;
     private Preference mShortcuts;
 
     private Activity mActivity;
@@ -103,6 +106,17 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_EIGHT_TARGETS, 0) == 1);
         mLockscreenEightTargets.setOnPreferenceChangeListener(this);
 
+        mGlowpadTorch = (CheckBoxPreference) findPreference(
+                PREF_LOCKSCREEN_TORCH);
+        mGlowpadTorch.setChecked(Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
+        mGlowpadTorch.setOnPreferenceChangeListener(this);
+
+        if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
+            prefs.removePreference(mGlowpadTorch);
+        }
+
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
         mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
 
@@ -135,6 +149,11 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockscreenEightTargets) {
             showDialogInner(DLG_ENABLE_EIGHT_TARGETS, (Boolean) objValue);
+            return true;
+        } else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
             return true;
         }
 
