@@ -11,6 +11,10 @@
             android:title="@string/lockscreen_notifications"
             android:summary="@string/lockscreen_notifications_summary" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_color"
+            android:title="@string/notification_color" />
+
         <CheckBoxPreference
             android:key="pocket_mode"
             android:title="@string/pocket_mode"
