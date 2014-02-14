@@ -163,6 +163,10 @@
     <string name="ui_general_category">General</string>
     <string name="ui_recents_category">Recents Panel</string>
 
+    <!--- Lock clock -->
+    <string name="lock_clock_title">Clock widget</string>
+    <string name="lock_clock_summary">View or change CM cLock widget options</string>
+
     <!-- Lockscreen settings -->
     <string name="keyguard_title">Lockscreen</string>
     <string name="ls_targets_category">Targets</string>

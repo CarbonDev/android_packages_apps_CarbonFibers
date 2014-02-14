@@ -65,4 +65,13 @@
         android:title="@string/lockscreen_glowpad_torch_title"
         android:summary="@string/lockscreen_glowpad_torch_summary" />
 
+    <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </PreferenceScreen>
+
 </PreferenceScreen>
