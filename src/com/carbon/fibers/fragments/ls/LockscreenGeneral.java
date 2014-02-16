@@ -63,12 +63,16 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
 
+    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mSeeThrough;
     private SeekBarPreference mBlurRadius;
     private CheckBoxPreference mLockscreenEightTargets;
     private CheckBoxPreference mGlowpadTorch;
     private Preference mShortcuts;
+
+    private CheckBoxPreference mLockRingBattery;
 
     private Activity mActivity;
     private ContentResolver mResolver;
@@ -120,6 +124,10 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
         mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
 
+        mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
+        mLockRingBattery.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+
     }
 
     @Override
@@ -130,6 +138,13 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
               Settings.System.putInt(cr, Settings.System.LOCKSCREEN_SEE_THROUGH,
                       mSeeThrough.isChecked() ? 1 : 0);
             return true;
+
+        } else if (preference == mLockRingBattery) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked()
+                    ? 1 : 0);
+            return true;
+
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }

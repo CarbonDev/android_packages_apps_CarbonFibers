@@ -599,6 +599,8 @@
     <string name="expanded_desktop_status_bar">Status bar visible</string>
     <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
 
+    <string name="battery_around_lockscreen_ring">Battery level around lock ring</string>
+
     <!-- Navigation bar -->
     <string name="navigation_bar_general_category">General</string>
     <string name="navigation_bar_style_category">Style</string>
