@@ -38,6 +38,7 @@
             android:layout_toLeftOf="@id/seekBarPrefUnitsRight"
             android:layout_below="@android:id/title"
             android:gravity="right"
+            android:paddingRight="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView android:id="@+id/seekBarPrefUnitsLeft"
