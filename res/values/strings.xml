@@ -86,6 +86,7 @@
     <string name="hardware_keys_menu_key_title">Menu button</string>
     <string name="hardware_keys_assist_key_title">Search button</string>
     <string name="hardware_keys_appswitch_key_title">Recents button</string>
+    <string name="hardware_keys_camera_key_title">Camera button</string>
     <string name="hardware_keys_volume_keys_title">Volume buttons</string>
     <string name="hardware_keys_short_press_title">Short press action</string>
     <string name="hardware_keys_long_press_title">Long press action</string>
@@ -96,8 +97,15 @@
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_in_app_search">In-app search</string>
+    <string name="hardware_keys_action_launch_camera">Launch Camera</string>
     <string name="home_wake_title">Home button wake</string>
     <string name="home_wake_summary">Pressing the home button will wake your device</string>
+    <string name="camera_wake_title">Camera button wake</string>
+    <string name="camera_wake_summary">Pressing the camera button will wake your device</string>
+    <string name="camera_sleep_on_release_title">Screen peek</string>
+    <string name="camera_sleep_on_release_summary">A half press will keep the screen on only while the button is held down</string>
+    <string name="camera_music_controls_title">Playback control</string>
+    <string name="camera_music_controls_summary">When the screen is off, long pressing the camera key will play/pause current music track</string>
     <string name="volume_wake_title">Volume button wake</string>
     <string name="volume_wake_summary">Pressing either volume button will wake your device</string>
     <string name="volbtn_music_controls_title">Playback control</string>
@@ -557,7 +565,7 @@
 
     <!-- Show 4G icon instead of LTE. User defined settings -->
     <string name="show_lte_or_fourgee_title">Use 4G icon</string>
-    <string name="show_lte_or_fourgee_summary">Switches the network indicator from LTE to 4G</string>
+    <string name="show_lte_or_fourgee_summary">Switch the network indicator from LTE to 4G</string>
 
     <!-- Network Traffic -->
     <string name="color_default">Default</string>
@@ -592,6 +600,12 @@
     <string name="lockscreen_buttons_playpause">Play/Pause music</string>
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
     <string name="lockscreen_buttons_sleep">Go to sleep</string>
+    <string name="unlock_camera_unlock_title">Camera unlock</string>
+    <string name="unlock_camera_unlock_summary">Pressing the camera button unlocks the device</string>
+    <string name="unlock_menu_unlock_title">Menu unlock</string>
+    <string name="unlock_menu_unlock_summary">Pressing the menu button unlocks the device</string>
+    <string name="unlock_home_unlock_title">Home unlock</string>
+    <string name="unlock_home_unlock_summary">Pressing the home button unlocks the device</string>
 
     <!-- Lock screen battery status -->
     <string name="lockscreen_battery_status_title">Battery status</string>
