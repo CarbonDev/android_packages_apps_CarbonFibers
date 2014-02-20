@@ -12,10 +12,12 @@
     <string name="add">Aggiungi</string>
     <string name="save">Salva</string>
     <string name="reset">Azzera</string>
+    <string name="attention">Attenzione</string>
     <string name="empty">Svuota</string>
     <string name="delete">Elimina</string>
     <string name="default_string">Predefinito</string>
     <string name="menu_cancel">Annulla</string>
+    <string name="disabled">Disabilitato</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
     <string name="title_clipboard_share">Copia negli appunti</string>
@@ -390,7 +392,9 @@
     <string name="status_bar_clock_style_reset_message">Azzera colori orologio.</string>
     <string name="clock_font_style_title">Font</string>
     <string name="clock_font_bold">Grassetto</string>
+    <string name="clock_font_condensed">Compresso</string>
     <string name="clock_font_light">Sottile</string>
+    <string name="clock_font_light_italic">Sottile corsivo</string>
     <string name="clock_font_normal">Normale</string>
 
     <!-- QuickSettings style options -->
@@ -400,35 +404,57 @@
     <string name="tiles_per_row_title">Mattonelle per riga</string>
     <string name="tiles_per_row_duplicate_landscape_title">Scala la quantità in modalità panorama</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Raddoppia la quantità di piastrelle per riga quando in modalità panorama</string>
+    <string name="quick_tiles_bg_color_title">Colore sfondo piastrella</string>
+    <string name="quick_tiles_bg_pressed_color_title">Colore sfondo piastrella premuta</string>
+    <string name="quick_tiles_text_color_title">Colore testo piastrella</string>
+    <string name="quick_tiles_alpha_title">Trasparenza sfondo piastrella</string>
+    <string name="qs_style_reset_message">Azzera tutti i colori?</string>
 
     <!-- String for IconPicker -->
     <string name="icon_picker_title">Scegli provenienza icone</string>
     <string name="icon_picker_system_icons_title">Icone di Sistema</string>
     <string name="icon_picker_gallery_title">Galleria</string>
     <string name="icon_picker_pack_title">Icon pack</string>
-
-    <!-- Lock Screen Shortcuts -->
-    <string name="lockscreen_target_info">Trascina lo Slider fino agli obbiettivi per assegnarli</string>
-    <string name="lockscreen_target_title">Slider scorciatoie</string>
-    <string name="lockscreen_target_summary">Vedi o cambia le scorciatoie del blocco schermo</string>
-    <string name="lockscreen_target_reset">Reimposta le scorciatoie del blocco schermo</string>
-    <string name="lockscreen_target_reset_title">Azzera</string>
-    <string name="lockscreen_target_reset_message">Azzera tutte le scorciatoie del blocco schermo impostate dall\'utente.</string>
-    <string name="lockscreen_target_empty">Vuoto</string>
-    <string name="lockscreen_target_edit_title">Edita le scorciatoie e relative icone</string>
-    <string name="lockscreen_target_edit_msg">Seleziona o cambia le applicazioni o attività associate all\'icona</string>
-
-    <!-- Lock screen shortcuts -->
-    <string name="picker_activities">Attività</string>
-    <string name="select_custom_app_title">Seleziona App personalizzata</string>
-    <string name="select_custom_activity_title">Seleziona Attività personalizzata</string>
+    <string name="icon_picker_type">Seleziona tipo icona:</string>
+    <string name="icon_default">Predefinito</string>
+    <string name="icon_presets">Icone di sistema</string>
+    <string name="icon_custom">Galleria</string>
+    <string name="icon_pack">Icon pack</string>
     <string name="icon_picker_choose_icon_title">Scegli icona</string>
+    <string name="select_custom_app_title">Seleziona applicazione personalizzata</string>
+
+    <!-- Lock Screen ASS -->
+    <string name="lock_screen_title">Slider obbiettivi e scorciatoie</string>
+    <string name="lock_screen_summary">Vedi o cambia gli obbiettivi e scorciatoie dello slider blocca schermo</string>
+
+    <!-- Lock Screen Targets -->
+    <string name="lockscreen_target_info">Trascina lo slider sugli obbiettivi per assegnare le applicazioni o scorciatoie</string>
+    <string name="lockscreen_target_title">Slider obbiettivi</string>
+    <string name="lockscreen_target_summary">Vedi o cambia gli obbiettivi dello slider</string>
+    <string name="lockscreen_target_color_title">Colore icona obbiettivo</string>
+    <string name="lockscreen_eight_targets_title">Slider a otto obbiettivi</string>
+    <string name="lockscreen_eight_targets_summary">Abilita otto obbiettivi sullo slider blocca schermo.</string>
+    <string name="lockscreen_enable_eight_targets_dialog">Cambiando questa opzione azzererai i tuoi obbiettivi correnti del blocca schermo, alla situazione predefinita.</string>
+    <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nCon otto obbiettivi non puoi usare le scorciatoie blocco schermo allo stesso tempo.</string>
+    <string name="lockscreen_target_reset">Obbiettivi blocco schermo azzerati a predefinito</string>
+    <string name="lockscreen_target_reset_message">Cancello tutti gli obbiettivi blocco schermo creati dall\'utente alla situazione predefinita?</string>
+    <string name="lockscreen_target_empty">Nessuno</string>
+    <string name="lockscreen_target_edit_title">Modifica obbiettivo e icona</string>
+    <string name="lockscreen_target_edit_msg">Seleziona o cambia l\'applicazione o attività desiderata e l\'icona associata</string>
+
+    <!-- Lockscreen Shortcuts -->
+    <string name="lockscreen_shortcuts_title">Scorciatoie</string>
+    <string name="lockscreen_shortcuts_summary">Vedi o cambia scorciatoie personalizzate blocco schermo</string>
+    <string name="lockscreen_shorcuts_longpress_title">Pressione lunga su scorciatoie</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Apri scorciatoie su pressione lunga nel blocco schermo</string>
+
+    <!-- Lock screen targets and shortcuts -->
+    <string name="picker_activities">Attività</string>
+    <string name="select_custom_activity_title">Seleziona Attività personalizzata</string>
     <string name="icon_picker_alarm">Sveglia</string>
     <string name="icon_picker_browser">Browser</string>
     <string name="icon_picker_calendar">Calendario</string>
     <string name="icon_picker_camera">FotoCamera</string>
-    <string name="icon_picker_chrome">Chrome</string>
-    <string name="icon_picker_contacts">Contatti</string>
     <string name="icon_picker_email">Email</string>
     <string name="icon_picker_email2">Email Holo</string>
     <string name="icon_picker_facebook">Facebook</string>
@@ -492,6 +518,7 @@
     <!-- Status bar color -->
     <string name="custom_status_bar_color_title">Colore Barra di stato personalizzato</string>
     <string name="status_bar_opaque_color">Colore opacizzato</string>
+    <string name="status_bar_opaque_color_summary">E\' richiesto riavvio interfaccia utente</string>
     <string name="status_bar_transparent_color">Colore oscurato</string>
     <string name="custom_system_icon_color_title">Colore icone di sistema personalizzato</string>
     <string name="system_icon_color">Colore Icone</string>
@@ -569,6 +596,8 @@
     <string name="expanded_desktop_disabled">Disabilitato</string>
     <string name="expanded_desktop_status_bar">Barra di stato visibile</string>
     <string name="expanded_desktop_no_status_bar">Barra di stato invisibile</string>
+
+    <string name="battery_around_lockscreen_ring">Livello Batteria attorno alla maniglia di sblocco</string>
 
     <!-- Navigation bar -->
     <string name="navigation_bar_general_category">Generale</string>
@@ -662,15 +691,10 @@
     <string name="shortcut_action_help_main">Per aggiungere %1$s, seleziona l\'icona aggiungi.  Una volta che %1$s è aggiunto, seleziona la riga per cambiare l\'obbiettivo%2$s\n\nPer rimuovere %1$s, striscia via la riga orizzontalmente.  Riordina %1$s nella lista trascinando verticalmente le voci per la maniglia sulla sinistra.\n\nPer eliminare o azzerare ai valori predefiniti, seleziona l\'icona Azzera.</string>
     <string name="shortcut_action_help_delete_last_entry">Rimuovendo ogni %1$s nella lista, disabiliterai completamente la funzione.</string>
     <string name="shortcut_action_help">Aiuto</string>
-    <string name="icon_picker_type">Seleziona tipo icona:</string>
 
     <string name="icon_color_mode_all_icons">Tutte le icone</string>
     <string name="icon_color_mode_system_icons">Icone di sistema</string>
     <string name="icon_color_mode_system_custom_icons">Icone di sistema e personalizzate</string>
-
-    <string name="icon_default">Predefinito</string>
-    <string name="icon_presets">Icone di sistema</string>
-    <string name="icon_custom">Galleria</string>
 
     <string name="shortcuts_icon_picker_alarm">Allarme</string>
     <string name="shortcuts_icon_picker_andy">Andy</string>
@@ -748,5 +772,25 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipato e overshoot</string>
     <string name="listview_bounce_interpolator">Rimbalzo</string>
+
+    <!-- Lockscreen style settings -->
+    <string name="lockscreen_style_reset_message">Azzera tutti i colori blocco schermo?</string>
+    <string name="lockscreen_icon_title">Icona maniglia sblocco</string>
+    <string name="lockscreen_lock_icon_custom">Icona personalizzata</string>
+    <string name="lockscreen_lock_icon_carbon">Icona Carbon</string>
+    <string name="lockscreen_lock_icon_default">Icona default</string>
+    <string name="lockscreen_colorize_handle_title">Colore maniglia personalizzata</string>
+    <string name="lockscreen_colorize_handle_summary">Il colore verrà applicato alla maniglia di sblocco</string>
+    <string name="lockscreen_style_title">Stile tema</string>
+    <string name="lockscreen_frame_color_title">Colore cornice</string>
+    <string name="lockscreen_frame_color_summary">Colore del widget e dei riquadri di sblocco</string>
+    <string name="lockscreen_lock_color_title">Colore maniglia</string>
+    <string name="lockscreen_lock_color_summary">Colore maniglia di sblocco</string>
+    <string name="lockscreen_dots_color_title">Colore puntini</string>
+    <string name="lockscreen_dots_color_summary">Colore dei puntini che formano la scia della maniglia di sblocco</string>
+
+    <!-- Status bar brightness slider -->
+    <string name="brightness_slider_title">Slider luminosità sulla barra di stato</string>
+    <string name="brightness_slider_summary">Quando abilitata, questa funzione, consente di cambiare la luminosità strisciando orizzontalmente sulla barra di stato. Nota: Non è disponibile quando la luminosità automatica è attiva</string>
 
 </resources>
