@@ -404,6 +404,11 @@
     <string name="tiles_per_row_title">Botones por fila</string>
     <string name="tiles_per_row_duplicate_landscape_title">Adecuar número en modo apaisado</string>
     <string name="tiles_per_row_duplicate_landscape_summary">En modo apaisado se dobla la cantidad de botones por fila</string>
+    <string name="quick_tiles_bg_color_title">Color fondo de botones</string>
+    <string name="quick_tiles_bg_pressed_color_title">Color fondo botones presionados</string>
+    <string name="quick_tiles_text_color_title">Color texto botones</string>
+    <string name="quick_tiles_alpha_title">Transparencia fondo botones</string>
+    <string name="qs_style_reset_message">¿Restablecer a los colores predeterminados?</string>
 
     <!-- String for IconPicker -->
     <string name="icon_picker_title">Seleccionar fuente de iconos</string>
@@ -546,6 +551,15 @@
     <string name="show_lte_or_fourgee_title">Usar icono 4G</string>
     <string name="show_lte_or_fourgee_summary">Cambie el indicador de red de LTE a 4G</string>
 
+    <!-- Network Traffic -->
+    <string name="color_default">Predeterminado</string>
+    <string name="status_bar_show_network_stats_title">Mostrar velocidad de la red</string>
+    <string name="status_bar_show_network_stats_summary">Muestra la velocidad de la red en la barra de estado</string>
+    <string name="status_bar_network_stats_update_title">Frecuencia de actualización</string>
+    <string name="status_bar_network_stats_update_summary">Intervalo actualización indicador</string>
+    <string name="status_bar_network_stats_color_title">Color texto velocidad de red</string>
+    <string name="status_bar_network_stats_color_summary">Color del texto indicador velocidad de barra de estado</string>
+
     <!-- Notification drawer background -->
     <string name="notification_style_title">Estilo</string>
     <string name="notification_style_summary">Cambia el estilo del panel de notificaciones</string>
@@ -618,7 +632,7 @@
     <string name="navbar_can_move">Mostrar en modo apaisado</string>
     <string name="navbar_can_move_summary">Muestra la Barra de Navegación abajo si estamos en modo apaisado</string>
     <string name="navbar_style_dimen_title">Dimensiones</string>
-    <string name="navbar_button_title">Botonoes</string>
+    <string name="navbar_button_title">Botones</string>
     <string name="navbar_targets_title">Accesos directos del anillo</string>
     <string name="navbar_cat">Barra de Navegación</string>
     <string name="navbar_dimensions_reset_message">¿Restablecer dimensiones a valores predeterminados?</string>
@@ -755,5 +769,25 @@
     <string name="listview_overshoot_interpolator">Excedido</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipado y excedido</string>
     <string name="listview_bounce_interpolator">Rebote</string>
+
+     <!-- Lockscreen style settings -->
+    <string name="lockscreen_style_reset_message">¿Restablecer colores del bloqueo de pantalla?</string>
+    <string name="lockscreen_icon_title">Icono del anillo</string>
+    <string name="lockscreen_lock_icon_custom">Icono personalizado</string>
+    <string name="lockscreen_lock_icon_carbon">Icono Carbon</string>
+    <string name="lockscreen_lock_icon_default">Icono predeterminado</string>
+    <string name="lockscreen_colorize_handle_title">Colorear anillo personalizado</string>
+    <string name="lockscreen_colorize_handle_summary">El color del anillo será como el de la huella</string>
+    <string name="lockscreen_style_title">Estilo del tema</string>
+    <string name="lockscreen_frame_color_title">Color del marco</string>
+    <string name="lockscreen_frame_color_summary">Color del widget y marcos de desbloqueo</string>
+    <string name="lockscreen_lock_color_title">Color del anillo</string>
+    <string name="lockscreen_lock_color_summary">Color de la huella</string>
+    <string name="lockscreen_dots_color_title">Color de puntos</string>
+    <string name="lockscreen_dots_color_summary">Color de puntos presionados</string>
+
+    <!-- Status bar brightness slider -->
+    <string name="brightness_slider_title">Barra de brillo en barra de estado</string>
+    <string name="brightness_slider_summary">Habilitado permite cambiar el brillo deslizando el dedo a lo largo de la barra de estado. Nota: No funciona si el brillo automático también está activado</string>
 
 </resources>
