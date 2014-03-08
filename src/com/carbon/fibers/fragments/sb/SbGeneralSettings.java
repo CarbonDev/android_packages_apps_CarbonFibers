@@ -53,7 +53,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String PREF_CUSTOM_SYSTEM_ICON_COLOR = "custom_system_icon_color";
     private static final String PREF_SYSTEM_ICON_COLOR = "system_icon_color";
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
-
+    private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
 
     private CheckBoxPreference mCustomBarColor;
@@ -61,8 +61,8 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private ColorPickerPreference mBarOpaqueColor;
     private CheckBoxPreference mCustomIconColor;
     private ColorPickerPreference mIconColor;
-
     private ColorPickerPreference mStatusBarNetworkStatsTextColor;
+    private ListPreference mSignalStyle;
 
     private boolean mCheckPreferences;
 
@@ -134,6 +134,17 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         }
         mIconColor.setNewPreviewColor(intColor);
 
+        mSignalStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
+        int signalStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
+        mSignalStyle.setValue(String.valueOf(signalStyle));
+        mSignalStyle.setSummary(mSignalStyle.getEntry());
+        mSignalStyle.setOnPreferenceChangeListener(this);
+
+        if (Utils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mSignalStyle);
+        }
+
         mStatusBarNetworkStatsTextColor = (ColorPickerPreference) findPreference(STATUS_BAR_NETWORK_STATS_TEXT_COLOR);
         mStatusBarNetworkStatsTextColor.setOnPreferenceChangeListener(this);
         int intNetworkColor = Settings.System.getInt(getActivity().getContentResolver(),
@@ -173,7 +184,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_ICON_COLOR, intHex);
             return true;
-
         } else if (preference == mStatusBarNetworkStatsTextColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
                     .valueOf(newValue)));
@@ -182,11 +192,17 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_NETWORK_STATS_TEXT_COLOR, intHex);
             return true;
-
+        } else if (preference == mSignalStyle) {
+            int signalStyle = Integer.valueOf((String) newValue);
+            int index = mSignalStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
+            mSignalStyle.setSummary(mSignalStyle.getEntries()[index]);
+            return true;
         }
+
         return false;
     }
-
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
