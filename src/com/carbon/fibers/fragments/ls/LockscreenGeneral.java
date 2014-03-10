@@ -83,6 +83,8 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
 
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
+    private static final String LOCK_BEFORE_UNLOCK = "lock_before_unlock";
+
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mSeeThrough;
     private SeekBarPreference mBlurRadius;
@@ -99,6 +101,8 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
     private ContentResolver mResolver;
 
     private IKeyguardService mKeyguardService;
+
+    private CheckBoxPreference mLockBeforeUnlock;
 
     private final ServiceConnection mKeyguardConnection = new ServiceConnection() {
         @Override
@@ -178,6 +182,16 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         mSelectLockscreenWallpaper = findPreference(KEY_SELECT_LOCKSCREEN_WALLPAPER);
         mSelectLockscreenWallpaper.setEnabled(mLockscreenWallpaper.isChecked());
         mWallpaperTemporary = new File(getActivity().getCacheDir() + "/lockwallpaper.tmp");
+
+        // Lock before Unlock
+        mLockBeforeUnlock = (CheckBoxPreference) findPreference(LOCK_BEFORE_UNLOCK);
+        if (mLockBeforeUnlock != null) {
+            mLockBeforeUnlock.setChecked(
+                    Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_BEFORE_UNLOCK, 0) == 1);
+            mLockBeforeUnlock.setOnPreferenceChangeListener(this);
+        }
+
     }
 
     public void onActivityResult(int requestCode, int resultCode,
@@ -277,6 +291,12 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         } else if (preference == mGlowpadTorch) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
+            return true;
+
+        } else if (preference == mLockBeforeUnlock) {
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.LOCK_BEFORE_UNLOCK,
                     (Boolean) objValue ? 1 : 0);
             return true;
         }
