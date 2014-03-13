@@ -95,7 +95,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int smartPulldownValue = Settings.System.getInt(resolver,
                     Settings.System.QS_SMART_PULLDOWN, 0);
             mSmartPulldown.setValue(String.valueOf(smartPulldownValue));
-            updatePulldownSummary(quickPulldownValue);
+            updateSmartPulldownSummary(smartPulldownValue);
         }
 
         // Remove unsupported options
@@ -194,7 +194,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     ? R.string.quick_pulldown_summary_left
                     : R.string.quick_pulldown_summary_right);
             mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
-
         }
     }
 
