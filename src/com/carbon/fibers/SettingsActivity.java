@@ -219,7 +219,8 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         PieControl.class.getName(),
         PieStyleSettings.class.getName(),
         PieTriggerSettings.class.getName(),
-        PieTab.class.getName()
+        PieTab.class.getName(),
+        ProgressBar.class.getName()
     };
 
     @Override
