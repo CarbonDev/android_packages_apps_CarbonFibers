@@ -275,11 +275,6 @@ public class BatterySettings extends SettingsPreferenceFragment
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);
             mCircleAnimSpeed.setEnabled(true);
-        } else if (batteryIconStat == 7) {
-            mBatteryColor.setEnabled(false);
-            mBatteryTextColor.setEnabled(false);
-            mBatteryTextChargingColor.setEnabled(false);
-            mCircleAnimSpeed.setEnabled(false);
         } else {
             mBatteryColor.setEnabled(false);
             mBatteryTextColor.setEnabled(true);
