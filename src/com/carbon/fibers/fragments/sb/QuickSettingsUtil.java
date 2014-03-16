@@ -25,8 +25,8 @@ import static com.android.internal.util.cm.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.cm.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.cm.QSConstants.TILE_CARBON;
 import static com.android.internal.util.cm.QSConstants.TILE_DELIMITER;
+import static com.android.internal.util.cm.QSConstants.TILE_EXP_DESKTOP;
 import static com.android.internal.util.cm.QSConstants.TILE_GPS;
-import static com.android.internal.util.cm.QSConstants.TILE_IMMERSIVE;
 import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.cm.QSConstants.TILE_LTE;
 import static com.android.internal.util.cm.QSConstants.TILE_MOBILEDATA;
@@ -158,8 +158,8 @@ public class QuickSettingsUtil {
                 TILE_NETWORKADB, R.string.title_tile_network_adb,
                 "com.android.systemui:drawable/ic_qs_network_adb_off"));
         registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_IMMERSIVE, R.string.title_tile_immersive,
-                "com.android.systemui:drawable/ic_qs_immersive_on"));
+                TILE_EXP_DESKTOP, R.string.title_tile_exp_desktop,
+                "com.android.systemui:drawable/ic_qs_exp_desktop_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_MUSIC, R.string.title_tile_music,
                 "com.android.systemui:drawable/ic_qs_media_pause"));
