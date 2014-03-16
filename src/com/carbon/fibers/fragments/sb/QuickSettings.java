@@ -53,14 +53,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
-    private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
-    private CheckBoxPreference mFlipQsTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,10 +98,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mSmartPulldown.setValue(String.valueOf(smartPulldownValue));
             updateSmartPulldownSummary(smartPulldownValue);
         }
-
-        mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
-        mFlipQsTiles.setChecked(Settings.System.getInt(resolver,
-                Settings.System.QUICK_SETTINGS_TILES_FLIP, 0) == 1);
 
         // Remove unsupported options
 /*        if (!QSUtils.deviceSupportsDockBattery(getActivity())) {
@@ -165,11 +159,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN,
                     smartPulldownValue);
             updateSmartPulldownSummary(smartPulldownValue);
-        } else if (preference == mFlipQsTiles) {
-            Settings.System.putInt(resolver,
-                    Settings.System.QUICK_SETTINGS_TILES_FLIP,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
-            return true;
         }
         return false;
     }

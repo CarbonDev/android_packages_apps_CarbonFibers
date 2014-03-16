@@ -58,10 +58,11 @@
             android:summary="@string/tile_picker_summary"
             android:fragment="com.carbon.fibers.fragments.sb.QuickSettingsTiles" />
 
-        <CheckBoxPreference
-            android:key="flip_qs_tiles"
+        <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_flip"
             android:title="@string/flip_qs_tiles_title"
-            android:summary="@string/flip_qs_tiles_summary" />
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="false" />
 
         </PreferenceCategory>
 
