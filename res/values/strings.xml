@@ -821,10 +821,6 @@
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
-    <!-- Lock before unlock -->
-    <string name="lock_before_unlock_title">Show slider before secure unlock</string>
-    <string name="lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
-
     <!-- Lockscreen style settings -->
     <string name="lockscreen_style_reset_message">Reset all lockscreen colors?</string>
     <string name="lockscreen_icon_title">Lock handle icon</string>
