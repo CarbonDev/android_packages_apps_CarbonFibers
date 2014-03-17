@@ -13,8 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.carbon.fibers" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
         android:key="home_unlock_screen"

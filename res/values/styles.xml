@@ -15,20 +15,11 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="text_view_condensed_style" parent="android:Widget.Holo.TextView">
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-    <style name="text_view_light_style" parent="android:Widget.Holo.TextView">
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
     <style name="button_style" parent="android:Widget.Holo.Button">
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
-        <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -52,7 +43,6 @@
     </style>
 
     <style name="TextAppearance.QuickSettings">
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textAllCaps">true</item>

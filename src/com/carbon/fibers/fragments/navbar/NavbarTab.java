@@ -61,6 +61,7 @@ public class NavbarTab extends SettingsPreferenceFragment {
         View view = inflater.inflate(R.layout.tab_ui_sb, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
         mPagerTabStrip = (PagerTabStrip) view.findViewById(R.id.pagerTabStrip);
+        mPagerTabStrip.setTabIndicatorColorResource(android.R.color.white);
 
         NavigationAdapter NavigationAdapter = new NavigationAdapter(getFragmentManager());
         mViewPager.setAdapter(NavigationAdapter);

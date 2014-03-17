@@ -15,8 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pie_control_trigger_positions"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    android:title="@string/pie_control_trigger_positions">
 
     <Preference
         style="?android:preferenceInformationStyle"

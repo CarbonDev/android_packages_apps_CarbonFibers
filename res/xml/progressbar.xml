@@ -13,7 +13,7 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.carbon.fibers"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/progressbar_title" >
 
     <PreferenceCategory
@@ -34,7 +34,7 @@
             android:title="@string/progressbar_speed_title"
             android:summary="@string/progressbar_speed_title"
             android:max="31"
-            settings:min="1"
+            settings:minm="1"
             settings:unitsLeft="Speed: "
             settings:unitsRight=""
             android:defaultValue="10" />
@@ -45,7 +45,7 @@
             android:title="@string/progressbar_width_title"
             android:summary="@string/progressbar_width_title"
             android:max="12"
-            settings:min="0"
+            settings:minm="0"
             settings:unitsLeft="Stroke width: "
             settings:unitsRight="dp"
             android:defaultValue="4" />
@@ -56,7 +56,7 @@
             android:title="@string/progressbar_length_title"
             android:summary="@string/progressbar_length_title"
             android:max="48"
-            settings:min="0"
+            settings:minm="0"
             settings:unitsLeft="Separator length: "
             settings:unitsRight="dp"
             android:defaultValue="10" />
@@ -67,7 +67,7 @@
             android:title="@string/progressbar_count_title"
             android:summary="@string/progressbar_count_title"
             android:max="12"
-            settings:min="1"
+            settings:minm="1"
             settings:unitsLeft="Sections Count: "
             settings:unitsRight=""
             android:defaultValue="6" />

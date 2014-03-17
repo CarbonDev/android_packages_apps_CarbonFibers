@@ -37,7 +37,7 @@ public class SpecialSeekBarPreference extends Preference implements OnSeekBarCha
     private final String TAG = getClass().getName();
 
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final String SETTINGS = "http://schemas.android.com/apk/res/com.carbon.fibers";
+    private static final String SETTINGS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final int DEFAULT_VALUE = 50;
 
     private int mMaxValue      = 100;
@@ -70,7 +70,7 @@ public class SpecialSeekBarPreference extends Preference implements OnSeekBarCha
 
     private void setValuesFromXml(AttributeSet attrs) {
         mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
-        mMinValue = attrs.getAttributeIntValue(SETTINGS, "min", 0);
+        mMinValue = attrs.getAttributeIntValue(SETTINGS, "minm", 0);
         mUnitsLeft = getAttributeStringValue(attrs, SETTINGS, "unitsLeft", "");
         String units = getAttributeStringValue(attrs, SETTINGS, "units", "");
         mUnitsRight = getAttributeStringValue(attrs, SETTINGS, "unitsRight", units);

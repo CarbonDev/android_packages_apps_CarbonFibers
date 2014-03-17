@@ -1,8 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.carbon.fibers"
-    android:sharedUserId="android.uid.system" >
+    package="com.carbon.fibers" >
 
-    <uses-sdk android:minSdkVersion="19"/>
     <original-package android:name="com.carbon.fibers" />
 
     <uses-permission android:name="android.permission.REBOOT" />

@@ -16,8 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/carrier_label_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.carbon.fibers">
+    android:title="@string/carrier_label_title">
 
     <PreferenceCategory
         android:key="carrier_label_general"
