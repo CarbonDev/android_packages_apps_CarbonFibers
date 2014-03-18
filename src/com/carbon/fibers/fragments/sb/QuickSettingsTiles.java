@@ -387,10 +387,10 @@ public class QuickSettingsTiles extends Fragment {
                 case DLG_SCREENSHOT_DELAY:
                     String[] dialogEntriesSS = getResources().getStringArray(
                             getResources().getIdentifier("entries_screenshot_delay",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     final String[] dialogValuesSS = getResources().getStringArray(
                             getResources().getIdentifier("values_screenshot_delay",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     int actualEntrySS = Settings.System.getInt(
                             getActivity().getContentResolver(),
                             Settings.System.SCREENSHOT_TOGGLE_DELAY, 5000);
@@ -411,10 +411,10 @@ public class QuickSettingsTiles extends Fragment {
                 case DLG_SCREENTIMEOUT:
                     String[] dialogEntries = getResources().getStringArray(
                             getResources().getIdentifier("entries_screentimeout_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     final String[] dialogValuesST = getResources().getStringArray(
                             getResources().getIdentifier("values_screentimeout_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     int actualEntry = Settings.System.getIntForUser(
                             getActivity().getContentResolver(),
                             Settings.System.EXPANDED_SCREENTIMEOUT_MODE, 0,
@@ -436,10 +436,10 @@ public class QuickSettingsTiles extends Fragment {
                 case DLG_NETWORK_MODE:
                     dialogEntries = getResources().getStringArray(
                             getResources().getIdentifier("entries_network_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     final String[] dialogValuesNM = getResources().getStringArray(
                             getResources().getIdentifier("values_network_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     actualEntry = Settings.System.getIntForUser(
                             getActivity().getContentResolver(),
                             Settings.System.EXPANDED_NETWORK_MODE, 0,
@@ -461,10 +461,10 @@ public class QuickSettingsTiles extends Fragment {
                 case DLG_RINGER:
                     dialogEntries = getResources().getStringArray(
                             getResources().getIdentifier("entries_ring_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     final String[] dialogValuesSM = getResources().getStringArray(
                             getResources().getIdentifier("values_ring_widget",
-                            "array", "com.carbon.fibers"));
+                            "array", "com.android.settings"));
                     final int size = dialogValuesSM.length;
                     String storedEntries = Settings.System.getStringForUser(
                             getActivity().getContentResolver(),
