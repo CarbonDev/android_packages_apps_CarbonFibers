@@ -192,8 +192,8 @@ public class ButtonsListViewSettings extends ListFragment implements
 
         FilteredDeviceFeaturesArray finalActionDialogArray = new FilteredDeviceFeaturesArray();
         finalActionDialogArray = DeviceUtils.filterUnsupportedDeviceFeatures(mActivity,
-            res.getStringArray(res.getIdentifier(mActionValuesKey, "array", "com.carbon.fibers")),
-            res.getStringArray(res.getIdentifier(mActionEntriesKey, "array", "com.carbon.fibers")));
+            res.getStringArray(res.getIdentifier(mActionValuesKey, "array", "com.android.settings")),
+            res.getStringArray(res.getIdentifier(mActionEntriesKey, "array", "com.android.settings")));
         mActionDialogValues = finalActionDialogArray.values;
         mActionDialogEntries = finalActionDialogArray.entries;
 
