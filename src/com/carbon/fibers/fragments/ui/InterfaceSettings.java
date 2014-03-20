@@ -95,6 +95,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
             frags[1] = new RecentsPanel();
             frags[2] = new BatterySaverSettings();
             frags[3] = new ProgressBar();
+            frags[4] = new AppCircleSideBar();
         }
 
         @Override
@@ -119,7 +120,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
                     getString(R.string.ui_general_category),
                     getString(R.string.ui_recents_category),
                     getString(R.string.battery_saver_title),
-                    getString(R.string.progressbar_title)};
+                    getString(R.string.progressbar_title),
+                    getString(R.string.category_app_circle_bar_title)};
         return titleString;
     }
 }
