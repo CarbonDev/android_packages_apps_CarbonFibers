@@ -208,6 +208,7 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         SbSettings.class.getName(),
         QuickSettingsTiles.class.getName(),
         QuickSettingsTilesStyle.class.getName(),
+        NotificationsShortcutFragment.class.getName(),
         NotificationDrawerStyle.class.getName(),
         NavbarTab.class.getName(),
         NavBarButtonStyle.class.getName(),
