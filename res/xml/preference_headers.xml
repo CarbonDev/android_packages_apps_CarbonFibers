@@ -25,8 +25,8 @@
         android:icon="@drawable/ic_fibers_device" >
 	<intent
             android:action="android.intent.action.MAIN"
-            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings"
-            android:targetPackage="com.cyanogenmod.settings.device" />
+            android:targetClass="com.teamcanjica.settings.device.DeviceSettings"
+            android:targetPackage="com.teamcanjica.settings.device" />
     </header>
 
         <header
