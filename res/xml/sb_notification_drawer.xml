@@ -27,11 +27,6 @@
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
 
     <Preference
-        android:key="carrier_label"
-        android:title="@string/carrier_label_title"
-        android:fragment="com.carbon.fibers.fragments.sb.CarrierLabel" />
-
-    <Preference
         android:fragment="com.carbon.fibers.fragments.sb.NotificationDrawerStyle"
         android:key="notification_style"
         android:title="@string/notification_style_title"
