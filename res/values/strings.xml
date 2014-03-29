@@ -390,7 +390,6 @@
 
     <!-- StatusBar Battery Settings -->
     <string name="battery_icon_title">Battery icon</string>
-    <string name="battery_status_hide">Hide</string>
     <string name="battery_status_icon">Icon</string>
     <string name="battery_status_percentage">Percentage</string>
     <string name="battery_status_icon_percentage">Icon with percentage</string>
