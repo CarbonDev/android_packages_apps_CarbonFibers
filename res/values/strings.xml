@@ -193,17 +193,20 @@
     <string name="clear_button_bottom_left">Bottom left</string>
     <string name="clear_button_bottom_right">Bottom right</string>
 
+    <!-- RAM circle -->
+    <string name="ram_circle_title">RAM circle</string>
+
     <!-- Recents Ram Bar -->
-    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar">RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This RAM bar shows the actual android memory (RAM) utilization. Please note that having cached apps helps your device open apps much faster. For further explanations on how android memory (RAM) management works, check the help menu.</string>
-    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
-    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_mode_title">RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on RAM bar</string>
     <string name="ram_bar_none">None</string>
     <string name="ram_bar_apps">Applications</string>
     <string name="ram_bar_cache">Applications and cache</string>
     <string name="ram_bar_other">Applications, cache and other</string>
-    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_style_cat">RAM bar style</string>
     <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
     <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
     <string name="ram_bar_color_total_mem_color">Other RAM color</string>
@@ -983,8 +986,7 @@
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
     <!-- Battery Bar -->
-    <string name="status_bar_battery_cat_title">Battery</string>
-    <string name="battery_bar_title">Battery Bar</string>
+    <string name="battery_bar_title">Battery bar</string>
     <string name="battery_bar">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
     <string name="battery_bar_cat">Battery bar style</string>
