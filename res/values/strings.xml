@@ -893,15 +893,6 @@
     <string name="brightness_slider_title">Statusbar brightness slider</string>
     <string name="brightness_slider_summary">When enabled, this option will allow you to change the brightness by sliding your finger across the Statusbar. Note: Will not be active when auto-brightness is on</string>
 
-    <!-- Breathing Notifications -->
-    <string name="breathing_notifications_title">Breathing Notifications</string>
-    <string name="sms_breath">Breathing SMS</string>
-    <string name="sms_breath_summary">Will give your sms notifications a breathing effect</string>
-    <string name="title_missed_call_breath">Breathing missed call</string>
-    <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect</string>
-    <string name="title_voicemail_breath">Breathing voicemail</string>
-    <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect</string>
-
     <!-- Pie Control -->
     <string name="pie_control_title">SlimPIE</string>
     <string name="pie_control_summary">Enable pie controls</string>

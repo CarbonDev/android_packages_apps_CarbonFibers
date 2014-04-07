@@ -56,10 +56,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
 
-    private static final String KEY_SMS_BREATH = "sms_breath";
-    private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
-    private static final String KEY_VOICEMAIL_BREATH = "voicemail_breath";
-
     private CheckBoxPreference mCustomBarColor;
     private CheckBoxPreference mStatusbarSliderPreference;
     private ColorPickerPreference mBarOpaqueColor;
@@ -67,10 +63,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mStatusBarNetworkStatsTextColor;
     private ListPreference mSignalStyle;
-
-    private CheckBoxPreference mSMSBreath;
-    private CheckBoxPreference mMissedCallBreath;
-    private CheckBoxPreference mVoicemailBreath;
 
     private boolean mCheckPreferences;
 
@@ -167,10 +159,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         }
         mStatusBarNetworkStatsTextColor.setNewPreviewColor(intNetworkColor);
 
-        mSMSBreath = (CheckBoxPreference) prefSet.findPreference(KEY_SMS_BREATH);
-        mMissedCallBreath = (CheckBoxPreference) prefSet.findPreference(KEY_MISSED_CALL_BREATH);
-        mVoicemailBreath = (CheckBoxPreference) prefSet.findPreference(KEY_VOICEMAIL_BREATH);
-
         mCheckPreferences = true;
         return prefSet;
     }
@@ -235,23 +223,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
                     Settings.System.CUSTOM_SYSTEM_ICON_COLOR,
             mCustomIconColor.isChecked() ? 1 : 0);
             return true;
-
-        } else if (preference == mMissedCallBreath) {
-            value = mMissedCallBreath.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.KEY_MISSED_CALL_BREATH, value ? 1 : 0);
-            return true;
-        } else if (preference == mVoicemailBreath) {
-            value = mVoicemailBreath.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
-            return true;
-        } else if (preference == mSMSBreath) {
-            value = mSMSBreath.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-            Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
-            return true;
-
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
