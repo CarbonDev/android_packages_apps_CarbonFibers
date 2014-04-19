@@ -44,6 +44,7 @@ import com.carbon.fibers.fragments.navbar.*;
 import com.carbon.fibers.fragments.pie.*;
 import com.carbon.fibers.fragments.sb.*;
 import com.carbon.fibers.fragments.ui.*;
+import com.carbon.fibers.fragments.batterysaver.*;
 
 public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
@@ -221,6 +222,9 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         PieTriggerSettings.class.getName(),
         PieTab.class.getName(),
         ProgressBar.class.getName(),
+        BatterySaverSettings.class.getName(),
+        BatterySaverHelper.class.getName(),
+        BatteryCpuSettings.class.getName(),
         RamBar.class.getName()
     };
 

@@ -48,6 +48,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.batterysaver.BatterySaverSettings"
+            android:label="@string/battery_saver_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.fibers.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.ButtonSettings"
             android:label="@string/button_settings" >
             <intent-filter>
