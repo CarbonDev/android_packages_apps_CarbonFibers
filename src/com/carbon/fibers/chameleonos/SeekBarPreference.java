@@ -55,7 +55,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
                       attrs, R.styleable.SeekBarPreference);
 
         mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
-        mMinValue = attrs.getAttributeIntValue(SETTINGS, "minm", 0);
+        mMinValue = attrs.getAttributeIntValue(SETTINGS, "min", 0);
         mUnitsLeft = getAttributeStringValue(attrs, SETTINGS, "unitsLeft", "");
         String units = getAttributeStringValue(attrs, SETTINGS, "units", "");
         mUnitsRight = getAttributeStringValue(attrs, SETTINGS, "unitsRight", units);
@@ -68,7 +68,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
         if (id > 0) {
             mUnitsLeft = getContext().getResources().getString(id);
         }
-        
+
         try {
             String newInterval = attrs.getAttributeValue(SETTINGS, "interval");
             if(newInterval != null)
