@@ -31,7 +31,7 @@
     <string name="clipboard_notification">Copied to clipboard</string>
 
     <!-- Header Summaries -->
-    <string name="header_summary">@null</string>
+    <string name="header_summary" translatable="false">@null</string>
 
     <!-- Menu Strings -->
     <string name="menu_main_activity_change_locale">Locale</string>
@@ -75,10 +75,10 @@
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color to apply</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_down" translatable="false">↓</string>
     <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
+    <string name="hex_hint" translatable="false">#ff000000</string>
     <string name="set">Set</string>
     <string name="ics_color">Holo</string>
 
