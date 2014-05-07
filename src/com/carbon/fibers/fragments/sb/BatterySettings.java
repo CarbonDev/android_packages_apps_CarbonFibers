@@ -334,13 +334,14 @@ public class BatterySettings extends SettingsPreferenceFragment
     }
 
     private void updateBatteryIconOptions(int batteryIconStat) {
-        mBatteryTextChargingColor.setTitle(R.string.battery_bolt_color);
+        mBatteryTextChargingColor.setTitle(R.string.battery_text_charging_color);
         if (batteryIconStat == 0) {
             mBatteryColor.setEnabled(true);
             mBatteryTextColor.setEnabled(false);
             mBatteryTextChargingColor.setEnabled(true);
+            mBatteryTextChargingColor.setTitle(R.string.battery_bolt_color);
             mCircleAnimSpeed.setEnabled(false);
-        } else if (batteryIconStat == 2 || batteryIconStat == 7) {
+        } else if (batteryIconStat == 2) {
             mBatteryColor.setEnabled(true);
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);
@@ -348,25 +349,17 @@ public class BatterySettings extends SettingsPreferenceFragment
         } else if (batteryIconStat == 3 || batteryIconStat == 5) {
             mBatteryColor.setEnabled(true);
             mBatteryTextColor.setEnabled(false);
-            mBatteryTextChargingColor.setEnabled(true);
+            mBatteryTextChargingColor.setEnabled(false);
             mCircleAnimSpeed.setEnabled(true);
-            mBatteryTextChargingColor.setTitle(R.string.battery_circle_charging_color);
         } else if (batteryIconStat == 4 || batteryIconStat == 6) {
             mBatteryColor.setEnabled(true);
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);
             mCircleAnimSpeed.setEnabled(true);
-            mBatteryTextChargingColor.setTitle(R.string.battery_circle_charging_color);
-        } else if (batteryIconStat == 8) {
-            mBatteryColor.setEnabled(false);
-            mBatteryTextColor.setEnabled(false);
-            mBatteryTextChargingColor.setEnabled(false);
-            mCircleAnimSpeed.setEnabled(false);
         } else {
             mBatteryColor.setEnabled(false);
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);
-            mBatteryTextChargingColor.setTitle(R.string.battery_text_charging_color);
             mCircleAnimSpeed.setEnabled(false);
         }
     }
