@@ -53,7 +53,6 @@ public class BatterySettings extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_BATTERY_TEXT_COLOR = "battery_text_color";
     private static final String PREF_STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR = "battery_text_charging_color";
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED = "circle_battery_animation_speed";
-
     private static final String PREF_BATT_BAR = "battery_bar_list";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
@@ -67,7 +66,6 @@ public class BatterySettings extends SettingsPreferenceFragment
     private ColorPickerPreference mBatteryTextColor;
     private ColorPickerPreference mBatteryTextChargingColor;
     private ListPreference mCircleAnimSpeed;
-
     private ListPreference mBatteryBar;
     private ListPreference mBatteryBarStyle;
     private ListPreference mBatteryBarThickness;
@@ -200,7 +198,6 @@ public class BatterySettings extends SettingsPreferenceFragment
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
 
         updateBatteryBarOptions();
-
         updateBatteryIconOptions(statusBarBattery);
 
         setHasOptionsMenu(true);
@@ -241,7 +238,6 @@ public class BatterySettings extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
         ContentResolver resolver = getActivity().getContentResolver();
 
         if (!mCheckPreferences) {
@@ -286,7 +282,6 @@ public class BatterySettings extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, val);
             mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntries()[index]);
             return true;
-
         } else if (preference == mBatteryBarColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
                     .valueOf(String.valueOf(newValue)));
@@ -314,7 +309,6 @@ public class BatterySettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, val);
             mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
             return true;
-
         }
         return false;
     }
@@ -326,7 +320,6 @@ public class BatterySettings extends SettingsPreferenceFragment
             value = mBatteryBarChargingAnimation.isChecked();
             Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, value ? 1 : 0);
             return true;
-
         }
         return false;
     }
