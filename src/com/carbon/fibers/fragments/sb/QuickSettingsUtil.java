@@ -49,6 +49,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_USER;
 import static com.android.internal.util.cm.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFI;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFIAP;
+import static com.android.internal.util.cm.QSConstants.TILE_THEME;
 import static com.android.internal.util.cm.QSConstants.TILE_QUICKRECORD;
 import static com.android.internal.util.cm.QSConstants.TILE_BATTERYSAVER;
 
@@ -168,6 +169,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_MUSIC, R.string.title_tile_music,
                 "com.android.systemui:drawable/ic_qs_media_pause"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_THEME, R.string.title_tile_theme,
+                "com.android.systemui:drawable/ic_qs_theme_manual"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_SCREENSHOT, R.string.title_tile_screenshot,
                 "com.android.systemui:drawable/ic_qs_screenshot"));
