@@ -30,7 +30,7 @@
 
         <uses-library android:name="org.cyanogenmod.hardware" required="false" />
 
-    <activity android:name=".fragments.ui.RamBar"
+        <activity android:name=".fragments.ui.RamBar"
                 android:label="@string/ram_bar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,6 +74,15 @@
                 <category android:name="com.carbon.fibers.SHORTCUT" />
             </intent-filter>
         </activity>
+        
+       <activity
+            android:name=".fragments.ui.WakeLockBlocker"
+            android:label="@string/wakelock_blocker" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name=".fragments.ui.InterfaceSettings"
             android:label="@string/user_interface" >
