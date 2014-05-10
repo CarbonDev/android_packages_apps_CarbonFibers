@@ -53,7 +53,7 @@ public class RecentsPanel extends SettingsPreferenceFragment implements
         mRamCircle = (ListPreference) findPreference(RAM_CIRCLE);
         int circleStatus = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RAM_CIRCLE, 0);
-        mRamCircle.setValue(String.valueOf(clearStatus));
+        mRamCircle.setValue(String.valueOf(circleStatus));
         mRamCircle.setSummary(mRamCircle.getEntry());
         mRamCircle.setOnPreferenceChangeListener(this);
     }
