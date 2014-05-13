@@ -55,9 +55,6 @@
     <string name="time_9_seconds">9 seconds</string>
     <string name="time_10_seconds">10 seconds</string>
 
-    <!-- About Carbon Strings -->
-    <string name="about_carbon_title">About Carbon</string>
-
     <!-- General Strings -->
     <string name="advanced_settings">Advanced settings</string>
     <string name="misc_short">Misc</string>

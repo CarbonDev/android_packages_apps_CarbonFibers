@@ -1,16 +1,6 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <header
-        android:id="@+id/about_carbon"
-        android:icon="@drawable/ic_fibers_about"
-        android:title="@string/about_carbon_title" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.carbon.about"
-            android:targetClass="com.carbon.about.activities.AboutActivity" />
-    </header>
-
-    <header
         android:title="@string/app_name" />
 
         <header
