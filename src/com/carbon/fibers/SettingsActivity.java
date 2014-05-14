@@ -45,6 +45,7 @@ import com.carbon.fibers.fragments.pie.*;
 import com.carbon.fibers.fragments.sb.*;
 import com.carbon.fibers.fragments.ui.*;
 import com.carbon.fibers.fragments.batterysaver.*;
+import com.carbon.fibers.fragments.installer.*;
 
 public class SettingsActivity extends PreferenceActivity implements ButtonBarHandler {
 
@@ -201,6 +202,7 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
         ButtonSettings.class.getName(),
         CustomCarrier.class.getName(),
         InterfaceSettings.class.getName(),
+        InstallerSettingsFragment.class.getName(),
         KeyguardSettings.class.getName(),
         MoreDeviceSettings.class.getName(),
         PowerMenuFragment.class.getName(),
