@@ -159,6 +159,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN,
                     smartPulldownValue);
             updateSmartPulldownSummary(smartPulldownValue);
+            return true;
         }
         return false;
     }
