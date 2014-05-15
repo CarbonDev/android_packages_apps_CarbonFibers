@@ -69,6 +69,12 @@
             android:entries="@array/toast_animation_entries"
             android:entryValues="@array/toast_animation_values"
             android:persistent="false" />
+            
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:fragment="com.carbon.fibers.fragments.ui.WakeLockBlocker"
+        android:title="@string/wakelock_blocker"
+        android:summary="@string/wakelock_blocker_header_summary" />
 
     <!-- Device Specific Touchscreen gestures -->
     <Preference
