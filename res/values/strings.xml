@@ -393,6 +393,14 @@
     <string name="notification_custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="notification_custom_carrier_label_notset">Custom label currently not set</string>
 
+    <!-- Notification hide labels -->
+    <string name="notification_hide_labels_title">Hide notification labels</string>
+    <string name="notification_hide_labels_disable">Show all labels</string>
+    <string name="notification_hide_labels_carrier">Hide Carrier label</string>
+    <string name="notification_hide_labels_wifi">Hide WiFi label</string>
+    <string name="notification_hide_labels_all">Hide all labels</string>
+    <string name="notification_hide_labels_text">in the notification panel</string>
+
     <!-- Quick access ribbon -->
     <string name="category_quick_access">Quick Access ribbon</string>
     <string name="title_quick_access">Show in drawer</string>
