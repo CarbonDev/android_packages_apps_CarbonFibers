@@ -44,7 +44,7 @@
             android:title="@string/power_menu_title"
             android:icon="@drawable/ic_fibers_power"
             android:fragment="com.carbon.fibers.dslv.ButtonsListViewSettings" >
-                <extra android:name="buttonMode" android:value="5" />
+                <extra android:name="buttonMode" android:value="6" />
                 <extra android:name="maxAllowedButtons" android:value="8" />
                 <extra android:name="disableLongpress" android:value="true" />
                 <extra android:name="disableDeleteLastEntry" android:value="true" />

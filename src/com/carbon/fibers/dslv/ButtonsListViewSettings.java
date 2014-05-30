@@ -91,7 +91,8 @@ public class ButtonsListViewSettings extends ListFragment implements
     private static final int PIE_SECOND            = 2;
     private static final int NAV_RING              = 3;
     private static final int LOCKSCREEN_SHORTCUT   = 4;
-    private static final int POWER_MENU_SHORTCUT   = 5;
+    private static final int NOTIFICATION_SHORTCUT = 5;
+    private static final int POWER_MENU_SHORTCUT   = 6;
 
     private static final int DEFAULT_MAX_BUTTON_NUMBER = 5;
 
@@ -100,6 +101,7 @@ public class ButtonsListViewSettings extends ListFragment implements
     private int mButtonMode;
     private int mMaxAllowedButtons;
     private boolean mUseAppPickerOnly;
+    private boolean mUseFullAppsOnly;
     private boolean mDisableLongpress;
     private boolean mDisableIconPicker;
     private boolean mDisableDeleteLastEntry;
@@ -186,6 +188,7 @@ public class ButtonsListViewSettings extends ListFragment implements
         mActionEntriesKey = getArguments().getString("actionEntries", "shortcut_action_entries");
         mDisableLongpress = getArguments().getBoolean("disableLongpress", false);
         mUseAppPickerOnly = getArguments().getBoolean("useAppPickerOnly", false);
+        mUseFullAppsOnly = getArguments().getBoolean("useOnlyFullAppPicker", false);
         mDisableIconPicker = getArguments().getBoolean("disableIconPicker", false);
         mDisableDeleteLastEntry = getArguments().getBoolean("disableDeleteLastEntry", false);
 
@@ -212,7 +215,14 @@ public class ButtonsListViewSettings extends ListFragment implements
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                     long arg3) {
-                if (!mUseAppPickerOnly) {
+                if (mUseFullAppsOnly) {
+                    if (mPicker != null) {
+                        mPendingIndex = arg2;
+                        mPendingLongpress = false;
+                        mPendingNewButton = false;
+                        mPicker.pickShortcut(getId(), true);
+                    }
+                } else if (!mUseAppPickerOnly) {
                     showDialogInner(DLG_SHOW_ACTION_DIALOG, arg2, false, false);
                 } else {
                     if (mPicker != null) {
@@ -230,7 +240,14 @@ public class ButtonsListViewSettings extends ListFragment implements
                 @Override
                 public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2,
                         long arg3) {
-                    if (!mUseAppPickerOnly) {
+                    if (mUseFullAppsOnly) {
+                        if (mPicker != null) {
+                            mPendingIndex = arg2;
+                            mPendingLongpress = true;
+                            mPendingNewButton = false;
+                            mPicker.pickShortcut(getId(), true);
+                        }
+                    } else if (!mUseAppPickerOnly) {
                         showDialogInner(DLG_SHOW_ACTION_DIALOG, arg2, true, false);
                     } else {
                         if (mPicker != null) {
@@ -443,7 +460,14 @@ public class ButtonsListViewSettings extends ListFragment implements
                             Toast.LENGTH_LONG).show();
                     break;
                 }
-                if (!mUseAppPickerOnly) {
+                if (mUseFullAppsOnly) {
+                    if (mPicker != null) {
+                        mPendingIndex = 0;
+                        mPendingLongpress = false;
+                        mPendingNewButton = true;
+                        mPicker.pickShortcut(getId(), true);
+                    }
+                } else if (!mUseAppPickerOnly) {
                     showDialogInner(DLG_SHOW_ACTION_DIALOG, 0, false, true);
                 } else {
                     if (mPicker != null) {
@@ -467,13 +491,13 @@ public class ButtonsListViewSettings extends ListFragment implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
-                .setIcon(R.drawable.ic_action_backup) // use the backup icon
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.add(0, MENU_ADD, 0, R.string.shortcut_action_add)
-                .setIcon(R.drawable.ic_menu_add)
+                .setIcon(R.drawable.ic_menu_add_dark)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(0, MENU_HELP, 0, R.string.shortcut_action_help)
-                .setIcon(R.drawable.ic_fibers_about)
+        menu.add(0, MENU_HELP, 0, R.string.help_label)
+                .setIcon(R.drawable.ic_settings_about)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
@@ -505,6 +529,8 @@ public class ButtonsListViewSettings extends ListFragment implements
             case PIE_SECOND:
                 return ButtonsHelper.getPieSecondLayerConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case NOTIFICATION_SHORTCUT:
+                return ButtonsHelper.getNotificationsShortcutConfig(mActivity);
             case POWER_MENU_SHORTCUT:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -527,6 +553,12 @@ public class ButtonsListViewSettings extends ListFragment implements
                 break;
             case PIE_SECOND:
                 ButtonsHelper.setPieSecondLayerConfig(mActivity, buttonConfigs, reset);
+                break;
+            case NOTIFICATION_SHORTCUT:
+                ButtonsHelper.setNotificationShortcutConfig(mActivity, buttonConfigs, reset);
+                if (reset) {
+                    loadAdditionalFragment();
+                }
                 break;
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
@@ -638,9 +670,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                 case DLG_RESET_TO_DEFAULT:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.shortcut_action_reset)
-                    .setMessage(R.string.reset)
+                    .setMessage(R.string.reset_message)
                     .setNegativeButton(R.string.cancel, null)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // first delete custom icons in case they exist
@@ -679,8 +711,8 @@ public class ButtonsListViewSettings extends ListFragment implements
                     String buttonMode;
                     String icon = "";
                     switch (getOwner().mButtonMode) {
-                        // case LOCKSCREEN_SHORTCUT:
                         case LOCKSCREEN_SHORTCUT:
+                        case NOTIFICATION_SHORTCUT:
                         case POWER_MENU_SHORTCUT:
                             buttonMode = res.getString(R.string.shortcut_action_help_shortcut);
                             break;
@@ -704,9 +736,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                                 : R.string.shortcut_action_help_delete_last_entry, buttonMode);
                     }
                     return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.shortcut_action_help)
+                    .setTitle(R.string.help_label)
                     .setMessage(finalHelpMessage)
-                    .setNegativeButton(R.string.ok,
+                    .setNegativeButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -717,7 +749,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.shortcut_action_warning)
                     .setMessage(R.string.shortcut_action_warning_message)
-                    .setNegativeButton(R.string.ok,
+                    .setNegativeButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();

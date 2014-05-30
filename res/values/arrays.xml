@@ -996,6 +996,22 @@
         <item>@*android:drawable/ic_shortcut_unlock</item>
     </string-array>
 
+   <string-array name="icon_color_mode_entries">
+        <item>@string/icon_color_mode_all_icons</item>
+        <item>@string/icon_color_mode_system_icons</item>
+        <item>@string/icon_color_mode_system_custom_icons</item>
+        <item>@string/disabled</item>
+    </string-array>
+
+    <string-array name="icon_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+
     <!-- Toast Animation -->
     <string-array name="toast_animation_entries" translatable="false">
         <item>@string/toast_none_animation</item>

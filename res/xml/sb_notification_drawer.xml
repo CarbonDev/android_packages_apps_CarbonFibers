@@ -19,6 +19,18 @@
     android:title="@string/notification_drawer_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+     <PreferenceScreen
+             android:key="slim_notification_shortcuts"
+             android:fragment="com.carbon.fibers.dslv.ButtonsListViewSettings"
+             android:summary="@string/notification_shortcuts_settings_summary"
+             android:title="@string/notification_shortcuts_settings_title">
+         <extra android:name="buttonMode" android:value="5" />
+         <extra android:name="maxAllowedButtons" android:value="16" />
+         <extra android:name="disableLongpress" android:value="true" />
+         <extra android:name="useAppPickerOnly" android:value="true" />
+         <extra android:name="fragment" android:value="com.carbon.fibers.fragments.sb.NotificationsShortcutFragment" />
+     </PreferenceScreen>
+
     <ListPreference
         android:key="notification_drawer_collapse_on_dismiss"
         android:title="@string/notification_drawer_collapse_on_dismiss_title"
