@@ -16,6 +16,7 @@
 
 package com.carbon.fibers.fragments.sb;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -28,10 +29,12 @@ import com.carbon.fibers.preference.SettingsPreferenceFragment;
 public class NotificationDrawer extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "NotificationDrawer";
-
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
+    private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 
     private ListPreference mCollapseOnDismiss;
+
+    ListPreference mHideLabels;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,20 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.sb_notification_drawer);
         PreferenceScreen prefScreen = getPreferenceScreen();
+        mHideLabels = (ListPreference) findPreference(PREF_NOTIFICATION_HIDE_LABELS);
+        int hideCarrier = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_HIDE_LABELS, 0);
+        mHideLabels.setValue(String.valueOf(hideCarrier));
+        mHideLabels.setOnPreferenceChangeListener(this);
+        updateHideNotificationLabelsSummary(hideCarrier);
+
+        /* Tablet case in handled in PhoneStatusBar
+          if (!DeviceUtils.isPhone(getActivity())
+              || !DeviceUtils.deviceSupportsMobileData(getActivity())) {
+              // Nothing for tablets, large screen devices and non mobile devices which doesn't show
+              // information in notification drawer.....remove options
+              prefs.removePreference(mHideCarrier);
+         }*/
 
         // Notification drawer
         int collapseBehaviour = Settings.System.getInt(getContentResolver(),
@@ -57,8 +74,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
                     Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
             updateCollapseBehaviourSummary(value);
             return true;
+        } else if (preference == mHideLabels) {
+            int hideLabels = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_HIDE_LABELS,
+                    hideLabels);
+            updateHideNotificationLabelsSummary(hideLabels);
+            return true;
         }
-
         return false;
     }
 
@@ -66,5 +88,26 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         String[] summaries = getResources().getStringArray(
                 R.array.notification_drawer_collapse_on_dismiss_summaries);
         mCollapseOnDismiss.setSummary(summaries[setting]);
+    }
+
+    private void updateHideNotificationLabelsSummary(int value) {
+        Resources res = getResources();
+
+        StringBuilder text = new StringBuilder();
+
+        switch (value) {
+        case 1  : text.append(res.getString(R.string.notification_hide_labels_carrier));
+                break;
+        case 2  : text.append(res.getString(R.string.notification_hide_labels_wifi));
+                break;
+        case 3  : text.append(res.getString(R.string.notification_hide_labels_all));
+                break;
+        default : text.append(res.getString(R.string.notification_hide_labels_disable));
+                break;
+        }
+
+        text.append(" " + res.getString(R.string.notification_hide_labels_text));
+        mHideLabels.setSummary(text.toString());
+
     }
 }

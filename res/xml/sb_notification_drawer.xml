@@ -50,6 +50,13 @@
             android:summary="@string/custom_statusbar_header_summary"
             android:defaultValue="false" />
 
+    <ListPreference
+        android:key="notification_hide_labels"
+        android:title="@string/notification_hide_labels_title"
+        android:entries="@array/notification_hide_labels_entries"
+        android:entryValues="@array/notification_hide_labels_values"
+        android:persistent="false" />
+
      <com.carbon.fibers.fragments.sb.CustomCarrier
          android:key="notification_custom_carrier_label"
          android:title="@string/notification_custom_carrier_label_title"
