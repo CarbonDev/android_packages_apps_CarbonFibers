@@ -19,6 +19,7 @@ package com.carbon.fibers.fragments.sb;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -37,6 +38,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.util.slim.DeviceUtils;
 import com.carbon.fibers.R;
 import com.carbon.fibers.preference.SettingsPreferenceFragment;
 import com.carbon.fibers.Utils;
@@ -55,8 +57,10 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
+    private static final String LTE_OR_FOURGEE = "show_lte_or_fourgee";
 
     private CheckBoxPreference mCustomBarColor;
+    private CheckBoxPreference mLteOrFourgee;
     private CheckBoxPreference mStatusbarSliderPreference;
     private ColorPickerPreference mBarOpaqueColor;
     private CheckBoxPreference mCustomIconColor;
@@ -95,7 +99,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         }
 
         mCustomBarColor = (CheckBoxPreference) prefSet.findPreference(PREF_CUSTOM_STATUS_BAR_COLOR);
-        mCustomBarColor.setChecked(Settings.System.getInt(mContentAppRes,
+        mCustomBarColor.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_STATUS_BAR_COLOR, 0) == 1);
 
         mStatusbarSliderPreference = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS);
@@ -103,7 +107,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
                 Settings.System.STATUSBAR_BRIGHTNESS_SLIDER, 0) == 1));
 
         mCustomIconColor = (CheckBoxPreference) prefSet.findPreference(PREF_CUSTOM_SYSTEM_ICON_COLOR);
-        mCustomIconColor.setChecked(Settings.System.getInt(mContentAppRes,
+        mCustomIconColor.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_SYSTEM_ICON_COLOR, 0) == 1);
 
         mBarOpaqueColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_OPAQUE_COLOR);
@@ -143,6 +147,11 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
 
         if (Utils.isWifiOnly(getActivity())) {
             prefSet.removePreference(mSignalStyle);
+        }
+
+        mLteOrFourgee = (CheckBoxPreference) prefSet.findPreference(LTE_OR_FOURGEE);
+        if (!DeviceUtils.deviceSupportsLte(getActivity().getApplicationContext())) {
+            prefSet.removePreference(mLteOrFourgee);
         }
 
         mStatusBarNetworkStatsTextColor = (ColorPickerPreference) findPreference(STATUS_BAR_NETWORK_STATS_TEXT_COLOR);
