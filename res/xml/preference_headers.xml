@@ -16,6 +16,12 @@
             android:fragment="com.carbon.fibers.fragments.MoreDeviceSettings" />
 
         <header
+            android:id="@+id/installer_settings"
+            android:title="@string/installer_title"
+            android:icon="@drawable/ic_rom_control_installer"
+            android:fragment="com.carbon.fibers.fragments.installer.InstallerSettingsFragment" />
+
+        <header
             android:key="@+id/interface_settings"
             android:icon="@drawable/ic_fibers_interface"
             android:title="@string/user_interface"
@@ -59,10 +65,5 @@
             android:icon="@drawable/ic_fibers_sb"
             android:fragment="com.carbon.fibers.fragments.sb.SbSettings" />
 
-        <header
-            android:id="@+id/installer_settings"
-            android:title="@string/installer_title"
-            android:icon="@drawable/ic_rom_control_installer"
-            android:fragment="com.carbon.fibers.fragments.installer.InstallerSettingsFragment" />
 
 </preference-headers>
