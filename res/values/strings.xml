@@ -182,7 +182,7 @@
     <string name="backlight_summary_enabled">Enabled</string>
     
     <!-- Installer settings -->
-    <string name="installer_title">Installer</string>
+    <string name="installer_title">Persistence</string>
     <string name="persist_options">Persistence</string>
     <string name="persist_enable">Enable Persistence</string>
     <string name="persist_enable_summary">Enable data to persist across installs</string>
