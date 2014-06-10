@@ -603,7 +603,7 @@
     <string name="icon_picker_choose_icon_title">Choose icon</string>
     <string name="select_custom_app_title">Select custom application</string>
 
-    <!-- Lock Screen ASS -->
+    <!-- Lockscreen targets -->
     <string name="lock_screen_title">Slider targets and shortcuts</string>
     <string name="lock_screen_summary">View or change the slider targets and shortcuts</string>
 
@@ -654,6 +654,10 @@
     <string name="icon_picker_rss">Rss</string>
     <string name="icon_picker_search">Search</string>
     <string name="icon_picker_twitter">Twitter</string>
+
+    <!--Notification peek-->
+    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 
     <!--Lockscreen See Through-->
      <string name="see_through_title">See through</string>

@@ -80,10 +80,11 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
-
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+    private static final String KEY_PEEK = "notification_peek";
 
     private ListPreference mBatteryStatus;
+    private CheckBoxPreference mNotificationPeek;
     private CheckBoxPreference mSeeThrough;
     private SeekBarPreference mBlurRadius;
     private CheckBoxPreference mLockscreenWallpaper;
@@ -132,18 +133,25 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
 
-        mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
+        mBatteryStatus = (ListPreference) prefs.findPreference(KEY_BATTERY_STATUS);
         int batteryStatus = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
         mBatteryStatus.setValue(String.valueOf(batteryStatus));
         mBatteryStatus.setSummary(mBatteryStatus.getEntry());
         mBatteryStatus.setOnPreferenceChangeListener(this);
 
+        mNotificationPeek = (CheckBoxPreference) prefs.findPreference(KEY_PEEK);
+        mNotificationPeek.setChecked(Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.PEEK_STATE, 0) == 1);
+        mNotificationPeek.setOnPreferenceChangeListener(this);
+        mNotificationPeek.setPersistent(false);
+
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
         mBlurRadius = (SeekBarPreference) prefs.findPreference(KEY_BLUR_RADIUS);
         mBlurRadius.setProgress(Settings.System.getInt(resolver,
-            Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
         mBlurRadius.setOnPreferenceChangeListener(this);
 
         mLockscreenEightTargets = (CheckBoxPreference) findPreference(
@@ -207,23 +215,24 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
         ContentResolver cr = getContentResolver();
 
         if (preference == mSeeThrough) {
-              Settings.System.putInt(cr, Settings.System.LOCKSCREEN_SEE_THROUGH,
-                      mSeeThrough.isChecked() ? 1 : 0);
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_SEE_THROUGH,
+                    mSeeThrough.isChecked() ? 1 : 0);
             if (mSeeThrough.isChecked())
                 Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 0);
             return true;
-
+        } else if (preference == mNotificationPeek) {
+            Settings.System.putInt(getContentResolver(), Settings.System.PEEK_STATE,
+                    mNotificationPeek.isChecked() ? 1 : 0);
+            return true;
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked()
                     ? 1 : 0);
             return true;
-
         } else if (preference == mLockscreenWallpaper) {
             if (!mLockscreenWallpaper.isChecked()) setWallpaper(null);
             else Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 1);
             mSelectLockscreenWallpaper.setEnabled(mLockscreenWallpaper.isChecked());
-
         } else if (preference == mSelectLockscreenWallpaper) {
             final Intent intent = new Intent(Intent.ACTION_PICK,
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
