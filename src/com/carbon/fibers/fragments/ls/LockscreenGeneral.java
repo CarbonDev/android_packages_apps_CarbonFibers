@@ -220,10 +220,6 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
             if (mSeeThrough.isChecked())
                 Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 0);
             return true;
-        } else if (preference == mNotificationPeek) {
-            Settings.System.putInt(getContentResolver(), Settings.System.PEEK_STATE,
-                    mNotificationPeek.isChecked() ? 1 : 0);
-            return true;
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked()
@@ -282,6 +278,10 @@ public class LockscreenGeneral extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockscreenEightTargets) {
             showDialogInner(DLG_ENABLE_EIGHT_TARGETS, (Boolean) objValue);
+            return true;
+        } else if (preference == mNotificationPeek) {
+            Settings.System.putInt(getContentResolver(), Settings.System.PEEK_STATE,
+                    (Boolean) objValue ? 1 : 0);
             return true;
         } else if (preference == mGlowpadTorch) {
             Settings.System.putInt(getContentResolver(),
