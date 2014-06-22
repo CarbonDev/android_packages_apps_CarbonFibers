@@ -36,6 +36,7 @@ import com.carbon.fibers.preference.SettingsPreferenceFragment;
 import com.carbon.fibers.Utils;
 
 import com.carbon.fibers.fragments.ui.*;
+import com.carbon.fibers.fragments.batterysaver.*;
 
 import java.lang.Exception;
 import java.util.ArrayList;
@@ -92,6 +93,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new GeneralSettings();
             frags[1] = new RecentsPanel();
+            frags[2] = new BatterySaverSettings();
+            frags[3] = new ProgressBar();
         }
 
         @Override
@@ -114,7 +117,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[] {
                     getString(R.string.ui_general_category),
-                    getString(R.string.ui_recents_category)};
+                    getString(R.string.ui_recents_category),
+                    getString(R.string.battery_saver_title),
+                    getString(R.string.progressbar_title)};
         return titleString;
     }
 }

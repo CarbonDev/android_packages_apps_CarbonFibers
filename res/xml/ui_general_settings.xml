@@ -52,17 +52,6 @@
             android:entryValues="@array/listview_interpolator_values"
             android:defaultValue="0" />
 
-    <PreferenceScreen
-            android:key="pref_battery_saver"
-            android:fragment="com.carbon.fibers.fragments.batterysaver.BatterySaverSettings"
-            android:title="@string/battery_saver_title" />
-
-    <PreferenceScreen
-            android:key="progressbar"
-            android:fragment="com.carbon.fibers.fragments.ui.ProgressBar"
-            android:title="@string/progressbar_title" >
-    </PreferenceScreen>
-
     <ListPreference
             android:key="toast_animation"
             android:title="@string/toast_animation_title"
