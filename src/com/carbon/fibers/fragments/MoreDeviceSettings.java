@@ -26,13 +26,11 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.carbon.fibers.R;
-import com.carbon.fibers.Utils;
 import com.carbon.fibers.preference.SettingsPreferenceFragment;
 
 public class MoreDeviceSettings extends SettingsPreferenceFragment {
     private static final String TAG = "MoreDeviceSettings";
 
-    private static final String KEY_DEVICE_SETTINGS = "advanced_device_settings";
     private static final String KEY_SENSORS_MOTORS_CATEGORY = "sensors_motors_category";
     private static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
@@ -44,9 +42,6 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.more_device_settings);
         ContentResolver resolver = getContentResolver();
-
-        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
-                getPreferenceScreen(), KEY_DEVICE_SETTINGS);
 
         final PreferenceGroup sensorsCategory =
                 (PreferenceGroup) findPreference(KEY_SENSORS_MOTORS_CATEGORY);

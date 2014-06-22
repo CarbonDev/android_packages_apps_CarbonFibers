@@ -8,6 +8,7 @@ import java.util.Locale;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -481,6 +482,22 @@ public class SettingsActivity extends PreferenceActivity implements ButtonBarHan
 
         public void pause() {
         }
+    }
+
+    @Override
+    public void onHeaderClick(Header header, int position) {
+        // Launch the Device Settings activity if package is available
+        if (header.id == R.id.more_device_settings) {
+            try {
+                Intent intent = new Intent();
+                intent.setClassName("com.carbon.device", "com.carbon.device.DeviceSettings");
+                startActivity(intent);
+                return;
+            } catch (ActivityNotFoundException e) {
+            }
+        }
+
+        super.onHeaderClick(header, position);
     }
 
     @Override
