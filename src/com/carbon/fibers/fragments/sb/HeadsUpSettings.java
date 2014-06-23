@@ -41,6 +41,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
     private static final String PREF_HEADS_UP_SHOW_UPDATE = "heads_up_show_update";
     private static final String PREF_HEADS_UP_GRAVITY = "heads_up_gravity";
     private static final String PREF_HEADS_UP_EXCLUDE_FROM_LOCK_SCREEN = "heads_up_exclude_from_lock_screen";
+    private static final String PREF_HEADS_UP_FLOATING_WINDOW = "heads_up_floating_window";
 
     ListPreference mHeadsUpSnoozeTime;
     ListPreference mHeadsUpTimeOut;
@@ -48,6 +49,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
     CheckBoxPreference mHeadsUpShowUpdates;
     CheckBoxPreference mHeadsUpGravity;
     CheckBoxPreference mHeadsExcludeFromLockscreen;
+    CheckBoxPreference mHeadsUpFloatingWindow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,11 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
         mHeadsExcludeFromLockscreen.setChecked(Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.HEADS_UP_EXCLUDE_FROM_LOCK_SCREEN, 0, UserHandle.USER_CURRENT) == 1);
         mHeadsExcludeFromLockscreen.setOnPreferenceChangeListener(this);
+
+        mHeadsUpFloatingWindow = (CheckBoxPreference) findPreference(PREF_HEADS_UP_FLOATING_WINDOW);
+        mHeadsUpFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.HEADS_UP_FLOATING_WINDOW, 1, UserHandle.USER_CURRENT) == 1);
+        mHeadsUpFloatingWindow.setOnPreferenceChangeListener(this);
 
         mHeadsUpSnoozeTime = (ListPreference) findPreference(PREF_HEADS_UP_SNOOZE_TIME);
         mHeadsUpSnoozeTime.setOnPreferenceChangeListener(this);
@@ -134,6 +141,11 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsExcludeFromLockscreen) {
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.HEADS_UP_EXCLUDE_FROM_LOCK_SCREEN,
+                    (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mHeadsUpFloatingWindow) {
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.HEADS_UP_FLOATING_WINDOW,
                     (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         }

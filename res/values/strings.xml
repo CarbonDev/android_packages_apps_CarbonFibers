@@ -1125,8 +1125,10 @@
 
     <!-- Heads up -->
     <string name="heads_up_title">Heads up notification</string>
+    <string name="heads_up_exclude_from_lock_screen">Disable on lockscreen</string>
     <string name="heads_up_expanded_title">Always expanded</string>
     <string name="heads_up_expanded_summary">Show heads up notification always expanded</string>
+    <string name="heads_up_floating_window">Launch in floating window</string>
     <string name="heads_up_show_updates_title">Show updates</string>
     <string name="heads_up_show_updates_summary">Show updates from pending background notifications as heads up</string>
     <string name="heads_up_gravity_title">Show at the bottom</string>
@@ -1147,7 +1149,5 @@
     <string name="heads_up_time_out_8sec">8 seconds</string>
     <string name="heads_up_time_out_10sec">10 seconds</string>
     <string name="heads_up_time_out_never">Never</string>
-    <!-- Heads-up disable on lockscreen -->
-    <string name="heads_up_exclude_from_lock_screen">Disable on lockscreen</string>
 
 </resources>
