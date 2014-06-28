@@ -157,8 +157,8 @@
   <string name="clear_button_off">כבוי</string>
   <string name="clear_button_top_left">למעלה משמאל</string>
   <string name="clear_button_top_right">למעלה מימין</string>
-  <string name="clear_button_bottom_left">למטע משמאל</string>
-  <string name="clear_button_bottom_right">למטע מימין</string>
+  <string name="clear_button_bottom_left">למטה משמאל</string>
+  <string name="clear_button_bottom_right">למטה מימין</string>
   <string name="ram_bar">שורת RAM ביישומים אחרונים</string>
   <string name="ram_bar_note_title">הערה</string>
   <string name="ram_bar_note_summary">בר ה-RAM מציגה את הניצול בפועל  זיכרון פיזי (RAM). אנא שימו לב כי יש במטמון אפליקציות עזר שהמכשיר שם ברקע, והיישומים שלך נפתחים במהירות רבה יותר. לקבלת הסברים נוספים על איך אנדרואיד עבודות ניהול הזיכרון (RAM), בדוק את תפריט העזרה.</string>
