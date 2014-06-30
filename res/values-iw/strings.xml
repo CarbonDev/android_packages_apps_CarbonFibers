@@ -392,6 +392,7 @@
   <string name="circle_battery_animation_speed_stock">רגיל</string>
   <string name="circle_battery_animation_speed_fast">מהיר</string>
   <string name="battery_text_color">צבע הטקסט של האחוז</string>
+  <string name="battery_text_charging_color">צבע הטקסט בזמן טעינה</string>
   <string name="status_bar_clock_title">סגנון שעה ותאריך</string>
   <string name="clock_title_enable">יישור</string>
   <string name="clock_enabled">מופעל</string>
