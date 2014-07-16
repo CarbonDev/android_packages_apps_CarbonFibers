@@ -1137,8 +1137,4 @@
     <string name="custom_statusbar_header_title">Contextual notification panel header</string>
     <string name="custom_statusbar_header_summary">Sets the background of the notification panel header to an image based on the current date and time</string>
 
-    <!-- Statusbar Second Clock -->
-    <string name="clock_use_second">Enable Seconds</string>
-    <string name="clock_use_second_summary">Shows the seconds next to the statusbar clock</string>
-
 </resources>
