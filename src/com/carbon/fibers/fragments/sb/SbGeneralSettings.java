@@ -57,10 +57,10 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
-    private static final String LTE_OR_FOURGEE = "show_lte_or_fourgee";
+    private static final String SHOW_LTE_OR_FOURGEE = "show_lte_or_fourgee";
 
     private CheckBoxPreference mCustomBarColor;
-    private CheckBoxPreference mLteOrFourgee;
+    private CheckBoxPreference mShowLteOrFourgee;
     private CheckBoxPreference mStatusbarSliderPreference;
     private ColorPickerPreference mBarOpaqueColor;
     private CheckBoxPreference mCustomIconColor;
@@ -149,9 +149,9 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             prefSet.removePreference(mSignalStyle);
         }
 
-        mLteOrFourgee = (CheckBoxPreference) prefSet.findPreference(LTE_OR_FOURGEE);
+        mShowLteOrFourgee = (CheckBoxPreference) prefSet.findPreference(SHOW_LTE_OR_FOURGEE);
         if (!DeviceUtils.deviceSupportsLte(getActivity().getApplicationContext())) {
-            prefSet.removePreference(mLteOrFourgee);
+            prefSet.removePreference(mShowLteOrFourgee);
         }
 
         mStatusBarNetworkStatsTextColor = (ColorPickerPreference) findPreference(STATUS_BAR_NETWORK_STATS_TEXT_COLOR);
@@ -209,7 +209,6 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             mSignalStyle.setSummary(mSignalStyle.getEntries()[index]);
             return true;
         }
-
         return false;
     }
 
@@ -231,6 +230,11 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.CUSTOM_SYSTEM_ICON_COLOR,
             mCustomIconColor.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mShowLteOrFourgee) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_LTE_OR_FOURGEE,
+            mShowLteOrFourgeeintHex.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
