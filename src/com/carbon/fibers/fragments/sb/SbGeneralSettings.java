@@ -234,7 +234,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
         } else if (preference == mShowLteOrFourgee) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_LTE_OR_FOURGEE,
-            mShowLteOrFourgeeintHex.isChecked() ? 1 : 0);
+            mShowLteOrFourgee.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
