@@ -57,6 +57,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private static final String STATUS_BAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String SHOW_LTE_OR_FOURGEE = "show_lte_or_fourgee";
+    private static final String STATUSBAR_6BAR_SIGNAL = "statusbar_6bar_signal";
 
     private CheckBoxPreference mCustomBarColor;
     private CheckBoxPreference mShowLteOrFourgee;
@@ -65,6 +66,7 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
     private CheckBoxPreference mCustomIconColor;
     private ColorPickerPreference mIconColor;
     private ListPreference mSignalStyle;
+    private CheckBoxPreference mStatusBarSixBarSignal;
 
     private boolean mCheckPreferences;
 
@@ -152,6 +154,11 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             prefSet.removePreference(mShowLteOrFourgee);
         }
 
+        // 6 bar signal
+        mStatusBarSixBarSignal = (CheckBoxPreference) findPreference(STATUSBAR_6BAR_SIGNAL);
+        mStatusBarSixBarSignal.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_6BAR_SIGNAL, 0) == 1));
+
         mCheckPreferences = true;
         return prefSet;
     }
@@ -211,6 +218,11 @@ public class SbGeneralSettings extends SettingsPreferenceFragment implements OnP
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_LTE_OR_FOURGEE,
             mShowLteOrFourgee.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarSixBarSignal) {
+            value = mStatusBarSixBarSignal.isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_6BAR_SIGNAL, value ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
