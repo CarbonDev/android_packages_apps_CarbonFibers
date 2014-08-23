@@ -44,6 +44,7 @@ import com.carbon.fibers.fragments.batterysaver.BatterySaverHelper;
 
 public class BatterySaverSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+    private static final String TAG = "BatterySaverSettings";
 
     private static final String PREF_KEY_BATTERY_SAVER_ENABLE = "pref_battery_saver_enable";
     private static final String PREF_KEY_BATTERY_SAVER_NORMAL_GSM_MODE = "pref_battery_saver_normal_gsm_mode";
