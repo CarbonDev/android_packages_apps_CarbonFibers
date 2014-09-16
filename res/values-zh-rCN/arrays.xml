@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_screentimeout_widget">
+        <item>15 秒 | 1 分钟 | 5 分钟</item>
+        <item>30 秒 | 2 分钟 | 5 分钟</item>
+    </string-array>
+</resources>
