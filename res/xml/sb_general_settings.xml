@@ -60,4 +60,9 @@
             android:title="@string/show_lte_or_fourgee_title"
             android:summary="@string/show_lte_or_fourgee_summary" />
 
+        <PreferenceScreen
+            android:key="traffic"
+            android:fragment="com.carbon.fibers.fragments.sb.Traffic"
+            android:title="@string/network_traffic_title" />
+
 </PreferenceScreen>
