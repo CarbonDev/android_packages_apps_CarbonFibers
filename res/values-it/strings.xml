@@ -1001,6 +1001,28 @@
   <string name="heads_up_time_out_never">Mai</string>
   <string name="heads_up_exclude_from_lock_screen">Disabilita nella schermata di blocco</string>
 
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Traffico di rete</string>
+    <string name="show_network_traffic_state">Monitor di rete sulla barra di stato</string>
+    <string name="show_network_traffic_unit">Unità di misura</string>
+    <string name="show_network_traffic_frequency">Intervallo di aggiornamento</string>
+    <string name="show_network_traffic_disable">Disabilitato</string>
+    <string name="show_network_traffic_up">Uscente</string>
+    <string name="show_network_traffic_down">Entrante</string>
+    <string name="show_network_traffic_all">Uscente e Entrante</string>
+    <string name="show_network_traffic_bit">Bits al secondo</string>
+    <string name="show_network_traffic_byte">Bytes al secondo</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide">Nascondi automaticamente</string>
+    <string name="network_traffic_autohide_summary">Nascondi l\'indicatore del traffico di rete quando non c\'è attività</string>
+    <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
+    <string name="network_traffic_color_style">Colore</string>
+    <string name="network_traffic_color_reset">Azzera colore</string>
+    <string name="network_traffic_color_reset_message">Azzero il colore dell\'indicatore traffico di rete a predefinito?</string>
+
   <string name="touch_screen_gesture_title">Gestures Dispositivo Touch Screen</string>
   <string name="hw_keys_switch_title">Disabilita Tasti fisici</string>
 </resources>
