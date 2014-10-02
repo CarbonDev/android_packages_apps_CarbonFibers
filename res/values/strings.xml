@@ -1163,6 +1163,7 @@
     <string name="network_traffic_color_reset">Reset color</string>
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
 
+    <string name="hw_keys_switch_title">Hardware keys switch</string>
     <string name="touch_screen_gesture_title">Touch Screen Gestures Device</string>
 
 </resources>

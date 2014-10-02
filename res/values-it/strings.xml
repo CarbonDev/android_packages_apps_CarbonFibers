@@ -1001,6 +1001,6 @@
   <string name="heads_up_time_out_never">Mai</string>
   <string name="heads_up_exclude_from_lock_screen">Disabilita nella schermata di blocco</string>
 
-  <string name="touch_screen_gesture_title">Touch Screen Gestures Device</string>
-
+  <string name="touch_screen_gesture_title">Gestures Dispositivo Touch Screen</string>
+  <string name="hw_keys_switch_title">Disabilita Tasti fisici</string>
 </resources>

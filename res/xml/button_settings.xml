@@ -31,6 +31,16 @@
             android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
     </Preference>
 
+    <!-- Device Specific HardKeys settings -->
+    <Preference
+        android:key="hard_keys_switch"
+        android:title="@string/hw_keys_switch_title" >
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_HARD_KEYS_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.HardKeysSettings" />
+    </Preference>
+
     <PreferenceCategory
             android:key="keys_cat"
             android:title="@string/keys_bindings_title" >
