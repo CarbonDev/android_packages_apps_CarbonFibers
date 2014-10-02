@@ -1000,4 +1000,7 @@
   <string name="heads_up_time_out_10sec">10 secondi</string>
   <string name="heads_up_time_out_never">Mai</string>
   <string name="heads_up_exclude_from_lock_screen">Disabilita nella schermata di blocco</string>
+
+  <string name="touch_screen_gesture_title">Touch Screen Gestures Device</string>
+
 </resources>
