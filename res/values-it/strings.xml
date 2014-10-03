@@ -615,12 +615,7 @@
   <string name="show_lte_or_fourgee_title">Usa icona 4G</string>
   <string name="show_lte_or_fourgee_summary">Cambia l\'indicatore di rete da LTE a 4G</string>
   <string name="color_default">Predefinito</string>
-  <string name="status_bar_show_network_stats_title">Visualizza la velocità di rete</string>
-  <string name="status_bar_show_network_stats_summary">Visualizza la velocità di rete nella barra di stato</string>
-  <string name="status_bar_network_stats_update_title">Frequenza di aggiornamento</string>
-  <string name="status_bar_network_stats_update_summary">Quanto spesso l\'indicatore viene aggiornato</string>
-  <string name="status_bar_network_stats_color_title">Colore testo velocità rete</string>
-  <string name="status_bar_network_stats_color_summary">Colore del testo della velocità di rete nella barra di stato</string>
+
   <string name="notification_style_title">Stile</string>
   <string name="notification_style_summary">Cambia lo stile del menu delle notifiche</string>
   <string name="notification_wallpaper_title">Sfondo</string>

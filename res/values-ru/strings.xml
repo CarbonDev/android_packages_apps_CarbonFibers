@@ -728,14 +728,7 @@
     <string name="show_lte_or_fourgee_title">Использовать значок 4G</string>
     <string name="show_lte_or_fourgee_summary">Переключите значок сети с LTE на 4G</string>
 
-    <!-- Network Traffic -->
     <string name="color_default">По умолчанию</string>
-    <string name="status_bar_show_network_stats_title">Индикатор сетевого трафика</string>
-    <string name="status_bar_show_network_stats_summary">Показывать скорость передачи данных в строке состояния</string>
-    <string name="status_bar_network_stats_update_title">Частота обновления</string>
-    <string name="status_bar_network_stats_update_summary">Как часто будет обновляться индикатор.</string>
-    <string name="status_bar_network_stats_color_title">Цвет текста скорости</string>
-    <string name="status_bar_network_stats_color_summary">Цвет текста скорости сети в строке состояния</string>
 
     <!-- Notification drawer background -->
     <string name="notification_style_title">Стиль панели уведомления</string>

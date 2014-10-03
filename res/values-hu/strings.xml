@@ -614,12 +614,6 @@
   <string name="show_lte_or_fourgee_title">4G ikon használata</string>
   <string name="show_lte_or_fourgee_summary">Hálózati kapcsoló módosítása LTE-ről 4G-re</string>
   <string name="color_default">Alapértelmezett</string>
-  <string name="status_bar_show_network_stats_title">Hálózat sebességének mutatása</string>
-  <string name="status_bar_show_network_stats_summary">Hálózat sebességének mutatása az állapotsávon</string>
-  <string name="status_bar_network_stats_update_title">Frissítés gyakorisága</string>
-  <string name="status_bar_network_stats_update_summary">Milyen gyakran frissül az indikátor</string>
-  <string name="status_bar_network_stats_color_title">Hálózat sebességének szövegszíne</string>
-  <string name="status_bar_network_stats_color_summary">Hálózat sebességének szövegszíne az állapotsávon</string>
   <string name="notification_style_title">Stílus</string>
   <string name="notification_style_summary">Értesítési felület stílusának módosítása</string>
   <string name="notification_wallpaper_title">Háttér</string>

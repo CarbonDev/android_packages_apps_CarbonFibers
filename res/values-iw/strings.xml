@@ -528,11 +528,6 @@
   <string name="notification_show_wifi_ssid_title">הראה את השם של הWifi</string>
   <string name="show_lte_or_fourgee_title">שימוש בסמל של 4G</string>
   <string name="color_default">ברירת מחדל</string>
-  <string name="status_bar_show_network_stats_title">הצג את מהירויות הרשת</string>
-  <string name="status_bar_show_network_stats_summary">הצג את מהירויות הרשת בשורת המצב</string>
-  <string name="status_bar_network_stats_update_title">תדירות העדכון</string>
-  <string name="status_bar_network_stats_color_title">צבע הטקסט של מהירות הרשת</string>
-  <string name="status_bar_network_stats_color_summary">צבע הטקסט של מהירוית הרשת בשורת המצב</string>
   <string name="notification_style_title">סגנון</string>
   <string name="notification_style_summary">שנה את סגנון מגירת ההודעות שלך</string>
   <string name="notification_wallpaper_title">רקע</string>

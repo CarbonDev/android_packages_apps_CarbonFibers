@@ -614,12 +614,6 @@
   <string name="show_lte_or_fourgee_title">Gebruik 4G pictogram</string>
   <string name="show_lte_or_fourgee_summary">Omschakelen netwerk indicator van LTE naar 4G</string>
   <string name="color_default">Standaard</string>
-  <string name="status_bar_show_network_stats_title">Toon netwerksnelheden</string>
-  <string name="status_bar_show_network_stats_summary">Netwerksnelheden in statusbar weergeven</string>
-  <string name="status_bar_network_stats_update_title">Update frequentie</string>
-  <string name="status_bar_network_stats_update_summary">Hoe vaak wordt indicator bijgewerkt</string>
-  <string name="status_bar_network_stats_color_title">Netwerk snelheden tekstkleur</string>
-  <string name="status_bar_network_stats_color_summary">Netwerk snelheden tekstkleur in statusbar</string>
   <string name="notification_style_title">Stijl</string>
   <string name="notification_style_summary">Stijl van uw kennisgeving lade wijzigen</string>
   <string name="notification_wallpaper_title">Achtergrond</string>
