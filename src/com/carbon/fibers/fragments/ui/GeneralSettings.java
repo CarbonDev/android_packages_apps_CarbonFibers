@@ -42,6 +42,7 @@ public class GeneralSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
+    private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
     private ListPreference mCrtMode;
@@ -122,6 +123,9 @@ public class GeneralSettings extends SettingsPreferenceFragment implements
         mToastAnimation.setValueIndex(currentToast);
         mToastAnimation.setSummary(mToastAnimation.getEntries()[currentToast]);
         mToastAnimation.setOnPreferenceChangeListener(this);
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_SCREEN_GESTURE_SETTINGS);
     }
 
     @Override
