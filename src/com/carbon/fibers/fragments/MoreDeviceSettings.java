@@ -36,6 +36,7 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
     private static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
     private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
+    private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.more_device_settings);
         ContentResolver resolver = getContentResolver();
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_SCREEN_GESTURE_SETTINGS);
 
         final PreferenceGroup sensorsCategory =
                 (PreferenceGroup) findPreference(KEY_SENSORS_MOTORS_CATEGORY);

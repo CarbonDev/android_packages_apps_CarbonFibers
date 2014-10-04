@@ -19,6 +19,16 @@
     android:title="@string/more_device_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Device Specific Touchscreen gestures -->
+    <Preference
+        android:key="touch_screen_gesture_settings"
+        android:title="@string/touch_screen_gesture_title" >
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+    </Preference>
+
     <PreferenceCategory
         android:key="display_calibration_category"
         android:title="@string/display_calibration_title" >
