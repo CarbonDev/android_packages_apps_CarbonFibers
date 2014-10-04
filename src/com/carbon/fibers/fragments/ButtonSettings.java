@@ -90,6 +90,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
+    private static final String KEY_HARD_KEYS_SETTINGS = "hard_keys_settings";
 
     private static final int DLG_SHOW_WARNING_DIALOG = 0;
     private static final int DLG_SHOW_ACTION_DIALOG  = 1;
@@ -155,6 +156,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         reloadSettings();
 
         setHasOptionsMenu(true);
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_HARD_KEYS_SETTINGS);
     }
 
     private PreferenceScreen reloadSettings() {
@@ -327,11 +331,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (hasCameraKey) {
             mCameraWake = (CheckBoxPreference)
-            		prefs.findPreference(Settings.System.CAMERA_WAKE_SCREEN);
+                    prefs.findPreference(Settings.System.CAMERA_WAKE_SCREEN);
             mCameraSleepOnRelease = (CheckBoxPreference)
-            		prefs.findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
+                    prefs.findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
             mCameraMusicControls = (CheckBoxPreference)
-            		prefs.findPreference(Settings.System.CAMERA_MUSIC_CONTROLS);
+                    prefs.findPreference(Settings.System.CAMERA_MUSIC_CONTROLS);
             boolean value = mCameraWake.isChecked();
             mCameraMusicControls.setEnabled(!value);
             mCameraSleepOnRelease.setEnabled(value);
@@ -340,14 +344,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 cameraCategory.removePreference(mCameraSleepOnRelease);
             }
         } else {
-        	prefs.removePreference(cameraCategory);
+            prefs.removePreference(cameraCategory);
         }
 
         if (Utils.hasVolumeRocker(getActivity())) {
             int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = (CheckBoxPreference)
-            		prefs.findPreference(KEY_SWAP_VOLUME_BUTTONS);
+                    prefs.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
 
             int cursorControlAction = Settings.System.getInt(resolver,
@@ -359,17 +363,20 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
             }
         } else {
-        	prefs.removePreference(volumeCategory);
+            prefs.removePreference(volumeCategory);
         }
 
         final ButtonBacklightBrightness backlight =
                 (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
         if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
-        	prefs.removePreference(backlight);
+            prefs.removePreference(backlight);
         }
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_HARD_KEYS_SETTINGS);
 
         boolean enableHardwareRebind = Settings.System.getInt(getContentResolver(),
                 Settings.System.HARDWARE_KEY_REBINDING, 0) == 1;
@@ -505,7 +512,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             int index = pref.findIndexOfValue(value);
 
             Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL,
-            		Integer.valueOf(value));
+                    Integer.valueOf(value));
             pref.setSummary(pref.getEntries()[index]);
             return true;
         }

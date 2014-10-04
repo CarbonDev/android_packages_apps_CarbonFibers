@@ -33,7 +33,7 @@
 
     <!-- Device Specific HardKeys settings -->
     <Preference
-        android:key="hard_keys_switch"
+        android:key="hard_keys_settings"
         android:title="@string/hw_keys_switch_title" >
         <intent
             android:action="com.cyanogenmod.action.LAUNCH_HARD_KEYS_SETTINGS"
