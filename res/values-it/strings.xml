@@ -995,6 +995,8 @@
   <string name="heads_up_time_out_10sec">10 secondi</string>
   <string name="heads_up_time_out_never">Mai</string>
   <string name="heads_up_exclude_from_lock_screen">Disabilita nella schermata di blocco</string>
+  <string name="heads_up_bg_color_title">Colore sfondo</string>
+  <string name="heads_up_text_color_title">Colore testo</string>
 
     <!-- Network traffic -->
     <string name="network_traffic_title">Traffico di rete</string>

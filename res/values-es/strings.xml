@@ -994,4 +994,7 @@
   <string name="heads_up_time_out_10sec">10 segundos</string>
   <string name="heads_up_time_out_never">Nunca</string>
   <string name="heads_up_exclude_from_lock_screen">Deshabilitar en pantalla de bloqueo</string>
+  <string name="heads_up_bg_color_title">Color de fondo</string>
+  <string name="heads_up_text_color_title">Color de texto</string>
+
 </resources>
