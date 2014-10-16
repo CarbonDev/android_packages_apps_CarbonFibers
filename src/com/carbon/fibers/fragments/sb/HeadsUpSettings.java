@@ -134,7 +134,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
                 Settings.System.HEADS_UP_BG_COLOR, 0x00ffffff);
         String hexColor = String.format("#%08x", (0x00ffffff & intColor));
         if (hexColor.equals("#00ffffff")) {
-            mHeadsUpBgColor.setSummary(R.string.dark_default_color);
+            mHeadsUpBgColor.setSummary(R.string.default_string);
         } else {
             mHeadsUpBgColor.setSummary(hexColor);
         }
@@ -148,7 +148,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
                 Settings.System.HEADS_UP_TEXT_COLOR, 0x00000000);
         String hexTextColor = String.format("#%08x", (0x00000000 & intTextColor));
         if (hexTextColor.equals("#00000000")) {
-            mHeadsUpTextColor.setSummary(R.string.dark_default_color);
+            mHeadsUpTextColor.setSummary(R.string.default_string);
         } else {
             mHeadsUpTextColor.setSummary(hexTextColor);
         }
@@ -201,7 +201,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#00ffffff")) {
-                preference.setSummary(R.string.dark_default_color);
+                preference.setSummary(R.string.default_string);
             } else {
                 preference.setSummary(hex);
             }
@@ -214,7 +214,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
             String hexText = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hexText.equals("#00000000")) {
-                preference.setSummary(R.string.dark_default_color);
+                preference.setSummary(R.string.default_string);
             } else {
                 preference.setSummary(hexText);
             }
@@ -280,10 +280,10 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
         Settings.System.putInt(getContentResolver(),
                 Settings.System.HEADS_UP_BG_COLOR, DEFAULT_BACKGROUND_COLOR);
         mHeadsUpBgColor.setNewPreviewColor(DEFAULT_BACKGROUND_COLOR);
-        mHeadsUpBgColor.setSummary(R.string.dark_default_color);
+        mHeadsUpBgColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.HEADS_UP_TEXT_COLOR, 0);
         mHeadsUpTextColor.setNewPreviewColor(DEFAULT_TEXT_COLOR);
-        mHeadsUpTextColor.setSummary(R.string.dark_default_color);
+        mHeadsUpTextColor.setSummary(R.string.default_string);
     }
 }
