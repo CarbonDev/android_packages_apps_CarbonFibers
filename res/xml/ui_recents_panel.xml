@@ -36,4 +36,11 @@
         android:entries="@array/ram_circle_entries"
         android:entryValues="@array/ram_circle_values" />
 
+    <ListPreference
+        android:key="recents_swipe_floating"
+        android:title="@string/recents_swipe_floating_title"
+        android:dialogTitle="@string/recents_swipe_floating_title"
+        android:entries="@array/recents_swipe_floating_entries"
+        android:entryValues="@array/recents_swipe_floating_values" />
+
 </PreferenceScreen>

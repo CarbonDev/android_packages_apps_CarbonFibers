@@ -179,6 +179,19 @@
   <string name="clear_button_top_right">In alto a destra</string>
   <string name="clear_button_bottom_left">In basso a sinistra</string>
   <string name="clear_button_bottom_right">In basso a destra</string>
+
+    <!-- Recents Swipe in Floating Mode -->
+    <string name="recents_swipe_floating_title">Lancia recente in fluttuante</string>
+    <string name="recents_swipe_floating_ask">Chiedi dopo</string>
+    <string name="recents_swipe_floating_yes">Si</string>
+    <string name="recents_swipe_floating_no">No</string>
+
+    <!-- Status Bar Notifications Swipe in Floating Mode -->
+    <string name="status_bar_notification_swipe_floating_title">Lancia Notifica in fluttuante</string>
+    <string name="status_bar_notification_swipe_floating_ask">Chiedi dopo</string>
+    <string name="status_bar_notification_swipe_floating_yes">Si</string>
+    <string name="status_bar_notification_swipe_floating_no">No</string>
+
   <string name="ram_circle_title">Cerchio della RAM</string>
   <string name="ram_bar">Barra della RAM</string>
   <string name="ram_bar_note_title">Note</string>
@@ -994,7 +1007,7 @@
   <string name="heads_up_time_out_8sec">8 secondi</string>
   <string name="heads_up_time_out_10sec">10 secondi</string>
   <string name="heads_up_time_out_never">Mai</string>
-  <string name="heads_up_exclude_from_lock_screen">Disabilita nella schermata di blocco</string>
+  <string name="heads_up_exclude_from_lock_screen">Disabilita nella lockscreen</string>
   <string name="heads_up_bg_color_title">Colore sfondo</string>
   <string name="heads_up_text_color_title">Colore testo</string>
 

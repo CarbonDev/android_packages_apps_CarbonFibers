@@ -31,9 +31,11 @@ public class RecentsPanel extends SettingsPreferenceFragment implements
 
     private static final String CLEAR_RECENTS_BUTTON = "clear_recents_button";
     private static final String RAM_CIRCLE = "ram_circle";
+    private static final String RECENTS_SWIPE_FLOATING = "recents_swipe_floating";
 
     private ListPreference mClearAllButton;
     private ListPreference mRamCircle;
+    private ListPreference mRecentsSwipeFloating;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,13 @@ public class RecentsPanel extends SettingsPreferenceFragment implements
         mRamCircle.setValue(String.valueOf(circleStatus));
         mRamCircle.setSummary(mRamCircle.getEntry());
         mRamCircle.setOnPreferenceChangeListener(this);
+
+        mRecentsSwipeFloating = (ListPreference) findPreference(RECENTS_SWIPE_FLOATING);
+        int RecentsSwipeFloatingStatus = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RECENTS_SWIPE_FLOATING, 0);
+        mRecentsSwipeFloating.setValue(String.valueOf(RecentsSwipeFloatingStatus));
+        mRecentsSwipeFloating.setSummary(mRecentsSwipeFloating.getEntry());
+        mRecentsSwipeFloating.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -72,6 +81,13 @@ public class RecentsPanel extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RAM_CIRCLE, value);
             mRamCircle.setSummary(mRamCircle.getEntries()[index]);
+            return true;
+        } else if (preference == mRecentsSwipeFloating) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mRecentsSwipeFloating.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_SWIPE_FLOATING, value);
+            mRecentsSwipeFloating.setSummary(mRecentsSwipeFloating.getEntries()[index]);
             return true;
         }
         return false;

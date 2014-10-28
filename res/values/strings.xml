@@ -242,6 +242,18 @@
     <!-- RAM circle -->
     <string name="ram_circle_title">RAM circle</string>
 
+    <!-- Recents Swipe in Floating Mode -->
+    <string name="recents_swipe_floating_title">Launch recent in floating</string>
+    <string name="recents_swipe_floating_ask">Ask later</string>
+    <string name="recents_swipe_floating_yes">Yes</string>
+    <string name="recents_swipe_floating_no">No</string>
+
+    <!-- Status Bar Notifications Swipe in Floating Mode -->
+    <string name="status_bar_notification_swipe_floating_title">Launch SB Notifications in floating</string>
+    <string name="status_bar_notification_swipe_floating_ask">Ask later</string>
+    <string name="status_bar_notification_swipe_floating_yes">Yes</string>
+    <string name="status_bar_notification_swipe_floating_no">No</string>
+
     <!-- Recents Ram Bar -->
     <string name="ram_bar">RAM bar</string>
     <string name="ram_bar_note_title">Note</string>

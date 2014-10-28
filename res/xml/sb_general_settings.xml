@@ -27,11 +27,6 @@
             android:dependency="custom_system_icon_color"
             android:defaultValue="0xFFFFFFFF" />
 
-        <PreferenceScreen
-            android:key="heads_up"
-            android:title="@string/heads_up_title"
-            android:fragment="com.carbon.fibers.fragments.sb.HeadsUpSettings" />
-
         <com.carbon.fibers.preference.SystemSettingCheckBoxPreference
             android:key="double_tap_sleep_gesture"
             android:title="@string/status_bar_double_tap_to_sleep_title" />

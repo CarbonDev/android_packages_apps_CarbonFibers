@@ -1219,6 +1219,32 @@
         <item>10000</item>
     </string-array>
 
+    <!-- Swipe Recents to launch in floating mode -->
+    <string-array name="recents_swipe_floating_entries" translatable="false">
+        <item>@string/recents_swipe_floating_yes</item>
+        <item>@string/recents_swipe_floating_no</item>
+        <item>@string/recents_swipe_floating_ask</item>
+    </string-array>
+
+    <string-array name="recents_swipe_floating_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Swipe Status Bar Notifications to launch in floating mode -->
+    <string-array name="status_bar_notification_swipe_floating_entries" translatable="false">
+        <item>@string/status_bar_notification_swipe_floating_yes</item>
+        <item>@string/status_bar_notification_swipe_floating_no</item>
+        <item>@string/status_bar_notification_swipe_floating_ask</item>
+    </string-array>
+
+    <string-array name="status_bar_notification_swipe_floating_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <!-- Network Traffic Display States -->
     <string-array name="show_network_traffic_state_entries" translatable="false">
         <item>@string/show_network_traffic_disable</item>
